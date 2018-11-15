@@ -1,0 +1,55 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>092-动画de播放与暂停.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 300px;
+			height: 300px;
+			
+			margin-top: 10px;
+			animation-name: sport;
+			animation-duration: 2s;
+			animation-delay: 100ms;
+			animation-iteration-count: infinite;
+		}
+		.box1{
+			background: skyblue;
+			animation-play-state: paused;
+			animation-direction: reverse;
+			animation-timing-function: linear;
+		}
+		.box2{
+			background: red;
+			/*animation-iteration-count: 2;*/
+			animation-direction: alternate;
+			animation-play-state: running;
+			animation-timing-function: ease-in;
+		}
+		.box1:hover{
+			animation-play-state: running;
+		}
+		.box2:hover{
+			animation-play-state: paused;
+		}
+		@keyframes sport{
+			form{
+				width: 300px;
+			}
+			to{
+				width: 900px;
+			}
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="box1 box"></div>
+	<div class="box2 box"></div>
+</body>
+</html>

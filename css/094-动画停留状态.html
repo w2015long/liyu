@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>094-动画停留状态.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			margin-left: 300px;
+			margin-top: 300px;
+			background: red;
+			animation: sport 2s linear 1s;
+			/*animation-fill-mode: backwards;*/
+			/*animation-fill-mode: forwards;*/
+			animation-fill-mode: both;
+		}
+		@keyframes sport{
+			0%{
+				transform: rotate(15deg);
+			}
+			25%{
+				transform: rotate(30deg);
+			}
+			50%{
+				transform: rotate(45deg);
+			}
+			100%{
+				transform: rotate(80deg);
+			}
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>
