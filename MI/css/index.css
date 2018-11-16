@@ -1,9 +1,45 @@
-/*
-* @Author: TomChen
-* @Date:   2018-11-15 20:47:21
-* @Last Modified by:   TomChen
-* @Last Modified time: 2018-11-15 20:47:50
-*/
-ul li{
-	background: red;
+.top{
+	height: 40px;
+	background: #333333;
+}
+.top .nav{
+	float: left;
+	width: 400px;
+	height: 40px;
+	background: #a9a9a9;
+}
+.top .cart{
+	float: right;
+	width: 116px;
+	height: 40px;
+	background: tomato;
+}
+.top .user-info{
+	float: right;
+	width: 176px;
+	height: 40px;
+	background: skyblue;
+}
+.header{
+	height: 52px;
+	background: #cecece;
+}
+.home{
+	height: 1300px;
+	background: pink;
+}
+.main{
+	height: 2058px;
+	background: skyblue;
+
+}
+.footer{
+	height: 277px;
+	background: purple;
+
+}
+.end{
+	height: 148px;
+	background: yellow;
+
 }
