@@ -16,4 +16,8 @@
 a{
 	font-size: 12px;
 	text-decoration: none;
+	color: #b0b0b0;
+}
+a:hover{
+	color: #fff;
 }

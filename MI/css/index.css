@@ -2,23 +2,52 @@
 	height: 40px;
 	background: #333333;
 }
-.top .nav{
+.top .top-nav{
 	float: left;
-	width: 400px;
 	height: 40px;
-	background: #a9a9a9;
+}
+.top .top-nav .top-nav-item{
+	float: left;
+	list-style: none;
+	height: 40px;
+	line-height: 40px;
+}
+.top .sep{
+	font-size: 12px;
+	color: #413b36;
+	margin: 0 6px;
 }
 .top .cart{
 	float: right;
-	width: 116px;
+	width: 120px;
 	height: 40px;
-	background: tomato;
+	background: #424242;
+}
+.top .cart .cart-box a:hover{
+	background-color: #fff;
+	color: #ff6700;
+}
+.top .cart .cart-box a{
+	display: inline-block;
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+}
+.top .cart .cart-box a .icon-cart{
+	font-size: 20px;
+	vertical-align: -3px;
 }
 .top .user-info{
 	float: right;
-	width: 176px;
+	margin-right: 26px;
 	height: 40px;
-	background: skyblue;
+}
+.top .user-info .user-info-item{
+	float: left;
+	list-style: none;
+	height: 40px;
+	line-height: 40px;
 }
 .header{
 	height: 52px;
