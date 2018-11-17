@@ -8,7 +8,6 @@
 }
 .top .top-nav .top-nav-item{
 	float: left;
-	list-style: none;
 	height: 40px;
 	line-height: 40px;
 }
@@ -22,10 +21,15 @@
 	width: 120px;
 	height: 40px;
 	background: #424242;
+	text-align: center;
+}
+.top .cart .cart-box{
+	width: 120px;
+	height: 40px;
 }
 .top .cart .cart-box a:hover{
-	background-color: #fff;
 	color: #ff6700;
+	background: #fff;
 }
 .top .cart .cart-box a{
 	display: inline-block;
@@ -45,13 +49,91 @@
 }
 .top .user-info .user-info-item{
 	float: left;
-	list-style: none;
 	height: 40px;
 	line-height: 40px;
 }
 .header{
-	height: 52px;
-	background: #cecece;
+	height: 100px;
+}
+.header .logo{
+	display: block;
+	float: left;
+	width: 56px;
+	height: 56px;
+	margin-top: 22.5px;
+	background: #ff6700 url(../images/logo.png) center center no-repeat;
+	text-indent: -999px;
+}
+.header .header-nav{
+	float: left;
+	height: 100px;
+	margin-left: 190px;
+}
+.header .header-nav .header-nav-item{
+	float: left;
+	height: 100px;
+	line-height: 100px;
+	margin-right: 22px;
+}
+.header .header-nav .header-nav-item a{
+	font-size: 16px;
+	color: #333;
+}
+.header .header-nav .header-nav-item a:hover{
+	color: #ff6700;
+}
+.header .search{
+	position: relative;
+	float: right;
+	width: 296px;
+	height: 50px;
+	margin-top: 22.5px;
+}
+.header .search .search-text{
+	width: 246px;
+	height: 50px;
+	box-sizing: border-box;
+	outline: none;
+	border: 1px solid #e0e0e0;
+	text-indent: 8px;
+}
+.header .search .search-but{
+	float: right;
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	box-sizing: border-box;
+	border: 1px solid #e0e0e0;
+	border-left: none;
+}
+.header .search .search-but:hover{
+	background: #ff6700;
+}
+.header .search .search-but .icon-search{
+	font-size: 25px;
+	color: #616161;
+}
+.header .search .search-but .icon-search:hover{
+	color: #fff;
+}
+.header .search .search-hot-words{
+	position: absolute;
+	left: 110px;
+	top: 16px;
+}
+.header .search .search-hot-words .search-hot-words-item{
+	float: left;
+	margin-right: 8px;
+	
+}
+.header .search .search-hot-words .search-hot-words-item a{
+	display: inline-block;
+	background: #eee;
+}
+.header .search .search-hot-words .search-hot-words-item>a:hover{
+	background: #ff6700;
+	color: #fff;
 }
 .home{
 	height: 1300px;

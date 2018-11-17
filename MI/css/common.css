@@ -13,6 +13,9 @@
 .clearfix{
 	*zoom: 1;
 }
+li{
+	list-style: none;
+}
 a{
 	font-size: 12px;
 	text-decoration: none;
