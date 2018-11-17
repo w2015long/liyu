@@ -97,6 +97,9 @@
 	border: 1px solid #e0e0e0;
 	text-indent: 8px;
 }
+.header .search .search-text:hover{
+	border: 1px solid #ff6700;
+}
 .header .search .search-but{
 	float: right;
 	width: 50px;
@@ -134,6 +137,31 @@
 .header .search .search-hot-words .search-hot-words-item>a:hover{
 	background: #ff6700;
 	color: #fff;
+}
+.header .search .search-list-wards{
+	width: 246px;
+	border: 1px solid #ff6700;
+	box-sizing: border-box;
+	border-top: none;
+}
+.header .search .search-list-wards .search-list-wards-item a{
+	display: inline-block;
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+}
+.header .search .search-list-wards .search-list-wards-item a:hover{
+	background: #eee;
+}
+.header .search .search-list-wards .search-list-wards-item .hot-list-wards{
+	float: left;
+	margin-left: 10px;
+	color: #333;
+}
+.header .search .search-list-wards .search-list-wards-item .nub-list-wards{
+	float: right;
+	margin-right: 10px;
+	color: #757575;
 }
 .home{
 	height: 1300px;
