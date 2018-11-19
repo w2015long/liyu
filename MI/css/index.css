@@ -1,3 +1,28 @@
+.clo1{
+	width: 234px;
+}
+.clo2{
+	width: 978px;
+}
+.hd{
+	width: 1226px;
+	height: 60px;
+}
+.hd{
+	position: relative;
+}
+.hd .title{
+	float: left;
+	width: 234px;
+	height: 60px;
+	line-height: 60px;
+	font-size: 22px;
+	color: #333;
+	font-weight: 200;
+}
+.hd .more{
+	float: right;
+}
 .top{
 	height: 40px;
 	background: #333333;
@@ -181,7 +206,8 @@
 	color: #757575;
 }
 .home{
-	height: 1300px;
+	padding-bottom: 40px;
+	/*height: 1300px;*/
 	/*background: pink;*/
 }
 .home .banner{
@@ -326,26 +352,9 @@
 	box-shadow: 0 3px 12px;
 
 }
-.home .flash .hd{
-	position: relative;
-	/*float: left;*/
-	/*background: pink;*/
-}
-.home .flash .hd .title{
-	float: left;
-	width: 234px;
-	height: 60px;
-	line-height: 60px;
-	font-size: 22px;
-	color: #333;
-	font-weight: 200;
-	/*background: red;*/
-}
-.home .flash .hd .more{
-	float: right;
 
-}
-.home .flash .hd .more-but{
+
+.hd .more-but{
 	position: absolute;
 	display: inline-block;
 	width: 36px;
@@ -354,42 +363,52 @@
 	text-align: center;
 	border: 1px solid #e0e0e0;
 }
-.home .flash .hd .more-but-right{
+
+.hd .more-but-right{
 	right: 0;
 	bottom: 8px;
 }
-.home .flash .hd .more-but-left{
+
+.hd .more-but-left{
 	right: 36px;
 	bottom: 8px;
 }
-.home .flash .hd .more-but i{
+
+.hd .more-but i{
 	font-size: 16px;
 	color: #e0e0e0;
 }
-.home .flash .hd .more-but:hover i{
+
+.hd .more-but:hover i{
 	color: #ff6700;
 }
-.home .flash .bd .timer{
+
+.bd .timer{
+	float: left;
 	padding: 50px 32px 0px;
 	box-sizing: border-box;
 	height: 340px;
 	text-align: center;
 	background: #f1eded;
 }
-.home .flash .bd .timer-name{
+
+.bd .timer-name{
 	font-size: 21px;
 	margin-bottom: 32px;
 	color: #ef3a3b;
 }
-.home .flash .bd .timer-img{
+
+.bd .timer-img{
 	margin-bottom: 32px;
 }
-.home .flash .bd .timer-desc{
+
+.bd .timer-desc{
 	font-size: 15px;
 	color: rgba(0,0,0,0.54);
 	margin-bottom: 32px;
 }
-.home .flash .bd .timer-nub{
+
+.bd .timer-nub{
 	display: inline-block;
 	width: 46px;
 	height: 46px;
@@ -398,16 +417,76 @@
 	background: #605751;
 	color: #fff;
 }
-.home .flash .bd .timer-dash{
+
+.bd .timer-dash{
 	width: 6px;
 	height: 46px;
 	line-height: 46px;
 	/*font-weight: bold;*/
 }
+
+.bd .porduct-list{
+	float: right;
+	height: 340px;
+	/*background: red;*/
+}
+
+.bd .porduct-list .product-item{
+	float: left;
+	width: 234px;
+	height: 340px;
+	margin-right: 14px;
+	text-align: center;
+	background: #fff;
+	/*background: #cecece;*/
+}
+
+.bd .porduct-list .product-item:last-child{
+	margin-right: 0px;
+}
+
+.bd .porduct-list .product-item .porduct-bg{
+	/*display: inline-block;*/
+	width: 100%;
+	height: 100%;
+	/*z-index: 333;*/
+	background: #fafafa;
+}
+
+.bd .porduct-list .product-img{
+	width: 114px;
+	height: 144px;
+	margin-top: 48px;
+
+}
+
+.bd .porduct-list .porduct-name{
+	margin-top: 38px;
+}
 .main{
 	height: 2058px;
-	background: skyblue;
+	background: #f5f5f5;
 
+}
+.hd .view .view-item{
+	height: 60px;
+	line-height: 60px;
+	font-size: 16px;
+	color: #424242;
+}
+.bd .ad{
+	float: left;
+	height: 616px;
+	/*background: red;*/
+}
+
+.bd .ad .phone-img{
+	/*display: inline-block;*/
+	width: 100%;
+	height: 100%;
+}
+.bd .porduct-list .product-item-m{
+	height: 303px;
 }
 .footer{
 	height: 277px;
