@@ -612,7 +612,7 @@
 	margin-right: 0px;
 }
 .main{
-	height: 2058px;
+	height: 2500px;
 	background: #f5f5f5;
 }
 .main .phone{
@@ -622,6 +622,9 @@
 .main .ad .ad-img{
 	width: 1226px;
 	height: 122px;
+}
+.main .elec{
+	/*padding-bottom: 164px;*/
 }
 .main .elec .hd-list{
 	float: right;
@@ -645,10 +648,38 @@
 	width: 100%;
 	height: 100%;
 }
+/*.main .video .video-item{
+	float: left;
+	width: 296px;
+	height: 287px;
+	margin-left: 14px;
+	background: red;
+}*/
+.main .video .video-item:nth-child(1){
+	margin-left: 0;
+}
 .footer{
 	height: 277px;
-	background: purple;
+	/*background: purple;*/
+}
+.footer .service .service-item{
+	float: left;
+	width: 20%;
+	height: 16px;
+	padding: 30px 0;
+	text-align: center;
 
+}
+.footer .service .service-item a
+{
+	font-size: 16px;
+	color: #616161;
+	border-right: 1px solid #e0e0e0;
+}
+.footer .service .service-item a i{
+	font-size: 22px;
+	margin-right: 8px;
+	vertical-align: -4px;
 }
 .end{
 	height: 148px;
