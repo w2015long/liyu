@@ -612,7 +612,7 @@
 	margin-right: 0px;
 }
 .main{
-	height: 2500px;
+	padding-bottom: 60px;
 	background: #f5f5f5;
 }
 .main .phone{
@@ -714,8 +714,11 @@
     margin-top: 8px;
 }
 .footer{
-	height: 277px;
+	height: 300px;
 	/*background: purple;*/
+}
+.footer .service{
+	border-bottom: 1px solid #e0e0e0;
 }
 .footer .service .service-item{
 	float: left;
@@ -723,18 +726,47 @@
 	height: 16px;
 	padding: 30px 0;
 	text-align: center;
-
 }
-.footer .service .service-item a
-{
+.footer .service .service-item a{
+	display: inline-block;
+	width: 100%;
 	font-size: 16px;
 	color: #616161;
 	border-right: 1px solid #e0e0e0;
+}
+.footer .service .service-item a:nth-child(5){
+	border-right: none;
 }
 .footer .service .service-item a i{
 	font-size: 22px;
 	margin-right: 8px;
 	vertical-align: -4px;
+}
+.footer .links .links-item{
+	float: left;
+	padding: 40px 0;
+	margin-right: 105px;
+}
+.footer .links .links-item dt{
+	font-size: 14px;
+	color: #424242;
+	margin-bottom: 26px;
+}
+.footer .links .links-item dd{
+	font-size: 12px;
+	color: #757575;
+	margin-bottom: 16px;
+}
+.footer .links .links-item dd a:hover{
+	color: #ff6700;
+}
+.footer .links .links-contact{
+	float: right;
+	width: 246px;
+	height: 117px;
+	margin: 40px 0;
+	/*background: #cecece;*/
+	border-left: 1px solid #e0e0e0;
 }
 .end{
 	height: 148px;
