@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>006-js行内样式.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			margin: 100px auto;
+			background-color: red;
+		}
+	</style>
+	<script>
+		function toBig(){
+			var oDiv=document.getElementById('box')
+			oDiv.style.width='400px'
+			oDiv.style.height='400px'
+			oDiv.style.backgroundColor='blue'
+		}
+		function toHome(){
+			var oDiv=document.getElementById('box')
+			oDiv.style.width='100px'
+			oDiv.style.height='100px'
+			oDiv.style.backgroundColor='red' 
+		}
+	</script>
+</head>
+<body>
+	<div id="box" onmouseover="toBig()" onmouseout="toHome()"></div>
+</body>
+</html>
