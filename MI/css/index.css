@@ -182,6 +182,7 @@
 	color: #fff;
 }
 .header .search .search-list-wards{
+	z-index: 999;
 	display: none;
 	width: 246px;
 	border: 1px solid #ff6700;
@@ -765,8 +766,43 @@
 	width: 246px;
 	height: 117px;
 	margin: 40px 0;
-	/*background: #cecece;*/
+	text-align: center;
 	border-left: 1px solid #e0e0e0;
+}
+.footer .links .links-contact .phone-nub{
+	font-size: 22px;
+	color: #ff6700;
+}
+.footer .links .links-contact .work-time,
+.footer .links .links-contact .desc{
+	font-size: 12px;
+	color: #616161;
+}
+.footer .links .links-contact .desc{
+	margin-bottom: 16px;
+}
+.footer .links .links-contact .call a{
+	display: inline-block;
+	width: 120px;
+	height: 30px;
+	line-height: 30px;
+	border: 1px solid #ff6700;
+	background-color: #fff;
+}
+.footer .links .links-contact .call a i,
+.footer .links .links-contact .call a{
+	font-size: 12px;
+	color: #ff6700;
+}
+.footer .links .links-contact .call a i{
+	margin-right: 3px;
+}
+.footer .links .links-contact .call a:hover{
+	background-color: #ff6700;
+	color: #fff;
+}
+.footer .links .links-contact .call a:hover i{
+	color: #fff;
 }
 .end{
 	height: 148px;
