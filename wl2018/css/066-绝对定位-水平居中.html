@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>066-绝对定位-水平居中.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box1{
+			width: 600px;
+			height: 600px;
+			background: #cecece;
+			margin: 20px auto;
+			position: relative;
+		}
+		.box2{
+			width: 200px;
+			height: 200px;
+			background: red;
+			position: absolute;
+			left: 50%;
+			margin-left: -100px;
+			top: 50%;
+			margin-top: -100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1">
+		<div class="box2"></div>
+	</div>
+	
+</body>
+</html>

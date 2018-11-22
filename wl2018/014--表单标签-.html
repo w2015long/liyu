@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>表单标签</title>
+</head>
+<body>
+	<form action="https://kuazhu.com" method="get">
+		<h1>用户注册</h1>
+		<p>
+			<label for="username"> 用户名：</label>
+			<input type="text" name="username" value="Mali" id="username">
+		</p>
+
+		<p>
+			<label for="password">
+				密码：
+			</label>
+			<input type="password" name="password" value="password" id="password">
+		</p>
+		<p>
+			性别：<input type="radio" name="sex" value="male">男
+			<input type="radio" name="sex" value="famale" checked="checked">女
+			<input type="radio" name="sex" value="none">保密
+		</p>
+		<p>
+			爱好：
+			<input type="checkbox" name="hobby" checked="checked" value="basketball">篮球
+			<input type="checkbox" name="hobby" value="football">足球
+			<input type="checkbox" name="hobby" value="swimming">游泳
+		</p>
+		<p>
+			所在城市：
+			<select name="city">
+				<optgroup label="直辖市">
+					<option value="bj">北京</option>
+					<option value="sh">上海</option>
+				</optgroup>
+				<optgroup label="省会">
+					<option value="xa">西安</option>
+					<option value="gz" selected>广州</option>
+				</optgroup>
+			</select>
+		</p>
+		<p>
+			自我介绍：
+			<textarea name="" cols="50px" rows="10px"></textarea>
+		</p>
+		<p>
+			<input type="submit" value="提交">
+			<input type="button" value="提交？">
+			<input type="reset" value="重置">
+			<input type="image" src="image/002.jpg">
+		</p>	
+	</form>
+</body>
+</html>

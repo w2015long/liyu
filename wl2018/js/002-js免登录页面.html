@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>002-免登陆页面</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background: gray;
+			display: none;	
+		}
+	</style>
+</head>
+<body>
+	<input type="checkbox"
+	onmouseover="document.getElementById('box').style.display='block'"
+	onmouseout="document.getElementById('box').style.display='none'" 
+	>
+	7天免登陆
+	<div id="box">请注意你的用户信息安全</div>
+</body>
+</html>

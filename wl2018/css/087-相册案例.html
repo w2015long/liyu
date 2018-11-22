@@ -1,0 +1,79 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>087-相册案例.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			height: 400px;
+			margin: 50px auto;
+			text-align: center;
+			background: skyblue;
+			perspective: 500px;
+		}
+		li{
+			position: relative;
+			display: inline-block;
+			list-style: none;
+			width: 200px;
+			height: 300px;
+			margin-top: 50px;
+			margin-left: 40px;
+			border: 5px solid #fff;
+			border-radius: 5px;
+			box-sizing: border-box;
+			perspective: 500px;
+			-webkit-transition: all 1s;
+			-o-transition: all 1s;
+			transition: all 1s;
+		}
+		li img{
+			width: 100%;
+			height: 100%;
+		}
+		li:nth-child(1){
+			transform: rotate(25deg);
+		}
+		li:nth-child(2){
+			transform: rotate(-15deg);
+		}
+		li:nth-child(3){
+			transform: rotate(25deg);
+		}
+		li:nth-child(4){
+			transform: rotate(-30deg);
+		}
+		ul:hover li{
+			opacity: 0.5;
+		}
+		ul li:hover{
+			-webkit-transform: rotate(0deg) scale(1.4);
+			-ms-transform: rotate(0deg) scale(1.4);
+			-o-transform: rotate(0deg) scale(1.4);
+			transform: rotate(0deg) scale(1.4);
+			opacity: 1;
+			z-index: 1;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>
+			<img src="../image/shoufengqin1.jpg" alt="">
+		</li>
+		<li>
+			<img src="../image/shoufengqin2.jpg" alt="">
+		</li>
+		<li>
+			<img src="../image/shoufengqin3.jpg" alt="">
+		</li>
+		<li>
+			<img src="../image/shoufengqin4.jpg" alt="">
+		</li>
+	</ul>
+</body>
+</html>

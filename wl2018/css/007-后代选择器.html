@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>后代选择器</title>
+	<style type="text/css">
+	.son p{
+		color: red;
+	}
+	.father p{
+		font-size: 36px
+	}
+	#wo{
+		font-family: normal;
+		font-weight: bolder;
+	}
+
+	</style>
+</head>
+<body>
+	<div class="father">
+		我是文字0
+		<div class="son">
+			我是文字1
+			<p>我是段落1</p>
+		</div>
+	</div>
+	<div>
+		<p id="wo">我是段落2</p>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>060k-浮动布局案例-讲解练习.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.clearfix:after{
+			content: '';
+			display: block;
+			clear: both;
+			height: 0;
+			visibility: hidden;
+		}				
+		/*头部*/
+		.container{
+			width: 960px;
+			margin-left:auto;
+			margin-right: auto;
+		}
+		header{
+			/*background: gray;*/
+		}
+		header.container{
+			margin-bottom: 10px;
+		}
+		header .logo{
+			float: left;
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+		header .userinfo{
+			float: right;
+			width: 100px;
+			height: 50px;
+			background: #19ae89;
+		}
+		header nav{
+			float: right;
+			width: 800px;
+			height: 50px;
+			background: #aeae98;
+		}
+		/*内容*/
+		section{
+			/*height: 800px;*/
+			/*background: #cecece;*/
+			margin-bottom: 10px;
+		}
+		.left-area{
+			float: left;
+			width: 840px;
+			/*height: 800px;*/
+			/*background: #ae98ee;*/
+		}
+		.left-area .top{
+			width: 100%;
+			/*height: 680px;*/
+			/*background: #cecece;*/
+		}
+		.left-in{
+			float: left;
+			width: 730px;
+			/*height: 680px;*/
+			/*background-color:blue;*/
+		}
+		.right-in{
+			float: right;
+			height: 680px;
+			width: 100px;
+			background-color: pink;
+		}
+		.left-in-top{
+			width: 100%;
+			height: 335px;
+			background-color: #00fa00;
+		}
+		.left-in-bottom{
+			width: 100%;
+			height: 335px;
+			background-color: #00af00;
+			margin-top: 10px;
+		}
+		.left-area .bottom{
+			width: 100%;
+			height: 100px;
+			background: purple;
+			/*box-sizing: border-box;*/
+			margin-top: 20px;
+		}
+		.right-area{
+			float: right;
+			width: 110px;
+			height: 800px;
+			background: #19aa12;
+		}
+		/*尾部*/
+		footer{
+			height: 100px;
+			background: pink;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<header class="container clearfix">
+		<h1 class="logo"></h1>
+		<div class="userinfo"></div>
+		<nav></nav>
+	</header>
+	<section class="container clearfix">
+		<div class="left-area">
+			<div class="top clearfix">
+				<div class="left-in">
+					<div class="left-in-top"></div>
+					<div class="left-in-bottom"></div>
+				</div>
+				<div class="right-in"></div>
+			</div>
+			<div class="bottom"></div>
+		</div>
+		<aside class="right-area"></aside>
+	</section>
+	<footer class="container"></footer>
+</body>
+</html>

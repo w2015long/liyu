@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>003-修改title属性.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+
+	</style>
+	<script>
+		function toTitle(){
+			var oDiv=document.getElementById('box');
+			oDiv.value="我是提示语";
+		}
+	</script>
+</head>
+<body>
+	<input id="box" type="text">
+	<input type="button" onclick="toTitle()" value="点我">
+</body>
+</html>
