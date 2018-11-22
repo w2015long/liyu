@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>01-浮动布局.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.containter{
+			width: 960px;
+			margin: auto;
+		}
+		.clearfix:after{
+			clear: both;
+			display: block;
+			content: '';
+			height: 0;
+		}
+		.containter{
+			margin-bottom: 10px;
+		}
+		.logo{
+			height: 100px;
+			width: 100px;
+			background: pink;
+			float: left;
+		}
+		.userinfo{
+			width: 150px;
+			height: 50px;
+			background: gray;
+			float: right;
+		}
+		header nav{
+			width: 800px;
+			height: 50px;
+			background: purple;
+			float: right;
+		}
+		.left-box{
+			float: left;
+			width: 830px;
+			height: 500px;
+		}
+		.right-box{
+			float: right;
+			width: 120px;
+			height: 500px;
+			background: skyblue;
+			
+		}
+		.top-box{
+			float: left;
+			width: 830px;
+			height: 460px;
+			/*background: #cecece;*/
+		}
+		.left-in{
+			float: left;
+			width: 720px;
+			/*height: 460px;*/
+			/*background: #999;*/
+		}
+		.left-in .up{
+			float: left;
+			width: 100%;
+			height: 225px;
+			background: #b90a0a;
+			margin-bottom: 10px;
+		}
+		.left-in .down{
+			float: left;
+			width: 100%;
+			height: 225px;
+			background: #f09909;
+
+		}
+		.right-in{
+			float: right;
+			width: 100px;
+			height: 460px;
+			background: yellow;
+		}
+		.bottom-box{
+			float: left;
+			width: 830px;
+			height: 30px;
+			background: red;
+			margin-top: 10px;
+		}
+		footer{
+			width: 960px;
+			height: 30px;
+			background: blue;
+		}
+	</style>
+</head>
+<body>
+	<header class="containter clearfix">
+		<h1 class="logo"></h1>
+		<div class="userinfo"></div>
+		<nav></nav>
+	</header>
+	<section class="containter clearfix">
+		<div class="left-box">
+			<div class="top-box clearfix">
+				<div class="left-in">
+					<div class="up"></div>
+					<div class="down"></div>
+				</div>
+				<div class="right-in"></div>
+			</div>
+			<div class="bottom-box"></div>
+		</div>
+		<div class="right-box"></div>
+	</section>
+	<footer class="containter"></footer>
+</body>
+</html>
