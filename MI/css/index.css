@@ -317,17 +317,25 @@
 	height: 85px;
 	text-align: center;
 }
-.home .hot .channel .right-border:after{
+.home .hot .channel .right-line:after{
 	position: absolute;
-	top: 2px;
-	/*z-index: 222;*/
-	/*left: 7px;*/
+	top: 10px;
+	left: 78px;
 	display: block;
 	content: '';
 	width: 1px;
 	height: 70px;
-	background: red;
-	
+	background: #665e57;
+}
+.home .hot .channel .top-line:before{
+	position: absolute;
+	top: 0px;
+	left: 6px;
+	display: block;
+	content: '';
+	width: 68px;
+	height: 1px;
+	background: #665e57;
 }
 .home .hot .channel .channel-item i{
 	display: block;
