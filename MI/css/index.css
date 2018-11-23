@@ -647,13 +647,16 @@
 .bd .ad{
 	float: left;
 	height: 616px;
-	background: red;
 }
 
 .bd .ad .phone-img{
-	/*display: inline-block;*/
 	width: 100%;
 	height: 100%;
+	transition: all 0.2s linear;
+}
+.bd .ad .phone-img:hover{
+	transform: translateY(-2px);
+	box-shadow: 0 5px 30px rgba(0,0,0,0.2);
 }
 .bd .porduct-list .product-item:nth-child(4){
 	margin-right: 0px;
