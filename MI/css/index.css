@@ -342,7 +342,7 @@
 .home .hot .hot-sell .hot-sell-item{
 	float: left;
 	margin-left: 15px;
-	transition: all 0.4s;
+	
 }
 .home .hot .hot-sell .hot-sell-item:first-child{
 	margin-left: 0;
@@ -350,13 +350,11 @@
 .hot-sell .hot-sell-item .hot-sell-item-img{
 	width: 316px;
 	height: 170px;
+	transition: all 0.2s linear;
 }
 .hot-sell .hot-sell-item .hot-sell-item-img:hover{
-	box-shadow: 0 3px 12px;
-
+	box-shadow: 0 5px 30px rgba(0,0,0,0.2);
 }
-
-
 .hd .more-but{
 	position: absolute;
 	display: inline-block;
@@ -572,14 +570,12 @@
 .porduct-name{
 	margin-top: 38px;
 }
-.product-item-s{
+.product-item.product-item-s{
 	position: relative;
-	float: left;
-	width: 100%;
 	height: 143px;
 	margin-bottom: 14px;
-	background: pink;
 }
+
 .product-item-s .product-item-s-img{
 	position: absolute;
 	right: 40px;
