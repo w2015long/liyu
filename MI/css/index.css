@@ -183,6 +183,8 @@
 	color: #fff;
 }
 .header .search .search-list-wards{
+	position: relative;
+	z-index: 999;
 	display: none;
 	width: 246px;
 	border: 1px solid #ff6700;
