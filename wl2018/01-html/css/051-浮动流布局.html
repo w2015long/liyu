@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>051-浮动流布局.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 400px;
+			height: 400px;
+			border: 1px solid #000;
+			margin: 30px auto;
+		}
+		.son1{
+			width: 100px;
+			height: 100px;
+			background: #f00;
+			display: inline-block;
+			float: left;
+		}
+		.son2{
+			width: 100px;
+			height: 100px;
+			background: #0f0;
+			display: inline-block;
+			float: right;
+		}		
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son1"></div><div class="son2"></div>
+	</div>
+	
+</body>
+</html>

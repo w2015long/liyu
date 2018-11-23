@@ -358,13 +358,18 @@
 .hot-sell .hot-sell-item .hot-sell-item-img{
 	width: 316px;
 	height: 170px;
+<<<<<<< HEAD
 	transition: all 0.4s linear;
 }
 .hot-sell .hot-sell-item .hot-sell-item-img:hover{
 	box-shadow: 0 3px 30px rgba(0,0,0,0.3);
+=======
+	transition: all 0.2s linear;
 }
-
-
+.hot-sell .hot-sell-item .hot-sell-item-img:hover{
+	box-shadow: 0 5px 30px rgba(0,0,0,0.2);
+>>>>>>> 205119a9b1394807f59d85fec0cc2b4d2b6fcb13
+}
 .hd .more-but{
 	position: absolute;
 	display: inline-block;
@@ -580,14 +585,12 @@
 .porduct-name{
 	margin-top: 38px;
 }
-.product-item-s{
+.product-item.product-item-s{
 	position: relative;
-	float: left;
-	width: 100%;
 	height: 143px;
 	margin-bottom: 14px;
-	background: pink;
 }
+
 .product-item-s .product-item-s-img{
 	position: absolute;
 	right: 40px;

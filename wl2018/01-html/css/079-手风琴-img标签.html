@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>079-手风琴-img标签.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			list-style: none;
+			width: 1000px;
+			height: 400px;
+			border: 1px solid #000;
+			margin: 30px auto;
+			overflow: hidden;
+		}
+		li{
+			width: 200px;
+			height: 400px;
+			float: left;
+			/*overflow: hidden;*/
+			transition: width 1s linear;
+		}
+		ul:hover li{
+			width: 100px;
+		}
+		ul li:hover{
+			width: 600px;
+		}
+		li img{
+			/*width: 200px;*/
+			height: 100%;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>
+			<img src="../image/shoufengqin1.jpg" alt="">
+		</li>
+		<li>
+			<img src="../image/shoufengqin2.jpg" alt="">
+		</li>
+		<li>
+			<img src="../image/shoufengqin3.jpg" alt="">
+		</li>
+		<li>
+			<img src="../image/shoufengqin4.jpg" alt="">
+		</li>
+		<li>
+			<img src="../image/shoufengqin5.jpg" alt="">
+		</li>
+	</ul>
+</body>
+</html>
