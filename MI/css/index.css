@@ -443,14 +443,7 @@
 .flash .porduct-list .product-item{
 	height: 340px;
 }
-.product-item{
-	position: relative;
-	float: left;
-	width: 234px;
-	margin-right: 14px;
-	text-align: center;
-	background: #fff;
-}
+
 .flag{
 	position: absolute;
 	top: 0;
@@ -507,22 +500,31 @@
 	color: #b0b0b0;
 }
 
-.product-item.product-item-m{
+.product-item{
+	position: relative;
+	float: left;
+	width: 234px;
+	margin-right: 14px;
+	text-align: center;
+	background: #fff;
+	transition: all 0.2s linear;
+	overflow: hidden;
+}
+.product-item-m{
 	position: relative;
 	height: 300px;
 	margin-bottom: 14px;
 	border-top: none;
-	transition: all 0.2s linear;
-	overflow: hidden;
+	
 }
-.product-item.product-item-m:hover{
+.product-item:hover{
 	transform: translateY(-2px);
 	box-shadow: 0 5px 30px rgba(0,0,0,0.2);
 }
-.product-item.product-item-m:hover .evaluate{
+.product-item-m:hover .evaluate{
 	height: 80px;
 }
-.product-item.product-item-m .evaluate{
+.product-item-m .evaluate{
 	position: absolute;
 	left: 0;
 	bottom: 0;
@@ -532,7 +534,7 @@
 	transition: height 0.2s linear;
 
 }
-.product-item.product-item-m .evaluate-item{
+.product-item-m .evaluate-item{
 	height: 40px;
 	line-height: 20px;
 	padding: 10px 0 0 10px;
@@ -541,7 +543,7 @@
 	font-size: 12px;
 	color: #fff;
 }
-.product-item.product-item-m .evaluate-author{
+.product-item-m .evaluate-author{
 	font-size: 12px;
 	text-align: left;
 	padding: 8px 0 0 10px;
@@ -580,12 +582,12 @@
 .porduct-name{
 	margin-top: 38px;
 }
-.product-item.product-item-s{
+.product-item-s{
 	position: relative;
 	height: 143px;
+	margin-right: 0px;
 	margin-bottom: 14px;
 }
-
 .product-item-s .product-item-s-img{
 	position: absolute;
 	right: 40px;
