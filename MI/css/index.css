@@ -358,17 +358,15 @@
 .hot-sell .hot-sell-item .hot-sell-item-img{
 	width: 316px;
 	height: 170px;
-<<<<<<< HEAD
+
 	transition: all 0.4s linear;
 }
 .hot-sell .hot-sell-item .hot-sell-item-img:hover{
 	box-shadow: 0 3px 30px rgba(0,0,0,0.3);
-=======
 	transition: all 0.2s linear;
 }
 .hot-sell .hot-sell-item .hot-sell-item-img:hover{
 	box-shadow: 0 5px 30px rgba(0,0,0,0.2);
->>>>>>> 205119a9b1394807f59d85fec0cc2b4d2b6fcb13
 }
 .hd .more-but{
 	position: absolute;
@@ -486,7 +484,6 @@
 .product-item .porduct-name{
 	font-size: 14px;
 	font-weight: 400;
-	/*margin-top: 20px;*/
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
@@ -501,8 +498,7 @@
     overflow: hidden;
 }
 .product-item .porduct-price strong,
-.product-item .porduct-price span
-{
+.product-item .porduct-price span{
 	font-size: 14PX;
 	color: #ff6700;
 }
@@ -516,7 +512,6 @@
 	height: 300px;
 	margin-bottom: 14px;
 	border-top: none;
-	/*background: red;*/
 	transition: all 0.2s linear;
 	overflow: hidden;
 }
