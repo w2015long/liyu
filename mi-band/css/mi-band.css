@@ -187,7 +187,7 @@
 	float: left;
 	width: 618px;
 	height: 834px;
-	background: pink;
+	/*background: pink;*/
 }
 .home .pro-view .carousel{
 	position: relative;
@@ -200,7 +200,6 @@
 	left: 0;
 	width: 554px;
 	height: 762px;
-	background: red;
 }
 .home .pro-view .carousel-item .carousel-img{
 	width: 100%;
@@ -248,7 +247,7 @@
 }
 .home .pro-info .band-main{
 	height: 728px;
-	background: #eee;
+	background: #fff;
 }
 .home .pro-info .band-main .company{
 	padding-top: 24px;
@@ -260,14 +259,60 @@
 	line-height: 54px;
 	font-size: 18px;
 	color: #ff6700;
+	border-bottom: 1px solid #e0e0e0;
 }
 .home .pro-info .band-main .flow-wrap{
-	height: 52px;
-	line-height: 52px;
+	padding: 13px 0px;
+	border-bottom: 1px solid #e0e0e0;
+	margin-bottom: 39px;
 }
 .home .pro-info .band-main .flow-wrap .flow-wrap-tag{
+	display: inline-block;
 	width: 80px;
 	height: 26px;
+	line-height: 26px;
+	text-align: center;
 	background: #ff6700;
 	color: #fff;
 }
+.home .pro-info .band-main .user-address{
+	position: relative;
+	width: 604px;
+	height: 104px;
+	background: #fafafa;
+    border: 1px solid #e0e0e0;
+}
+.home .pro-info .band-main .user-address .iconfont{
+	position: absolute;
+    left: 20px;
+    top: 26px;
+    font-size: 20px;
+    color: #999;
+}
+.home .pro-info .band-main .user-address .address-info{
+	position: absolute;
+	left: 44px;
+    top: 26px;
+    font-size: 14px;
+
+}
+.home .pro-info .band-main .user-address .address-info span{
+	margin-left: 14px;
+}
+.home .pro-info .band-main .user-address .switch-choose{
+	position: absolute;
+	left: 336px;
+    top: 26px;
+    font-size: 14px;
+    color: #ff6700;
+}
+.home .pro-info .band-main .user-address .product-status{
+	position: absolute;
+	left: 58px;
+    top: 50px;
+    font-size: 14px;
+    color: #ff6700;
+}
+
+
+    
