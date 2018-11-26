@@ -183,11 +183,45 @@
 	margin-right: 10px;
 	color: #757575;
 }
+.home .nav-bar{
+	height: 60px;
+	border-top: 1px solid #e0e0e0;
+	box-shadow: 5px 0 20px rgba(0,0,0,0.3);
+}
+.home .nav-bar .title{
+	float: left;
+	font-size: 18px;
+    font-weight: 400;
+    line-height: 60px;
+    color: #202221;
+}
+.home .nav-bar .right{
+	float: right;
+	width: 296px;
+	height: 60px;
+	line-height: 60px;
+}
+.home .nav-bar .right .nav-bar-item{
+	float: left;
+}
+.home .nav-bar .right .nav-bar-item a{
+	font-size: 14px;
+	color: #616161;
+}
+.home .nav-bar .right .nav-bar-item a:hover{
+	color: #ff6700;
+}
+.home .nav-bar .right .nav-bar-item .sep{
+	font-size: 12px;
+	color: #e0e0e0;
+	margin: 0 6px;
+}
+
 .home .pro-view{
 	float: left;
 	width: 618px;
 	height: 834px;
-	/*background: pink;*/
+	margin-top: 2px;
 }
 .home .pro-view .carousel{
 	position: relative;
@@ -196,10 +230,10 @@
 }
 .home .pro-view .carousel-item{
 	position: absolute;
-	top: 0;
+	top: 6px;
 	left: 0;
 	width: 554px;
-	height: 762px;
+	height: 756px;
 }
 .home .pro-view .carousel-item .carousel-img{
 	width: 100%;
@@ -231,6 +265,7 @@
 	float: left;
 	width: 608px;
 	height: 834px;
+	margin-top: 2px;
 }
 .home .pro-info .title{
 	margin-top: 28px;
@@ -301,7 +336,7 @@
 }
 .home .pro-info .band-main .user-address .switch-choose{
 	position: absolute;
-	left: 336px;
+	left: 328px;
     top: 26px;
     font-size: 14px;
     color: #ff6700;
@@ -312,6 +347,100 @@
     top: 50px;
     font-size: 14px;
     color: #ff6700;
+}
+
+
+
+
+/* footer部分*/
+.footer{
+	height: 300px;
+}
+.footer .service{
+	border-bottom: 1px solid #e0e0e0;
+}
+.footer .service .service-item{
+	float: left;
+	width: 20%;
+	height: 16px;
+	padding: 30px 0;
+	text-align: center;
+}
+.footer .service .service-item a{
+	display: inline-block;
+	width: 100%;
+	font-size: 16px;
+	color: #616161;
+	border-right: 1px solid #e0e0e0;
+}
+.footer .service .service-item:last-child a{
+	border: none;
+}
+.footer .service .service-item a i{
+	font-size: 22px;
+	margin-right: 8px;
+	vertical-align: -4px;
+}
+.footer .links .links-item{
+	float: left;
+	padding: 40px 0;
+	margin-right: 105px;
+}
+.footer .links .links-item dt{
+	font-size: 14px;
+	color: #424242;
+	margin-bottom: 26px;
+}
+.footer .links .links-item dd{
+	font-size: 12px;
+	color: #757575;
+	margin-bottom: 16px;
+}
+.footer .links .links-item dd a:hover{
+	color: #ff6700;
+}
+.footer .links .links-contact{
+	float: right;
+	width: 246px;
+	height: 117px;
+	margin: 40px 0;
+	text-align: center;
+	border-left: 1px solid #e0e0e0;
+}
+.footer .links .links-contact .phone-nub{
+	font-size: 22px;
+	color: #ff6700;
+}
+.footer .links .links-contact .work-time,
+.footer .links .links-contact .desc{
+	font-size: 12px;
+	color: #616161;
+}
+.footer .links .links-contact .desc{
+	margin-bottom: 16px;
+}
+.footer .links .links-contact .call a{
+	display: inline-block;
+	width: 120px;
+	height: 30px;
+	line-height: 30px;
+	border: 1px solid #ff6700;
+	background-color: #fff;
+}
+.footer .links .links-contact .call a i,
+.footer .links .links-contact .call a{
+	font-size: 12px;
+	color: #ff6700;
+}
+.footer .links .links-contact .call a i{
+	margin-right: 3px;
+}
+.footer .links .links-contact .call a:hover{
+	background-color: #ff6700;
+	color: #fff;
+}
+.footer .links .links-contact .call a:hover i{
+	color: #fff;
 }
 
 
