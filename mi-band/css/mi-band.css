@@ -185,13 +185,89 @@
 }
 .home .pro-view{
 	float: left;
-	width: 681px;
+	width: 618px;
 	height: 834px;
 	background: pink;
 }
+.home .pro-view .carousel{
+	position: relative;
+	width: 554px;
+	height: 762px;
+}
+.home .pro-view .carousel-item{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 554px;
+	height: 762px;
+	background: red;
+}
+.home .pro-view .carousel-item .carousel-img{
+	width: 100%;
+	height: 100%;
+}
+.home .pro-view .carousel .arrow{
+	position: absolute;
+	top: 50%;
+	margin-top: -35px;
+	width: 40px;
+	height: 70px;
+	text-align: center;
+	line-height: 70px;
+	font-size: 32px;
+	font-weight: 400;
+	color: #999;
+}
+.home .pro-view .carousel .arrow:hover{
+	background: rgba(0,0,0,0.5);
+	color: #fff;
+}
+.home .pro-view .carousel .left-arrow{
+	left: 0;
+}
+.home .pro-view .carousel .right-arrow{
+	right: 0;
+}
 .home .pro-info{
 	float: left;
-	width: 604px;
+	width: 608px;
 	height: 834px;
-	background: red;
+}
+.home .pro-info .title{
+	margin-top: 28px;
+ 	font-size: 24px;
+    font-weight: normal;
+    color: #212121;
+}
+.home .pro-info .desc{
+    margin: 0;
+    padding: 0;
+    padding-top: 8px;
+    font-size: 14px;
+    color: #b0b0b0;
+}
+.home .pro-info .band-main{
+	height: 728px;
+	background: #eee;
+}
+.home .pro-info .band-main .company{
+	padding-top: 24px;
+	font-size: 12px;
+	color: #ff6700;
+}
+.home .pro-info .band-main .price{
+	height: 54px;
+	line-height: 54px;
+	font-size: 18px;
+	color: #ff6700;
+}
+.home .pro-info .band-main .flow-wrap{
+	height: 52px;
+	line-height: 52px;
+}
+.home .pro-info .band-main .flow-wrap .flow-wrap-tag{
+	width: 80px;
+	height: 26px;
+	background: #ff6700;
+	color: #fff;
 }
