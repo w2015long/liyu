@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>034-全选全不选反选.html</title>
+</head>
+<body>
+	<input type="button" id="btn1" value="全选">
+	<input type="button" id="btn2" value="全不选">
+	<input type="button" id="btn3" value="反选">
+	<div id="container">
+		<input type="checkbox">
+		<input type="checkbox">
+		<input type="checkbox">
+		<input type="checkbox">
+		<input type="checkbox">
+		<input type="checkbox">
+		<input type="checkbox">
+		<input type="checkbox">
+		<input type="checkbox">
+		<input type="checkbox">
+		<input type="checkbox">
+	</div>
+</body>
+<script>
+	var oBtn1 =document.getElementById('btn1');
+	var oBtn2 =document.getElementById('btn2');
+	var oBtn3 =document.getElementById('btn3');
+	var oContainer=	document.getElementById('container');
+	var aCheckbox =oContainer.getElementsByTagName('input');
+    oBtn1.onclick=function(){
+    	for(var i =0; i< aCheckbox.length;i++){
+    			aCheckbox[i].checked=true;
+      }
+    }
+     oBtn2.onclick=function(){
+    	for(var i =0; i< aCheckbox.length;i++){
+    			aCheckbox[i].checked=false;
+      }
+    }
+    oBtn3.onclick = function(){
+    	for(var i =0; i< aCheckbox.length;i++){
+	    	if(aCheckbox[i].checked){
+				aCheckbox[i].checked=false;
+	    	}else{
+	    		aCheckbox[i].checked=true;
+	    	}
+       }
+    }
+</script>
+</html>

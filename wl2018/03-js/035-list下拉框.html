@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>035-list下拉框.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+		}
+		#product-info{
+			overflow: hidden;
+			background: pink;
+			margin-bottom: 50px;
+		}
+		#product-info li{
+			float: left;
+			width: 20%;
+			height: 50px;
+			line-height: 50px;
+			border: 1px solid #000;
+			text-align: center;
+			box-sizing: border-box;
+			border-left: none;
+			
+		}
+		#product-list li{
+			width: 500px;
+			height: 500px;
+			line-height: 500px;
+			text-align: center;
+			border: 1px solid #000;
+			background:gray; 
+		}
+		.active{
+			color: #ff6700;
+			border-bottom: 1px solid #ff6700;
+		}
+	</style>
+</head>
+<body>
+	<ul id="product-info">
+		<li class="active">电视</li>
+		<li>电脑</li>
+		<li>手机</li>
+		<li>家电</li>
+		<li>手环</li>
+	</ul>
+	<ul id="product-list">
+		<li>匹配电视</li>
+		<li>匹配电脑</li>
+		<li>匹配手机</li>
+		<li>匹配家电</li>
+		<li>匹配手环</li>
+	</ul>
+</body>
+</html>
