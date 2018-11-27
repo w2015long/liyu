@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>019-转数字number与isNaN.html</title>
+	<script>
+		
+		window.onload = function(){
+			var oTxt1 = document.getElementById('txt1');
+			var oTxt2 = document.getElementById('txt2');
+			var oBtn = document.getElementById('btn');
+			function toSum(){
+				var vlu1 = Number(oTxt1.value);
+				var vlu2 = Number(oTxt2.value);
+				// alert(vlu1 + vlu2);
+				if(isNaN(vlu1)){
+					alert('请在第一个输入框输入数字');
+				}else if(isNaN(vlu2)){
+					alert('请在第二个输入框输入数字');
+				}else{
+					alert(vlu1 + vlu2);
+				}
+			}
+			oBtn.onclick = toSum;
+		}
+	</script>
+</head>
+<body>
+	<input type="text" id="txt1">
+	<input type="text" id="txt2">
+	<button id="btn">求和</button>
+</body>
+</html>
