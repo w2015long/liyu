@@ -13,7 +13,7 @@
 		}
 		#product-info{
 			overflow: hidden;
-			background: pink;
+			background: #bbb;
 			margin-bottom: 50px;
 		}
 		#product-info li{
@@ -21,10 +21,9 @@
 			width: 20%;
 			height: 50px;
 			line-height: 50px;
-			border: 1px solid #000;
 			text-align: center;
-			box-sizing: border-box;
 			border-left: none;
+			cursor: pointer;
 			
 		}
 		#product-list li{
@@ -33,11 +32,12 @@
 			line-height: 500px;
 			text-align: center;
 			border: 1px solid #000;
-			background:gray; 
+			background:skyblue; 
+			display: none;
 		}
 		.active{
 			color: #ff6700;
-			border-bottom: 1px solid #ff6700;
+			border-bottom: 2px solid #ff6700;
 		}
 	</style>
 </head>
@@ -50,11 +50,32 @@
 		<li>手环</li>
 	</ul>
 	<ul id="product-list">
-		<li>匹配电视</li>
+		<li style="display: block;">匹配电视</li>
 		<li>匹配电脑</li>
 		<li>匹配手机</li>
 		<li>匹配家电</li>
 		<li>匹配手环</li>
 	</ul>
 </body>
+<script>
+	var aBtn = document.querySelectorAll('#product-info li');
+	var aList = document.querySelectorAll('#product-list li');
+	// console.log(aBtn.length);
+	for(var i=0; i<aBtn.length; i++){
+		aBtn[i].index = i;
+		aBtn[i].onclick=function(){
+			// alert(aBtn[i]);
+			// alert(i);
+			for(j=0; j<aBtn.length; j++){
+				aBtn[j].className='';
+				aList[j].style.display='none';
+
+			}
+			this.className='active';
+			aList[this.index].style.display='block';
+		}
+	}
+
+	// console.log(i);
+</script>
 </html>
