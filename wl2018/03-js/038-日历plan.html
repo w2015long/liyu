@@ -39,10 +39,19 @@
 			color: #fff;
 			text-align: center;
 			font-size: 30px;
+			cursor: pointer;
 		}
 		.active{
 			background-color: #fff;
 			color: #000;
+		}
+		.plan{
+			width: 100%;
+			height: 80px;
+			border: 1px 0px solid #000;
+			padding: 20px 20px;
+			box-sizing: border-box;
+			background: pink;
 		}
 	</style>
 </head>
@@ -63,7 +72,7 @@
 			<li>12</li>
 		</ul>
 		<div class="plan">
-			<h1>一月</h1>
+			<h2>一月</h2>
 			<p>旅行</p>
 		</div>
 	</div>
@@ -71,16 +80,21 @@
 </body>
 <script>
 	var aBtn = document.getElementsByTagName('li');
-	var oPlan =document.querySelectorAll('.plan');
-	// console.log(aBtn);
-	for(var i=0;i<aBtn.length;i++){
-		aBtn[i].onmuoseover= function(){
-			for(var j=0;j<aBtn.length;j++){
+	var oPlan = document.querySelectorAll('.plan');
+	// console.log(aBtn);	
+	console.log(oPlan.innerHTML= "<h2>月</h2>");
+	// var aPlan = [学习html,学习css,学习javaScript,学习git,练习git,学习ps,月考,复习知识,休息,打球,看电影,放假];
+	oPlan.innerHTML = "<h2>月</h2>"
+
+	for(var i=0; i<aBtn.length;i++){
+		aBtn[i].index = i;
+		aBtn[i].onmouseover = function(){
+			for(j=0;j<aBtn.length;j++){
 				aBtn[j].className='';
 			}
 			this.className='active';
+			// aPlan.innerHTML="<h1>'+this.index+'月</h1>";
 		}
-		// console.log(this);
 	}
 </script>
 </html>
