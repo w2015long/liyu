@@ -184,11 +184,10 @@
 	color: #757575;
 }
 .home{
-	margin-bottom: 70px;
-	background: red;
+	/*margin-bottom: 70px;*/
+	/*background: red;*/
 }
 .home .nav-bar{
-	height: 60px;
 	border-top: 1px solid #e0e0e0;
 	box-shadow: 5px 0 20px rgba(0,0,0,0.3);
 }
@@ -196,6 +195,7 @@
 	float: left;
 	font-size: 18px;
     font-weight: 400;
+    height: 60px;
     line-height: 60px;
     color: #202221;
 }
@@ -224,7 +224,7 @@
 .home .pro-view{
 	float: left;
 	width: 618px;
-	height: 834px;
+	/*height: 834px;*/
 	margin-top: 2px;
 }
 .home .pro-view .carousel{
@@ -268,7 +268,7 @@
 .home .pro-info{
 	float: left;
 	width: 608px;
-	height: 834px;
+	/*height: 834px;*/
 	margin-top: 2px;
 }
 .home .pro-info .title{
