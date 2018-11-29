@@ -72,18 +72,18 @@
 			<li>12</li>
 		</ul>
 		<div class="plan">
-			<h2>一月</h2>
-			<p>旅行</p>
+			
 		</div>
 	</div>
 
 </body>
 <script>
 	var aBtn = document.getElementsByTagName('li');
-	var oPlan = document.querySelectorAll('.plan');
+	var oPlan = document.querySelector('.plan');
 	// console.log(aBtn);	
-	oPlan.innerHTML = "你好"
-	// var aPlan = [学习html,学习css,学习javaScript,学习git,练习git,学习ps,月考,复习知识,休息,打球,看电影,放假];
+	// oPlan.innerHTML = "你好";
+	var aPlan = ["学习html","学习css","学习javaScript","学习git","练习git","学习ps","月考","复习知识","休息","打球","看电影","放假"];
+	oPlan.innerHTML = "<h2>1月</h2><p>"+aPlan[0]+"</p>"	;
 
 	for(var i=0; i<aBtn.length;i++){
 		aBtn[i].index = i;
@@ -92,7 +92,7 @@
 				aBtn[j].className='';
 			}
 			this.className='active';
-			oPlan.innerHTML = "<h2>"+this.index+"月</h2><p>旅行</p>";
+			oPlan.innerHTML = "<h2>"+(this.index+1)+"月</h2><p>"+aPlan[this.index]+"</p>";
 		}
 	}
 </script>
