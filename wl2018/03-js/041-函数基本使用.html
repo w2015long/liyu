@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>041-函数基本使用.html</title>
+	<style>
+		#box{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn1">变高</button>
+	<button id="btn2">变宽</button>
+	<button id="btn3">变颜色</button>
+	<div id="box"></div>
+
+</body>
+<script>
+	function css(attr,val){
+		oBox.style[attr]=val;
+	}
+	var oBtn1 =document.getElementById('btn1');
+	var oBtn2 =document.getElementById('btn2');
+	var oBtn3 =document.getElementById('btn3');
+	var oBox =document.getElementById('box');
+	oBtn1.onclick=function(){
+		css("width","200px");
+	}
+	oBtn2.onclick=function(){
+		css("height","200px");
+	}
+	oBtn3.onclick=function(){
+		css("backgroundColor","red");
+	}
+</script>
+</html>
