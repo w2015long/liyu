@@ -82,9 +82,8 @@
 	var aBtn = document.getElementsByTagName('li');
 	var oPlan = document.querySelectorAll('.plan');
 	// console.log(aBtn);	
-	console.log(oPlan.innerHTML= "<h2>月</h2>");
+	oPlan.innerHTML = "你好"
 	// var aPlan = [学习html,学习css,学习javaScript,学习git,练习git,学习ps,月考,复习知识,休息,打球,看电影,放假];
-	oPlan.innerHTML = "<h2>月</h2>"
 
 	for(var i=0; i<aBtn.length;i++){
 		aBtn[i].index = i;
@@ -93,7 +92,7 @@
 				aBtn[j].className='';
 			}
 			this.className='active';
-			// aPlan.innerHTML="<h1>'+this.index+'月</h1>";
+			oPlan.innerHTML = "<h2>"+this.index+"月</h2><p>旅行</p>";
 		}
 	}
 </script>
