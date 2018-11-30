@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>046-不定参arguments.html</title>
+	<style>
+		#box{
+			width: 140px;
+			height: 140px;
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn1">设置样式</button>
+	<button id="btn2">获取样式</button>
+	<div id="box"></div>
+</body>
+<script>
+	//css(oBox,'backgroundColor') 获取样式
+	//css(oBox,'backgroundColor','red') 改变样式
+	var oBtn1 = document.getElementById('btn1');
+	var oBtn2 = document.getElementById('btn2');
+	var oBox = document.getElementById('box');
+	// console.log(oBox);
+	function css(){
+		if(arguments.lenght == 2){
+			// return arguments[0].style[arguments[1]];
+			return getComputedStyle(arguments[0],false)[arguments[1]]
+		}else{
+			arguments[0].style[arguments[1]] = arguments[2]
+		}
+
+	}
+	oBtn1.onclick=function(){
+		css(oBox,"backgroundColor","green");
+	}
+	oBtn2.onclick=function(){
+		alert(css(oBox,'backgroundColor'));
+	}
+</script>
+</html>
