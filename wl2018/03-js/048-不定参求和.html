@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>048-不定参求和.html</title>
+</head>
+<body>
+</body>
+<script>
+	/*
+	function sum(){
+		console.log(arguments);
+		var result = 0;
+		for(var i=0;i<arguments.length;i++){
+			result += arguments[i];
+		}
+		// return result;
+		alert(result);
+	}
+	sum(8,9,6);
+	*/
+	function sum(){
+		console.log(arguments);
+		var result = 0;
+		for(var i=0;i<arguments.length;i++){
+			result += arguments[i];
+		}
+		return result;
+		// alert(result);
+	}
+	// alert(sum(8,9,6));
+	var s =sum(6,7,9,12,520);
+	alert(s);
+</script>
+</html>

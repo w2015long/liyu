@@ -24,7 +24,7 @@
 	var oBox = document.getElementById('box');
 	// console.log(oBox);
 	function css(){
-		if(arguments.lenght == 2){
+		if(arguments.length == 2){
 			// return arguments[0].style[arguments[1]];
 			return getComputedStyle(arguments[0],false)[arguments[1]]
 		}else{
@@ -36,7 +36,7 @@
 		css(oBox,"backgroundColor","green");
 	}
 	oBtn2.onclick=function(){
-		alert(css(oBox,'backgroundColor'));
+		alert(css(oBox,"backgroundColor"));
 	}
 </script>
 </html>
