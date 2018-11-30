@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>051-全局变量延伸.html</title>
+	<script>
+		var a =5;
+		function fn(){
+			console.log('fn',a);//undefined
+			var a=8;
+			function fn1(){
+				console.log('fn1',a);//8
+			}
+			fn1();
+		}
+		console.log('global?',a);//5
+		fn();
+		console.log('global',a);//5?
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

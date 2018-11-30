@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>057-局部执行环境.html</title>
+	<script>
+		function fn(){
+			function fn1(){
+				var a=2;
+				console.log(a);
+			}
+			fn1();
+		}
+		fn();
+		console.log('ok');
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

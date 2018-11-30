@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>055-函数声明的提升.html</title>
+	<script>
+		console.log('global',a);
+		var a=1;
+		function fn1(){
+			//var a;
+			console.log('fn1',a);
+			var a=2;
+		}
+		fn1();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

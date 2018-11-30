@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>057-局部执行环境-就近原则.html</title>
+	<script>
+		var a=1;
+		function fn1(){
+			var b=5;
+			console.log('fn1 a',a);//1
+			console.log('fn1 b',b);//5
+			// console.log('fn1 c',c);//
+			function fn2(){
+				var a=3;
+				var b=2;
+				var c=66;
+				console.log('fn2 a',a);//3
+				console.log('fn2 b',b);//2
+				console.log('fn2 c',c);//66
+				console.log('fn2 d',d);// is not defined
+			}
+			fn2();
+		}
+		fn1();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
