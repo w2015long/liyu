@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>054-2-函数作用域说明.html</title>
+	<script>
+		//在函数内部声明的变量在函数内部以及子函数中都可以使用
+		function fn1(){
+			var a =2;
+			console.log(a);
+			function fn2(){
+				console.log(a);
+			}
+			fn2();
+		}
+		fn1();
+		console.log(a);//is not defined
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

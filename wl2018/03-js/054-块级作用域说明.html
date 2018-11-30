@@ -4,7 +4,14 @@
 	<meta charset="UTF-8">
 	<title>054-块级作用域说明.html</title>
 	<script>
-		if(true)
+		if(true){
+			var a=6;
+		}
+		console.log(a);// js 非块级，可以访问到if里边的a
+		for(var i=0;i<8;i++){
+
+		}
+		console.log(i);// js 非块级，可以访问到for里边的i
 	</script>
 </head>
 <body>
