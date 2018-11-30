@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>049-2-递归调用-调用自身callee.html</title>
+	<script>
+		/*
+		function fact(n){
+			if(n==1){
+				return 1;
+			}
+			return n * fact(n-1);
+		}
+		//var fact2 = fact;//函数就是一个指针 fact2指向函数fact
+		var fact=3; //fact is not a function 所以说调用不了上边的函数
+		// console.log(fact2(5));
+
+		alert(fact(5));
+		*/
+		//解决15行报错可用arguments.callee 如下
+
+		function fact(n){
+		    console.log(arguments);
+		    if(n==1){
+		    	return 1;
+		    }
+			return n * arguments.callee(n-1);
+		}
+		var s = fact(5);
+		alert(s);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
