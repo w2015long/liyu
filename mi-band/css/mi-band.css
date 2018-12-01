@@ -1,5 +1,5 @@
 .top{
-	height: 40px;
+	/*height: 40px;*/
 	background: #333333;
 }
 .top .top-nav{
@@ -52,8 +52,24 @@
 	height: 40px;
 	line-height: 40px;
 }
-.header{
+.header .container{
+	position: relative;
+	/*height: 100px;*/
+}
+.header #cart-menu{
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 99989;
+	/*display: none;*/
+	width: 316px;
 	height: 100px;
+	line-height: 100px;
+	text-align: center;
+	font-size: 12px;
+	background-color: #fff;
+	color: #424242;
+	box-shadow: 5px 0 30px rgba(50,50,50,0.3);
 }
 .header .logo{
 	display: block;
