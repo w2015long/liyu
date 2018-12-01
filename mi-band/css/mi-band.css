@@ -205,6 +205,34 @@
 .home .container{
 	position: relative;
 }
+.home .category{
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+	width: 234px;
+	height: 460px;
+	z-index: 999;
+	border: 1px solid #ff6700;
+	background: rgb(255,255,255);
+	box-sizing: border-box;
+	padding: 20px 0;
+}
+.home .category .category-item{
+	height: 42px;
+	line-height: 42px;
+	padding: 0px 20px 0 30px;
+	color: #424242;
+	font-size: 13px;
+}
+.home .category .category-item i{
+	float: right;
+	color: #e1e1e1;
+}
+.home .category .category-item:hover{
+	background: #ff6700;
+	color: #fff;
+}
 .home .children-list{
 	position: absolute;
 	top: 0;

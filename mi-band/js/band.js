@@ -26,9 +26,18 @@ for(var i=0; i<aBtn.length;i++){
 }
 var oCartHover = document.getElementById('cart-hover');
 var oCartMenu = document.getElementById('cart-menu');
-oCartHover.onmouseover=function(){
+oCartHover.onmouseover = function(){
 	oCartMenu.style.display='block';
 }
-oCartHover.onmouseout=function(){
+oCartHover.onmouseout = function(){
 	oCartMenu.style.display='none';
+}
+var oCategoryHover = document.getElementById('category-hover');
+var oCategory = document.getElementById('category');
+// alert(oCategoryHover);
+oCategoryHover.onmouseover=function(){
+	oCategory.style.display="block";
+}
+oCategoryHover.onmouseout=function(){
+	oCategory.style.display="none";
 }
