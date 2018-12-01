@@ -24,3 +24,11 @@ for(var i=0; i<aBtn.length;i++){
 		aList[this.index].style.display='';
 	}
 }
+var oCartHover = document.getElementById('cart-hover');
+var oCartMenu = document.getElementById('cart-menu');
+oCartHover.onmouseover=function(){
+	oCartMenu.style.display='block';
+}
+oCartHover.onmouseout=function(){
+	oCartMenu.style.display='none';
+}
