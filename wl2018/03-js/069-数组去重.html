@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>069-数组去重.html</title>
+	<script>
+		var arr1 =[2,3,5,3,6,8,9,6];
+		function unique(arr){
+		    var arr2 =[];
+			
+			for(var i=0;i<arr.length;i++){
+				var isDup=false;
+				for(var j=0;j<arr2.length;j++){					
+					if(arr2[j]==arr[i]){
+						isDup=true;						
+						break;
+					}
+				}
+				if(!isDup){
+					arr2.push(arr[i]);
+				}
+			}
+			return arr2;
+		}
+		unique(arr1);
+		console.log(unique(arr1));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

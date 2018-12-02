@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>067-数组sort冒泡排序.html</title>
+	<script>
+		var arr = [3,22,2,10,8,33,6,53];
+		console.log('操作前',arr);
+		// var arr2 = arr.sort();
+		// console.log('操作后1',arr);
+		// console.log('操作后2',arr2);
+		//冒泡排序
+	    
+
+		for(var i=0;i<arr.length;i++){
+
+			for(var j=i+1;j<arr.length;j++){
+				if(arr[i]>arr[j]){
+			        var temp=arr[i];
+					arr[i]=arr[j];
+					arr[j]=temp;
+				}
+			}
+		}
+		console.log('冒泡排序后',arr)
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
