@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>063-数组join/cancat基本操作.html</title>
+	<script>
+		//join(字符) 用指定的字符把数组的每一项连接成字符串并返回,原数组不变
+		var arr=[2,4,3,5,46,767,35];
+		console.log('操作前',arr);
+		var result = arr.join('和');
+		console.log('操作返回值',result);
+		console.log('操作后',arr);
+		//数组1.concat(数组2) 把数组1和数组2合并生成一个新的数组并返回,原数组不变
+		var arr1=[1,2,3,4,5,6];
+		var arr2=[7,8,9,10,11];
+		console.log('cancat前arr1',arr1);
+		console.log('cancat前arr2',arr2);
+		var result = arr1.concat(arr2);
+		console.log('操作返回值',result);
+		console.log('cancat后arr1',arr1);
+		console.log('cancat后arr2',arr2);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

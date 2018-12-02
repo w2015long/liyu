@@ -6,14 +6,22 @@
 	<script>
 		var arr = [5,88,62,8,32,99,75];
 		console.log('操作前',arr);
+		/* splice(起始下标，删除个数，插入值1；插入值2)*/
 		/* 删除数组
 		var result = arr.splice(2,2);
 		console.log('操作返回值',result);
 		console.log('操作后',arr);
 		*/
-		var result = arr.splice(6,0,'hi');
+		/*插入数组
+		var result = arr.splice(6,0,'hi');//第六个数组前添加hi
 		console.log('操作返回值',result);
 		console.log('操作后',arr);
+		*/
+		/*替换元素*/
+		var result = arr.splice(2,2,520,1314);//
+		console.log('操作返回值',result);
+		console.log('操作后',arr);
+		
 	</script>
 </head>
 <body>
