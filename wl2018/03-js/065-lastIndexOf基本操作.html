@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>065-数组indexOf/lastIndexOf基本操作.html</title>
+	<script>
+		//数组.indexOf(查找项,起始下标) 从数组头部开始向后查找,返回查找到全等匹配的数组的下标,如果没有找到返回-1
+		var  arr=[2,35,567,67,88,98,520,1314];
+		console.log('操作前',arr);
+		/*indexOf
+		var result = arr.indexOf(520,5);
+		console.log('操作返回值',result);
+		console.log('操作后',arr);
+		*/
+		var result = arr.lastIndexOf(99);
+		console.log('操作返回值',result);
+		console.log('操作后',arr);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
