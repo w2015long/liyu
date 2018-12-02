@@ -72,14 +72,37 @@
 	box-shadow: 5px 0 30px rgba(50,50,50,0.3);
 }
 .header .logo{
+	position: relative;
 	display: block;
 	float: left;
 	width: 56px;
 	height: 56px;
 	margin-top: 22.5px;
-	background: #ff6700 url(../images/logo.png) center center no-repeat;
-	text-indent: -999px;
-	/*display: none;*/
+	background-color:#ff6700;
+	/*background: #ff6700 url(../images/logo.png) center center no-repeat;*/
+}
+.header .logo:hover .icon-home{
+	transform: translateX(45px);
+}
+.header .logo:hover .logo-img{
+	transform: translateX(48px);
+}
+.header .logo .icon-home{
+	position: absolute;
+	top: 10px;
+	left: -34px;
+    /*left: 11px;*/
+    font-size: 32px;
+	color: #fff;
+	transition: all 0.3s linear;
+}
+.header .logo .logo-img{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	transition: all 0.3s linear;
 }
 .header .header-nav{
 	float: left;
