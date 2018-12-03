@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>071-DOM获取节点childNodes.html</title>
+
+</head>
+<body>
+	<ul id="ul1">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+	</ul>
+</body>
+<script>
+	var oUl=document.getElementById('ul1');
+	console.log(oUl.childNodes);
+	// alert(oUl.childNodes.length);
+	for(var i=0;i<oUl.childNodes.length;i++){
+		//text的nodeType为3   元素li的nodeType为1 
+		console.log(oUl.childNodes[i].nodeType);
+		if(oUl.childNodes[i].nodeType==1){
+			oUl.childNodes[i].style['backgroundColor']='red';
+		}
+
+	}
+</script>
+</html>

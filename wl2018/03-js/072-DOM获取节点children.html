@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>072-DOM获取节点children.html</title>
+</head>
+<body>
+<ul id="ul1">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+	</ul>
+</body>
+<script>
+	//子节点只算儿子
+	var oUl=document.getElementById('ul1');
+	console.log(oUl.childNodes);
+	console.log(oUl.children);//children元素节点
+	for(var i=0;i<oUl.children.length;i++){
+		oUl.children[i].style['backgroundColor']='green';
+	}
+</script>
+</html>
