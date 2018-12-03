@@ -11,9 +11,11 @@
 		#father{
 			width: 200px;
 			height: 200px;
+			margin: 50px auto;
 			background: #ccc;
 		}
 		#son{
+			list-style: none;
 			width: 100px;
 			height: 100px;
 			background: red;
@@ -25,5 +27,9 @@
 		<li id="son"></li>
 	</ul>
 </body>
-
+<script>
+	var oSon = document.getElementById('son');
+	var oFather = oSon.parentNode;
+	oSon.offsetParent();
+</script>
 </html>
