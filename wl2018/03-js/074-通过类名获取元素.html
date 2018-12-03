@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>074-通过类名获取元素.html</title>
+</head>
+<body>
+	<ul id="ul1">
+		<li class="box"></li>
+		<li></li>
+		<li class="box"></li>
+		<li></li>
+		<li class="box"></li>
+	</ul>
+</body>
+<script>
+	var oUl1 = document.getElementById('ul1');
+	// var aBox = oUl1.getElementsByClassName('box');
+	console.log(oUl1);
+	// console.log(aBox);
+	//定义一个函数实现第18行
+	function getElementsByClass(oParent,sClass){
+		var aLi=oUl1.children;
+		// console.log(aLi);
+		var result=[];
+		for(var i=0;i<aLi.length;i++){
+			if(aLi[i].className==sClass){
+				result.push(aLi[i]);
+			}
+		}
+		return result;
+	}
+	var aBox = getElementsByClass(oUl1,'box');
+	console.log(aBox);
+</script>
+</html>
