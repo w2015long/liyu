@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>076-获取首位子节点.html</title>
+</head>
+<body>
+	<ul id="ul1">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+	</ul>
+</body>
+<script>
+	var oUl1=document.getElementById('ul1');
+	console.log(oUl1);
+	console.log(oUl1.firstChild==oUl1.childNodes[0]);
+	console.log(oUl1.lastChild==oUl1.childNodes[oUl1.childNodes.length-1])
+	console.log(oUl1.firstElementChild==oUl1.children[0]);
+	console.log(oUl1.lastElementChild==oUl1.children[oUl1.children.length-1])
+</script>
+</html>
