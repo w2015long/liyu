@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>082-无序列表内容排序.html</title>
+</head>
+<body>
+	<ul id="ul1">
+		<li>7</li>
+		<li>78</li>
+		<li>12</li>
+		<li>33</li>
+		<li>19</li>
+		<li>3</li>	
+	</ul>
+</body>
+<script>
+	var oUl=document.getElementById('ul1');
+	var aLi=oUl.children;
+	console.log(aLi);
+	var arr =[];
+	for(var i=0;i<aLi.length;i++){
+		// arr[i]=aLi[i];
+		arr.push(aLi[i]);
+	}
+	console.log(arr);
+	arr.sort(function(li1,li2){
+		return li1.innerHTML-li2.innerHTML
+	})
+	for(var j=0;j<arr.length;j++){
+		oUl.appendChild(arr[j]);
+	}	
+</script>
+</html>
