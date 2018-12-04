@@ -14,8 +14,10 @@
 	var oBtn=document.getElementById('bnt');
 	oBtn.onclick=function(){
 		var val=oTxt.value;
-		// document.write(window.open(about:blank));
-		window.open(about:blank);
+		var newWin=window.open('about:blank');
+		// document.write(window.open('about:blank'));
+		newWin.document.write(val);
+		
 	}
 </script>
 </html>
