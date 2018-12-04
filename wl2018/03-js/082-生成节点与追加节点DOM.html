@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>082-生成节点与追加节点DOM.html</title>
+</head>
+<body>
+	<ul id="ul1">
+		<li>1</li>
+	</ul>
+</body>
+<script>
+	var oUl1=document.getElementById('ul1');
+//生成元素 document.createElement('标签名')
+	var oLi=document.createElement('li');
+	console.log(oLi);
+	oLi.innerHTML='我是追加的li';
+	oUl1.appendChild(oLi);
+</script>
+</html>

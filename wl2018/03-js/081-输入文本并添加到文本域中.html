@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>081-输入文本并添加到文本域中.html</title>
+</head>
+<body>
+	<input type="text" id="txt" value="88">
+	<input type="button" id="btn" value="传值">
+	<!-- <textarea  id="content" cols="30" rows="10"></textarea> -->
+	<input type="text" id="txt2">
+
+</body>
+<script>
+	var oTxt=document.getElementById('txt');
+	var oBtn=document.getElementById('btn');
+	var oTxt2=document.getElementById('txt2');
+	oBtn.onclick=function(){
+		// alert('999')
+		var val=oTxt.getAttribute('value');
+		console.log(val);
+		oTxt2.setAttribute('value',val);
+	}
+</script>
+</html>
