@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>085-移除无须列表最后元素.html</title>
+</head>
+<body>
+	<ul id="ul1">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+	</ul>
+	<input type="button" id="btn" value="移除">
+	<ul id="ul2"></ul>
+</body>
+<script>
+	var oUl1=document.getElementById('ul1');
+	var oBtn=document.getElementById('btn');
+	var oUl2=document.getElementById('ul2');
+	oBtn.onclick=function(){
+		oUl2.appendChild(oUl1.lastElementChild);
+	}
+</script>
+</html>
