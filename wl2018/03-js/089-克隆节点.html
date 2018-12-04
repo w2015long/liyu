@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>089-克隆节点.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 100px;
+			height: 100px;
+			background: skyblue;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn1">cloneNode()</button>
+	<button id="btn2">cloneNode(true)</button>
+	<div class="box" id="box">
+		我在盒子里
+	</div>
+</body>
+<script type="text/javascript">
+	var oBtn1=document.getElementById('btn1')
+	var oBtn2=document.getElementById('btn2')
+	var oBox=document.getElementById('box')
+	oBtn1.onclick=function(){
+
+		var newBox=oBox.cloneNode();
+		// console.log(newBox);
+		document.body.appendChild(newBox);
+
+	}
+	oBtn2.onclick=function(){
+
+		var newBox=oBox.cloneNode(true);
+		document.body.insertBefore(newBox,oBox);
+		console.log(newBox)
+	}
+</script>
+</html>
