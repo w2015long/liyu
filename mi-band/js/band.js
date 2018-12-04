@@ -2,7 +2,8 @@ var aBtn = document.querySelectorAll('.com-nav a');
 var aList = document.querySelectorAll('.children-list');
 
 // console.log(aBtn);
-
+/*header选项卡部分*/
+/*
 for(var i=0; i<aBtn.length;i++){
 	aBtn[i].index=i;
 	aBtn[i].onmouseover=function(){
@@ -25,6 +26,7 @@ for(var i=0; i<aBtn.length;i++){
 		aList[this.index].style.display='';
 	}
 }
+*/
 /*
 
 aList.onmouseover=function(){
