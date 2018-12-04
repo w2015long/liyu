@@ -9,6 +9,7 @@
 			padding: 0;
 		}
 		#father{
+			position: relative;
 			width: 200px;
 			height: 200px;
 			margin: 50px auto;
@@ -29,7 +30,10 @@
 </body>
 <script>
 	var oSon = document.getElementById('son');
-	var oFather = oSon.parentNode;
-	oSon.offsetParent();
+	//parentNode获取父节点
+	//var oFather = oSon.parentNode;
+	//offsetParent子节点绝对定位参考的父节点
+	var oFather=oSon.offsetParent;
+	oFather.style.backgroundColor ='blue';
 </script>
 </html>
