@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>079-获取属性和设置属性.html</title>
+</head>
+<body>
+	<input type="text" id="txt" value="默认">
+	<input type="button" id="btn" value="改变">
+	<input type="button" id="btn2" value="remove">
+	<textarea  id="content" cols="30" rows="10"></textarea>
+
+</body>
+<script>
+	var oTxt=document.getElementById('txt');
+	var oBtn=document.getElementById('btn');
+	var oBtn2=document.getElementById('btn2');
+	var oContent=document.getElementById('content');
+	oBtn.onclick=function(){
+		/*
+		var val=oTxt.value;
+		oContent.value=val;
+		*/
+	//oNode.getAttribute(名称),有属性获取值,没有属性返回null 
+		console.log(oTxt.getAttribute('value'));
+	//oNode.setAttribute(属性名称,值) 系统没有的属性也可以设置
+		oContent.setAttribute('value','你好');
+		oContent.setAttribute('txt','你好');
+		
+	}
+	//oNode.removeAttribute(名称)  系统没有的属性也可以删除
+	oBtn2.onclick=function(){
+		oContent.removeAttribute('txt') ;
+	}
+</script>
+</html>
