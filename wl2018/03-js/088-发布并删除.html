@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>088-发布并删除.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;	
+		}
+		.box{
+			width: 600px;
+			margin: 100px auto;
+		}
+		a{
+			float: right;
+			color: #ff6700;
+		}
+		li{
+			list-style: none;
+			border-bottom: 1px solid #ccc;
+
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<textarea id="txt" cols="60" rows="10"></textarea>
+		<input type="button" value="发帖" id="btn">
+		<ul id="ul1"></ul>
+	</div>
+</body>
+<script>
+	var oTxt=document.getElementById('txt');
+	var oBtn=document.getElementById('btn');
+	var oUl1=document.getElementById('ul1');
+	oBtn.onclick=function(){
+		var val=oTxt.value;
+		var aLi=document.createElement('li');
+		aLi.innerHTML=val;
+		var aA=document.createElement('a');
+		aA.href='javascript:;';
+		aA.innerHTML='删除';
+		aLi.appendChild(aA);
+		aA.onclick=function(){
+			oUl1.removeChild(this.parentNode);
+		}
+		oUl1.insertBefore(aLi, oUl1.firstChild);
+		oTxt.value='';
+	}
+</script>
+</html>
