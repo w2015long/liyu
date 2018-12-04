@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>095-关闭脚本窗口.html</title>
+
+</head>
+<body>
+	<textarea  id="txt" cols="30" rows="10"></textarea>
+	<input type="button" id="bnt" value="打开">
+</body>
+<script>
+	var oTxt=document.getElementById('txt');
+	var oBtn=document.getElementById('bnt');
+	oBtn.onclick=function(){
+		var val=oTxt.value;
+		// document.write(window.open(about:blank));
+		window.open(about:blank);
+	}
+</script>
+</html>
