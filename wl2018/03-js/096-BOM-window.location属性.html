@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>096-BOM-window.location属性.html</title>
+</head>
+<body>
+	<button id="btn">跳转</button>
+</body>
+<script type="text/javascript">
+	/*
+	console.log(window.location);
+	console.log(document.location);
+	console.log(window.location===document.location);
+	*/
+    // window.location.assign('https://www.baidu.com');
+
+	var oBtn = document.getElementById('btn');
+	oBtn.onclick=function(){
+		// window.location.assign('https://www.baidu.com');
+		// window.location.href='https://www.baidu.com';
+		window.location='https://www.baidu.com';
+	}
+</script>
+</html>
