@@ -104,6 +104,7 @@
 	height: 100%;
 	transition: all 0.3s linear;
 }
+/*选项卡*/
 .header .header-nav{
 	float: left;
 	height: 100px;
@@ -125,6 +126,69 @@
 /*.header .header-nav .header-nav-item a:hover{
 	color: #ff6700;
 }*/
+/*选项卡下内容*/
+.header-nav .com-nav{
+	position: relative;
+}
+.header-nav .com-nav .children-list{
+	position: absolute;
+    top: 103px;
+    left: -245px;
+	width: 1226px;
+	box-shadow: 1px 0 10px rgb(50,50,50);
+	/*display: none;*/
+	z-index: 999;
+}
+.header-nav .com-nav .children-list li{
+	position: relative;
+	float: left;
+	width: 204px;
+	height: 230px;
+	/*border: 1px solid #000;*/
+	box-sizing: border-box;
+	text-align: center;
+}
+
+.header-nav .com-nav .children-list li .product-bg{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(225,225,225,0.2);
+	/*opacity: 0.2;*/
+}
+.header-nav .com-nav .children-list li .content{
+	width: 100%;
+	height: 100%;
+}
+.header-nav .com-nav .children-list li .product-img{
+	width: 196px;
+	height: 122px;
+	margin-top: 34px;
+}
+.header-nav .com-nav .children-list li .product-name{
+	/*margin-top: 6px;*/
+	font-size: 12px;
+	color: #333;
+}
+.header-nav .com-nav .children-list li .product-price{
+	font-size: 12px;
+	color: #ff6700;
+}
+.new-flag{
+	position: absolute;
+	top: 0;
+	left: 50%;
+	margin-left:-32px;
+	width: 64px;
+	height: 20px;
+	line-height: 20px;
+	font-size: 12px;
+	border: 1px solid #ff6700;
+	color: #ff6700;
+	text-align: center;
+}
 .header .search{
 	position: relative;
 	float: right;
@@ -257,62 +321,7 @@
 	background: #ff6700;
 	color: #fff;
 }
-.header .children-list{
-	position: absolute;
-	top: -30px;
-	left:2px; 
-	width: 1226px;
-	box-shadow: 1px 0 10px rgb(50,50,50);
-	display: none;
-	z-index: 999;
-}
-.header .children-list li{
-	position: relative;
-	float: left;
-	width: 204px;
-	height: 230px;
-	/*border: 1px solid #000;*/
-	box-sizing: border-box;
-	text-align: center;
-}
 
-.header .children-list li .porduct-bg{
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	background: rgba(225,225,225,1);
-	opacity: 0.2;
-}
-
-.header .children-list li .product-img{
-	width: 196px;
-	height: 122px;
-	margin-top: 34px;
-}
-.header .children-list li .product-name{
-	margin-top: 6px;
-	font-size: 12px;
-	color: #333;
-}
-.header .children-list li .product-price{
-	font-size: 12px;
-	color: #ff6700;
-}
-.new-flag{
-	position: absolute;
-	top: 0;
-	left: 50%;
-	margin-left:-32px;
-	width: 64px;
-	height: 20px;
-	line-height: 20px;
-	font-size: 12px;
-	border: 1px solid #ff6700;
-	color: #ff6700;
-	text-align: center;
-}
 .home .bd{
 	padding-bottom: 70px;
 	/*background: red;*/
