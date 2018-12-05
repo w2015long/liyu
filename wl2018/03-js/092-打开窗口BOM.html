@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>092-打开窗口BOM.html</title>
+</head>
+<body>
+	<button id='btn'>打开</button>
+</body>
+<script type="text/javascript">
+	var Btn=document.getElementById('btn');
+	Btn.onclick=function(){
+		//window.open();//默认在新窗口打开空白窗口
+		//window.open('https://www.baidu.com','_blank');//可以给完整的url 默认是在新窗口打开
+		//window.open('https://www.baidu.com','_self');//可以给完整的url
+		//window.open('007-百度换肤.html');//可以打开本地页面
+		// window.open('about:blank','_self');//新window对象
+		var newWin=window.open('about:blank')
+		console.log(newWin);
+	}
+</script>
+</html>
