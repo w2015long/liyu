@@ -16,12 +16,12 @@
 	color: #413b36;
 	margin: 0 6px;
 }
-.top .cart #cart-menu{
+.top .cart .cart-box #cart-menu{
 	position: absolute;
 	top: 39px;
 	right: 0;
 	z-index: 99989;
-	/*display: none;*/
+	display: none;
 	width: 316px;
 	height: 100px;
 	line-height: 100px;
@@ -31,6 +31,9 @@
 	color: #424242;
 	box-shadow: 5px 0 30px rgba(50,50,50,0.3);
 }
+.top .cart .cart-box:hover #cart-menu{
+	display: block;
+} 
 .top .cart{
 	position: relative;
 	float: right;
@@ -137,9 +140,9 @@
 .header-nav .com-nav .children-list{
 	position: absolute;
     top: 100px;
-    left: -58px;
+    left: 0px;
 	width: 1226px;
-	padding: 0 58px 0 58px;
+	padding: 0 62px 0 62px;
 	background: #fff;
 	box-shadow: 1px 0 10px rgb(50,50,50);
 	display: none;
