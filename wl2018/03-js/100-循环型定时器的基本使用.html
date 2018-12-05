@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>100-循环型定时器的基本使用.html</title>
+</head>
+<body>
+	<button id="btn">关闭定时器</button>
+</body>
+<script>
+	var oBtn=document.getElementById('btn');
+	var timer=setInterval(function(){
+		console.log('延时定时器');
+	},2000)
+	oBtn.onclick=function(){
+		clearInterval(timer);
+	}
+</script>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>010-js的运行机制.html</title>
+</head>
+<body>
+	<button id="btn">点击</button>
+</body>
+<script>
+	var oBtn=document.getElementById('btn');
+
+	var i=0;
+	oBtn.onclick=function(){
+		i++;
+		console.log('点击事件:',i);
+	}
+	setInterval(function(){
+		console.log('定时循环事件',i);
+	},3000);
+	i++;
+</script>
+</html>
