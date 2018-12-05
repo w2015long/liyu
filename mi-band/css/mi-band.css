@@ -123,31 +123,38 @@
 	font-size: 16px;
 	color: #333;
 }
-/*.header .header-nav .header-nav-item a:hover{
+.header .header-nav .com-nav:hover .children-list{
+	display: block;
+}
+.header .header-nav .header-nav-item a:hover{
 	color: #ff6700;
-}*/
+}
 /*选项卡下内容*/
-.header-nav .com-nav{
+.header{
 	position: relative;
 }
 .header-nav .com-nav .children-list{
 	position: absolute;
-    top: 103px;
-    left: -245px;
+    top: 100px;
+    left: -58px;
 	width: 1226px;
+	padding: 0 58px 0 58px;
+	background: #fff;
 	box-shadow: 1px 0 10px rgb(50,50,50);
-	/*display: none;*/
+	display: none;
 	z-index: 999;
 }
 .header-nav .com-nav .children-list li{
 	position: relative;
 	float: left;
-	width: 204px;
-	height: 230px;
-	/*border: 1px solid #000;*/
-	box-sizing: border-box;
+	/*width: 204px;*/
+	/*height: 230px;*/
 	text-align: center;
+    width: 180px;
+    padding: 35px 12px 0;
+    text-align: center;
 }
+
 
 .header-nav .com-nav .children-list li .product-bg{
 	position: absolute;
@@ -156,25 +163,29 @@
 	width: 100%;
 	height: 100%;
 	background: rgba(225,225,225,0.2);
-	/*opacity: 0.2;*/
+	opacity: 0.2;
 }
 .header-nav .com-nav .children-list li .content{
 	width: 100%;
 	height: 100%;
 }
 .header-nav .com-nav .children-list li .product-img{
-	width: 196px;
-	height: 122px;
-	margin-top: 34px;
+    width: 160px;
+    height: 110px;
+    margin: 0;
+    text-align: center;
 }
 .header-nav .com-nav .children-list li .product-name{
-	/*margin-top: 6px;*/
+	margin: -18px auto 0;
 	font-size: 12px;
+	line-height: 20px;	
 	color: #333;
 }
 .header-nav .com-nav .children-list li .product-price{
 	font-size: 12px;
 	color: #ff6700;
+	margin: 0 auto 18px;
+    line-height: 20px;
 }
 .new-flag{
 	position: absolute;
@@ -270,6 +281,7 @@
 	border: 1px solid #ff6700;
 	box-sizing: border-box;
 	border-top: none;
+	background: #fff;
 }
 .header .search .search-list-wards .search-list-wards-item a{
 	display: inline-block;

@@ -1,9 +1,9 @@
 var aBtn = document.querySelectorAll('.com-nav a');
-var aList = document.querySelectorAll('.children-list');
-
+var aList = document.getElementById('children-list')
 // console.log(aBtn);
 /*header选项卡部分*/
 /*
+console.log(aList);
 for(var i=0; i<aBtn.length;i++){
 	aBtn[i].index=i;
 	aBtn[i].onmouseover=function(){
@@ -15,6 +15,7 @@ for(var i=0; i<aBtn.length;i++){
 		aList[this.index].style.display='block';
 	}
 }
+
 for(var i=0; i<aBtn.length;i++){
 	aBtn[i].index=i;
 	aBtn[i].onmouseout=function(){
@@ -27,16 +28,7 @@ for(var i=0; i<aBtn.length;i++){
 	}
 }
 */
-/*
 
-aList.onmouseover=function(){
-	// aList.style.display = 'block';
-	alert(message?: DOMString);
-}
-aList.onmouseout=function(){
-	aList.style.display = 'none';
-}
-*/
 
 /*top购物车*/
 var oCartHover = document.getElementById('cart-hover');
