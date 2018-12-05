@@ -1,46 +1,4 @@
-var aBtn = document.querySelectorAll('.com-nav a');
-var aList = document.getElementById('children-list')
-// console.log(aBtn);
-/*header选项卡部分*/
-/*
-console.log(aList);
-for(var i=0; i<aBtn.length;i++){
-	aBtn[i].index=i;
-	aBtn[i].onmouseover=function(){
-		for(var j=0;j<aList.length;j++){
-			aBtn[j].className='';
-			aList[j].style.display='none';
-		}
-		this.className='active';
-		aList[this.index].style.display='block';
-	}
-}
 
-for(var i=0; i<aBtn.length;i++){
-	aBtn[i].index=i;
-	aBtn[i].onmouseout=function(){
-		for(var j=0;j<aList.length;j++){
-			// aBtn[j].className='active';
-			aList[j].style.display='display';
-		}
-		this.className='';
-		aList[this.index].style.display='';
-	}
-}
-*/
-
-
-/*top购物车*/
-/*
-var oCartHover = document.getElementById('cart-hover');
-var oCartMenu = document.getElementById('cart-menu');
-oCartHover.onmouseover = function(){
-	oCartMenu.style.display='block';
-}
-oCartHover.onmouseout = function(){
-	oCartMenu.style.display='none';
-}
-*/
 /*header全部商品*/
 var oCategoryHover = document.getElementById('category-hover');
 var oCategory = document.getElementById('category');
@@ -56,4 +14,17 @@ oCategory.onmouseover=function(){
 }
 oCategory.onmouseout=function(){
 	oCategory.style.display="none";
+}
+//固定导航栏
+window.onscroll=function(){
+    var topScroll =document.body.scrollTop;//滚动的距离,距离顶部的距离
+    var bignav  = document.getElementById("bignav");//获取到导航栏id
+    console.log(bignav)
+    if(topScroll > 140){  //当滚动距离大于140px时执行下面的东西
+        bignav.style.position = 'fixed';
+        bignav.style.top = '0px';
+        bignav.style.zIndex = '9999';
+    }else{//当滚动距离小于140的时候执行下面的内容，也就是让导航栏恢复原状
+        bignav.style.position = 'static';
+    }
 }
