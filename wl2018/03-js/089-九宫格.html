@@ -21,41 +21,36 @@
 	</style>
 </head>
 <body>
+	<button id="btn">克隆</button>
 	<div id="box">
-		<div class="son"></div>
-		<div class="son"></div>
-		<div class="son"></div>
-		<div class="son"></div>
-		<div class="son"></div>
-		<div class="son"></div>
-		<div class="son"></div>
-		<div class="son"></div>
-		<div class="son"></div>
-		<div class="son"></div>
-		<div class="son"></div>
-		<div class="son"></div>
-		<div class="son"></div>
-		<div class="son"></div>
-		<div class="son"></div>
-		<div class="son"></div>
-		<div class="son"></div>
-		<div class="son"></div>
 
+		<div class="son"></div>
 	</div>
 </body>
 <script>
 	var oBox=document.getElementById('box');
+	var oBtn=document.getElementById('btn');
 	var aSon=oBox.children;
 	var cols=6;
 	var iWidth=100;
 	var iHeight=100;
 	var iMargin=15;
-	for(var i=0;i<aSon.length;i++){
-		
-		var iCols=i%cols;
-		var iRows=parseInt(i/cols);
-		aSon[i].style.left=iCols*(iWidth+iMargin)+'px';
-		aSon[i].style.top=iRows*(iHeight+iMargin)+'px';
+
+	oBtn.onclick=function(){
+			// alert(99)
+			//先克隆再排序
+			var newBox=aSon[0].cloneNode(true);
+			oBox.appendChild(newBox);
+
+			for(var i=0;i<aSon.length;i++){
+			
+			var iCols=i%cols;
+			var iRows=parseInt(i/cols);
+			aSon[i].style.left=iCols*(iWidth+iMargin)+'px';
+			aSon[i].style.top=iRows*(iHeight+iMargin)+'px';
+
+			
+		}
 	}
 </script>
 </html>
