@@ -6,8 +6,8 @@
 	<script>
 		var arr = [3,22,2,10,8,33,6,53];
 		console.log('操作前',arr);
-		arr.sort(
-			function(n1,n2){
+		arr.sort(function(n1,n2){
+				console.log(n1,n2);
 				/*
 				if(n1>n2){
 					return 1;
@@ -18,8 +18,7 @@
 				}
 				*/
 				return n1-n2
-			}
-			)
+			})
 		console.log('冒泡排序后',arr);
 	</script>
 </head>
