@@ -31,6 +31,7 @@ for(var i=0; i<aBtn.length;i++){
 
 
 /*top购物车*/
+/*
 var oCartHover = document.getElementById('cart-hover');
 var oCartMenu = document.getElementById('cart-menu');
 oCartHover.onmouseover = function(){
@@ -39,6 +40,7 @@ oCartHover.onmouseover = function(){
 oCartHover.onmouseout = function(){
 	oCartMenu.style.display='none';
 }
+*/
 /*header全部商品*/
 var oCategoryHover = document.getElementById('category-hover');
 var oCategory = document.getElementById('category');
