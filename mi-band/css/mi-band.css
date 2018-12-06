@@ -158,7 +158,16 @@
     padding: 35px 12px 0;
     text-align: center;
 }
-
+.header-nav .com-nav .children-list .right-line:after{
+	position: absolute;
+    top: 46px;
+    left: 205px;
+    display: block;
+    content: '';
+    width: 1px;
+    height: 100px;
+    background: #e0e0e0;
+}
 
 .header-nav .com-nav .children-list li .product-bg{
 	position: absolute;
