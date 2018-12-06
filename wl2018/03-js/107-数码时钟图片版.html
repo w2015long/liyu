@@ -35,21 +35,20 @@
 <script>
 	var oTimer=document.getElementById('timer');
 	var aImg=oTimer.children;
+	console.log(aImg)
 	function to2Str(num){
-		
 		return num<10 ? '0'+num :''+num;
 	}
-	
-	function handelTimer(){
+	function handlerTimer(){
 		var today=new Date();
 		var iHour=today.getHours(),iMinute=today.getMinutes(),iSecond=today.getSeconds();
-		var sTimer=to2Str(iHour)+to2Str(iMinute)+to2Str(iSecond);
-		// oTimer.innerHTML=sTimer
+		var clock=to2Str(iHour)+to2Str(iMinute)+to2Str(iSecond);
+		console.log(clock);
 		for(var i=0;i<aImg.length;i++){
-			aImg[i].src="images/'+sTimer[i]+'.png"
+			aImg[i].src="images/"+clock[i]+".png";
 		}
 	}
-	setInterval(handelTimer,1000);
-	handelTimer();
+	setInterval(handlerTimer,1000);
+	handlerTimer();
 </script>
 </html>

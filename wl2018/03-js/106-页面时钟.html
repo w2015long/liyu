@@ -33,8 +33,8 @@
 	function handelTimer(){
 		var today=new Date();
 		var iHour=today.getHours(),iMinute=today.getMinutes(),iSecond=today.getSeconds();
-		var sTimer=to2Str(iHour)+':'+to2Str(iMinute)+':'+to2Str(iSecond);
-		oTimer.innerHTML=sTimer
+		var clock=to2Str(iHour)+':'+to2Str(iMinute)+':'+to2Str(iSecond);
+		oTimer.innerHTML=clock
 	}
 	setInterval(handelTimer,1000);
 	handelTimer();
