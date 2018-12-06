@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>108-倒计时.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#timer{
+			width: 400px;
+			text-align: center;
+			color: #ff6700;
+			margin: 100px auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="timer">
+		
+	</div>
+</body>
+<script>
+	var oTimer=document.getElementById('timer');
+	// oTimer.innerHTML='距离结束还有x小时y分钟z秒';
+	var endTime = new Date('2018/12/07 20:29:30');
+
+	
+	
+
+
+	
+	function to2Str(num){
+		
+		return num<10 ? '0'+num :''+num;
+	}
+	
+	function handelTimer(){
+		var endTimer=endTime.getTime();
+		var allMilliSeconds=endTimer-Date.now();
+		var allSeconds=allMilliSeconds/1000;
+		var iHour=parseInt(allSeconds/3600);
+		var iMinute=parseInt(allSeconds%3600/60);
+		var iSecond=parseInt(((allSeconds%3600)%360)%60);
+		oTimer.innerHTML='距离结束还有'+to2Str(iHour)+'小时'+to2Str(iMinute)+'分钟'+to2Str(iSecond)+'秒';
+
+	}
+	setInterval(handelTimer,1000);
+	handelTimer();
+</script>
+</html>

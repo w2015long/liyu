@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>107-页面时钟-图片.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background: #000;
+		}
+		#timer{
+			width: 400px;
+			text-align: center;
+			font-size: 30px;
+			color:#fff;
+			margin: 100px auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="timer">
+		<img src="" alt="">
+		<img src="" alt="">
+		:
+		<img src="" alt="">
+		<img src="" alt="">
+		:
+		<img src="" alt="">
+		<img src="" alt="">
+	</div>
+</body>
+<script>
+	var oTimer=document.getElementById('timer');
+	var aImg=oTimer.children;
+	function to2Str(num){
+		
+		return num<10 ? '0'+num :''+num;
+	}
+	
+	function handelTimer(){
+		var today=new Date();
+		var iHour=today.getHours(),iMinute=today.getMinutes(),iSecond=today.getSeconds();
+		var sTimer=to2Str(iHour)+to2Str(iMinute)+to2Str(iSecond);
+		// oTimer.innerHTML=sTimer
+		for(var i=0;i<aImg.length;i++){
+			aImg[i].src="images/'+sTimer[i]+'.png"
+		}
+	}
+	setInterval(handelTimer,1000);
+	handelTimer();
+</script>
+</html>
