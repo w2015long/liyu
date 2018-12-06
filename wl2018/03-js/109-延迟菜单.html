@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>109-延迟菜单.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 466px;
+			height: 400px;
+			margin: 100px auto;
+		}
+		#left{
+			float: left;
+			margin-right: 16px;
+			width: 50px;
+			height: 400px;
+			background: #f67;
+		}
+		#right{
+			float: left;
+			display: none;
+			width: 400px;
+			height: 400px;
+			background: purple;
+
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div id="left"></div>
+		<div id="right"></div>
+
+	</div>
+</body>
+<script type="text/javascript">
+	var oLeft=document.getElementById('left');
+	var oRight=document.getElementById('right');
+	var timer=0;
+	/*
+	oLeft.onmouseover=function(){
+		clearTimeout(timer);
+		oRight.style.display='block';
+	}
+	oLeft.onmouseout=function(){
+		timer=setTimeout(function(){
+			oRight.style.display='none';
+		},500)
+	}
+	oRight.onmouseover=function(){
+		clearTimeout(timer);
+		oRight.style.display='block';
+	}
+	oRight.onmouseout=function(){
+		timer=setTimeout(function(){
+			oRight.style.display='none';
+		},500)
+	}
+	*/
+	oLeft.onmouseover=oRight.onmouseover=function(){
+		clearTimeout(timer);
+		oRight.style.display='block';
+	}
+	oLeft.onmouseout=oRight.onmouseout=function(){
+		timer=setTimeout(function(){
+			oRight.style.display='none';
+		},500)
+	}
+</script>
+</html>
