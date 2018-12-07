@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>115-document相关值.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+console.log('document.compatMode',document.compatMode)//当前浏览器的渲染模式标准模式,写DOCTYPE的页面按照标准模式解析,
+console.log('document.compatMode',document.compatMode)//的返回值是CSS1Compat混杂模式(也叫怪异模式),不写DOCTYPE的页面按照混杂模式解析,document.compatMode的返回值是BackCompat
+console.log('document.documentElement',document.documentElement)//返回文档对象（document）的根元素的只读属性（通常指HTML文档的 <html> 元素）
+console.log('document.body',document.body)//返回当前文档中的<body>元素
+</script>
+</html>
