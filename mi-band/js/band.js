@@ -17,7 +17,7 @@ oCategory.onmouseout=function(){
 }
 //固定导航栏
 window.onscroll=function(){
-    var topScroll =document.body.scrollTop;//滚动的距离,距离顶部的距离
+    var topScroll =document.body.scrollTop||document.documentElement.scrollTop;//滚动的距离,距离顶部的距离
     var bignav  = document.getElementById("bignav");//获取到导航栏id
     console.log(bignav)
     if(topScroll > 140){  //当滚动距离大于140px时执行下面的东西

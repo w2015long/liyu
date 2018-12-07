@@ -352,8 +352,10 @@
 	/*background: red;*/
 }
 .home .nav-bar{
+	width: 1226px;
 	border-top: 1px solid #e0e0e0;
 	border-bottom: 1px solid #e0e0e0;
+	background: #fff;
 	/*box-shadow: 5px 0 20px rgba(0,0,0,0.3);*/
 }
 .home .nav-bar .title{
