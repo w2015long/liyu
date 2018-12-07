@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>110-轮播图carousel.html</title>
+	<title>113-轮播图课堂讲解carousel.html</title>
 	<style>
 		*{
 			margin: 0;
@@ -28,6 +28,7 @@
 			position: absolute;
 			bottom: 25px;
 		    right: 35px;
+		    z-index: 999;
 		}
 		.carousel li{
 			float: left;
@@ -42,10 +43,7 @@
 			border-color: #8f8d95;
 			background: #eeebf8;	
 		}
-/*		.carousel li:hover{
-			border-color: #8f8d95;
-			background: #eeebf8;
-		}*/
+
 		.carousel .arrow{
 			position: absolute;
 			top: 50%;
@@ -57,6 +55,8 @@
 			font-size: 30px;
 			font-weight: 500;
 			color: #fff;
+			z-index: 999;
+			user-select: none;
 		}
 		.carousel .left-arrow{
 			left: 234px;
@@ -103,14 +103,79 @@
 	</div>
 </body>
 <script>
+	var oLeft=document.querySelector('.left-arrow')
+	var oRight=document.querySelector('.right-arrow')
+	var aImg=document.querySelectorAll('.carousel-imgs-item');
+	var aBtn=document.querySelector('.carousel-btn').children;
+	var now=0;
+		function Imgchanges(){
+	 		for(var i=0;i<aImg.length;i++){
+	 			aImg[i].style.zIndex = '0';
+	 			aBtn[i].className='';
+
+	 		}
+	 		aImg[now].style.zIndex = '9';
+	 		aBtn[now].className='active';
+		}
+	//点击右键
+ 	oRight.onclick=function(){
+ 		now++
+ 		if(now>=aImg.length){
+ 			now=0;
+ 		}
+ 		Imgchanges()
+ 	}
+ 	oLeft.onclick=function(){
+ 		now--
+ 		if(now<0){
+ 			now=aImg.length-1;
+ 		}
+ 		Imgchanges()
+ 	}
+ 	for(var i=0;i<aImg.length;i++){
+ 		aBtn[i].index=i;
+ 		aBtn.onclick=function(){
+	 		now=this.index;
+	 		Imgchanges();
+ 		}
+ 	}
+ 	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 	var timer=null;
 	var index=0;
 	var oViewImgs=document.getElementsByClassName('carousel-imgs-item');
 	var oBtn=document.getElementById('btn');
 	var oCarousel=document.getElementById('carousel');
 	var oBanner=document.getElementById('banner');
-	console.log(oBanner);
-
 	function slideImg(){
 		oCarousel.onmouseover=function(){
 			stopAutoPlay()
@@ -153,5 +218,6 @@
 		// oBtn[index].className='active';
 	}
 	slideImg();
+	*/
 </script>
 </html>
