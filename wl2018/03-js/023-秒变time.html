@@ -7,7 +7,8 @@
 		var iSecond = 6789;
 		var hour = parseInt(iSecond/3600);
 		var minute = parseInt((iSecond%3600)/60);
-		var second =((iSecond%3600)%360)%60;
+		var second =parseInt(iSecond%60);
+/*
 		if(hour < 10){
 			hour = '0' + hour;
 		}
@@ -18,6 +19,12 @@
 			second = '0' + second;
 		}
 		alert(hour+':'+minute+':'+second);
+*/
+toDoubleString
+		function toDoubleString(num){
+			return num<10 ? '0'+num :''+num;
+		}
+		alert(toDoubleString(hour)+':'+toDoubleString(minute)+':'+toDoubleString(second));	
 	</script>
 </head>
 <body>
