@@ -57,9 +57,12 @@
 			font-size: 30px;
 			font-weight: 500;
 			color: #fff;
+			background: rgba(50,50,50,0.5);
+			user-select: none;
+
 		}
 		.carousel .left-arrow{
-			left: 234px;
+			left: 24px;
 		}
 		.carousel .right-arrow{
 			right: 0px;
@@ -84,7 +87,7 @@
 </head>
 <body>
 	<div class="carousel" id="carousel">
-		<ul class="carousel-imgs" id="banner">
+		<ul class="carousel-imgs">
 			<li class="carousel-imgs-item"><img src="images/b3.jpg" alt=""></li>
 			<li class="carousel-imgs-item"><img src="images/b2.jpg" alt=""></li>
 			<li class="carousel-imgs-item"><img src="images/b1.jpg" alt=""></li>
@@ -94,7 +97,7 @@
 		<span class="arrow left-arrow">&lt;</span>
 		<span class="arrow right-arrow">&gt;</span>
 		<ul class="carousel-btn">
-			<li  id="btn" class="active"></li>
+			<li  id="btn"></li>
 			<li  id="btn"></li>
 			<li  id="btn"></li>
 			<li  id="btn"></li>
@@ -104,13 +107,20 @@
 </body>
 <script>
 	var timer=null;
-	var index=0;
-	var oViewImgs=document.getElementsByClassName('carousel-imgs-item');
-	var oBtn=document.getElementById('btn');
+	var now=0;
+	var aImgs=document.getElementsByClassName('carousel-imgs-item');
+	var aBtn=document.getElementById('btn');
 	var oCarousel=document.getElementById('carousel');
-	var oBanner=document.getElementById('banner');
-	console.log(oBanner);
 
+	//改变轮播图
+	function changesImg(){
+		for(var i=0;i<aImgs.length;i++){
+			aImgs[i].style.zIndex = '0';
+			// aBtn[i].className='';
+		}
+		aImgs[now].style.zIndex = '9';
+		aBtn[now].className='active';
+	}
 	function slideImg(){
 		oCarousel.onmouseover=function(){
 			stopAutoPlay()
@@ -118,21 +128,21 @@
 		oCarousel.onmouseout=function(){
 			startAutoPlay()
 		}
-		//点击小圆点切换图片
-		for(var i=0;i<oBtn.length;i++){
-			oBtn[i].id=i; //给每一个btn绑定一个事件
-			oBtn[i].onclick=function(){
-				index=this.id;
-				changesImg();
-			}
+	}
+	//点击小圆点切换图片
+	for(var i=0;i<aBtn.length;i++){
+		aBtn[i].index=i; //给每一个btn绑定一个事件
+		aBtn[i].onclick=function(){
+			now=this.index;
+			changesImg();
 		}
 	}
 	//播放轮播图
 	function startAutoPlay(){
 		timer=setInterval(function(){
-			index++;
-			if(index>=oViewImgs.length){
-				index=0;
+			now++;
+			if(now>=aImgs.length){
+				now=0;
 			}
 			changesImg();
 		},1000)
@@ -143,15 +153,7 @@
 			clearInterval(timer);
 		}
 	}
-	//改变轮播图
-	function changesImg(){
-		for(var i=0;i<oViewImgs.length;i++){
-			oViewImgs[i].style.zIndex = '0';
-			oBtn[i].className='';
-		}
-		oViewImgs[index].style.zIndex = '9';
-		// oBtn[index].className='active';
-	}
+
 	slideImg();
 </script>
 </html>
