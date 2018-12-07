@@ -8,6 +8,9 @@
 			margin: 0;
 			padding: 0;
 		}
+		body{
+			background: rgba(0,0,0,0.8);
+		}
 		li{
 			list-style: none;
 		}
@@ -35,10 +38,14 @@
 			border-radius: 50%;
 			background: #888592;
 		}
-		.carousel .carousel-btn-item:hover{
+		.carousel .active{
+			border-color: #8f8d95;
+			background: #eeebf8;	
+		}
+/*		.carousel .carousel-btn-item:hover{
 			border-color: #8f8d95;
 			background: #eeebf8;
-		}
+		}*/
 		.carousel .arrow{
 			position: absolute;
 			top: 50%;
@@ -76,14 +83,16 @@
 	</style>
 </head>
 <body>
-	<div class="carousel">
-		<ul class="carousel-imgs">
+	<div class="carousel" id="carousel">
+		<ul class="carousel-imgs" id="banner">
 			<li class="carousel-imgs-item"><img src="images/b3.jpg" alt=""></li>
 			<li class="carousel-imgs-item"><img src="images/b2.jpg" alt=""></li>
 			<li class="carousel-imgs-item"><img src="images/b1.jpg" alt=""></li>
+			<li class="carousel-imgs-item"><img src="images/carousel2.jpg" alt=""></li>
+			<li class="carousel-imgs-item"><img src="images/carousel3.jpg" alt=""></li>
 		</ul>
-		<span class="arrow left-arrow iconfont">&lt;</span>
-		<span class="arrow right-arrow iconfont">&gt;</span>
+		<span class="arrow left-arrow">&lt;</span>
+		<span class="arrow right-arrow">&gt;</span>
 		<ul class="carousel-btn">
 			<li class="carousel-btn-item"></li>
 			<li class="carousel-btn-item"></li>
@@ -94,6 +103,31 @@
 	</div>
 </body>
 <script>
-	
+	var oViewImgs=document.getElementsByClassName('carousel-imgs-item');
+	var oBtn=document.getElementsByClassName('carousel-btn-item');
+	var oCarousel=document.getElementById('carousel');
+	var oBanner=document.getElementById('banner');
+	function slideImg(){
+		oCarousel.onmouseover=function(){
+			stopAutoPlay()
+		}
+		oCarousel.onmouseout=function(){
+			startAutoPlay()
+		}
+		//点击小圆点切换图片
+		for(var i=0;i<oBtn.length;i++){
+			oBtn[i].id=i; //给每一个btn绑定一个事件
+			oBtn[i].onclick=function(){
+				index=this.id;
+				changesImg();
+			}
+		}
+	}
+	//播放轮播图
+	function stopAutoPlay(){
+		setInterval(function(){
+			index++
+		},1000)
+	}
 </script>
 </html>

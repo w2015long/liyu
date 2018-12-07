@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>111-JS网络上实现简单的轮播图.html</title>
+    <style>
+    	*{
+    		margin: 0;
+    		padding: 0;
+    	}
+		body{
+			background: rgba(0,0,0,0.8);
+		}
+		.main {
+		    width: 1200px;
+		    height: auto;
+		    margin: 50px auto;
+		    overflow: hidden;
+		}
+		 
+		.nav {
+		    width: 1200px;
+		    height: 80px;
+		}
+		 
+		ul {list-style-type: none;}
+		 
+		li {
+		    float: left;
+		    width: 25%;
+		    height: 80px;
+		    text-align: center;
+		    line-height: 80px;
+		    cursor: pointer;
+		}
+		 
+		.changeColor {
+			color: #fff;
+		    background: #f67;
+		    border-radius: 5px;
+		}
+		 
+		.banner {
+		    width: 1200px;
+		    height: 460px;
+		    overflow: hidden;
+		}
+		 
+		.banner-slide {
+		    width: 1200px;
+		    height: 460px;
+		    background-repeat: no-repeat;
+		    background-size: cover;
+		    position: absolute;
+		}
+		 
+		.slide1 {
+		    background-image: url("images/carousel1.jpg");
+		}
+		.slide2 {
+		    background-image: url("images/carousel2.jpg");
+		}
+		.slide3 {
+		    background-image: url("images/carousel3.jpg");
+		}
+		.slide4 {
+		    background-image: url("images/carousel4.jpg");
+		}
+    </style>
+</head>
+<body>
+    <div class="main" id="main">
+        <div class="nav" id="nav">
+            <ul>
+                <li class="changeColor">小米8</li>
+                <li>小米MIX3</li>
+                <li>小米电视</li>
+                <li>小米音响</li>
+            </ul>
+        </div>
+        <div class="banner" id="banner">
+            <a href="#">
+                <div class="banner-slide slide1"></div>
+            </a>
+            <a href="#">
+                <div class="banner-slide slide2"></div>
+            </a>
+            <a href="#">
+                <div class="banner-slide slide3"></div>
+            </a>
+            <a href="#">
+                <div class="banner-slide slide4"></div>
+            </a>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+		var timer = null,
+    	index = 0,
+    	pics = document.getElementsByClassName("banner-slide"),
+    	lis = document.getElementsByTagName("li");
+ 
+ 
+		//封装一个代替getElementById()的方法
+		function byId(id){
+		    return typeof(id) === "string"?document.getElementById(id):id;
+		}
+		 
+		function slideImg() {
+		    var main = byId("main");
+		    var banner = byId("banner");
+		    main.onmouseover = function(){
+		        stopAutoPlay();
+		    }
+		    main.onmouseout = function(){
+		        startAutoPlay();
+		    }
+		 
+		    //点击导航栏切换图片
+		    for(var i=0;i<pics.length;i++){
+		        lis[i].id = i;//给每个li项绑定点击事件
+		        lis[i].onclick = function(){
+		          
+		            index = this.id;//获取当前li项的index值
+		            changeImg();
+		        }
+		    }
+		}
+		//开始播放轮播图
+		function startAutoPlay(){
+		    timer = setInterval(function(){
+		        index++;
+		        if(index>3){
+		            index = 0;
+		        }
+		        changeImg();
+		    },1000);
+		}
+		//暂停播放
+		function stopAutoPlay(){
+		    if (timer) {
+		        clearInterval(timer);
+		    }
+		}
+		//改变轮播图
+		function changeImg(){
+		    for(var i=0;i<pics.length;i++){
+		        pics[i].style.zIndex = '0';
+		        lis[i].className = "";
+		    }
+		    pics[index].style.zIndex = '9';
+		    lis[index].className = "changeColor";
+		}
+		slideImg();
+</script>
+</html>
