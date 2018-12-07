@@ -57,9 +57,11 @@
 			color: #fff;
 			z-index: 999;
 			user-select: none;
+			background: rgba(50,50,50,0.5);
+
 		}
 		.carousel .left-arrow{
-			left: 234px;
+			left: 22px;
 		}
 		.carousel .right-arrow{
 			right: 0px;
@@ -74,6 +76,7 @@
 			left: 0;
 			width: 1226px;
 			height: 460px;
+			transition: all 0.4s linear;
 		}
 		.carousel .carousel-imgs .carousel-imgs-item img{
 			display: block;
@@ -94,7 +97,7 @@
 		<span class="arrow left-arrow">&lt;</span>
 		<span class="arrow right-arrow">&gt;</span>
 		<ul class="carousel-btn">
-			<li  id="btn" class="active"></li>
+			<li  id="btn"></li>
 			<li  id="btn"></li>
 			<li  id="btn"></li>
 			<li  id="btn"></li>
@@ -107,38 +110,58 @@
 	var oRight=document.querySelector('.right-arrow')
 	var aImg=document.querySelectorAll('.carousel-imgs-item');
 	var aBtn=document.querySelector('.carousel-btn').children;
+	var oMain=document.getElementById('carousel');
 	var now=0;
-		function Imgchanges(){
-	 		for(var i=0;i<aImg.length;i++){
-	 			aImg[i].style.zIndex = '0';
-	 			aBtn[i].className='';
+	var timer=null;
+	//改变轮播图
+	function imgChanges(){
+ 		for(var i=0;i<aImg.length;i++){
+ 			aImg[i].style.zIndex = '0';
+ 			aImg[i].style.opacity = '0';
+ 			aBtn[i].className='';
 
-	 		}
-	 		aImg[now].style.zIndex = '9';
-	 		aBtn[now].className='active';
-		}
+ 		}
+ 		aImg[now].style.zIndex = '9';
+ 		aImg[now].style.opacity = '1';
+ 		aBtn[now].className='active';
+	}
 	//点击右键
  	oRight.onclick=function(){
  		now++
  		if(now>=aImg.length){
  			now=0;
  		}
- 		Imgchanges()
+ 		imgChanges()
  	}
  	oLeft.onclick=function(){
  		now--
  		if(now<0){
  			now=aImg.length-1;
  		}
- 		Imgchanges()
+ 		imgChanges()
  	}
+ 	//底部按钮事件
  	for(var i=0;i<aImg.length;i++){
  		aBtn[i].index=i;
- 		aBtn.onclick=function(){
+ 		aBtn[i].onclick=function(){
 	 		now=this.index;
-	 		Imgchanges();
+	 		imgChanges();
  		}
  	}
+
+ 	//自动播放
+ 	timer = setInterval(oRight.onclick,1500);
+ 	//放到carousel区关闭定时器
+ 	oMain.onmouseover=function(){
+ 		clearInterval(timer);
+ 	}
+ 	//离开carousel区自动播放
+ 	oMain.onmouseout=function(){
+ 		timer = setInterval(oRight.onclick,1500);
+
+ 	}
+
+
  	
 
 
