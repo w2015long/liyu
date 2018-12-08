@@ -435,7 +435,7 @@
 	left: 0;
 }
 .home .pro-view .carousel .right-arrow{
-	right: 0;
+	left: 514px;
 }
 .home .pro-view .carousel .pager{
 	position: absolute;
