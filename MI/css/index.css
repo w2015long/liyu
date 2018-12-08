@@ -190,6 +190,7 @@
 	border: 1px solid #ff6700;
 	box-sizing: border-box;
 	border-top: none;
+	background: #fff;
 }
 .header .search .search-list-wards .search-list-wards-item a{
 	display: inline-block;
@@ -252,20 +253,27 @@
 	position: absolute;
 	bottom: 25px;
     right: 35px;
+    z-index: 88;	
 }
-.home .banner .carousel .carousel-btn-item{
-	float: right;
+.home .banner .carousel li{
+	float: left;
 	width: 6px;
 	height: 6px;
 	margin-left: 12px;
 	border: 2px solid #acaab3;
 	border-radius: 50%;
 	background: #888592;
+
 }
-.home .banner .carousel .carousel-btn-item:hover{
+.home .banner .carousel .active{
 	border-color: #8f8d95;
 	background: #eeebf8;
+
 }
+/*.home .banner .carousel .carousel-btn-item:hover{
+	border-color: #8f8d95;
+	background: #eeebf8;
+}*/
 .home .banner .carousel .arrow{
 	position: absolute;
 	top: 50%;
@@ -277,6 +285,8 @@
 	font-size: 30px;
 	font-weight: 500;
 	color: #fff;
+	user-select: none;
+	z-index: 88;
 }
 .home .banner .carousel .left-arrow{
 	left: 234px;
