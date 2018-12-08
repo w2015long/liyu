@@ -405,10 +405,11 @@
 	left: 0;
 	width: 554px;
 	height: 756px;
-	padding: 70px 0px 101px;
+	padding: 70px 0px 101px 0px;
 	/*background: red;*/
 }
 .home .pro-view .carousel-item .carousel-img{
+	position: relative;
 	width: 100%;
 	height: 100%;
 }
@@ -423,6 +424,8 @@
 	font-size: 32px;
 	font-weight: 400;
 	color: #999;
+	user-select: none;
+	z-index: 99;
 }
 .home .pro-view .carousel .arrow:hover{
 	background: rgba(0,0,0,0.5);
@@ -433,6 +436,25 @@
 }
 .home .pro-view .carousel .right-arrow{
 	right: 0;
+}
+.home .pro-view .carousel .pager{
+	position: absolute;
+	left: 0;
+	bottom: -26px;
+	width: 554px;
+	height: 18px;
+	line-height: 18px;
+	text-align: center;
+	z-index: 99;
+}
+.home .pro-view .carousel .pager span{
+	display: inline-block;
+	width: 60px;
+	height: 2px;
+	background: rgba(0,0,0,0.4);
+}
+.home .pro-view .carousel .pager .active{
+	background: #666;
 }
 .home .pro-info{
 	float: left;
