@@ -17,7 +17,8 @@ oCategory.onmouseout=function(){
 }
 //固定导航栏
 window.onscroll=function(){
-    var topScroll =document.body.scrollTop||document.documentElement.scrollTop;//滚动的距离,距离顶部的距离
+    //滚动的距离,距离顶部的距离
+    var topScroll =document.body.scrollTop||document.documentElement.scrollTop;
     var bignav  = document.getElementById("bignav");//获取到导航栏id
     if(topScroll > 140){  //当滚动距离大于140px时执行下面的东西
         bignav.style.position = 'fixed';
@@ -26,7 +27,38 @@ window.onscroll=function(){
     }else{//当滚动距离小于140的时候执行下面的内容，也就是让导航栏恢复原状
         bignav.style.position = 'static';
     }
+    console.log(topScroll);
+    //固定carousel客户区
+    var oMain=document.getElementById('main');
+    console.log(oMain);
+    //滚动的距离,距离顶部的距离
+    if(topScroll>200&&topScroll<720){
+        oMain.style.position = 'fixed';
+        oMain.style.top = '1px';
+        oMain.style.zIndex = '9988';
+    }else{//当滚动距离不在区间范围时候执行下面的内容，也就是让导航栏恢复原状
+        oMain.style.position = 'static';
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //carousel轮播图
 //封装一个获取元素ID的函数
 function byId(id){

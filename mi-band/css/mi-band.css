@@ -397,7 +397,8 @@
 .home .pro-view .carousel{
 	position: relative;
 	width: 554px;
-	height: 762px;
+	height: 560px;
+	padding-bottom:80px; 
 }
 .home .pro-view .carousel-item{
 	position: absolute;
@@ -415,7 +416,7 @@
 .home .pro-view .carousel .arrow{
 	position: absolute;
 	top: 50%;
-	margin-top: -40px;
+	margin-top: 28px;
 	width: 40px;
 	height: 70px;
 	text-align: center;
@@ -439,7 +440,7 @@
 .home .pro-view .carousel .pager{
 	position: absolute;
 	left: 0;
-	bottom: 76px;
+	bottom: 0px;
 	width: 554px;
 	height: 18px;
 	line-height: 18px;
@@ -553,7 +554,7 @@
 	width: 300px;
 	height: 44px;
 	line-height: 44px;
-	border: 1px solid #ff6700;
+	border: 1px dashed #ff6700;
 	text-align: center;
 	margin-bottom: 30px;
 
@@ -568,6 +569,7 @@
 .home .pro-info .band-main .choose-color .color-box a i{
 	vertical-align: -2px;
 	margin-right: 8px;
+	color: #000;
 }
 .home .pro-info .band-main .pro-list{
 	/*width: 546px;*/
