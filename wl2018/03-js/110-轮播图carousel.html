@@ -28,6 +28,7 @@
 			position: absolute;
 			bottom: 25px;
 		    right: 35px;
+		    z-index: 88;
 		}
 		.carousel li{
 			float: left;
@@ -59,6 +60,7 @@
 			color: #fff;
 			background: rgba(50,50,50,0.5);
 			user-select: none;
+			z-index: 88;
 
 		}
 		.carousel .left-arrow{
@@ -77,6 +79,7 @@
 			left: 0;
 			width: 1226px;
 			height: 460px;
+			transition: all 0.6s linear;
 		}
 		.carousel .carousel-imgs .carousel-imgs-item img{
 			display: block;
@@ -109,25 +112,29 @@
 	var timer=null;
 	var now=0;
 	var aImgs=document.getElementsByClassName('carousel-imgs-item');
-	var aBtn=document.getElementById('btn');
+	var aBtn=document.querySelectorAll('#btn');
 	var oCarousel=document.getElementById('carousel');
-
+	var oRight=document.querySelector('.right-arrow');
+	var oLeft=document.querySelector('.left-arrow');
+	console.log(oLeft);
 	//改变轮播图
 	function changesImg(){
 		for(var i=0;i<aImgs.length;i++){
 			aImgs[i].style.zIndex = '0';
-			// aBtn[i].className='';
+			aImgs[i].style.opacity='0';
+			aBtn[i].className='';
 		}
 		aImgs[now].style.zIndex = '9';
+		aImgs[now].style.opacity='1';		
 		aBtn[now].className='active';
 	}
-	function slideImg(){
-		oCarousel.onmouseover=function(){
-			stopAutoPlay()
-		}
-		oCarousel.onmouseout=function(){
-			startAutoPlay()
-		}
+	//鼠标放上main区暂停播放
+	oCarousel.onmouseover=function(){
+		stopAutoPlay()
+	}
+	//鼠标离开main区自动播放
+	oCarousel.onmouseout=function(){
+		startAutoPlay()
 	}
 	//点击小圆点切换图片
 	for(var i=0;i<aBtn.length;i++){
@@ -137,15 +144,26 @@
 			changesImg();
 		}
 	}
+	//右边按钮事件
+	oRight.onclick=function(){
+		now++
+		if(now>=aImgs.length){
+			now=0;
+		}
+		changesImg();
+	}
+	//左边按钮事件
+	oLeft.onclick=function(){
+		now--
+		if(now<0){
+			now=aImgs.length-1
+		}
+		changesImg();
+	}
+
 	//播放轮播图
 	function startAutoPlay(){
-		timer=setInterval(function(){
-			now++;
-			if(now>=aImgs.length){
-				now=0;
-			}
-			changesImg();
-		},1000)
+		timer=setInterval(oRight.onclick,1000);
 	}
 	//暂停播放
 	function stopAutoPlay(){
@@ -153,7 +171,5 @@
 			clearInterval(timer);
 		}
 	}
-
-	slideImg();
 </script>
 </html>
