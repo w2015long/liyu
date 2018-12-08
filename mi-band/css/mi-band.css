@@ -401,22 +401,21 @@
 }
 .home .pro-view .carousel-item{
 	position: absolute;
-	top: 0px;
+	top: 92px;
 	left: 0;
 	width: 554px;
-	height: 756px;
-	padding: 70px 0px 101px 0px;
-	/*background: red;*/
+	height: 560px;
 }
 .home .pro-view .carousel-item .carousel-img{
 	position: relative;
 	width: 100%;
 	height: 100%;
+	transition: all 0.4s linear;
 }
 .home .pro-view .carousel .arrow{
 	position: absolute;
 	top: 50%;
-	margin-top: -35px;
+	margin-top: -40px;
 	width: 40px;
 	height: 70px;
 	text-align: center;
@@ -440,7 +439,7 @@
 .home .pro-view .carousel .pager{
 	position: absolute;
 	left: 0;
-	bottom: -26px;
+	bottom: 76px;
 	width: 554px;
 	height: 18px;
 	line-height: 18px;

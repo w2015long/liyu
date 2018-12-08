@@ -38,13 +38,16 @@ var oRight=byId('right-arrow');
 var aImg=document.querySelectorAll('#imgs');
 var aFollow=document.querySelectorAll('#follow');
 var now=0;
+var timer=null;
 //改变轮播图
 function changesImg(){
     for(var i=0;i<aImg.length;i++){
        aImg[i].style.zIndex='0';
+       aImg[i].style.opacity='0.2';
        aFollow[i].className=''; 
     }
     aImg[now].style.zIndex='89';
+    aImg[now].style.opacity='1';
     aFollow[now].className='active';
 }
 //右边按钮添加事件
@@ -54,4 +57,39 @@ oRight.onclick=function(){
         now=0;
     }
     changesImg();
+}
+//左边按钮事件
+oLeft.onclick=function(){
+    now--
+    if(now<0){
+        now=aImg.length-1;
+    }
+    changesImg();
+}
+//点击follow切换图片
+for(var i=0;i<aImg.length;i++){
+    aFollow[i].index=i;//给每一个aFollow绑定一个事件
+    aFollow.onclick=function(){
+        now=this.index;
+        changesImg(); 
+    }
+}
+//自动播放轮播图
+function startAutoPlay(){
+    timer=setInterval(oRight.onclick,1000);
+}
+startAutoPlay();
+//暂停播放
+function stopAutoPlay(){
+    if(timer){
+        clearInterval(timer);
+    }
+}
+//鼠标离开main区自动播放
+oMain.onmouseout=function(){
+    startAutoPlay();
+}
+//鼠标放到main区停止播放
+oMain.onmouseover=function(){
+    stopAutoPlay();
 }
