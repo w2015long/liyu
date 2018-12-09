@@ -46,6 +46,7 @@
 			iSpeed = 10;
 		}
 		timer=setInterval(function(){
+			console.log('当前第'+timer+'个定时器')
 			if(oBox.offsetLeft==500){
 				clearInterval(timer)
 			}else{
