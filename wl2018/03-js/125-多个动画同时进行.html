@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>125-多个动画同时进行.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.container{
+			width: 400px;
+			margin: 80px auto;
+		}
+		.container div{
+			width: 100px;
+			height: 100px;
+			background-color: #f00;
+			opacity: 1;
+			margin-top: 10px;	
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div id="box1">变宽</div>
+		<div id="box2">变高</div>
+		<div id="box3">变透明</div>
+	</div>
+</body>
+<script>
+	var oBox1=document.getElementById('box1');
+	var oBox2=document.getElementById('box2');
+	var oBox3=document.getElementById('box3');
+	// var timer=null;
+	oBox1.onmouseover=function(){
+		//防止同时开启多个定时器,在设置定时器前需要清除定时器
+		clearInterval(oBox1.timer)
+		//定义变量iSpeed
+		var iSpeed=null;
+
+		timer=setInterval(function(){
+			console.log('当前第'+timer+'个定时器')
+			if(oBox1.offsetWidth>600){
+				iSpeed = -6;
+			}else{
+				iSpeed = 6;
+			}			
+			if(Math.abs(600-oBox1.offsetWidth)<Math.abs(iSpeed)){
+				oBox1.style.width='600px'
+				clearInterval(oBox1.timer)
+			}else{
+				oBox1.style.width=oBox1.offsetWidth+iSpeed+'px';
+			}
+			// console.log(oBox1.offsetLeft,iSpeed)
+		},30)
+
+	}	
+	oBox2.onmouseover=function(){
+		//防止同时开启多个定时器,在设置定时器前需要清除定时器
+		clearInterval(oBox2.timer)
+		//定义变量iSpeed
+		var iSpeed=null;
+
+		timer=setInterval(function(){
+			console.log('当前第'+timer+'个定时器')
+			if(oBox2.offsetHeight>600){
+				iSpeed = -6;
+			}else{
+				iSpeed = 6;
+			}			
+			if(Math.abs(600-oBox2.offsetHeight)<Math.abs(iSpeed)){
+				oBox2.style.height='600px'
+				clearInterval(oBox2.timer)
+			}else{
+				oBox2.style.height=oBox2.offsetHeight+iSpeed+'px';
+			}
+			// console.log(oBox2.offsetLeft,iSpeed)
+		},30)
+
+	}
+	oBox3.onmouseover=function(){
+		//防止同时开启多个定时器,在设置定时器前需要清除定时器		
+		clearInterval(oBox3.timer)
+
+		// console.log(getComputedStyle(oBox,false)['opacity']);
+
+		//定义变量iSpeed
+		var iSpeed=null;
+
+		timer=setInterval(function(){
+			var current=parseFloat(getComputedStyle(oBox3,false)['opacity']);
+			current=Math.round(current*1000);
+			console.log('当前第'+timer+'个定时器')
+			if(current>200){
+				iSpeed = -6;
+			}else{
+				iSpeed = 6;
+			}			
+			if(Math.abs(200-current)<Math.abs(iSpeed)){
+				oBox3.style.opacity='0.2'
+				clearInterval(oBox3.timer)
+			}else{
+				oBox3.style.opacity=(current+iSpeed)/1000;
+			}
+		},30)
+
+	}					
+</script>
+</html>

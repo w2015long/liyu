@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>124-动画元素透明度渐变.html</title>
+	<style>
+		#box{
+			width: 400px;
+			height: 400px;
+			background-color: #f00;
+			opacity: 0.2;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">开始动画</button>
+	<div id="box"></div>
+</body>
+<script>
+	var oBtn=document.getElementById('btn');
+	var oBox=document.getElementById('box');
+	console.log(oBox)
+	var timer=0;
+	oBtn.onclick=function(){
+		//防止同时开启多个定时器,在设置定时器前需要清除定时器		
+		clearInterval(timer)
+
+		// console.log(getComputedStyle(oBox,false)['opacity']);
+
+		//定义变量iSpeed
+		var iSpeed=null;
+
+		timer=setInterval(function(){
+			var current=parseFloat(getComputedStyle(oBox,false)['opacity']);
+		//当前值有可能是个小数所以四舍五入一下	
+			current=Math.round(current*100);
+			console.log(current)
+			console.log('当前第'+timer+'个定时器')
+			if(current>100){
+				iSpeed = -3;
+			}else{
+				iSpeed = 3;
+			}			
+			if(Math.abs(100-current)<Math.abs(iSpeed)){
+				oBox.style.opacity='1'
+				clearInterval(timer)
+			}else{
+				oBox.style.opacity=(current+iSpeed)/100;
+			}
+			console.log(current)
+		},30)
+
+	}
+
+
+
+
+</script>
+</html>
