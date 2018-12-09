@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>122-动画基础-动画结束的条件.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.line{
+			position: absolute;
+			top: 50px;
+			width: 1px;
+			height: 600px;
+			left: 500px;
+			background-color: #000;
+		}
+		#box{
+			position: absolute;
+			top: 50px;
+			left: 0px;
+			width: 100px;
+			height: 100px;
+			background: #f67;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">开始动画</button>
+	<div class="line"></div>
+	<div id="box"></div>
+</body>
+<script>
+	var oBtn=document.getElementById('btn');
+	var oBox=document.getElementById('box');
+	var timer=null;
+	oBtn.onclick=function(){
+		//防止同时开启多个定时器,在设置定时器前需要清除定时器
+		clearInterval(timer)
+		//定义变量iSpeed
+		var iSpeed=null;
+
+		timer=setInterval(function(){
+			console.log('当前第'+timer+'个定时器')
+			if(oBox.offsetLeft>500){
+				iSpeed = -6;
+			}else{
+				iSpeed = 6;
+			}			
+			if((500-oBox.offsetLeft)<iSpeed){
+				oBox.style.left='500px'
+				clearInterval(timer)
+			}else{
+				oBox.style.left=oBox.offsetLeft+iSpeed+'px';
+			}
+			console.log(oBox.offsetLeft,iSpeed)
+		},50)
+
+	}
+</script>
+</html>
