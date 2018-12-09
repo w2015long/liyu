@@ -19,7 +19,7 @@
 		#box{
 			position: absolute;
 			top: 50px;
-			left: 0px;
+			left: 1000px;
 			width: 100px;
 			height: 100px;
 			background: #f67;
@@ -48,7 +48,7 @@
 			}else{
 				iSpeed = 6;
 			}			
-			if((500-oBox.offsetLeft)<iSpeed){
+			if(Math.abs(500-oBox.offsetLeft)<Math.abs(iSpeed)){
 				oBox.style.left='500px'
 				clearInterval(timer)
 			}else{
