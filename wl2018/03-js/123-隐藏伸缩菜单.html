@@ -8,11 +8,67 @@
 			margin: 0;
 			padding: 0;
 		}
+		#main{
+			position: absolute;
+			top: 0;
+			left: -400px;
+			width: 400px;
+			height: 400px;
+			background-color: #cecece;
+		}
+		.sub{
+			position: absolute;
+			top: 0;
+			right:-100px;
+			width: 100px;
+			height: 400px;
+			background-color: #f67;
+		}
+		.line{
+			position: absolute;
+			top: 0;
+			left: 400px;
+			width: 1px;
+			height: 500px;
+			background-color: #000;
+		}
 	</style>
 </head>
 <body>
 	<div id="main">
 		<div class="sub"></div>
 	</div>
+	<div class="line"></div>
 </body>
+<script>
+	var oMain=document.getElementById('main');
+	function animate(obj,attr,target){
+		clearInterval(obj.timer);
+		timer=setInterval(function(){
+			var current=parseFloat(getComputedStyle(obj,false)[attr]);
+			var iSpeed=0;
+			//定义正反方向
+			if(current>target){
+				iSpeed=-8;
+			}else{
+				iSpeed=8;
+			}
+			//如果步长达不到目标值 一步到位
+			if(Math.abs(target-current) < Math.abs(iSpeed)){
+				obj.style[attr]=target+'px';
+				clearInterval(obj.timer);
+			}
+			obj.style[attr]=current+iSpeed+'px';
+			console.log(target,current);
+		},30)
+	}
+	oMain.onmouseover=function(){
+		animate(oMain,'left','0')
+
+	}
+	oMain.onmouseout=function(){
+		animate(oMain,'left','-400')
+
+	}	
+</script>
 </html>
