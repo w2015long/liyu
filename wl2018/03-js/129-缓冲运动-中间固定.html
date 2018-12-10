@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>129-缓冲运动-中间固定.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			height: 3000px;
+		}
+		div{
+			position: absolute;
+			right: 0;
+			width: 100px;
+			height: 100px;
+			background-color: #f88;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script>
+	var oBox=document.getElementById('box');
+	function animate(obj,attr,target){
+		clearInterval(obj.timer)
+		obj.timer=setInterval(function(){
+
+			var current=parseInt(getComputedStyle(obj,false)[attr]);
+			var iSpeed=(target-current)/10;
+			iSpeed= iSpeed>0? Math.ceil(iSpeed): Math.floor(iSpeed);
+			if(Math.abs(target-current)<Math.abs(iSpeed)){
+				obj.style[attr]=target+'px';
+				clearInterval(obj.timer);
+			}else{
+				obj.style[attr]=current+iSpeed+'px';
+			}
+		},30)
+	}
+	window.onscroll=window.onresize=window.onload=function(){
+			//保证方块在中间可视区动画固定
+			//1.scrollTop 是变量
+			var topScroll=document.documentElement.scrollTop||document.body.scrollTop||window.pageYOffset;
+			//2.所以让方块的top也变
+			//3.方块top=(window.innerHeight-oBox.offsetHeight)+scrollTop
+			var iTarget=(window.innerHeight-oBox.offsetHeight)/2+topScroll
+			animate(oBox,'top',iTarget)
+	}
+</script>
+</html>

@@ -34,7 +34,7 @@
 	var oBox=document.getElementById('box');
 	function srartMove(obj,attr,target){
 		clearInterval(obj.timer);
-		setInterval(function(){
+		obj.timer=setInterval(function(){
 			var current=parseFloat(getComputedStyle(obj,false)[attr]);
 			var iSpeed=(target-current)/10;  
 			iSpeed = iSpeed>0 ? Math.ceil(iSpeed) :Math.floor(iSpeed);
