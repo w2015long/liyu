@@ -43,13 +43,13 @@
 		clearInterval(obj.timer)
 		//定义变量iSpeed
 		var iSpeed=null;
-		timer=setInterval(function(){
+		obj.timer=setInterval(function(){
 			var current=parseFloat(getComputedStyle(obj,false)[attr]);
 			if(attr=='opacity'){
 				current=Math.round(current*100);
 				console.log(current);
 			}		
-			console.log('当前第'+timer+'个定时器')
+			console.log('当前第'+obj.timer+'个定时器')
 			if(current>target){
 				iSpeed = -6;
 			}else{

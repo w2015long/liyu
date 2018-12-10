@@ -36,8 +36,7 @@
 		
 		var topScroll=document.documentElement.scrollTop||document.body.scrollTop||window.pageYOffset;
 		var iTarget=(window.innerHeight-oBox.offsetHeight)+topScroll;
-		console.log(topScroll);
-		console.log(iTarget);
+		console.log(topScroll,iTarget);
 		animate(oBox,'top',iTarget)
 		// oBox.style['top']=(window.innerHeight-oBox.offsetHeight)+topScroll+'px';		
 	}
