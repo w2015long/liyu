@@ -7,7 +7,7 @@
 		div{
 			width: 100px;
 			height: 100px;
-			background-color: #f88;
+			background-color: red;
 			opacity: 0.2;
 		}
 	</style>
@@ -20,16 +20,24 @@
 	function animate(obj,attr,target){
 		clearInterval(obj.timer)
 		obj.timer=setInterval(function(){
-			var current=getComputedStyle(obj, false)[attr];
+			var current=parseFloat(getComputedStyle(obj, false)[attr]);
 			current *= 100;
 			var iSpeed=(target-current)/10;
 			iSpeed = iSpeed>0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
 			if(!iSpeed){
 				clearInterval(obj.timer);
 			}else{
-				
+				obj.style['opacity']=(current+iSpeed)/100
 			}
+			console.log(current,iSpeed)
 		},30)
 	}
+	oBox.onmouseover=function(){
+		animate(oBox,'opacity','100');
+	}
+	oBox.onmouseout=function(){
+		animate(oBox,'opacity','20');
+	}	
+	
 </script>
 </html>
