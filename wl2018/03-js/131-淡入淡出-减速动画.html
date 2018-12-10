@@ -15,4 +15,21 @@
 <body>
 	<div id="box"></div>
 </body>
+<script>
+	var oBox=document.getElementById('box');
+	function animate(obj,attr,target){
+		clearInterval(obj.timer)
+		obj.timer=setInterval(function(){
+			var current=getComputedStyle(obj, false)[attr];
+			current *= 100;
+			var iSpeed=(target-current)/10;
+			iSpeed = iSpeed>0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+			if(!iSpeed){
+				clearInterval(obj.timer);
+			}else{
+				
+			}
+		},30)
+	}
+</script>
 </html>
