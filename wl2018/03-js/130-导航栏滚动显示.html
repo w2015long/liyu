@@ -13,6 +13,8 @@
 			background-color: rgba(0,0,0,0.7);
 		}
 		#nav{
+			position: fixed;
+			top: 0;
 			width: 100%;
 			height: 0px;
 			background-color: #f88;
@@ -31,6 +33,7 @@
 <script src="js/animate.js"></script>
 <script>
 	var oNav=document.getElementById('nav');
+	var isShow=false;
 	window.onscroll=function(){
 			//保证方块在中间可视区动画固定
 			//1.scrollTop 是变量
@@ -38,20 +41,19 @@
 			//2.所以让方块的top也变
 			//3.方块top=(window.innerHeight-oNav.offsetHeight)+scrollTop
 			// var iTarget=(window.innerHeight-oNav.offsetHeight)/2+topScroll
-			var isShow=false;
-			if(topScroll>=80){
+			
+			if(topScroll>=100){
 				if(!isShow){
-					// oNav.style[position]='fixed';
-					
-					animate(oNav,'height','100');
 					console.log('a')
+					animate(oNav,'height',100);
 					isShow=true;
 				}
 			}else{
-				if(!isShow){
-					animate(oNav,'height','0');
+				if(isShow){
 					console.log('b')
+					animate(oNav,'height',0);
 					isShow=false;
+					
 				}
 				
 			}
