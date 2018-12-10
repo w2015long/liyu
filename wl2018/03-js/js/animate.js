@@ -14,7 +14,6 @@ function animate(obj,attr,target){
 			current=Math.round(current*100);
 			console.log(current);
 		}		
-		console.log('当前第'+obj.timer+'个定时器')
 		if(current>target){
 			iSpeed = -10;
 		}else{

@@ -9,7 +9,7 @@
 			padding: 0;
 		}
 		.top{
-			height: 50px;
+			height: 100px;
 			background-color: rgba(0,0,0,0.7);
 		}
 		#nav{
@@ -39,15 +39,18 @@
 			//3.方块top=(window.innerHeight-oNav.offsetHeight)+scrollTop
 			// var iTarget=(window.innerHeight-oNav.offsetHeight)/2+topScroll
 			var isShow=false;
-			if(topScroll>=100){
+			if(topScroll>=80){
 				if(!isShow){
 					// oNav.style[position]='fixed';
-					animate(oNav,'height','80');
+					
+					animate(oNav,'height','100');
+					console.log('a')
 					isShow=true;
 				}
 			}else{
 				if(!isShow){
 					animate(oNav,'height','0');
+					console.log('b')
 					isShow=false;
 				}
 				
