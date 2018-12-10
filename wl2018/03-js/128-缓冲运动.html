@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>128-缓冲运动.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.line{
+			position: absolute;
+			top: 0;
+			left: 700px;
+			width: 1px;
+			height: 500px;
+			background-color: #000;
+		}
+		#box{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 200px;
+			height: 200px;
+			background-color: #f88;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<div class="line"></div>
+</body>
+<script>
+	var oBox=document.getElementById('box');
+	function srartMove(obj,attr,target){
+		clearInterval(obj.timer);
+		setInterval(function(){
+			var current=parseFloat(getComputedStyle(obj,false)[attr]);
+			var iSpeed=(target-current)/10;  
+			iSpeed = iSpeed>0 ? Math.ceil(iSpeed) :Math.floor(iSpeed);
+			if(Math.abs(current-target)<Math.abs(iSpeed)){
+				obj.style[attr]=target+'px';
+				clearInterval(obj.timer);
+			}else{
+				obj.style[attr]=current+iSpeed+'px';
+			}
+		},30)
+
+	}
+	oBox.onmouseover=function(){
+		srartMove(oBox,'left','700');
+	}
+	
+</script>
+</html>
