@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>127-匀速运动-底部固定.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			height: 2000px;
+		}
+		div{
+			position:absolute;
+			right: 0;
+			top: 550px; 
+			width: 100px;
+			height: 100px;
+			background: #f67;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script src="js/animate.js"></script>
+<script>
+	var oBox=document.getElementById('box');
+	//保证方块在底部可视区动画固定
+	//1.scrollTop 是变量
+	//2.所以让方块的top也变
+	//3.方块top=(window.innerHeight-oBox.offsetHeight)+scrollTop
+	
+	window.onscroll=window.onresize=function(){
+		
+		var topScroll=document.documentElement.scrollTop||document.body.scrollTop||window.pageYOffset;
+		var iTarget=(window.innerHeight-oBox.offsetHeight)+topScroll;
+		console.log(topScroll);
+		console.log(iTarget);
+		animate(oBox,'top',iTarget)
+		// oBox.style['top']=(window.innerHeight-oBox.offsetHeight)+topScroll+'px';		
+	}
+
+</script>
+</html>
