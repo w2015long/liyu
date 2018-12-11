@@ -124,7 +124,7 @@
 		for(var i=0;i<aImgs.length;i++){
 			// aImgs[i].style.zIndex = '0';
 			// aImgs[i].style.opacity='0';
-			animate(aImgs[i],'height',0,true)
+			aImgs[i].style.height ='0';
 			aBtn[i].className='';
 		}
 		// aImgs[now].style.zIndex = '9';
@@ -167,7 +167,7 @@
 
 	//播放轮播图
 	function startAutoPlay(){
-		timer=setInterval(oRight.onclick,9000);
+		timer=setInterval(oRight.onclick,3000);
 	}
 	startAutoPlay();
 	//暂停播放

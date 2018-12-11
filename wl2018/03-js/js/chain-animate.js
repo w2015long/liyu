@@ -30,7 +30,7 @@
 				if(current>target){
 					iSpeed = -10;
 				}else{
-					iSpeed = 10;
+					iSpeed = 500;
 				}
 			//匀速动画终止条件处理
 					
