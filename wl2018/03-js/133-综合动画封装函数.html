@@ -40,7 +40,15 @@
 	var oBox3=document.getElementById('box3');
 
 
-/*匀速动画与减速缓冲动画只有速度和动画终止条件不同*/
+
+	/**
+	 * [匀速或减速动画]
+	 * @param  {[object]}  obj      [Dom对象]
+	 * @param  {[string]}  attr     [对象的属性]
+	 * @param  {[number]}  target   [属性的目标值]
+	 * @param  {Boolean}  isLinear 	[是否做线性动画]
+	 */
+/*匀速动画与减速缓冲动画只有速度和动画终止条件不同*/	
 	function animate(obj,attr,target,isLinear){
 		//设置默认为匀速动画
 		if(isLinear==undefined){
