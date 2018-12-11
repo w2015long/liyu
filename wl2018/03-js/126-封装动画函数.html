@@ -44,8 +44,10 @@
 		//定义变量iSpeed
 		var iSpeed=null;
 		obj.timer=setInterval(function(){
+			//getComputedStyle获得的都是一个字符串且opacity为一个小数,parseFloat一下转为小数数字
 			var current=parseFloat(getComputedStyle(obj,false)[attr]);
 			if(attr=='opacity'){
+				//当步长为奇数或分数时,对于opacity来说current当前值会出现无限循环小数，所以当前值四舍五入一下
 				current=Math.round(current*100);
 				console.log(current);
 			}		
@@ -54,7 +56,8 @@
 				iSpeed = -6;
 			}else{
 				iSpeed = 6;
-			}			
+			}
+			//当目标值与当前值的差不够一个步长时，一步到位			
 			if(Math.abs(target-current)<Math.abs(iSpeed)){
 				if(attr=='opacity'){
 					obj.style.opacity =	target/100 
