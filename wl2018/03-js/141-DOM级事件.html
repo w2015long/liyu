@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>141-DOM级事件.html</title>
+</head>
+<body>
+	<button id="btn1">点击</button>
+	<button id="btn2">移除事件</button>
+</body>
+<script>
+	var oBtn1=document.getElementById('btn1');
+	var oBtn2=document.getElementById('btn2');
+	function show(){
+		alert('我是show');
+	}
+	function say(){
+		alert('你好');
+	}
+	oBtn1.addEventListener('click', show, false);
+	oBtn1.addEventListener('click', say, false)
+</script>
+</html>

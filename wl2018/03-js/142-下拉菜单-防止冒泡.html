@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>142-下拉菜单-防止冒泡.html</title>
+	<style>
+		#menu{
+			width: 80px;
+			height: 500px;
+			background: #f89;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">菜单</button>
+	<div id="menu"></div>
+</body>
+<script>
+	var oBtn=document.getElementById('btn');
+	var oMenu=document.getElementById('menu');
+	oBtn.addEventListener('click', function(event){
+		oMenu.style.display = 'block';
+		event.stopPropagation()
+	}, false);
+	oMenu.addEventListener('click', function(event){
+		event.stopPropagation()
+	}, false)
+	document.addEventListener('click', function(event){
+		oMenu.style.display = 'none';
+		event.stopPropagation()
+	}, false);
+</script>
+</html>
