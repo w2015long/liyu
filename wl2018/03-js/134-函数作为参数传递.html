@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>134-函数作为参数传递.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//第一，最简单的形式无参函数，直接形式函数的函数名放到括号中，再在执行部分这个函数即可。
+	function show(fn){
+		fn()
+	}
+	show(function(){
+		alert('我是一个无参函数');
+	})
+	//第二种，带参数的普通调用法。跟第一种唯一的区别就是在定义主函数的执行语句里调用参数函数时该把参数加上
+	function show(fn){
+		fn(name)
+	}
+	show(function(){
+		alert('tom');
+	})
+	function sum(x,y,fn){
+		var result = x*10 + y*10;
+		//结果传给里边的函数
+		fn(result);
+	}
+	//里边的函数要接收一下这个结果
+	sum(5,6,function(result){
+		document.write(result);
+	})
+</script>
+</html>
