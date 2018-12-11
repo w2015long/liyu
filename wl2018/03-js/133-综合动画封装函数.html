@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>133-综合动画封装函数.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;	
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			opacity: 0.4;
+			margin-top: 15px;
+		}
+		.line{
+			position: absolute;
+			top: 0;
+			left: 600px;
+			width: 1px;
+			height: 600px;
+			background-color: #000;
+		}
+/*		div:nth-child(3){
+			margin-left: 500px;
+		}*/
+	</style>
+</head>
+<body>
+	<div class="line"></div>
+	<div id="box1"></div>
+	<div id="box2"></div>
+	<div id="box3"></div>	
+</body>
+<script>
+	var oBox1=document.getElementById('box1');
+	var oBox2=document.getElementById('box2');
+	var oBox3=document.getElementById('box3');
+
+
+/*匀速动画与减速缓冲动画只有速度和动画终止条件不同*/
+	function animate(obj,attr,target,isLinear){
+		//设置默认为匀速动画
+		if(isLinear==undefined){
+			isLinear=true;
+		}
+		//防止多次操作开启多个定时器,每次操作前就关闭定时器
+		clearInterval(obj.timer);
+
+		var iSpeed=null;
+		obj.timer=setInterval(function(){
+			//isStopCurrent是否终止当前动画，每次动画前定义为false代表不终止当前动画
+			var isStopCurrent=false;
+			var current=parseFloat(getComputedStyle(obj,false)[attr]);
+			if(attr=='opacity'){
+				current = Math.round(current*100);
+			}
+/*对速度做判断看分别是什么动画*/
+			//线性匀速动画的处理
+			if(isLinear){
+			//确定匀速动画的速度
+				if(current>target){
+					iSpeed = -10;
+				}else{
+					iSpeed = 10;
+				}
+			//匀速动画终止条件处理
+					
+				if(Math.abs(target-current)<Math.abs(iSpeed)){//当目标值与当前值的差不够一个步长时，一步到位
+					if(attr=='opacity'){
+						obj.style.opacity =	target/100 
+					}else{
+						obj.style[attr]=target+'px'
+					}
+					isStopCurrent=true;
+				}				
+
+			//缓冲减速动画
+			}else{
+			//确定减速动画的速度
+				iSpeed=(target-current)/10;  
+				iSpeed = iSpeed>0 ? Math.ceil(iSpeed) :Math.floor(iSpeed);
+			//减速动画终止条件处理
+				if(!iSpeed){
+					isStopCurrent=true;
+				}				
+			}
+			if(isStopCurrent){//如果终止当前动画，清除定时器
+				clearInterval(obj.timer);
+			}
+			else{//不终止动画,就运动
+				if(attr=='opacity'){
+					obj.style.opacity=(current+iSpeed)/100;
+				}else{
+					obj.style[attr]=current+iSpeed+'px';
+				}
+			}					
+		},30)
+
+	}
+	oBox1.onmouseover=function(){
+		animate(oBox1,'width','600',true);
+	}
+	oBox2.onmouseover=function(){
+		animate(oBox2,'width','600',false);
+	}
+	oBox3.onmouseover=function(){
+		animate(oBox3,'opacity','100');
+	}
+			
+</script>
+</html>
