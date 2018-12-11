@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>136-轮播图动画效果.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background: rgba(0,0,0,0.8);
+		}
+		li{
+			list-style: none;
+		}
+		.carousel{
+			position: relative;
+			width: 1226px;
+			height: 460px;
+			margin: 80px auto;
+		}
+		.carousel-imgs{
+			width: 100%;
+			height: 100%;
+		}
+		.carousel .carousel-btn{
+			position: absolute;
+			bottom: 25px;
+		    right: 35px;
+		    z-index: 88;
+		}
+		.carousel li{
+			float: left;
+			width: 6px;
+			height: 6px;
+			margin-left: 12px;
+			border: 2px solid #acaab3;
+			border-radius: 50%;
+			background: #888592;
+		}
+		.carousel .active{
+			border-color: #8f8d95;
+			background: #eeebf8;	
+		}
+/*		.carousel li:hover{
+			border-color: #8f8d95;
+			background: #eeebf8;
+		}*/
+		.carousel .arrow{
+			position: absolute;
+			top: 50%;
+			margin-top:-35px;
+			width: 40px;
+			height: 70px;
+			line-height: 70px;
+			text-align: center;
+			font-size: 30px;
+			font-weight: 500;
+			color: #fff;
+			background: rgba(50,50,50,0.5);
+			user-select: none;
+			z-index: 88;
+
+		}
+		.carousel .left-arrow{
+			left: 24px;
+		}
+		.carousel .right-arrow{
+			right: 0px;
+		}
+		.carousel .arrow:hover{
+			background: rgba(0,0,0,0.5);
+			
+		}
+		.carousel .carousel-imgs .carousel-imgs-item{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 1226px;
+			height: 0px;
+			transition: all 3s linear;
+			overflow: hidden;
+		}
+		.carousel .carousel-imgs .carousel-imgs-item img{
+			display: block;
+			width: 1226px;
+			height: 460px;
+		}
+	</style>
+</head>
+<body>
+	<div class="carousel" id="carousel">
+		<ul class="carousel-imgs">
+			<li class="carousel-imgs-item"><img src="images/b3.jpg" alt=""></li>
+			<li class="carousel-imgs-item"><img src="images/b2.jpg" alt=""></li>
+			<li class="carousel-imgs-item"><img src="images/b1.jpg" alt=""></li>
+			<li class="carousel-imgs-item"><img src="images/carousel2.jpg" alt=""></li>
+			<li class="carousel-imgs-item"><img src="images/carousel3.jpg" alt=""></li>
+		</ul>
+		<span class="arrow left-arrow">&lt;</span>
+		<span class="arrow right-arrow">&gt;</span>
+		<ul class="carousel-btn">
+			<li  id="btn"></li>
+			<li  id="btn"></li>
+			<li  id="btn"></li>
+			<li  id="btn"></li>
+			<li  id="btn"></li>
+		</ul>
+	</div>
+</body>
+<script defer src="js/chain-animate.js"></script>
+<script>
+	var timer=null;
+	var now=0;
+	var aImgs=document.getElementsByClassName('carousel-imgs-item');
+	var aBtn=document.querySelectorAll('#btn');
+	var oCarousel=document.getElementById('carousel');
+	var oRight=document.querySelector('.right-arrow');
+	var oLeft=document.querySelector('.left-arrow');
+	console.log(oLeft);
+	//改变轮播图
+	function changesImg(){
+		for(var i=0;i<aImgs.length;i++){
+			// aImgs[i].style.zIndex = '0';
+			// aImgs[i].style.opacity='0';
+			animate(aImgs[i],'height',0,true)
+			aBtn[i].className='';
+		}
+		// aImgs[now].style.zIndex = '9';
+		// aImgs[now].style.opacity='1';
+		animate(aImgs[now],'height',460,true);	
+		aBtn[now].className='active';
+	}
+	//鼠标放上main区暂停播放
+	oCarousel.onmouseover=function(){
+		stopAutoPlay()
+	}
+	//鼠标离开main区自动播放
+	oCarousel.onmouseout=function(){
+		startAutoPlay()
+	}
+	//点击小圆点切换图片
+	for(var i=0;i<aBtn.length;i++){
+		aBtn[i].index=i; //给每一个btn绑定一个事件
+		aBtn[i].onclick=function(){
+			now=this.index;
+			changesImg();
+		}
+	}
+	//右边按钮事件
+	oRight.onclick=function(){
+		now++
+		if(now>=aImgs.length){
+			now=0;
+		}
+		changesImg();
+	}
+	//左边按钮事件
+	oLeft.onclick=function(){
+		now--
+		if(now<0){
+			now=aImgs.length-1
+		}
+		changesImg();
+	}
+
+	//播放轮播图
+	function startAutoPlay(){
+		timer=setInterval(oRight.onclick,9000);
+	}
+	startAutoPlay();
+	//暂停播放
+	function stopAutoPlay(){
+		if(timer){
+			clearInterval(timer);
+		}
+	}
+</script>
+</html>
