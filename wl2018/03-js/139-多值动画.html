@@ -18,9 +18,8 @@
 	var oBox=document.getElementById('box');
 	/**
 	 * [匀速或减速动画]
-	 * @param  {[object]}  obj      [Dom对象]
-	 * @param  {[string]}  attr     [对象的属性]
-	 * @param  {[number]}  target   [属性的目标值]
+	 * @param  {[object]}  	obj     [Dom对象]
+	 * @param  {[object]}  options  [属性和目标值的对象]
 	 * @param  {Boolean}  isLinear 	[是否做线性动画]
 	 * @param  {function}  fnEnd 	[动画结束后执行的函数]
 	 */
@@ -34,10 +33,8 @@
 		clearInterval(obj.timer);
 
 		var iSpeed=null;
-		
-
 			obj.timer=setInterval(function(){
-				
+				//代表是否终止所有的动画
 				var isStopAll=true;
 				for(var attr in options){
 					//isStopCurrent是否终止当前动画，每次动画前定义为false代表不终止当前动画
@@ -62,8 +59,10 @@
 							}else{
 								obj.style[attr]=options[attr]+'px'
 							}
+							//当前动画已完成，终止当前动画
 							isStopCurrent=true;
 						}else{
+							//不终止当前动画，也不能终止所有动画
 							isStopAll=false;
 						}				
 
@@ -74,12 +73,15 @@
 						iSpeed = iSpeed>0 ? Math.ceil(iSpeed) :Math.floor(iSpeed);
 					//减速动画终止条件处理
 						if(!iSpeed){
+							//代表终止当前的动画
 							isStopCurrent=true;
 						}else{
+							//代表当前的动画还没有结束,所以不能终止所有的动画
 							isStopAll=false;
 						}				
 					}
-					if(!isStopCurrent){//不终止动画,就运动
+					//线性与非线性动画运动处理
+					if(!isStopCurrent){//不终止当前动画,就运动
 						if(attr=='opacity'){
 							obj.style.opacity=(current+iSpeed)/100;
 						}else{
@@ -87,8 +89,11 @@
 						}	
 					}
 				}
-				if(isStopAll){//如果终止当前动画，清除定时器
+				//如果此条件不满足，继续循环遍历需要变化的对象进行运动
+				//出了遍历for循环，满足当前终止条件，就清除定时器
+				if(isStopAll){//如果终止所有动画，清除定时器
 					clearInterval(obj.timer);
+					//动画执行完毕后的执行函数
 					//与逻辑运算 A不成立返回A A成立返回B
 					typeof fnEnd == 'function' && fnEnd();			
 				}						
@@ -98,5 +103,8 @@
 	oBox.onmouseover=function(){
 		animate(oBox,{width:500,height:500,opacity:20})
 	}
+	oBox.addEventListener('mouseout',function(){
+		animate(oBox,{width:100,height:100,opacity:100})
+	},false);
 </script>
 </html>
