@@ -114,11 +114,12 @@
 	var timer=null;
 	var now=0;
 	var aImgs=document.getElementsByClassName('carousel-imgs-item');
-	var aBtn=document.querySelectorAll('#btn');
+	var aBtn=document.getElementById('btn')
+	// var aBtn=document.querySelectorAll('#btn');
 	var oCarousel=document.getElementById('carousel');
 	var oRight=document.querySelector('.right-arrow');
 	var oLeft=document.querySelector('.left-arrow');
-	console.log(oLeft);
+	console.log(aBtn);
 	//改变轮播图
 	function changesImg(){
 		for(var i=0;i<aImgs.length;i++){
