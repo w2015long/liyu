@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>147-数组去重练习.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	function unique(arr){
+		var result = [];
+		for(var i=0; i<arr.length; i++){
+			for(var j=i+1; j<arr.length; j++){
+				if(arr[i]==arr[j]){
+					j = ++i;
+				}
+			}
+			result.push(arr[i]);
+		}
+		return result;
+
+	}
+	var arr1 = [1,2,3,4,4,1,1,2,1,1,1];
+	unique(arr1)
+	console.log(unique(arr1))
+   //返回[3,4,2,1]
+   */
+	function unique(arr){
+	  	var result = [];
+	  	for(var i=0; i < arr.length;i++){
+	  		var isDup = false;
+	  		for(j=0; j < result.length;j++){
+	  			if(arr[i] == result[j]){
+	  				isDup = true;
+	  				break;
+	  			}
+	  		}
+	  		if(!isDup){
+	  			result.push(arr[i]);
+	  		}
+	  	}
+	  	return result ;
+	}
+	var arr1=[2,35,5,5,5,7,8,8,8];
+	unique(arr1);
+	console.log(unique(arr1));
+	//用indexOf特性 如果没有找到就返回-1
+	function uniqueArray(arr){
+		var result = [];
+		for(var i=0; i<arr.length; i++){
+			if(result.indexOf(arr[i]) == -1){
+				result.push(arr[i]);
+			}
+		}
+		return result ;
+	}
+	var arr2 = [2,23,3,3,3,33,5,5,5,6];
+	uniqueArray(arr2);
+	console.log(uniqueArray(arr2));
+</script>
+</html>
