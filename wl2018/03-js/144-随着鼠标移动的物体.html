@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>144-随着鼠标移动的物体.html</title>
+	<style>
+		body{
+			width: 3000px;
+			height: 3000px;
+		}
+	</style>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			background-color: #f00;
+		}
+		#div{
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			background-color: #0f9;			
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<div id="div"></div>
+
+</body>
+<script>
+	var oBox=document.getElementById('box');
+	var oDiv=document.getElementById('div');
+	document.onmousemove=function(event){
+		var L = window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft;		
+		var T = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+		console.log(event);
+		// console.log('客户区client',event.clientX,event.clientY);
+		// console.log('偏移区offset',event.offsetX,event.offsetY);
+		oBox.style.top = T + event.clientY+'px';
+		oBox.style.left =L + event.clientX +'px';
+		// oDiv.style.top=10 + event.offsetY+'px';
+		// oDiv.style.left=10 + event.offsetX +'px';
+	}	
+</script>
+</html>

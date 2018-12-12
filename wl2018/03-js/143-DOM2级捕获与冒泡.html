@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>143-DOM2级捕获与冒泡.html</title>
+	<style>
+		div{
+			width: 200px;
+			height: 200px;
+			background-color: #f88;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script>
+	var oBox=document.getElementById('box')
+	//true为捕获阶段，从DOMtree由上而下捕获元素
+	document.documentElement.addEventListener('click', function(){
+		console.log('document.documentElement click true')
+	}, true);
+	document.body.addEventListener('click', function(){
+		console.log('document.body click true')
+	}, true);
+	oBox.addEventListener('click', function(){
+		console.log('oBox click true')
+	}, true);		
+	document.addEventListener('click', function(){
+		console.log('document click true')
+	}, true);
+	window.addEventListener('click', function(){
+		console.log('window click true')
+	}, true);
+
+	//false为冒泡阶段，从DOMtree由下而上捕获元素
+	document.documentElement.addEventListener('click', function(){
+		console.log('document.documentElement click false')
+	}, false);
+	document.body.addEventListener('click', function(){
+		console.log('document.body click false')
+	}, false);
+	oBox.addEventListener('click', function(){
+		console.log('oBox click false')
+	}, false);		
+	document.addEventListener('click', function(){
+		console.log('document click false')
+	}, false);
+	window.addEventListener('click', function(){
+		console.log('window click false')
+	}, false);		
+</script>
+</html>
