@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>146-test the-tween.html</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: #f00;
+			opacity: 1;
+		}
+		#div{
+			position: absolute;
+			top: 150px;
+			width: 100px;
+			height: 100px;
+			background-color: #0f8;
+		}
+		.line{
+			position: absolute;
+			top: 0;
+			left: 800px;
+			width: 1px;
+			height: 600px;
+			background-color: #000;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<div class="line"></div>
+	<div id="div"></div>
+</body>
+<script defer src="js/tween.js"></script>
+<script>
+	var oDiv=document.getElementById('div');
+	var oBox=document.getElementById('box');
+	/*
+	oBox.addEventListener('mouseover', function(){
+		animate(oBox,{width:450,height:500},false,function(){
+			animate(oBox,{opacity:20});
+		})
+	}, false);
+	oBox.addEventListener('mouseout', function(){
+		animate(oBox,{opacity:100},true,function(){
+			animate(oBox,{width:100,height:100});
+		})
+	}, false);
+	oDiv.addEventListener('mouseover', function(){
+		animate(oDiv,{left:800},false,function(){
+			animate(oDiv,{left:0});
+		})
+	}, false)
+	console.log((3<2)&&2)
+	*/	
+	oDiv.addEventListener('mouseover', function(){
+		animate(oDiv,{left:800,top:400},false,function(){
+			animate(oDiv,{left:0,top:150})
+		})
+	}, false);
+</script>
+</html>
