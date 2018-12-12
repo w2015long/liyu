@@ -41,8 +41,8 @@
 	function animate(obj,attr,target){
 		//防止同时开启多个定时器,在设置定时器前需要清除定时器
 		clearInterval(obj.timer)
-		//定义变量iSpeed
-		var iSpeed=null;
+		//定义变量step
+		var step=null;
 		obj.timer=setInterval(function(){
 			//getComputedStyle获得的都是一个字符串且opacity为一个小数,parseFloat一下转为小数数字
 			var current=parseFloat(getComputedStyle(obj,false)[attr]);
@@ -53,12 +53,12 @@
 			}		
 			console.log('当前第'+obj.timer+'个定时器')
 			if(current>target){
-				iSpeed = -6;
+				step = -6;
 			}else{
-				iSpeed = 6;
+				step = 6;
 			}
 			//当目标值与当前值的差不够一个步长时，一步到位			
-			if(Math.abs(target-current)<Math.abs(iSpeed)){
+			if(Math.abs(target-current)<Math.abs(step)){
 				if(attr=='opacity'){
 					obj.style.opacity =	target/100 
 				}else{
@@ -67,9 +67,9 @@
 				clearInterval(obj.timer);
 			}else{
 				if(attr=='opacity'){
-					obj.style.opacity=(current+iSpeed)/100;
+					obj.style.opacity=(current+step)/100;
 				}else{
-					obj.style[attr]=current+iSpeed+'px';
+					obj.style[attr]=current+step+'px';
 				}
 			}
 		},30)		
