@@ -19,6 +19,14 @@
 		alert('你好');
 	}
 	oBtn1.addEventListener('click', show, false);
-	oBtn1.addEventListener('click', say, false)
+	oBtn1.addEventListener('click', say, false);
+	oBtn1.addEventListener('click', function(){
+		alert('我是匿名函数');
+	}, false);
+	//移除事件监听只能是移除有函数名的，不能移除匿名函数的
+	oBtn1.removeEventListener("click",show, false);
+	oBtn2.addEventListener('click', function(){
+		oBtn1.removeEventListener('click',say, false);
+	},false);
 </script>
 </html>
