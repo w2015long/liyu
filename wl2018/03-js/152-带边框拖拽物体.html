@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>152-带边框拖拽物体.html</title>
+	<style>
+		#box{
+			position: absolute;
+			top: 80px;
+			left: 80px;
+			width: 100px;
+			height: 100px;
+			background-color: #f99;
+		}
+		.border{
+			border: 1px solid #000;
+			/*box-shadow: 5px */
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script>
+	var oBox = document.getElementById('box');
+	var disX,disY;
+	
+	oBox.onmousedown = function(ev){
+		disX = ev.clientX - oBox.offsetLeft ;
+		disY = ev.clientY - oBox.offsetTop ;
+		var oBorder = document.createElement('div');
+		oBorder.style.width = oBox.offsetWidth+'px';
+		oBorder.style.height = oBox.offsetHeight + 'px';
+		oBorder.style.position = 'absolute' ;
+		oBorder.style.left = '80px' ;
+		oBorder.style.top = '80px' ;
+		oBorder.className = 'border';
+		document.body.appendChild(oBorder);
+
+
+		console.log(disX,disY)
+		document.onmousemove=function(ev){
+			var l = ev.clientX-disX, t = ev.clientY-disY;
+			if(l<0){
+				l=0;
+			}else if(l > (window.innerWidth - oBox.offsetWidth)){
+				l = window.innerWidth - oBox.offsetWidth;
+			}
+			if(t<0){
+				t=0;
+			}else if(t > (window.innerHeight - oBox.offsetHeight)){
+				t = window.innerHeight - oBox.offsetHeight;
+			}			
+			oBorder.style.left = l+'px';
+			oBorder.style.top = t+'px';
+			document.onmouseup=function(){
+				oBox.style.left = oBorder.offsetLeft+ 'px';
+				oBox.style.top = oBorder.offsetTop + 'px';
+
+				document.body.removeChild(oBorder);
+				document.onmousedown=null;
+				document.onmousemove=null;
+			}
+		}
+	}
+</script>
+</html>

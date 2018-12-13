@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>153-自定义滚动条.html</title>
+	<style>
+		#btn{
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 30px;
+			height: 30px;
+			background-color: #f99;
+		}
+		.father{
+			position: relative;
+			top: 18px;
+			left: 1200px;			
+			width: 30px;
+			height: 600px;
+			background-color: #ccc;
+		}
+		#box{
+			position: absolute;
+			top: 60px;
+
+			width: 100px;
+			height: 100px;
+			background-color: #f00;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div id="btn"></div>
+	</div>
+	<div id="box"></div>	
+</body>
+<script>
+	var oBox = document.getElementById('box');
+	var oBtn = document.getElementById('btn');
+	var oFather = oBtn.parentNode;
+	console.log(oFather)
+	var disX,disY;
+	
+	oBtn.onmousedown = function(ev){
+		disY = ev.clientY - oBtn.offsetTop ;
+		console.log(disX,disY)
+		document.onmousemove=function(ev){
+			var  t = ev.clientY-disY;
+			if(t < 0){
+				t=0;
+			}		
+			if(t > (oFather.offsetHeight - oBtn.offsetHeight)){
+				t = oFather.offsetHeight - oBtn.offsetHeight;
+			}
+			var scale = t/(oFather.offsetHeight - oBtn.offsetHeight);			
+			oBtn.style.top = t+'px';
+			oBox.style.width = (100 + 600*scale)+'px'
+			document.onmouseup=function(){
+				document.onmousedown=null;
+				document.onmousemove=null;
+			}
+		}
+	}
+</script>
+</html>
