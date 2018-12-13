@@ -47,10 +47,7 @@
 		var iHour=parseInt(allSeconds/3600);
 		var iMinute=parseInt(allSeconds%3600/60);
 		var iSecond=parseInt(allSeconds%60);
-		if(allMilliSeconds<=0){
-			allMilliSeconds=0;
-			clearInterval(timer);
-		}
+	
 		oTimer.innerHTML='距离结束还有'+to2Str(iHour)+'小时'+to2Str(iMinute)+'分钟'+to2Str(iSecond)+'秒';
 		
 	}

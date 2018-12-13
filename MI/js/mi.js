@@ -1,3 +1,8 @@
+//封装一个代替getElementById()的方法
+function byId(id){
+    return typeof(id) === "string" ? document.getElementById(id) : id;
+}
+ 
 /*carousel轮播图*/
 var timer=null;
 var now=0;
@@ -53,8 +58,9 @@ oLeft.onclick=function(){
 
 //播放轮播图
 function startAutoPlay(){
-	timer=setInterval(oRight.onclick,1000);
+	timer=setInterval(oRight.onclick,2000);
 }
+startAutoPlay();
 //暂停播放
 function stopAutoPlay(){
 	if(timer){
@@ -62,6 +68,7 @@ function stopAutoPlay(){
 	}
 }
 /*flash闪购倒计时*/
+var sHour = byId(hour),sMinute = byId(minute),sSecond = byId(second);
 var endTime = new Date(2018, 12, 22, 8, 30, 0, 0);
 var endTimer = endTime.getTime();
 function to2Str(num){
@@ -69,8 +76,17 @@ function to2Str(num){
 }
 
 function handlerTimer(){
+
 	var allMilliSeconds = endTimer - Date.now();
+	if(allMilliSeconds<=0){
+		allMilliSeconds=0;
+		clearInterval(timer);
+	}
 	var allSeconds = allMilliSeconds/1000;
-	var iHour = parseInt(allSeconds/3600)
+	var iHour = parseInt(allSeconds/3600), iMinute = parseInt((allSeconds%3600)/60),iSecond = parseInt(allSeconds%60);
+	sHour.innerHTML = to2Str(iHour);
+	sMinute.innerHTML = to2Str(iMinute);
+	sSecond.innerHTML = to2Str(iSecond);
 }
 setInterval(handlerTimer,500);
+handlerTimer();
