@@ -27,8 +27,8 @@
 			
 		}
 		#product-list li{
-			width: 500px;
-			height: 500px;
+			width: 1226px;
+			/*height: 500px;*/
 			line-height: 500px;
 			text-align: center;
 			border: 1px solid #000;
@@ -63,12 +63,12 @@
 	// console.log(aBtn.length);
 	for(var i=0; i<aBtn.length; i++){
 		aBtn[i].index = i;
-		aBtn[i].onclick=function(){
+		aBtn[i].onmouseover=function(){
 			// alert(aBtn[i]);
 			// alert(i);
 			for(j=0; j<aBtn.length; j++){
 				aBtn[j].className='';
-				aList[j].style.display='none';
+				aList[j].style.display = 'none';
 
 			}
 			this.className='active';
