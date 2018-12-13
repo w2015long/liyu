@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>148-数组排序练习.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function insertSort(array){
+		
+		for(var i=0;i<array.length; i++){
+			for(var j=i+1; j<array.length; j++){
+				//若后边一项小于前边一项就换位，
+				if(array[j]<array[i]){
+					//换位
+					array.splice(i, 0, array[j]);
+					//并删除它
+					array.splice(++j, 1);
+					break;
+				}
+			}
+		}
+		return array; 	
+	}
+	var arr = [8,2,3,2,1,5];
+	insertSort(arr);
+	console.log(insertSort(arr));
+</script>
+</html>
