@@ -255,7 +255,7 @@
     right: 35px;
     z-index: 88;	
 }
-.home .banner .carousel li{
+.home .banner .carousel .carousel-btn li{
 	float: left;
 	width: 6px;
 	height: 6px;
@@ -306,7 +306,6 @@
 	height: 460px;
 }
 .home .banner .carousel .carousel-imgs .carousel-imgs-item img{
-	display: block;
 	width: 1226px;
 	height: 460px;
 }

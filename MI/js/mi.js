@@ -61,3 +61,16 @@ function stopAutoPlay(){
 		clearInterval(timer);
 	}
 }
+/*flash闪购倒计时*/
+var endTime = new Date(2018, 12, 22, 8, 30, 0, 0);
+var endTimer = endTime.getTime();
+function to2Str(num){
+	return num<10 ? '0'+num : ''+num;
+}
+
+function handlerTimer(){
+	var allMilliSeconds = endTimer - Date.now();
+	var allSeconds = allMilliSeconds/1000;
+	var iHour = parseInt(allSeconds/3600)
+}
+setInterval(handlerTimer,500);
