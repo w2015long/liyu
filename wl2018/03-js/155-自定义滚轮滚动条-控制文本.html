@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>154-自定义滚动条-控制文本.html</title>
+	<title>155-自定义滚轮滚动条-控制文本.html</title>
 	<style>
 		body{
 			background-color: rgba(0,0,0,0.2);
@@ -98,7 +98,19 @@
 		disY = ev.clientY - oBtn.offsetTop ;
 		document.onmousemove=function(ev){
 			t = ev.clientY - disY;
+			handerMove();
 			
+		}
+		document.onmousewheel=function(ev){
+			console.log(ev.wheelDelta)
+			if(ev.wheelDelta<0){
+				t += 10;
+			}else{
+				t -= 10;
+			}
+			handerMove();
+		}
+		function handerMove(){
 			if(t < 0){
 				t=0;
 			}else if(t > (oFather.offsetHeight - oBtn.offsetHeight)){
@@ -107,11 +119,12 @@
 			var scale = t/(oFather.offsetHeight - oBtn.offsetHeight);
 			oBtn.style.top = t+'px';
 			oTxt.style.top = -(oTxt.offsetHeight - oContent.offsetHeight)*scale  +'px';
-			
+
 		}
 		document.onmouseup=function(){
 			document.onmousedown=null;
 			document.onmousemove=null;
+			// document.onmousewheel=null;
 		}
 	}
 </script>
