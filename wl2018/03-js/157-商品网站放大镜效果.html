@@ -25,13 +25,14 @@
 			width: 100%;
 			height: 100%;
 		}
-		#marsk{
+		#mask{
 			position: absolute;
 			top: 0;
 			left: 0;
 			width: 240px;
 			height: 240px;
-			background-color: rgba(255,255,0,0.6);
+			background-color: rgba(255,255,0,0.4);
+			cursor: crosshair;
 
 		}
 		#list{
@@ -40,12 +41,12 @@
 			top: 455px;
 			width: 450px;
 			height: 80px;
-			border: 1px solid #000;
+			border: 1px solid #ccc;
 		}
 		#list>li{
 			list-style: none;
 			float: left;
-			width: 20%;
+			width: 25%;
 			height: 100%;
 			opacity: 0.5;
 		}
@@ -60,67 +61,72 @@
 			position: absolute;
 			left: 455px;
 			top: 0;
-			width: 600px;
-			height: 600px;
+			width: 500px;
+			height: 500px;
 			border: 1px solid #ccc;
+			overflow: hidden;
 		}
 		#large>img{
-			width: 100%;
-			height: 100%;
+			width: 800px;
+			height: 800px;
 		}
 	</style>
 </head>
 <body>
 	<div class="container">
 		<div id="biger">
-			<img src="" alt="">
+			<img src="images/biger1.webp" alt="">
 		</div>
-		<div id="marsk"></div>
+		<div id="mask"></div>
 		<ul id="list">
-			<li><img src="" alt=""></li>
-			<li><img src="" alt=""></li>
-			<li><img src="" alt=""></li>
+			<li><img src="images/small1.webp" alt=""></li>
+			<li><img src="images/small2.webp" alt=""></li>
+			<li><img src="images/small3.webp" alt=""></li>
+			<li><img src="images/small4.webp" alt=""></li>
 		</ul>
 		<div id="large">
-			<img src="" alt="">
+			<img src="images/large1.jpg" alt="">
 		</div>
 	</div>	
 </body>
 <script>
 	var oContainer =document.querySelector('.container');
 	var oBiger = document.getElementById('biger');
-	var oBigerImg = oBiger.children;
+	var oBigerImg = oBiger.children[0];
 	var oLarge = document.getElementById('large');
-	var oLargeImg = oLarge.children;
+	var oLargeImg = oLarge.children[0];
 	var oList = document.getElementById('list');
 	var aListImg = oList.children;
-	var oMarsk = document.getElementById('marsk');
-	console.log(aListImg);
-		for(var i=0;i<aListImg.length;i++){
-			aListImg[i].index = i;
-			aListImg.onmouseover = function(){
-				aListImg[i].className= '';
-				for(var j=0;j<aListImg.length;j++){
-					this.className = 'active';
-					oBigerImg.src = '+this.index+' ;
-					oLargeImg.src = '+this.index+' ;
-				}
+	var oMask = document.getElementById('mask');
+	console.log(oBigerImg);
+	for(var i=0;i<aListImg.length;i++){
+		aListImg[i].index = i;
+		aListImg[i].onmouseover = function(){
+			for(var j=0;j<aListImg.length;j++){
+				aListImg[j].className = '';
 			}
+			this.className = 'active';
+			oBigerImg.src = "images/biger"+(this.index+1)+".webp" ;
+			oLargeImg.src = "images/large"+(this.index+1)+".jpg" ;
 		}
-	oMarsk.onmouseover = function(ev){
-		var l = ev.clientX - oMarsk.offsetWidth*0.5 - oContainer.offsetLeft;
-		var t = ev.clientY - oMarsk.offsetHeight*0.5 - oContainer.offsetTop;
+	}
+	oBiger.onmouseover = function(ev){
+		var l = ev.clientX - oMask.offsetWidth*0.5 - oContainer.offsetLeft;
+		var t = ev.clientY - oMask.offsetHeight*0.5 - oContainer.offsetTop;
 		if(l<0){
 			l=0
-		}else if(l>=ev.clientX - oMarsk.offsetWidth*0.5 - oContainer.offsetLeft){
-			l=ev.clientX - oMarsk.offsetWidth*0.5 - oContainer.offsetLeft;
+		}else if(l>=ev.clientX - oMask.offsetWidth*0.5 - oContainer.offsetLeft){
+			l=ev.clientX - oMask.offsetWidth*0.5 - oContainer.offsetLeft;
 		}
 		if(t<0){
 			t=0;
-		}else if(t>=ev.clientY - oMarsk.offsetHeight*0.5 - oContainer.offsetTop){
-			t=ev.clientY - oMarsk.offsetHeight*0.5 - oContainer.offsetTop;
+		}else if(t>=ev.clientY - oMask.offsetHeight*0.5 - oContainer.offsetTop - oList.offsetHeight){
+			t=ev.clientY - oMask.offsetHeight*0.5 - oContainer.offsetTop - oList.offsetHeight;
 		}		
-		
+		document.onmousemove = function(){
+			oMask.style.left = l + 'px';
+			oMask.style.top = t + 'px';
+		}
 	}
 </script>
 </html>
