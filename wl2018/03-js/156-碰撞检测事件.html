@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>156-碰撞检测事件.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			background-color: #f00;
+		}
+		#wall{
+			position: absolute;
+			top: 180px;
+			left: 480px;
+			width: 260px;
+			height: 260px;
+			background-color: gray;
+
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<div id="wall"></div>
+</body>
+<script>
+	var oWall = document.getElementById('wall');
+	var oBox = document.getElementById('box');
+	var disX, disY;
+	function checkBump(obj,wall){
+		if(obj.offsetLeft + obj.offsetWidth > wall.offsetLeft
+			&& obj.offsetTop + obj.offsetHeight > wall.offsetTop
+			&& wall.offsetLeft + wall.offsetWidth > obj.offsetLeft
+			&& wall.offsetTop + wall.offsetHeight > obj.offsetTop 
+			){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	oBox.onmousedown = function(ev){
+		disX = ev.clientX - oBox.offsetLeft;
+		disY = ev.clientY - oBox.offsetTop;
+		document.onmousemove = function(ev){
+			var l = ev.clientX - disX, t = ev.clientY - disY;
+			if(l<0){
+				l=0;
+			}else if(l > window.innerWidth - oBox.offsetWidth){
+				l = window.innerWidth - oBox.offsetWidth;
+			}
+			if(t<0){
+				t=0;
+			}else if(t > window.innerHeight - oBox.offsetHeight){
+				t =  window.innerHeight - oBox.offsetHeight;
+			}
+			oBox.style.left = l + 'px';
+			oBox.style.top =  t + 'px';
+			if(checkBump(oBox,oWall)){
+				oWall.style.backgroundColor = 'blue';
+			}else{
+				oWall.style.backgroundColor = 'gray';
+			}
+		}
+		document.onmouseup = function(){
+			document.onmousedown = null;
+			document.onmousemove =null;
+		}
+
+	}
+</script>
+</html>
