@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>160-ctrl+回车提交.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+
+		}
+		#list{
+			width: 400px;
+
+		}
+		#list>li{
+			border-bottom: 1px solid #ccc;
+		}
+	</style>
+</head>
+<body>
+	<input type="text" id="txt">
+	<input type="button" id="btn" value="提交">
+	<ul id="list"></ul>
+</body>
+<script>
+	var oTxt = document.getElementById('txt');
+	var oBtn = document.getElementById('btn');
+	var oList = document.getElementById('list');
+	document.onkeydown= function(ev){
+		console.log(ev.keyCode,ev.ctrlKey)
+	}
+	oBtn.onclick = function(){
+		var oLi=document.createElement('li');
+		oLi.innerHTML = oTxt.value;
+		oTxt.value='';
+		oList.insertBefore(oLi, oList.firstChild);
+	}
+</script>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>157-商品网站放大镜效果.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.container{
+			position: relative;
+			top: 50px;
+			left: 80px;
+		}
+		#biger{
+			position: absolute;
+			left: 0;
+			top:0;
+			width: 450px;
+			height: 450px;
+			border: 1px solid #ccc;
+		}
+		#biger>img{
+			width: 100%;
+			height: 100%;
+		}
+		#marsk{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 240px;
+			height: 240px;
+			background-color: rgba(255,255,0,0.6);
+
+		}
+		#list{
+			position: absolute;
+			left: 0;
+			top: 455px;
+			width: 450px;
+			height: 80px;
+			border: 1px solid #000;
+		}
+		#list>li{
+			list-style: none;
+			float: left;
+			width: 20%;
+			height: 100%;
+			opacity: 0.5;
+		}
+		#list>li.active{
+			opacity: 1;
+		}
+		#list>li>img{
+			width: 100%;
+			height: 100%;
+		}
+		#large{
+			position: absolute;
+			left: 455px;
+			top: 0;
+			width: 600px;
+			height: 600px;
+			border: 1px solid #ccc;
+		}
+		#large>img{
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div id="biger">
+			<img src="" alt="">
+		</div>
+		<div id="marsk"></div>
+		<ul id="list">
+			<li><img src="" alt=""></li>
+			<li><img src="" alt=""></li>
+			<li><img src="" alt=""></li>
+		</ul>
+		<div id="large">
+			<img src="" alt="">
+		</div>
+	</div>	
+</body>
+<script>
+	var oContainer =document.querySelector('.container');
+	var oBiger = document.getElementById('biger');
+	var oBigerImg = oBiger.children;
+	var oLarge = document.getElementById('large');
+	var oLargeImg = oLarge.children;
+	var oList = document.getElementById('list');
+	var aListImg = oList.children;
+	var oMarsk = document.getElementById('marsk');
+	console.log(aListImg);
+		for(var i=0;i<aListImg.length;i++){
+			aListImg[i].index = i;
+			aListImg.onmouseover = function(){
+				aListImg[i].className= '';
+				for(var j=0;j<aListImg.length;j++){
+					this.className = 'active';
+					oBigerImg.src = '+this.index+' ;
+					oLargeImg.src = '+this.index+' ;
+				}
+			}
+		}
+	oMarsk.onmouseover = function(ev){
+		var l = ev.clientX - oMarsk.offsetWidth*0.5 - oContainer.offsetLeft;
+		var t = ev.clientY - oMarsk.offsetHeight*0.5 - oContainer.offsetTop;
+		if(l<0){
+			l=0
+		}else if(l>=ev.clientX - oMarsk.offsetWidth*0.5 - oContainer.offsetLeft){
+			l=ev.clientX - oMarsk.offsetWidth*0.5 - oContainer.offsetLeft;
+		}
+		if(t<0){
+			t=0;
+		}else if(t>=ev.clientY - oMarsk.offsetHeight*0.5 - oContainer.offsetTop){
+			t=ev.clientY - oMarsk.offsetHeight*0.5 - oContainer.offsetTop;
+		}		
+		
+	}
+</script>
+</html>
