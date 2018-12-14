@@ -21,6 +21,8 @@
 			width: 30px;
 			height: 30px;
 			background-color: #f99;
+			border-radius: 8px;
+			box-shadow: 0px 3px 30px rgba(0,0,0,0.6);
 		}
 		.father{
 			position: relative;
@@ -98,19 +100,19 @@
 		disY = ev.clientY - oBtn.offsetTop ;
 		document.onmousemove=function(ev){
 			t = ev.clientY - disY;
-			handerMove();
+			handlerMove();
 			
 		}
-		document.onmousewheel=function(ev){
+		oFather.onmousewheel=function(ev){
 			console.log(ev.wheelDelta)
 			if(ev.wheelDelta<0){
 				t += 10;
 			}else{
 				t -= 10;
 			}
-			handerMove();
+			handlerMove();
 		}
-		function handerMove(){
+		function handlerMove(){
 			if(t < 0){
 				t=0;
 			}else if(t > (oFather.offsetHeight - oBtn.offsetHeight)){
