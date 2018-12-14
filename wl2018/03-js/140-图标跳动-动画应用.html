@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>140-图标跳动-动画应用.html</title>
+	<link rel="stylesheet" href="font_iconfont/iconfont.css">
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			width: 500px;
+			height: 80px;
+			margin: 80px auto;
+			border: 1px solid #000;
+		}
+		.icon-box{
+			position: relative;
+			float: left;
+			list-style: none;
+			width: 20%;
+			height: 80px;
+			line-height: 40px;
+			text-align: center;
+		}
+		.icon-box .iconfont{
+			position: absolute;
+			height: 40px;
+			margin-left: -15px;
+			font-size: 24px;
+			color: #f88;
+		}
+		.icon-box .txt{
+			position: absolute;
+			margin-left: 31px;
+			bottom: 0;
+			height: 40px;
+			line-height: 40px;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li class="icon-box">
+			<i class="iconfont icon-home"></i>
+			<p class="txt">home</p>
+		</li>
+		<li class="icon-box">
+			<i class="iconfont icon-team"></i>
+			<p class="txt">team</p>
+		</li>
+		<li class="icon-box">
+			<i class="iconfont icon-phone"></i>
+			<p class="txt">电话</p>
+		</li>
+		<li class="icon-box">
+			<i class="iconfont icon--bulding"></i>
+			<p class="txt">bulding</p>
+		</li>
+		<li class="icon-box">
+			<i class="iconfont icon-kafei"></i>
+			<p class="txt">咖啡</p>
+		</li>
+	</ul>
+</body>
+<script defer src="js/tween.js"></script>
+<script>
+	var aLi = document.querySelectorAll('.icon-box');
+	
+	
+	console.log(aLi);
+	for(var i=0; i<aLi.length;i++){
+		aLi[i].onmouseover = function(){
+			var Ai = this.firstElementChild;
+			animate(Ai,{top:-20,opacity:0},true,function(){
+				animate(Ai,{top:0,opacity:100},false)
+			})
+		}
+		
+	}
+</script>
+</html>
