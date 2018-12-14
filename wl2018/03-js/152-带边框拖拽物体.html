@@ -13,8 +13,8 @@
 			background-color: #f99;
 		}
 		.border{
-			border: 1px solid #000;
-			/*box-shadow: 5px */
+			border: 1px dashed #000;
+			box-shadow: 5px 0px 30px rgba(0,0,0,0.5);
 		}
 	</style>
 </head>
@@ -53,15 +53,16 @@
 			}			
 			oBorder.style.left = l+'px';
 			oBorder.style.top = t+'px';
-			document.onmouseup=function(){
-				oBox.style.left = oBorder.offsetLeft+ 'px';
-				oBox.style.top = oBorder.offsetTop + 'px';
-
-				document.body.removeChild(oBorder);
-				document.onmousedown=null;
-				document.onmousemove=null;
-			}
+			
 		}
+		document.onmouseup=function(){
+			oBox.style.left = oBorder.offsetLeft+ 'px';
+			oBox.style.top = oBorder.offsetTop + 'px';
+
+			document.body.removeChild(oBorder);
+			document.onmousedown=null;
+			document.onmousemove=null;
+		}		
 	}
 </script>
 </html>

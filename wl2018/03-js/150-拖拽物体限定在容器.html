@@ -10,7 +10,7 @@
 			left: 80px;
 			width: 100px;
 			height: 100px;
-			background-color: #f99;
+			background-color: red;
 		}
 		.father{
 			position: relative;
@@ -50,11 +50,11 @@
 			}			
 			oBox.style.left = l+'px';
 			oBox.style.top = t+'px';
-			document.onmouseup=function(){
-				document.onmousedown=null;
-				document.onmousemove=null;
-			}
 		}
+		document.onmouseup=function(){
+			document.onmousedown=null;
+			document.onmousemove=null;
+		}		
 	}
 </script>
 </html>

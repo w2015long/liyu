@@ -22,8 +22,7 @@
 		}
 		#box{
 			position: absolute;
-			top: 60px;
-
+			top: 6px;
 			width: 100px;
 			height: 100px;
 			background-color: #f00;
@@ -56,12 +55,14 @@
 			}
 			var scale = t/(oFather.offsetHeight - oBtn.offsetHeight);			
 			oBtn.style.top = t+'px';
-			oBox.style.width = (100 + 600*scale)+'px'
-			document.onmouseup=function(){
-				document.onmousedown=null;
-				document.onmousemove=null;
-			}
+			oBox.style.width = (100 + 500*scale)+'px';
+			oBox.style.height = (100 + 500*scale)+'px';
+			oBox.style['opacity'] = scale;
 		}
+		document.onmouseup=function(){
+			document.onmousedown=null;
+			document.onmousemove=null;
+		}		
 	}
 </script>
 </html>
