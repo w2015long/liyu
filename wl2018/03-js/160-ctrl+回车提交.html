@@ -10,7 +10,7 @@
 
 		}
 		#list{
-			width: 400px;
+			width: 300px;
 
 		}
 		#list>li{
@@ -29,6 +29,10 @@
 	var oList = document.getElementById('list');
 	document.onkeydown= function(ev){
 		console.log(ev.keyCode,ev.ctrlKey)
+		if(ev.keyCode == 13 && ev.ctrlKey){
+			oBtn.onclick();
+		}
+
 	}
 	oBtn.onclick = function(){
 		var oLi=document.createElement('li');
