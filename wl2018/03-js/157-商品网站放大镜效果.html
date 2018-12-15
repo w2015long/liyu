@@ -32,7 +32,10 @@
 			width: 240px;
 			height: 240px;
 			background-color: rgba(255,255,0,0.4);
+			z-index: 9;
+			display: none;
 			cursor: crosshair;
+
 
 		}
 		#list{
@@ -65,8 +68,10 @@
 			height: 500px;
 			border: 1px solid #ccc;
 			overflow: hidden;
+			display: none;
 		}
 		#large>img{
+			position: absolute;
 			width: 800px;
 			height: 800px;
 		}
@@ -76,10 +81,11 @@
 	<div class="container">
 		<div id="biger">
 			<img src="images/biger1.webp" alt="">
+			<span id="mask"></span>
 		</div>
-		<div id="mask"></div>
+		
 		<ul id="list">
-			<li><img src="images/small1.webp" alt=""></li>
+			<li class="active"><img src="images/small1.webp" alt=""></li>
 			<li><img src="images/small2.webp" alt=""></li>
 			<li><img src="images/small3.webp" alt=""></li>
 			<li><img src="images/small4.webp" alt=""></li>
@@ -90,7 +96,7 @@
 	</div>	
 </body>
 <script>
-	var oContainer =document.querySelector('.container');
+	var oContainer = document.querySelector('.container');
 	var oBiger = document.getElementById('biger');
 	var oBigerImg = oBiger.children[0];
 	var oLarge = document.getElementById('large');
@@ -98,7 +104,6 @@
 	var oList = document.getElementById('list');
 	var aListImg = oList.children;
 	var oMask = document.getElementById('mask');
-	console.log(oBigerImg);
 	for(var i=0;i<aListImg.length;i++){
 		aListImg[i].index = i;
 		aListImg[i].onmouseover = function(){
@@ -111,21 +116,34 @@
 		}
 	}
 	oBiger.onmouseover = function(ev){
+		oMask.style.display = 'block'
+		oLarge.style.display = 'block'
 		var l = ev.clientX - oMask.offsetWidth*0.5 - oContainer.offsetLeft;
 		var t = ev.clientY - oMask.offsetHeight*0.5 - oContainer.offsetTop;
 		if(l<0){
 			l=0
-		}else if(l>=ev.clientX - oMask.offsetWidth*0.5 - oContainer.offsetLeft){
-			l=ev.clientX - oMask.offsetWidth*0.5 - oContainer.offsetLeft;
+		}else if(l>= oBiger.offsetWidth - oMask.offsetWidth){
+			l = oBiger.offsetWidth - oMask.offsetWidth;
 		}
 		if(t<0){
 			t=0;
-		}else if(t>=ev.clientY - oMask.offsetHeight*0.5 - oContainer.offsetTop - oList.offsetHeight){
-			t=ev.clientY - oMask.offsetHeight*0.5 - oContainer.offsetTop - oList.offsetHeight;
+		}else if(t>= oBiger.offsetHeight - oMask.offsetHeight){
+			t = oBiger.offsetHeight - oMask.offsetHeight;
 		}		
-		document.onmousemove = function(){
+		oBiger.onmousemove = function(){
 			oMask.style.left = l + 'px';
 			oMask.style.top = t + 'px';
+			//percent 百分比
+			var percentX = l / (oBiger.offsetWidth - oMask.offsetWidth);
+			var precentY = t / (oBiger.offsetHeight - oMask.offsetHeight);
+			console.log(oLarge.offsetWidth)
+			oLargeImg.style.left = -(oLargeImg.offsetWidth - oLarge.offsetWidth)*percentX + 'px';
+			oLargeImg.style.top = (oLarge.offsetHeight - oLargeImg.offsetHeight)*precentY + 'px';
+
+		}
+		oBiger.onmouseout = function(){
+			oMask.style.display = 'none';
+			oLarge.style.display = 'none';			
 		}
 	}
 </script>
