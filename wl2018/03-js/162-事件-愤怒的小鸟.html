@@ -14,15 +14,35 @@
 		#game{
 			position: absolute;
 			top: 25px;
-			left: 80px;
+			left: 120px;
 			width: 800px;
 			height: 560px;
 			border: 1px solid #000;
 		}
 		#bird{
-			width: 100px;
-			height: 100px;
-			background:  url(images/bird.jpg) left top no-repeat;
+			position: absolute;
+			top: 0;
+			left: 50%;
+			margin-left: -20px;
+			width: 40px;
+			height: 40px;
+			background:  url(images/bird.jpg) 0 0 no-repeat;
+			background-size: 100% auto;
+			border-radius: 20px;
+		}
+		.topLine{
+			position: absolute;
+			top: 0;
+			left: 100%;
+			width: 30px;
+			background-color: #A52A2A;
+		}
+		.bottomLine{
+			position: absolute;
+			bottom: 0;
+			left: 100%;
+			width: 30px;
+			background-color: #A52A2A;			
 		}
 	</style>
 </head>
@@ -31,4 +51,92 @@
 		<li id="bird"></li>
 	</ul>
 </body>
+<script>
+	//封装一个代替getElementById()的方法
+	function byId(id){
+	    return typeof(id) === "string" ? document.getElementById(id) : id;
+	}
+	var oGame = byId(game);
+	var oBird = byId(bird);
+	var step =0 ,moveBirdTimer , addLineTimer , moveLineTimer;
+
+	var isGameOver = false;
+	//获取随机数
+	function getRandom(min,max){
+		return Math.round((max-min)*Math.random()+min);
+	}
+	//碰撞检测
+	function checkBump(obj,wall){
+		if(obj.offsetLeft + obj.offsetWidth > wall.offsetLeft
+			&& obj.offsetTop + obj.offsetHeight > wall.offsetTop
+			&& wall.offsetLeft + wall.offsetWidth > obj.offsetLeft
+			&& wall.offsetTop + wall.offsetHeight > obj.offsetTop 
+			){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	//创建柱子
+	function addLine(){
+		var oTopLine = document.createElement('li');
+		var oBottomLine = document.createElement('li');
+		var space = 240 ;
+		var h = getRandom(100,200);
+		oTopLine.className = 'topLine';
+		oBottomLine.className = 'bottomLine';
+		
+		oTopLine.style.height = h + 'px';
+		oBottomLine.style.height = (oGame.offsetHeight - space - h) + 'px';
+		oTopLine.leftData = 100;
+		oGame.appendChild(oTopLine);
+		oGame.appendChild(oBottomLine);
+	}
+	//添加柱子
+	clearInterval(addLineTimer);
+	addLineTimer = setInterval(addLine, 600);
+	//移动柱子
+	clearInterval(moveLineTimer);
+	moveLineTimer = setInterval(function(){
+		var aTopLine = document.getElementsByClassName('topLine');
+		var aBottomLine = document.getElementsByClassName('bottomLine');
+		for(var i=0 ;i<aTopLine.length; i++){
+
+			if(checkBump(oBird,aTopLine[i]) || checkBump(oBird,aBottomLine[i])){
+				 gameover();
+			}
+			aTopLine[i].style.left = aBottomLine[i].style.left = aTopLine[i].leftData - 1 + '%';
+			aTopLine[i].leftData = aTopLine[i].leftData - 1 ;
+			if(aTopLine[i].leftData < -5){
+				oGame.removeChild(aBottomLine[i]);
+				oGame.removeChild(aTopLine[i]);
+
+			}			
+		}
+	},80);
+	//小鸟加速落体
+	clearInterval(moveBirdTimer);
+	moveBirdTimer = setInterval(function(){
+		step += 1 ;
+		oBird.style.top = oBird.offsetTop + step + 'px';
+		if(oBird.offsetTop < 0 || oBird.offsetTop >oGame.offsetHeight-oBird.offsetHeight- 8){
+			gameover();
+		}
+	},30);
+	//键盘操作小鸟跳跃
+	document.onkeydown = function(ev){
+		//isGameOver为真就返回false，这时键盘按下就没有反应
+		if(isGameOver){
+			return false ;
+		}
+		console.log('keydown is runing....')
+		step -=10 ;
+	}
+	function gameover(){
+		isGameOver = true ;
+		clearInterval(moveBirdTimer);
+		clearInterval(addLineTimer);
+		clearInterval(moveLineTimer);
+	}
+</script>
 </html>
