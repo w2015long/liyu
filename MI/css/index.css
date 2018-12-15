@@ -44,20 +44,34 @@
 	margin: 0 6px;
 }
 .top .cart{
+	position: relative;
 	float: right;
 	width: 120px;
 	height: 40px;
 	background: #424242;
 	text-align: center;
 }
+.top .cart .cart-content{
+	position: absolute;
+	right: 0;
+	top: 40px;
+	width: 250px;
+	height: 100px;
+	background: #fff;
+	box-shadow: 0 3px 20px rgba(0,0,0,0.25);
+	z-index: 999;
+	display: none;
+}
 .top .cart .cart-box{
+	position: absolute;
+	z-index: 1000;
 	width: 120px;
 	height: 40px;
 }
-.top .cart .cart-box a:hover{
+/*.top .cart .cart-box a:hover{
 	color: #ff6700;
 	background: #fff;
-}
+}*/
 .top .cart .cart-box a{
 	display: inline-block;
 	width: 100%;

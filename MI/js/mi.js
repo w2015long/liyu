@@ -2,7 +2,16 @@
 function byId(id){
     return typeof(id) === "string" ? document.getElementById(id) : id;
 }
- 
+ /*头部购物车*/
+ var oCart = document.querySelector('.cart');
+ var oCartBox = document.querySelector('.cart-box');
+ var oContent = document.querySelector('.cart-content');
+ var oCartA = oCartBox.children[0];
+ oCart.onmouseenter = function(){
+ 	oContent.style.display = 'block';
+ 	oCartBox.style.backgroundColor = '#fff';
+ 	oCartA.style.color = '#ff6700';
+ }
 /*carousel轮播图*/
 var timer=null;
 var now=0;
