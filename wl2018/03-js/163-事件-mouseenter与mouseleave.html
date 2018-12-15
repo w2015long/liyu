@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>163-事件-mouseenter与mouseleave.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 500px;
+			height: 500px;
+			margin: 80px auto;
+			background-color: #caa;
+			overflow: hidden;
+		}
+		.son{
+			width: 100px;
+			height: 100px;
+			margin: 150px auto;
+			background-color: #f09;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son"></div>
+	</div>
+</body>
+<script>
+	var oFather = document.getElementsByClassName('father')[0];
+	var oSon = document.getElementsByClassName('son')[0];
+/*
+	//鼠标穿过事件源对象或其子元素时触发onmouseover
+	oFather.addEventListener('mouseover', function(){
+		console.log('监听mouseover事件');
+	},false);
+	//鼠标离开事件源对象或其子元素时触发onmouseout
+	oFather.addEventListener('mouseout', function(){
+		console.log('监听mouseout事件');
+	},false);
+*/
+	//鼠标穿过事件源对象时触发onmouseenter
+	oFather.addEventListener('mouseenter', function(){
+		console.log('监听mouseenter事件');
+	}, false);
+
+	//鼠标离开事件源对象时触发onmouseleave
+	oFather.addEventListener('mouseleave', function(){
+		console.log('监听mouseleave事件');
+	}, false)	
+</script>
+</html>
