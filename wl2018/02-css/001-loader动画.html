@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>001-loader动画.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.loader{
+			position: relative;
+			width: 4px;
+			height: 20px;
+			margin: 2px auto;
+			background: #ff6700;
+			transform: scale(1,1);
+			animation: loadering 0.4s linear 0 infinite alternate-reverse;
+		}
+		.loader:after,
+		.loader:before{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			content:'';
+			width: 4px;
+			height: 20px;
+			background: #ff6700;
+		}
+		.loader:after{
+			margin: -10px 0 0 5px;
+			transform: scale(1,0.5);
+			animation: loadering 0.5s linear 0.5s infinite alternate-reverse;
+		}
+		.loader:before{
+			margin: -10px 0 0 -9px;
+			transform: scale(1,0.3);
+			animation: loadering 0.3s linear 0.3s infinite alternate-reverse;
+		}
+		@keyframes loadering{
+			from{
+				opacity: 0.3;
+				transform: scale(1,0.5);
+			}
+			to{
+				opacity: 1;
+				transform: scale(1,1);
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="loader"></div>
+</body>
+</html>
