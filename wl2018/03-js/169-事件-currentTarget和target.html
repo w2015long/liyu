@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>169-事件-currentTarget和target.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#father{
+			width: 500px;
+			height: 500px;
+			background-color: #9a8;
+			overflow: hidden;
+
+		}
+		#son{
+			width: 100px;
+			height: 100px;
+			margin: 150px auto;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="father">
+		<div id="son"></div>
+	</div>
+</body>
+<script>
+	var oFather = document.getElementById('father');
+	var oSon = document.getElementById('son');
+	oFather.addEventListener("click",function(ev){
+		console.log('currentTarget',ev.currentTarget);
+		console.log('target',ev.target);
+	}, false)
+</script>
+</html>
