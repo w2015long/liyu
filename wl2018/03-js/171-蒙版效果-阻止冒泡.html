@@ -9,6 +9,7 @@
 			padding: 0;
 		}
 		#mask{
+			display: none;
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -17,6 +18,7 @@
 			background-color: rgba(50,200,50,0.4);
 		}
 		#loginBox{
+			display: none;
 			position: absolute;
 			top: 50%;
 			left: 50%;
@@ -36,4 +38,26 @@
 		<input type="button" id="btn" value="登录">
 	</div>
 </body>
+<script>
+	var oBtn1 = document.getElementById('btn1');
+	var oBtn = document.getElementById('btn');
+	var oLoginBox = document.getElementById('loginBox');
+	var oMask = document.getElementById('mask');
+
+	oBtn1.onclick = function(ev){
+		oLoginBox.style.display = 'block';
+		oMask.style.display = 'block';
+		ev.stopPropagation();
+	}
+	document.onclick =function(){
+		oLoginBox.style.display = 'none';
+		oMask.style.display = 'none';		
+	}
+	oLoginBox.onclick = function(ev){
+		ev.stopPropagation();
+	}
+	oBtn.addEventListener('click',function(){
+		window.location = 'https://www.baidu.com/';
+	}, false);
+</script>
 </html>
