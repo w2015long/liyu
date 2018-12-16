@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>164-表单事件.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<form action="https://www.kuazhu.com/" id="forms">
+			<input type="text" id="txt">
+			<input type="submit" id="sub">
+			<input type="reset" id="rst">
+			<p id="msg"></p>
+		</form>
+	</div>
+</body>
+<script>
+	var oFrom = document.getElementById('forms');
+	var oTxt = document.getElementById('txt');
+	var oSub = document.getElementById('sub');
+	var oRst = document.getElementById('rst');
+	var oMsg = document.getElementById('msg');
+	oTxt.onfocus = function(){
+		oMsg.innerHTML = '请输入3-6位用户名';
+	}
+	oTxt.onblur = function(){
+		if()
+	}
+</script>
+</html>

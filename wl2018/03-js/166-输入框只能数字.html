@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>166-输入框只能数字.html</title>
+</head>
+<body>
+	请输入银行卡号：
+	<input type="text" id="txt">
+</body>
+<script>
+	var oTox = document.getElementById('txt');
+	oTox.onkeydown = function(ev){
+		console.log(ev.keyCode);
+		if((96<=ev.keyCode && ev.keyCode<=105)||(48<=ev.keyCode && ev.keyCode<=57) || ev.keyCode==37 ||ev.keyCode==39 || ev.keyCode==8){
+			return true;
+		}else{
+			return false;
+		}
+	}
+</script>
+</html>

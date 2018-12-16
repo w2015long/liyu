@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>167-事件委托-删除元素.html</title>
+</head>
+<body>
+	<ul id="email">
+		<li>邮件1<a href="javascript:;" class="del">删除</a></li>
+		<li>邮件2<a href="javascript:;" class="del">删除</a></li>
+		<li>邮件3<a href="javascript:;" class="del">删除</a></li>
+		<li>邮件4<a href="javascript:;" class="del">删除</a></li>
+		<li>邮件5<a href="javascript:;" class="del">删除</a></li>
+		<li>邮件6<a href="javascript:;" class="del">删除</a></li>
+		<li>邮件7<a href="javascript:;" class="del">删除</a></li>
+		<li>邮件8<a href="javascript:;" class="del">删除</a></li>
+		<li>邮件9<a href="javascript:;" class="del">删除</a></li>
+		<li>邮件10<a href="javascript:;" class="del">删除</a></li>
+	</ul>
+</body>
+<script>
+	var oEmail = document.getElementById('email');
+	var aA = document.getElementsByTagName('a');
+/*	
+	for(var i=0;i<aA.length; i++){
+		aA[i].onclick = function(){
+			oEmail.removeChild(this.parentNode);
+		}
+	}
+*/
+	//事件委托
+	oEmail.addEventListener("click",function(ev){
+		console.log(ev.target);
+		if(ev.target.className=='del'){
+			oEmail.removeChild(ev.target.parentNode);
+		}
+
+	},false)
+</script>
+</html>
