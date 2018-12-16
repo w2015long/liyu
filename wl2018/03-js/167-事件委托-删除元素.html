@@ -5,6 +5,7 @@
 	<title>167-事件委托-删除元素.html</title>
 </head>
 <body>
+	<button id="btn">添加邮件</button>
 	<ul id="email">
 		<li>邮件1<a href="javascript:;">删除</a></li>
 		<li>邮件2<a href="javascript:;">删除</a></li>
@@ -19,19 +20,27 @@
 	</ul>
 </body>
 <script>
+	var oBtn = document.getElementById('btn');
 	var oEmail = document.getElementById('email');
 	var aA = document.getElementsByTagName('a');
 	var oLi = document.createElement('li');
 	oLi.innerHTML = 'new data';
 	var oA =document.createElement('a');
 	oA.innerHTML = '删除';
-/*	
+	oA.href = 'javascript:;';
+
+	//只能循环遍历现有的元素,动态添加的aA 就不能遍历
+/*
 	for(var i=0;i<aA.length; i++){
 		aA[i].onclick = function(){
 			oEmail.removeChild(this.parentNode);
 		}
 	}
 */
+	oBtn.addEventListener('click', function(){
+		oEmail.appendChild(oLi);
+		oLi.appendChild(oA);
+	}, false)
 	//事件委托可以动态添加删除，传统循环遍历方式就不行
 	oEmail.addEventListener("click",function(ev){
 		console.log(ev.target);
@@ -40,5 +49,6 @@
 		}
 
 	},false)
+
 </script>
 </html>
