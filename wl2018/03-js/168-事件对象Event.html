@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>168-事件对象Event.html</title>
+	<style>
+		#box{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 200px;
+			height: 200px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script>
+	var oBox = document.getElementById('box');
+	oBox.onclick = function(ev){
+		console.log('鼠标事件',ev);
+	}
+	document.onkeydown = function(ev){
+		console.log('键盘事件',ev);
+		switch (ev.key) {
+			case "ArrowRight":
+				oBox.style.left = oBox.offsetLeft + 10 + 'px';
+				break;
+			case "ArrowLeft":
+				oBox.style.left = oBox.offsetLeft - 10 + 'px';	
+			case "ArrowUp":
+				// alert(9999)
+				oBox.style.top = oBox.offsetTop - 10 +'px';		
+			case "ArrowDown":
+				oBox.style.top = oBox.offsetTop + 10 + 'px';			
+			default:
+				// statements_def
+				break;
+		}
+	}
+</script>
+</html>
