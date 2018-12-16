@@ -32,8 +32,12 @@
 	var oFather = document.getElementById('father');
 	var oSon = document.getElementById('son');
 	oFather.addEventListener("click",function(ev){
-		console.log('currentTarget',ev.currentTarget);
-		console.log('target',ev.target);
+		console.log('oFather.currentTarget',ev.currentTarget);
+		console.log('oFather.target',ev.target);
 	}, false)
+	oSon.addEventListener("click",function(ev){
+		console.log('oSon.currentTarget',ev.currentTarget);
+		console.log('oSon.target',ev.target);
+	},false)
 </script>
 </html>
