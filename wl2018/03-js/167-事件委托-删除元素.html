@@ -6,16 +6,16 @@
 </head>
 <body>
 	<ul id="email">
-		<li>邮件1<a href="javascript:;" class="del">删除</a></li>
-		<li>邮件2<a href="javascript:;" class="del">删除</a></li>
-		<li>邮件3<a href="javascript:;" class="del">删除</a></li>
-		<li>邮件4<a href="javascript:;" class="del">删除</a></li>
-		<li>邮件5<a href="javascript:;" class="del">删除</a></li>
-		<li>邮件6<a href="javascript:;" class="del">删除</a></li>
-		<li>邮件7<a href="javascript:;" class="del">删除</a></li>
-		<li>邮件8<a href="javascript:;" class="del">删除</a></li>
-		<li>邮件9<a href="javascript:;" class="del">删除</a></li>
-		<li>邮件10<a href="javascript:;" class="del">删除</a></li>
+		<li>邮件1<a href="javascript:;">删除</a></li>
+		<li>邮件2<a href="javascript:;">删除</a></li>
+		<li>邮件3<a href="javascript:;">删除</a></li>
+		<li>邮件4<a href="javascript:;">删除</a></li>
+		<li>邮件5<a href="javascript:;">删除</a></li>
+		<li>邮件6<a href="javascript:;">删除</a></li>
+		<li>邮件7<a href="javascript:;">删除</a></li>
+		<li>邮件8<a href="javascript:;">删除</a></li>
+		<li>邮件9<a href="javascript:;">删除</a></li>
+		<li>邮件10<a href="javascript:;">删除</a></li>
 	</ul>
 </body>
 <script>
@@ -31,7 +31,7 @@
 	//事件委托
 	oEmail.addEventListener("click",function(ev){
 		console.log(ev.target);
-		if(ev.target.className=='del'){
+		if(ev.target.href=='javascript:;'){
 			oEmail.removeChild(ev.target.parentNode);
 		}
 
