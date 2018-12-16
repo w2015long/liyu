@@ -21,6 +21,10 @@
 <script>
 	var oEmail = document.getElementById('email');
 	var aA = document.getElementsByTagName('a');
+	var oLi = document.createElement('li');
+	oLi.innerHTML = 'new data';
+	var oA =document.createElement('a');
+	oA.innerHTML = '删除';
 /*	
 	for(var i=0;i<aA.length; i++){
 		aA[i].onclick = function(){
@@ -28,7 +32,7 @@
 		}
 	}
 */
-	//事件委托
+	//事件委托可以动态添加删除，传统循环遍历方式就不行
 	oEmail.addEventListener("click",function(ev){
 		console.log(ev.target);
 		if(ev.target.href=='javascript:;'){

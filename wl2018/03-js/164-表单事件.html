@@ -8,6 +8,10 @@
 			margin: 0;
 			padding: 0;
 		}
+		.wrap{
+			width: 350px;
+			margin: 80px auto;
+		}
 	</style>
 </head>
 <body>
@@ -26,11 +30,47 @@
 	var oSub = document.getElementById('sub');
 	var oRst = document.getElementById('rst');
 	var oMsg = document.getElementById('msg');
+
+	var len = oTxt.value.length;
+
 	oTxt.onfocus = function(){
+		console.log('aaa')
 		oMsg.innerHTML = '请输入3-6位用户名';
+		oMsg.style.fontSize = '14px';
+		oMsg.style.color = '#1f8';
+
 	}
+	//onblur 表单失去焦点触发
 	oTxt.onblur = function(){
-		if()
+		console.log('bbb')
+		if(len>=3 && len<=6){
+			oMsg.innerHTML = '用户名正确';
+			oMsg.style.fontSize = '14px';
+			oMsg.style.color = '#1f8';
+
+		}else {
+			oMsg.innerHTML = '用户名错误';
+			oMsg.style.fontSize = '14px';
+			oMsg.style.color = 'red';			
+		}
 	}
+
+	//oninput 输入后触发,不包括功能键
+	oTxt.oninput = function(){
+		console.log(len)
+		if(len>=3 && len<=6){
+			console.log('ddd')
+			oMsg.innerHTML = '用户名正确';
+			oMsg.style.fontSize = '14px';
+			oMsg.style.color = '#1f8';
+
+		}else {
+			console.log('eee')
+			oMsg.innerHTML = '用户名错误';
+			oMsg.style.fontSize = '14px';
+			oMsg.style.color = 'red';			
+		}				
+	}
+
 </script>
 </html>
