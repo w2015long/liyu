@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>172-事件对象-鼠标坐标相关值.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			height: 3000px;
+		}
+		#box{
+			margin: 80px auto;
+			width: 400px;
+			height: 400px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script>
+	var oBox = document.getElementById('box');
+	document.addEventListener("click",function(ev){
+		console.log("可视区鼠标坐标ev.clientX,ev.clientY",ev.clientX,ev.clientY);
+		console.log('网页全部内容鼠标坐标ev.pageX,ev.pageY',ev.pageX,ev.pageY);
+		console.log('window屏幕全部区域鼠标坐标ev.screenX,ev.screenY',ev.screenX,ev.screenY);
+	},false);
+	// oBox.addEventListener("click",function(ev){
+	// 	console.log("可视区鼠标坐标ev.clientX,ev.clientY",ev.clientX,ev.clientY);
+	// 	console.log('网页全部内容鼠标坐标ev.pageX,ev.pageY',ev.pageX,ev.pageY);
+	// 	console.log('window屏幕全部区域鼠标坐标ev.screenX,ev.screenY',ev.screenX,ev.screenY);
+	// },false);	
+</script>
+</html>
