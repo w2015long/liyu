@@ -16,7 +16,7 @@
 </head>
 <body>
 	<div class="wrap">
-		<form action="https://www.kuazhu.com/" id="forms">
+		<form action="https://www.kuazhu.com/" id="forms" autocomplete="off">
 			<input type="text" id="txt">
 			<input type="submit" id="sub">
 			<input type="reset" id="rst">
@@ -31,10 +31,9 @@
 	var oRst = document.getElementById('rst');
 	var oMsg = document.getElementById('msg');
 
-	var len = oTxt.value.length;
-
+	//默认用户输入不合法
+	var isCheckOk = false;
 	oTxt.onfocus = function(){
-		console.log('aaa')
 		oMsg.innerHTML = '请输入3-6位用户名';
 		oMsg.style.fontSize = '14px';
 		oMsg.style.color = '#1f8';
@@ -42,35 +41,66 @@
 	}
 	//onblur 表单失去焦点触发
 	oTxt.onblur = function(){
-		console.log('bbb')
+		var len = oTxt.value.length;
+		console.log(len);
 		if(len>=3 && len<=6){
 			oMsg.innerHTML = '用户名正确';
 			oMsg.style.fontSize = '14px';
 			oMsg.style.color = '#1f8';
+			isCheckOk = true ;
 
 		}else {
 			oMsg.innerHTML = '用户名错误';
 			oMsg.style.fontSize = '14px';
-			oMsg.style.color = 'red';			
+			oMsg.style.color = 'red';
+			isCheckOk = false ;			
 		}
 	}
-
+	oTxt.onchange = function(){
+		console.log('onchange 在元素失去焦点时触发.....')
+	}
+//oninput 事件在用户输入时触发,该事件在 <input> 或 <textarea> 元素的值发生改变时触发。
+//提示： 该事件类似于 onchange 事件。不同之处在于 oninput 事件在元素值发生变化是立即触发， onchange 在元素失去焦点时触发。另外一点不同是 onchange 事件也可以作用于 <keygen> 和 <select> 元素。
 	//oninput 输入后触发,不包括功能键
 	oTxt.oninput = function(){
+		var len = oTxt.value.length;
 		console.log(len)
 		if(len>=3 && len<=6){
-			console.log('ddd')
 			oMsg.innerHTML = '用户名正确';
 			oMsg.style.fontSize = '14px';
 			oMsg.style.color = '#1f8';
+			isCheckOk = true ;
 
 		}else {
-			console.log('eee')
 			oMsg.innerHTML = '用户名错误';
 			oMsg.style.fontSize = '14px';
-			oMsg.style.color = 'red';			
+			oMsg.style.color = 'red';
+			isCheckOk = false ;			
 		}				
 	}
+	//表单提交事件绑定在form表单上
+	//用户输入不合法不能提交
 
+	oFrom.onsubmit = function(){
+		//阻止默认行为
+		if(!isCheckOk){
+			return false;
+		}
+		console.log('submit....')
+	}
+	oFrom.onreset = function(){
+		console.log('reset....')
+	}
+	//判断用户输入是否合法也在sub上直接绑定事件进行判断
+	oSub.onclick = function(){
+		//阻止默认行为
+		// if(!isCheckOk){
+		// 	return false;
+		// }		
+		alert("submit...");
+	}
+	oRst.onclick = function(){
+		alert('rest...')
+	}
 </script>
 </html>
