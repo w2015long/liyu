@@ -15,7 +15,10 @@
 		if((96<=ev.keyCode && ev.keyCode<=105)||(48<=ev.keyCode && ev.keyCode<=57) || ev.keyCode==37 ||ev.keyCode==39 || ev.keyCode==8){
 			return true;
 		}else{
-			return false;
+			//阻止默认行为
+			//return false或者ev.preventDefault()
+			ev.preventDefault();
+			// return false;
 		}
 	}
 </script>
