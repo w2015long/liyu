@@ -116,27 +116,28 @@
 		}
 	}
 	oBiger.onmouseover = function(ev){
-		oMask.style.display = 'block'
-		oLarge.style.display = 'block'
-		var l = ev.clientX - oMask.offsetWidth*0.5 - oContainer.offsetLeft;
-		var t = ev.clientY - oMask.offsetHeight*0.5 - oContainer.offsetTop;
-		if(l<0){
-			l=0
-		}else if(l>= oBiger.offsetWidth - oMask.offsetWidth){
-			l = oBiger.offsetWidth - oMask.offsetWidth;
-		}
-		if(t<0){
-			t=0;
-		}else if(t>= oBiger.offsetHeight - oMask.offsetHeight){
-			t = oBiger.offsetHeight - oMask.offsetHeight;
-		}		
-		oBiger.onmousemove = function(){
+		oMask.style.display = 'block';
+		oLarge.style.display = 'block';
+				
+		oBiger.onmousemove = function(ev){
+			var l = ev.clientX - oMask.offsetWidth*0.5 - oContainer.offsetLeft;
+			var t = ev.clientY - oMask.offsetHeight*0.5 - oContainer.offsetTop;
+			if(l<0){
+				l=0
+			}else if(l>= oBiger.offsetWidth - oMask.offsetWidth){
+				l = oBiger.offsetWidth - oMask.offsetWidth;
+			}
+			if(t<0){
+				t=0;
+			}else if(t>= oBiger.offsetHeight - oMask.offsetHeight){
+				t = oBiger.offsetHeight - oMask.offsetHeight;
+			}
+			console.log(oContainer.offsetTop);
 			oMask.style.left = l + 'px';
 			oMask.style.top = t + 'px';
 			//percent 百分比
 			var percentX = l / (oBiger.offsetWidth - oMask.offsetWidth);
 			var precentY = t / (oBiger.offsetHeight - oMask.offsetHeight);
-			console.log(oLarge.offsetWidth)
 			oLargeImg.style.left = -(oLargeImg.offsetWidth - oLarge.offsetWidth)*percentX + 'px';
 			oLargeImg.style.top = (oLarge.offsetHeight - oLargeImg.offsetHeight)*precentY + 'px';
 
