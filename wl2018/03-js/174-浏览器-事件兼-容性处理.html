@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>174-浏览器-事件兼-容性处理.html</title>
+	<style>
+		#box{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+		}			
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script>
+	var oBox = document.getElementById('box');
+	/**
+	 * [addEventHandler 兼容各种浏览器添加事件]
+	 * @param {[object]}   element  [DOM对象]
+	 * @param {[string]} 	type    [待处理事件的类型]
+	 * @param {[function]} handleFn [事件处理函数]
+	 */
+	function addEventHandler(element,type,handleFn){
+		//chrome等chrome内核浏览器添加事件
+		if(element.addEventListener){
+			element.addEventListener(type,handleFn, false);
+		}//IE浏览器添加事件
+		else if(element.attachEvent){
+			element.attachEvent('on'+type,handleFn);
+		}//其他DOM0级添加事件
+		else{
+			element['on'+type] = handleFn ;
+		}
+	}
+	function show(){
+		console.log('兼容各种浏览器添加事件');
+	}
+	addEventHandler(oBox,'click',show);
+	/**
+	 * [removeEventHandler 兼容各种浏览器移除事件]
+	 * @param {[object]}   element  [DOM对象]
+	 * @param {[string]} 	type    [待处理事件的类型]
+	 * @param {[function]} handleFn [事件处理函数]
+	 */
+	function removeEventHandler(element,type,handleFn){
+		//chrome等chrome内核浏览器移除事件
+		if(element.removeEventListener){
+			element.removeEventListener(type,handleFn, false);
+		}//IE浏览器移除事件
+		else if(element.attachEvent){
+			element.detachEvent('on'+type,handleFn);
+		}//其他DOM0级移除事件
+		else{
+			element['on'+type] = null ;
+		}
+	}	
+
+	// removeEventHandler(oBox,'click',show);
+	
+	/*阻止事件冒泡 */
+	function stopPropagation(event){ 
+		if(event.stopPropagation){ 
+		  event.stopPropagation(); 
+		}else{ 
+		  event.cancelBubble = true;//IE阻止事件冒泡，true代表阻止 
+		} 
+	}
+	/*阻止事件默认行为 */
+	function preventDefault(event){ 
+		if(event.preventDefault){ 
+		  event.preventDefault(); 
+		}else{ 
+		  event.returnValue = false;//IE阻止事件冒泡，false代表阻止 
+		} 
+	} 	
+</script>
+</html>
