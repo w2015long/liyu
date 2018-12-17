@@ -31,8 +31,11 @@
 <script>
 	var oFather = document.getElementById('father');
 	var oSon = document.getElementById('son');
+	
 	oFather.addEventListener("click",function(ev){
+		//event.currentTarget 绑定事件的对象
 		console.log('oFather.currentTarget',ev.currentTarget);
+		//event.target 事件源对象,即触发事件的对象
 		console.log('oFather.target',ev.target);
 	}, false)
 	oSon.addEventListener("click",function(ev){
