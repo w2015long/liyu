@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>195-对象-构造原型模式.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		this.name = name ;
+		this.age = age ;
+	}
+	Person.prototype.showAge = function(){
+		console.log('I am 'this.age + 'yeare old');
+	}
+	var person = new Person{naem:'Tom',age:18};
+	var person = new Person{name:'leo',age:25};
+</script>
+</html>
