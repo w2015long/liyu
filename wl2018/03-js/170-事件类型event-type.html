@@ -18,23 +18,26 @@
 	var oBox =document.getElementById('box');
 	function handleEvent(ev){
 		console.log(ev);
-		/*
+		
 		switch (ev.type) {
 			case "click":
+				console.log('点击')
 				oBox.style.backgroundColor = 'red';
 				break;
 			case "mouseenter" :
 				console.log('进入')
 				oBox.style.backgroundColor = 'blue';
+				break;
 			case "mouseleave":
 				console.log('离开')
-				oBox.style.backgroundColor = '#2d9';	
+				oBox.style.backgroundColor = '#2d9';
+				break;	
 			default:
 				// statements_def
 				break;
 		}
-		*/
-
+		
+/*
 		if(ev.type == 'click'){
 			console.log('点击')
 			oBox.style.backgroundColor = 'red';
@@ -46,7 +49,7 @@
 			console.log('离开');
 			oBox.style.backgroundColor = '#2d9';
 		}
-
+*/
 
 	}
 	oBox.addEventListener('click', handleEvent, false);
