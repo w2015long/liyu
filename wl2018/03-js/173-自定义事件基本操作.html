@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>173-自定义事件基本操作.html</title>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script>
+	var oBox = document.getElementById('box');
+	//创建自定义事件
+	var testEvent = new Event('loading');
+	//给DOM元素绑定自定义事件
+	oBox.addEventListener('loading', function(){
+		console.log('自定义加载事件');
+		console.log(testEvent);
+	},false);
+	//触发自定义事件
+	//dispatch 派遣
+	oBox.dispatchEvent(testEvent);
+</script>
+</html>
