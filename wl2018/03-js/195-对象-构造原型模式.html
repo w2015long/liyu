@@ -12,10 +12,21 @@
 		this.name = name ;
 		this.age = age ;
 	}
-	Person.prototype.showAge = function(){
-		console.log('I am 'this.age + 'yeare old');
+	Person.prototype.showName = function(){
+		console.log('I am '+this.name);
 	}
-	var person = new Person{naem:'Tom',age:18};
-	var person = new Person{name:'leo',age:25};
+	Person.prototype.showAge = function(){
+		console.log('I am '+this.age+ ' yeare old');
+	}
+	var person1 = new Person('Tom',18);
+	
+	console.log(person1);
+	person1.showAge();
+	person1.showName();
+	var person2 = new Person('leo',25);
+	person2.showAge();
+	person2.showName();
+	//实例上的方法可以被共享
+	console.log(person1.showAge() == person2.showAge());//true
 </script>
 </html>
