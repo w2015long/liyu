@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>178-对象-基本概念-静态与实例.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//Array 构造函数/类
+	var arr1 = new Array(2,3,23,1,243,5,4,7,6);
+	//arr1/arr2实例
+	var arr2 = new Array();
+	console.log('sort前',arr1);
+	//sort()实例方法  （方法在实例上调用）
+	arr1.sort(function(n1,n2){
+		return n1-n2;
+	})
+	console.log('aort后',arr1);
+	//ceil()静态方法 (方法在类上调用)
+	console.log(Math.ceil(1.1));
+</script>
+</html>
