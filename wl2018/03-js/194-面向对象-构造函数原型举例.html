@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>194-面向对象-构造函数原型举例.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var arr = new Array(2,32,4,435,86,86,9,5,66);
+	//类/构造函数的原型上有一个sum方法
+	Array.prototype.sum = function(arr){
+		var result = 0;
+		for(var i=0;i<arr.length;i++){
+			//this 指当后前的数组
+			result += this[i];
+		}
+		return result;
+	}
+	//实例方法(arr实例上有sum这个方法)
+	console.log(arr.sum(arr));
+	var arr2 = new Array(3,3,4,5,6,8,8);
+	console.log(arr2.sum(arr2));
+</script>
+</html>
