@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>179-js内置函数创建对象.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//用new关键字 类名首字母要大写
+	//person 叫做 对象 / 实例
+	var person = new Array();
+	
+	person.QQ = 1521300387 ;
+	person.age = 19 ;
+	person.name = 'Tom';
+	//实例上有一个sort方法 （方法就是函数）
+	//sort方法是类Array 内置的方法
+	person.sort = function(){
+		console.log('sort内置方法');
+	}
+	//用内置构造函数来创建自定义的对象,会存在把内置构造函数生成的对象自带的方法和属性覆盖掉的风险
+	console.log(person);
+	person.sort();
+	console.log(person);
+</script>
+</html>

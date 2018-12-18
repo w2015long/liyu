@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>181-面向对象this.html</title>
+	<style>
+		#box{
+			width: 200px;
+			height: 200px;
+			background-color: #f67;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script>
+	//this --- 当前发生事件的对象 ， 当前的方法属于谁this就是谁
+	var arr = [12,23,56,89,76,69];
+	arr.a = 9999;
+	arr.show = function(){
+		console.log('当前的方法属于arr  '+this.a);
+	}
+	var oBox = document.getElementById('box');
+	oBox.onclick = function(){
+		console.log(this);//当前的方法属于oBox 
+	}
+	arr.show();
+	
+	function sayThis(){
+		console.log(this);//全局函数当前的方法属于window this就是window
+	}
+	sayThis();
+</script>
+</html>

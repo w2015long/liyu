@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>180-用Object创建对象.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var person = new Object();
+	person.name = 'Tom';
+	person.QQ = 10086 ;
+	person.age = 22 ;
+	person.showName = function(){
+		console.log('I am '+this.name +' Hello');
+	}
+	console.log(person);
+	person.showName();
+</script>
+</html>
