@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>192-面向对象选项卡-完善.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+		}
+		.tab-list{
+			width: 1226px;
+			height: 40px;
+			background: #ccc;
+			margin:10px auto;
+		}
+		.tab-list>li{
+			float: left;
+			width: 20%;
+			height: 40px;
+			line-height: 40px;
+			text-align:center;
+			font-size: 20px;
+			color: #000;
+			background: #eee;
+			cursor: pointer;
+		}
+		.tab-content>li{
+			display: none;
+			width: 1266px;
+			height: 300px;
+			background: skyblue;
+			margin:10px auto;
+			font-size: 60px;
+			line-height: 300px;
+			text-align: center;
+		}
+		.tab-list .active{
+			color: #ff6700;
+			border-bottom: 2px solid #ff6700;
+		}
+	</style>
+</head>
+<body>
+	<ul class="tab-list">
+		<li class="active">电视</li>
+		<li>家居</li>
+		<li>空调</li>
+		<li>手机</li>
+		<li>配件</li>
+	</ul>
+	<ul class="tab-content">
+		<li style="display: block;">匹配电视</li>
+		<li>匹配家居</li>
+		<li>匹配空调</li>
+		<li>匹配手机</li>
+		<li>匹配配件</li>
+	</ul>
+</body>
+<script>
+	function TabSwitch(){
+		
+	}
+	new TabSwitch();
+</script>
+</html>
