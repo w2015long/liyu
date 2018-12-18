@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>191-面向对象-选项卡.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+		}
+		.tab-list{
+			width: 1226px;
+			height: 40px;
+			background: #ccc;
+			margin:10px auto;
+		}
+		.tab-list>li{
+			float: left;
+			width: 20%;
+			height: 40px;
+			line-height: 40px;
+			text-align:center;
+			font-size: 20px;
+			color: #000;
+			background: #eee;
+			cursor: pointer;
+		}
+		.tab-content>li{
+			display: none;
+			width: 1266px;
+			height: 300px;
+			background: skyblue;
+			margin:10px auto;
+			font-size: 60px;
+			line-height: 300px;
+			text-align: center;
+		}
+		.tab-list .active{
+			color: #ff6700;
+			border-bottom: 2px solid #ff6700;
+		}
+	</style>
+</head>
+<body>
+	<ul class="tab-list">
+		<li class="active">电视</li>
+		<li>家居</li>
+		<li>空调</li>
+		<li>手机</li>
+		<li>配件</li>
+	</ul>
+	<ul class="tab-content">
+		<li style="display: block;">匹配电视</li>
+		<li>匹配家居</li>
+		<li>匹配空调</li>
+		<li>匹配手机</li>
+		<li>匹配配件</li>
+	</ul>
+</body>
+<script>
+	var aTabList = document.querySelectorAll('.tab-list>li');
+	var aTabContent = document.querySelectorAll('.tab-content>li');
+	//面向过程
+	/*
+	for(var i=0;i<aTabList.length;i++){
+		aTabList[i].index = i ;
+		aTabList[i].onclick = function(){
+			for(var j=0;j<aTabList.length;j++){
+				aTabList[j].className = '';
+				aTabContent[j].style.display = 'none';
+
+			}
+			this.className = 'active';
+			aTabContent[this.index].style.display = 'block';
+		}
+	}
+	*/
+//面向对象
+	function TabSwitch(){
+		//1.罗列需要的属性
+		this.aBtn = document.querySelectorAll('.tab-list>li');
+		this.aContent = document.querySelectorAll('.tab-content>li');
+		//2.绑定事件（类的原型上绑定方法）
+		this.bindEvent();
+		
+	}
+	TabSwitch.prototype.bindEvent = function(){
+		var _this = this;
+		for(var i=0;i<this.aBtn.length;i++){
+			this.aBtn[i].index = i ;
+			this.aBtn[i].onclick = function(){
+				console.log('当前的',this)
+				_this.fnClick(this);
+			} 
+		}
+	}
+	TabSwitch.prototype.fnClick = function(aBtn){
+		console.log('Tab',this);
+		for(var j=0;j<this.aBtn.length;j++){
+			this.aBtn[j].className = '';
+			this.aContent[j].style.display = 'none';			
+		}
+		aBtn.className = 'active';
+		this.aContent[aBtn.index].style.display = 'block';
+	}
+	new TabSwitch();
+</script>
+</html>
