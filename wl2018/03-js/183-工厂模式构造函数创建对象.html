@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>183-工厂模式构造函数创建对象.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function createPerson(name,age){//构造函数
+		//原料
+		var obj = new Object();
+
+		//加工
+		obj.name = name;
+		obj.age = age ;
+		obj.showName = function(){
+			console.log('I am '+this.name);
+		}
+		obj.showAge = function(){
+			console.log('I am '+this.age+' yeare old');
+		}
+		//出厂
+		return obj ;
+
+	}
+	var person1 = createPerson('Tom','19');
+	console.log(person1);
+	person1.showName();
+	person1.showAge();
+
+	var person2 = createPerson('Leo','23');
+	console.log(person2);
+	person2.showName();
+	person2.showAge();
+	//缺点：方法不能被实例共享,即每个对象实例都生成一个相同的方法
+	console.log(person1.showName==person2.showName);//堆内存里有两个对象 函数/方法在不同的堆里边所以说不是同一个函数
+
+</script>
+</html>

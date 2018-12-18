@@ -8,6 +8,12 @@
 	
 </body>
 <script>
+	/*
+	Date  --- 日期
+	Array --- 数组存东西
+ 	RegExp -- 正则
+	Object -- 没有功能 一张白纸
+	 */
 	var person = new Object();
 	person.name = 'Tom';
 	person.QQ = 10086 ;
@@ -17,5 +23,17 @@
 	}
 	console.log(person);
 	person.showName();
+
+	var person2 = new Object();
+	person2.name = 'Leo';
+	person2.age = 28 ;
+	person2.QQ = '110';
+	person2.showName  = function(){
+		console.log('I am '+this.name +' Hello');
+	}
+	console.log(person2);
+	person2.showName();
+	//缺点：创建的对象方法和属性不能共用
+	console.log(person.showName == person2.showName );
 </script>
 </html>
