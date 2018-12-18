@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>186-new+工厂模式构造-全局函数.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function showName(){
+		console.log('I am '+this.name);
+	}
+	function showAge(){
+		console.log('I am '+ this.age+' years old');
+	}
+
+	//类名一般首字母大写
+	function Person (name,age) {
+		//1用new之后系统会偷偷生成一个对象
+		//console.log(this);//当前的方法属于Person
+		this.name = name;
+		this.age = age ;
+		this.showName = showName ;
+		this.showAge = showAge;
+
+		//2并把这个对象返回出去
+	}
+
+	var person1 = new Person('Tom','19');
+	console.log(person1);
+	person1.showName();
+	person1.showAge();
+	var person2 = new Person('Leo','25');
+	console.log(person2);
+	person2.showAge();
+	//将构造函数里面的方法指向全局函数,这样所有的实例都共享这个全局的函数
+	console.log(person1.showAge==person2.showAge);//true
+	//缺点：1.全局函数有可能会在其他地方调用,这时会有风险 
+	//2.如果方法太多,就需要创建大量的全局函数 3.违背面向对象的封装特性
+</script>
+</html>
