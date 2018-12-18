@@ -12,13 +12,20 @@
 		this.name = name;
 		this.age = age ;
 		//原型写到函数内部
-		console.log('是否打印两遍');
-		Person.prototype.showName = function(){
-			console.log('I am '+ this.name);
+		
+		//定义之前需要唯一执行判断
+		if(!this.showName){
+			console.log('是否打印两遍');
+			Person.prototype.showName = function(){
+				console.log('I am '+ this.name);
+			}			
 		}
-		Person.prototype.showAge = function(){
-			console.log('I am '+ this.age+' years old');
-		}		
+		if(!this.showAge){
+			Person.prototype.showAge = function(){
+				console.log('I am '+ this.age+' years old');
+			}		
+		}
+		
 
 	}
 
@@ -26,7 +33,7 @@
 	person1.showAge();
 	person1.showName();
 	
-	//只要在创建一个newPerson 函数里的代码就会执行一遍 如果这个实例不需要这个方法可是这个方法在函数里执行个就会浪费系统资源
+	//只要在创建一个newPerson 函数里的代码就会执行一遍 如果这个实例不需要这个方法可是这个方法在函数里执行个就会浪费系统资源，所以要在定义之前进行唯一判断
 	var person2 = new Person('leo',25);
 	person2.showAge();
 	person2.showName();
