@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>185-new+工厂模式构造函数创建对象.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//类名一般首字母大写
+	function Person (name,age) {
+		//1用new之后系统会偷偷生成一个对象
+		//console.log(this);//当前的方法属于Person
+		this.name = name;
+		this.age = age ;
+		this.showName = function(){
+			console.log('I am '+this.name);
+		}
+		this.showAge = function(){
+			console.log('I am '+ this.age+' years old');
+		}
+
+		//2并把这个对象返回出去
+	}
+
+	var person1 = new Person('Tom','19');
+	console.log(person1);
+	person1.showName();
+	person1.showAge();
+	var person2 = new Person('Leo','25');
+	console.log(person2);
+	person2.showAge();
+	//缺点：方法不能被实例共享
+	console.log(person1.showAge==person2.showAge);
+
+</script>
+</html>
