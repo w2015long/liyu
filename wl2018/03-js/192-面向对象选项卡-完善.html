@@ -11,13 +11,13 @@
 		li{
 			list-style: none;
 		}
-		.tab-list{
+		.tab-btn{
 			width: 1226px;
 			height: 40px;
 			background: #ccc;
 			margin:10px auto;
 		}
-		.tab-list>li{
+		.tab-btn>li{
 			float: left;
 			width: 20%;
 			height: 40px;
@@ -28,7 +28,7 @@
 			background: #eee;
 			cursor: pointer;
 		}
-		.tab-content>li{
+		.tab-list>li{
 			display: none;
 			width: 1266px;
 			height: 300px;
@@ -38,21 +38,21 @@
 			line-height: 300px;
 			text-align: center;
 		}
-		.tab-list .active{
+		.tab-btn .active{
 			color: #ff6700;
 			border-bottom: 2px solid #ff6700;
 		}
 	</style>
 </head>
 <body>
-	<ul class="tab-list">
+	<ul class="tab-btn">
 		<li class="active">电视</li>
 		<li>家居</li>
 		<li>空调</li>
 		<li>手机</li>
 		<li>配件</li>
 	</ul>
-	<ul class="tab-content">
+	<ul class="tab-list">
 		<li style="display: block;">匹配电视</li>
 		<li>匹配家居</li>
 		<li>匹配空调</li>
@@ -61,9 +61,40 @@
 	</ul>
 </body>
 <script>
-	function TabSwitch(){
+//面向对象
+/**
+ * [TabSwitch 面向对象选项卡]
+ * @param {[string]} aBtn  [操作选项的类或id]
+ * @param {[string]} aList [下拉选项的类或id]
+ */
+	function TabSwitch(aBtn,aList){
+		//1.罗列需要的属性
+		this.aBtn = document.querySelectorAll(aBtn);
+		this.aContent = document.querySelectorAll(aList);
+		//2.绑定事件（类的原型上绑定方法）
+		this.bindEvent();
 		
 	}
-	new TabSwitch();
+	TabSwitch.prototype.bindEvent = function(){
+		var _this = this;
+		for(var i=0;i<this.aBtn.length;i++){
+			this.aBtn[i].index = i ;
+			this.aBtn[i].onclick = function(){
+				console.log('当前的',this)
+				_this.fnClick(this);
+			} 
+		}
+	}
+	TabSwitch.prototype.fnClick = function(oBtn){
+		console.log('Tab',this);
+		for(var j=0;j<this.aBtn.length;j++){
+			this.aBtn[j].className = '';
+			this.aContent[j].style.display = 'none';			
+		}
+		oBtn.className = 'active';
+		this.aContent[oBtn.index].style.display = 'block';
+	}
+	new TabSwitch('.tab-btn>li','.tab-list>li');
+</script>
 </script>
 </html>
