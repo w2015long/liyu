@@ -24,6 +24,7 @@
 			top:50%;
 			margin-top: -30px;
 			cursor: pointer;
+			user-select: none;
 		}
 		.leftBtn{
 			left: 0;
@@ -54,6 +55,7 @@
 <body>
 	<div id="box"></div>
 </body>
+<script defer src="js/tween.js"></script>
 <script>
 	function Carousel(options){
 		//1.罗列属性
@@ -152,11 +154,12 @@
 	Carousel.prototype.switchImgs = function(){
 		for(var i=0;i<this.aImg.length;i++){
 			this.oImgUl.children[i].style.zIndex = '0';
-			this.oImgUl.children[i].style.opacity = '0';
+			this.oImgUl.children[i].style.opacity = '0.5';
 			this.oBtnUl.children[i].className = '' ;
 		}
 		this.oImgUl.children[this.now].style.zIndex = '66';
-		this.oImgUl.children[this.now].style.opacity = '1';
+		// this.oImgUl.children[this.now].style.opacity = '1';
+		animate(this.oImgUl.children[this.now],{opacity:100});
 		this.oBtnUl.children[this.now].className = 'active' ;		
 	}
 	Carousel.prototype.bindEvent = function(){
