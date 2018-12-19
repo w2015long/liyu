@@ -9,5 +9,27 @@
 </body>
 <script>
 	var str = 'good 123 66 nice 89 well favorite999' ;
+	var result = [];
+	var tem = '';
+	for(var i=0;i<str.length;i++){
+		// console.log(str.charAt(i));
+		if(!isNaN(parseInt(str.charAt(i)))){
+			// console.log(str.charAt(i));
+			// result.push(str.charAt(i));
+			tem += str.charAt(i);
+		}else{
+			if(tem){
+				result.push(tem);
+				tem = '';
+			}
+		}
+	}
+	if(tem){
+		result.push(tem);
+	}
+	console.log(result);
+	console.log(str.match(/\d+/g));	
+
+	//正则测试网站:https://regexper.com/
 </script>
 </html>
