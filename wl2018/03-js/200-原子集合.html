@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>200-原子集合.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str = '9023 -_t-_j3ghi3t0q49vu9cpq __4tiv7895v720q3c3cd332903--';
+	var reg1 = /\d/g; //\d 任意数字,等价[0-9], \D 任意非数字 等价[^0-9]
+	console.log(str.replace(reg1,"*"));
+	var reg2 = /\D/g;
+	console.log(str.replace(reg2,"*"));
+	//\w 任意数字,字母,下划线 等价[0-9a-zA-Z_],\W 任意非数字,字母,下划线 等价[^0-9a-zA-Z_]
+	var reg3 = /\w/g;
+	console.log(str.replace(reg3,"*"));
+	var reg4 =/\W/g;
+	console.log(str.replace(reg4,"&"));
+
+</script>
+</html>

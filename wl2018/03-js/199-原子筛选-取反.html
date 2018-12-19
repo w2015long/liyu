@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>199-原子筛选-取反.html</title>
+	<script>
+		var str = 'arfopq3r0-qr9c87	90fw ecf7896c';
+		var reg = /[^a-z]/g;
+		console.log(str.replace(reg,'&'));
+		var reg1 = /[^\s]/g;
+		var reg2 = /[^\t]/g;
+		console.log(str.replace(reg1,'*'));
+		console.log(str.replace(reg2,'*'));
+		console.log(str.replace(reg1,'*')==str.replace(reg2,'*'));
+		var str1 = '你好world';
+		//匹配汉字并且获取长度:str.replace(/[\u4e00-\u9fa5]/g,'bb').length
+		var regE = //g;
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

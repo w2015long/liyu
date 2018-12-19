@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>198-原子筛选-区间.html</title>
+	<script>
+		var str = 'defqw39v8wtvgu9s0vgdeeff94tv-0eg934v3gwr&*%^&4(*6ee)';
+		var reg1 = /[a-z]/g;
+		var reg2 = /d|e|f|q|w/g;
+		var reg3 = /[abcde]/g;
+		var reg4 = /a|b|c|d|e/g;
+		console.log(str.replace(reg1,'$'));
+		console.log(str.replace(reg2,'*'));
+		console.log(str.replace(reg3,'$')==str.replace(reg4,'$'));
+		var reg5 = /defqw/g;
+		var reg6 = /d|e|f|q|w/g;
+		console.log(str.replace(reg5,'?'));
+		console.log(str.replace(reg6,'$'))
+		console.log(str.replace(reg5,'$')==str.replace(reg6,'$'))
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
