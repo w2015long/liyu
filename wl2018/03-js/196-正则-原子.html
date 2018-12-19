@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>196-正则-原子.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//原子(正则中的最小匹配单位)
+	var str1 = '$520' ;//￥$
+	//$是特殊字符需要转义
+	var reg = /\$/g ;
+	console.log(str1.replace(reg,'￥'));
+	var str2 = '199RMB';
+	console.log(str2.replace(/RMB/,'USD'));
+	//键盘输出后看不见的字符,如换行(\n),回车(\r),制表符(\t),垂直制表符(\v) 换页符(\f)
+	var str3 = '我中间有	Tab键';
+	console.log(str3.replace(/\t/,'*'));
+</script>
+</html>

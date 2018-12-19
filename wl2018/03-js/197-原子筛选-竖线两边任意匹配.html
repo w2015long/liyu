@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>197-原子筛选-竖线两边任意匹配.html</title>
+	<style>
+		li{
+			list-style: none;
+		}
+		.wrap{
+			width: 300px;
+			margin: 10px auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<input type="text" id="txt" autocomplete="off">
+		<input type="button" id="btn" value="发布">
+		<ul id="ul"></ul>
+	</div>
+</body>
+<script>
+	var oTxt = document.getElementById('txt');
+	var oBtn = document.getElementById('btn');
+	var oUl = document.getElementById('ul');
+	
+	oBtn.onclick = function(){
+		var oLi = document.createElement('li');
+		var str = oTxt.value;
+		var reg = /艹|苍老师/g ;
+		oLi.innerHTML = str.replace(reg,"*");
+		oTxt.value = '';
+		oUl.insertBefore(oLi, oUl.firstChild);
+	}
+	oTxt.onkeydown = function(ev){
+		console.log(ev.keyCode);
+		if(ev.keyCode==13){
+			oBtn.onclick();
+		}
+	}
+</script>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>195-创建正则对象.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//regular 有规则
+	var str = 'good apple skyblue add map';
+	//new RegExp(规则,修正模式) 如:var reg = new RegExp('a','g')
+	var reg1 = new RegExp('a','g');
+	var reg2 = /a/g ;
+	
+	console.log('构造函数',str.replace(reg1,'*'));
+	console.log('字面量',str.replace(reg2,'*'));
+
+</script>
+</html>
