@@ -14,7 +14,11 @@
 		console.log(str.replace(reg1,'*')==str.replace(reg2,'*'));
 		var str1 = '你好world';
 		//匹配汉字并且获取长度:str.replace(/[\u4e00-\u9fa5]/g,'bb').length
-		var regE = //g;
+		var regE = /[^\u4e00-\u9fa5]/g;
+		
+		console.log(str1.replace(regE,"*"));
+		var reg6 = /[\u4e00-\u9fa5]/g;
+		console.log(str1.replace(reg6,"**").length);
 
 	</script>
 </head>

@@ -8,7 +8,7 @@
 	
 </body>
 <script>
-	var str = '9023 -_t-_j3ghi3t0q49vu9cpq __4tiv7895v720q3c3cd332903--';
+	var str = '9023 -_t-_j3ghi3t0q49vu9cpq __4ti v78 	95v720 2903--';
 	var reg1 = /\d/g; //\d 任意数字,等价[0-9], \D 任意非数字 等价[^0-9]
 	console.log(str.replace(reg1,"*"));
 	var reg2 = /\D/g;
@@ -18,6 +18,14 @@
 	console.log(str.replace(reg3,"*"));
 	var reg4 =/\W/g;
 	console.log(str.replace(reg4,"&"));
+	//\s 空白符 等价于[\t\n\f\r],\S 非空白符 等价于[^\t\n\f\r]
+	var reg5 = /\s/g;
+	var reg6 = /\S/g;
+	console.log(str.replace(reg5,'@'));
+	console.log(str.replace(reg6,'@'));
+	//. 除了回车和换行外的任意字符 等价[^\r\n]
+	var reg7 = /\./g;
+	console.log(str.replace(reg7,'*'));
 
 </script>
 </html>
