@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>209-url解析校验.html</title>
+	<script>
+		var str = 'this a website https://www.baidu.com';
+		var reg = /(https|http|ftp|file):\/\/([a-z]+)\.([\w-]+)\.([\w]{2,5})/;
+		console.log(str.replace(reg,"这是一个网址"));
+		console.log(str.match(reg));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

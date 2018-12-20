@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>207-边界控制.html</title>
+	<script>
+		//^  匹配字符串开始的位置,限制必须以其后面的原子开头,前面不能有任何东西
+		//$  匹配字符串结尾的位置,限制必须以其前面的原子结束,后面不能有任何东西
+		var str1 = 'this is a apple, I want to eat';
+		//\b 单词边界
+		var reg1 = /\bis\b/;
+		console.log(str1.replace(reg1,"*"));
+		//() 把括号里面的正常表达匹配的结果当作一个原子来看,起到分组的效果,分组后可以通过反向引用来取得分组后的值,反向引用从$1开始
+			
+//(1). 在被修饰匹配次数的时候，括号中的表达式可以作为整体被修饰
+//(2). 取匹配结果的时候，括号中的表达式匹配到的内容可以被单独得到
+		var str2 = '12avc1a789k9876kp5';
+		var reg2 = /\d{2,3}/g;
+		var reg3 = /(\d{2,3})/g;
+		console.log(str2.replace(reg2,"*"));
+		console.log(str2.replace(reg3,"*"));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
