@@ -3,11 +3,23 @@
 <head>
 	<meta charset="UTF-8">
 	<title>201-原子量词.html</title>
+	<script>
+		var str = '1 rrr 789 5965 ss gf 12';
+		var reg1 = /\d{3}/;   //恰好出现3次
+		console.log(str.replace(reg1,'*'));
+		var reg2 = /\d{3,}/;  //至少出现3次
+		console.log(str.replace(reg2,"&"));
+		var reg3 = /\d{3,}/g;  //至少出现3次
+		console.log(str.replace(reg3,"&"));
+		var reg4 = /\d{2,4}/g; //{n,m}  	区间n-m [n,m]
+		console.log(str.replace(reg4,"*"));
+		var reg5 = /\d+/g; // + 前面原子至少出现1次 等价{1,}
+		console.log(str.replace(reg5,"&"));
+		var reg6 = /\d?/g; //? 前面原子最少出现0次,最多出现一次 等价{0,1}
+		console.log(str.replace(reg6,"&"));
+	</script>
 </head>
 <body>
 	
 </body>
-<script>
-	
-</script>
 </html>

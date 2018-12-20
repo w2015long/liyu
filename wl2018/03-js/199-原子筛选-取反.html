@@ -18,8 +18,11 @@
 		
 		console.log(str1.replace(regE,"*"));
 		var reg6 = /[\u4e00-\u9fa5]/g;
-		console.log(str1.replace(reg6,"**").length);
-
+		// console.log(str1.replace(reg6,"**").length);
+		function getLength(str){
+			return str.replace(/[\u4e00-\u9fa5]/g,'**').length
+		}
+		console.log(getLength(str1));
 	</script>
 </head>
 <body>

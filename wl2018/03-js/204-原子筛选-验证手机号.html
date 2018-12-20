@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>204-原子筛选-验证手机号.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.wrap{
+			width: 260px;
+			margin: 100px auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<input type="text" id="txt">
+		<button id="btn">校验手机</button>
+		<p id="check-match"></p>
+	</div>
+</body>
+<script>
+	var oTxt = document.getElementById('txt');
+	var oBtn = document.getElementById('btn');
+	var oCheckMatch = document.getElementById("check-match");
+	//验证手机号规则：/^1[356789]\d{9}$/ ;
+	var reg = /^1[356789]\d{9}$/;
+	/*
+	oBtn.onclick = function(){
+		if(reg.test(oTxt.value)){
+			alert('合法')
+		}else{
+			alert('不合法手机号')
+		}
+	}
+	*/
+	oTxt.oninput = function(){
+		var val = oTxt.value ;
+		console.log(val.length)
+		if(val.length!=11){
+			oCheckMatch.innerHTML = '输入正确11位手机号';
+			oCheckMatch.style.color = 'green';		
+		}else{
+			if(reg.test(val)){
+				oCheckMatch.innerHTML = '输入正确';
+				oCheckMatch.style.color = 'green';
+			}else{
+				oCheckMatch.innerHTML = '请正确输入手机号';
+				oCheckMatch.style.color = 'red';				
+			}		
+		}	
+	}
+</script>
+</html>

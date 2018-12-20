@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>205-密码校验.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.wrap{
+			width: 260px;
+			margin: 100px auto;
+		}
+	</style>	
+</head>
+<body>
+	<div class="wrap">
+		<input type="text" id="txt">
+		<button id="btn">校验密码</button>
+		<p id="check-match"></p>
+	</div>	
+</body>
+<script>
+	var oTxt = document.getElementById('txt');
+	var oBtn = document.getElementById('btn');
+	var oCheckMatch = document.getElementById("check-match");
+	//验证密码规则：(以字母开头,长度在6~12之间,只能包含字母、数字和下划线)
+	var reg = /^[a-zA-Z]\w{5,11}$/;
+	
+	oBtn.onclick = function(){
+		if(reg.test(oTxt.value)){
+			alert('合法')
+		}else{
+			alert('密码不合法')
+		}
+	}
+	
+
+</script>
+</html>

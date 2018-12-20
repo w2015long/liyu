@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>203-原子筛选过滤html标签.html</title>
+</head>
+<body>
+	<textarea  id="txt1" cols="60" rows="30"></textarea>
+	<button id="btn">过滤</button>
+	<textarea  id="txt2" cols="60" rows="30"></textarea>
+</body>
+<script>
+	var oTxt1 = document.getElementById('txt1');
+	var oTxt2 = document.getElementById('txt2');
+	var oBtn = document.getElementById('btn');
+	//HTML标签规则 <中间不能<>任意字符且标签中至少有一个或多个字符>
+	var reg = /<[^<>]+>/g;
+	oBtn.onclick = function(){
+		oTxt2.value = oTxt1.value.replace(reg,'*');
+	}
+</script>
+</html>
