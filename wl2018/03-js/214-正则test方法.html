@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>214-正则test方法.html</title>
+	<script>
+		var str = 'a1q2e3f5';
+//每一次匹配后正则对象上的lastIndex属性会更改,改为匹配内容的最后一个字符的下一个位置,所以结果会不可靠,一般使用test方法时建议不要全局匹配		
+		var reg = /[a-z]/g;
+		console.log(str);
+		console.log(reg.lastIndex);
+		console.log(reg.test(str));
+		console.log(reg.lastIndex);
+		console.log(reg.test(str));
+		console.log(reg.lastIndex);
+		console.log(reg.test(str));
+		console.log(reg.lastIndex);
+		console.log(reg.test(str));
+		console.log(reg.lastIndex);
+		console.log(reg.test(str));
+		console.log(reg.lastIndex);
+//非全局匹配 lastIndex始终是0,也就是说始终从第0个元素开始查找			
+		var reg2= /[a-z]/;
+		console.log("reg2",reg2.lastIndex);
+		console.log("reg2",reg2.test(str));
+		console.log("reg2",reg2.lastIndex);
+		console.log("reg2",reg2.test(str));
+		console.log("reg2",reg2.lastIndex);
+		console.log("reg2",reg2.test(str));
+		console.log("reg2",reg2.lastIndex);
+		console.log("reg2",reg2.test(str));
+		console.log("reg2",reg2.lastIndex);
+		console.log("reg2",reg2.test(str));
+		console.log("reg2",reg2.lastIndex);		 							
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>216-字符串方法search.html</title>
+	<script>
+//从字符中检索与正则相匹配的字符串,返回第一个匹配结果的index,查不到返回-1
+//search方法不执行全局匹配,它会忽略g,并且总是从字符串开始检索		
+		var str = 'this is a cat ,have a good day';
+		console.log(str.search('a'));
+		console.log(str.search('m'));
+		var reg1 = /\bis\b/g;
+		var reg2 = /\bis\b/;
+		console.log(str.search(reg1));
+		console.log(str.search(reg1)==str.search(reg2));
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>212-前瞻.html</title>
+	<script>
+		var str = 'a1b2c3d$e&';
+		//正向前瞻 exp(?=assert)匹配到exp的内容后再看前面的内容符合不符合assert,符合的话就匹配exp的内容
+		var reg1 = /[a-z](?=\d)/;
+		console.log(str.replace(reg1,'*'));
+		var reg2 = /[a-z](?=\d)/g;
+		console.log(str.replace(reg2,'*'));
+		//负向前瞻 exp(?!assert) 匹配到exp的内容后再看前面的内容符合不符合assert,不符合的话就匹配exp的内容
+		var reg3 = /[a-z](?!\d)/g;
+		console.log(str.replace(reg3,'*'));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
