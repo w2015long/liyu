@@ -13,10 +13,14 @@
 	</form>
 </body>
 <script>
+	var oForms = document.forms[0];//document.forms 代表页面所有的表单集合,document.forms[0]页面中的第一个表单
 	console.log(document.forms);
-	console.log(document.forms[0].elements[0]);
-	console.log(document.forms[0].username);
-	console.log(document.forms[0]["username"]);
+	console.log(oForms.elements[0]);//表单元素集合[下标]
+	console.log(oForms.elements);//表单.elements代表了表单中的所有表单元素集合
+	console.log(oForms.elements.username);//表单元素集合.元素名称
+	console.log(oForms["username"]);//表单.元素名称
+	console.log(oForms.elements['password']);//表单元素集合["元素名称"]
+	console.log(oForms.sex); //同名的表单元素返回一个节点集合
 	
 </script>
 </html>
