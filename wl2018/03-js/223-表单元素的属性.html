@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>223-表单元素的属性.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.wrap{
+			width: 300px;
+			margin: 10px auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<form action="https://www.kuazhu.com/" autocomplete="off">
+			<div>
+				用户名：
+				<input type="text" name="username">
+			</div>
+			<div>
+				密  码： 
+				<input type="password" name="password">
+			</div>
+			<div>
+				性别：
+				<input type="radio" name="sex" value="men">男
+				<input type="radio" name="sex" value="women">女
+				<input type="radio" name="sex" value="none">保密
+			</div>
+			<div>
+				爱好：
+				<input type="checkbox" name="hobby" value="basketball">篮球
+				<input type="checkbox" name="hobby" value="football">足球
+				<input type="checkbox" name="hobby" value="reading">看书
+			</div>
+			<select name="city">
+				所在地：
+				<option value="bj">北京</option>
+				<option value="sh">上海</option>
+				<option value="zz">郑州</option>
+				<option value="xa">西安</option>
+			</select>
+			<div>
+				<input type="submit" value="提交测试">
+			</div>
+		</form>
+		<button id="btn">测试</button>
+	</div>
+</body>
+<script>
+	var oForms = document.forms[0];
+	oForms.username.disabled = true; //禁用输入框 且值不会被提交
+	oForms.password.readOnly = true; //禁用密码框 只读值可以被提交
+	var oBtn = document.getElementById('btn');
+	oForms.sex[2].checked = true;
+	var aCheckbox = oForms.hobby;
+	var aRadio = oForms.sex;
+	var oSelect = oForms.city;
+	oSelect.options[2].selected = true;
+	// console.log(oSelect.options);
+	oBtn.onclick = function(){
+	/*
+		for(var i=0;i<aCheckbox.length;i++){
+			console.log(aCheckbox[i].checked)
+		}	
+		
+		for(var i=0;i<aRadio.length;i++){
+			console.log(aRadio[i].checked);
+		}
+		*/
+		var result = [];
+		for(var i=0;i<oSelect.options.length;i++){
+			if(oSelect.options[i].selected){
+				result.push(oSelect.options[i]);
+			}
+		}
+		console.log(result);
+	}
+</script>
+</html>
