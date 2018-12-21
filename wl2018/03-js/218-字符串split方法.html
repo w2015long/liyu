@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>218-字符串split方法.html</title>
+	<script>
+//split() 方法用于把一个字符串分割成字符串数组。		
+		var str = 'thisabigcat';
+		console.log(str.split(''));
+		console.log(str.split('-'));
+		//判断回文 aabaa cceaecc
+		function isPalindrome(str){
+			return str === str.split('').reverse().join('');
+		}
+		var str1 = 'cceaecc';
+		console.log(isPalindrome(str1));
+		var arr = [1,2,45,56,7,8];
+		console.log(arr);
+		console.log(arr.join(''));
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

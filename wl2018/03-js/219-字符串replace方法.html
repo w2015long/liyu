@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>219-字符串replace方法.html</title>
+	<script>
+//replace() 方法用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串		
+		var str1 = 'today is good weather';
+		console.log(str1.replace(/o/g,"*"));
+		var str2 = 'a1b2c3d4e5';
+		console.log(str2);
+		var reg = /\d/g;
+		//match：匹配项,index：匹配到的索引值,origin:原值))
+		var str3 = str2.replace(reg,function(match,index,origin){
+			// console.log(match,index,origin);
+			return parseInt(match)*10;
+		})
+		console.log(str3);
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

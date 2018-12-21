@@ -4,8 +4,18 @@
 	<meta charset="UTF-8">
 	<title>217-字符串match方法.html</title>
 	<script>
+//match 找到字符串中的所有匹配的字符串,如果没有匹配的话返回null,有的话返回一个数组
+		
 		var str = 'today is 2018-12-20';
-		var reg = /\d{4}-\d{2}-\d{2}/;
+		var reg1 = /\d{4}-\d{2}-\d{2}/;//非全局匹配可以分组
+		console.log(str.match(reg1));
+		//非全局匹配和reg.exec(str) 非全局匹配的结果一样
+		var reg3 = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/;
+		console.log(str.match(reg3));
+
+
+		var reg2 = /\d{4}-\d{2}-\d{2}/g;//全局匹配没有分组
+		console.log(str.match(reg2));//数组中的每一项就是一个匹配结果,数组中没有index,input和groups等属性
 		
 	</script>
 </head>
