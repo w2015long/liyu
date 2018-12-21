@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>221-字符串其他方法2.html</title>
+	<script>
+		var str1 = 'a1b2c3d4';
+		var str2 = 'e5f6g7';
+		console.log(str1.concat(str2));//连接两个字符串
+//slice截取字符串
+		console.log(str1.slice(2,4));//包括起始下标不包括结束下标
+		console.log(str1.slice(-3,-1));//截取字符串,下标可以是负数,负数表示从尾部开始计算
+//str.substr(起始下标,长度)
+		console.log(str1.slice(0,2));
+		console.log(str1.substr(0,2));	
+		console.log(str1.substr(2,3));
+		console.log(str1.substr(-4,3));	
+//str.substring(起始下标,结束下标)
+		console.log(str1.substring(2,3));
+		var str3 = '   ASDFassdf  	';
+		console.log(str3.toLowerCase());//把字符串转换为小写
+		console.log(str3.toUpperCase());//把字符串转换为大写
+		console.log(str3.trim());//去除字符串两边的空白
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -10,6 +10,12 @@
 //str.charCodeAt(index)  
 		console.log(str1.charCodeAt(0));//根据位置返回字符的编码 charCodeAt返回的是字符的Unicode码
 		console.log(str1.charCodeAt(2));//a的编码是97
+//str.indexOf(str1) 根据字符返回位置,从前向后找,找不到返回-1
+		console.log(str1.indexOf("c"));	
+		console.log(str1.lastIndexOf('d'));//根据字符返回位置,从后向前找,找不到返回-1
+
+		console.log(encodeURIComponent('https://www.taobao.com/markets/3c/tbdc?spm=a21bo.2017.201867-main.10.5af911d9TOc3qE'));//加密 /编码
+		console.log(decodeURIComponent('https%3A%2F%2Fwww.taobao.com%2Fmarkets%2F3c%2Ftbdc%3Fspm%3Da21bo.2017.201867-main.10.5af911d9TOc3qE'));//解码
 	</script>
 </head>
 <body>
