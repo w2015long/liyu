@@ -4,11 +4,44 @@
 	<meta charset="UTF-8">
 	<title>215-正则exec方法.html</title>
 	<script>
+		
+//数组的第0个元素是匹配的内容,如果有分组,从下标是1开始是对应分组的内容
+//index 是匹配内容第一个字符的位置
+//input 是被搜索的字符串
+//groups 放着每个命名分组的名称以及它们匹配到的值,如果没有命名分组则为undefined,命名捕获分组自身的语法是 (?<name>...)，比普通的分组多了一个 ?<name> 		
 		var str = 'today is 2018-12-20';
-		var reg1 = /\d{4}-\d{2}-\d{2}/g;
+		var reg1 = /\d{4}-\d{2}-\d{2}/;
 		console.log(reg1.exec(str));
-		var reg2 = /(\d{4})-(\d{2})-(\d{2})/g;
-		console.log(reg2.exec(str))
+		var reg2 = /(\d{4})-(\d{2})-(\d{2})/;
+		console.log(reg2.exec(str));
+		var reg3 = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/;
+		console.log(reg3.exec(str));
+//每一次匹配后正则对象上的lastIndex属性会更改,改为匹配内容的最后一个字符的下一个位置
+		var str1 = 'today is 2018-12-21,next day is 2018-12-22'
+		var reg4 = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/g;
+//exec方法对字符串执行搜索,并更新正则对象上的lastIndex属性,如果没有匹配的返回null,有的话返回一个数组
+		console.log(reg4.lastIndex);
+		console.log(reg4.exec(str1));
+		console.log(reg4.lastIndex);
+		console.log(reg4.exec(str1));		
+		console.log(reg4.lastIndex);
+		console.log(reg4.exec(str1));
+		console.log(reg4.lastIndex);
+		console.log(reg4.exec(str1));
+		console.log(reg4.lastIndex);
+		console.log(reg4.exec(str1));
+		var reg5 = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/;
+//非全局匹配
+		console.log(reg5.lastIndex);
+		console.log(reg5.exec(str1));
+		console.log(reg5.lastIndex);
+		console.log(reg5.exec(str1));		
+		console.log(reg5.lastIndex);
+		console.log(reg5.exec(str1));
+		console.log(reg5.lastIndex);
+		console.log(reg5.exec(str1));
+		console.log(reg5.lastIndex);
+		console.log(reg5.exec(str1));									
 	</script>
 </head>
 <body>
