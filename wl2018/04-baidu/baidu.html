@@ -300,32 +300,52 @@
     var oForms = document.forms[0];
     var oUsername = oForms.username;
     var aMsg = document.querySelectorAll('.msg');
-    var aCancel = document.querySelectorAll('.cancel');
+    var oPhone = oForms.phone;
+    var oPassword = oForms.password;
     //空白字符
     var reg1 = /^\s+$/;
     //非法字符
-    var reg3 = /[^a-z\d_\u4e00-\u9fa5]/i;
     var reg2 = /^\d+$/;
+    var reg3 = /[^a-z\d_\u4e00-\u9fa5]/i;
+    //手机格式验证
+    var reg4 = /^1[356789]\d{9}$/;
     //2初始化
     init();
     checkUsername();
+    checkPhone();
     function init(){
         oUsername.focus();
         aMsg[0].className = 'tiptext';
-        aMsg[0].innerHTML = '设置后不可更改<br>中英文均可，最长14个英文或7个汉字';        
-    }
-    //处理显示隐藏取消按钮
-    oUsername.oninput = function(){
-        if(oUsername.value.length > 0){
-            aCancel[0].style.display = 'block';
-        }else{
-            aCancel[0].style.display = 'none';
+        aMsg[0].innerHTML = '设置后不可更改<br>中英文均可，最长14个英文或7个汉字';
+        //事件委托处理 显示隐藏取消按钮
+        oForms.oninput = function(ev){
+            var oInput = ev.target;
+            var oCancle = oInput.nextElementSibling;
+            if(oInput.value.length > 0){
+                oCancle.style.display = 'block';
+            }else{
+                oCancle.style.display = 'none';
+            }            
         }
-    }
-    aCancel[0].onclick = function(){
-        oUsername.value = '';
-        oUsername.focus();
-        aCancel[0].style.display = 'none';
+        //事件委托点击当前×清空当前输入框
+        oForms.onclick = function(ev){
+            var oCancle = ev.target;
+            var oInput = oCancle.previousElementSibling;
+            if (oInput) {
+                switch (oInput.name) {
+                    case "verify":
+                    case "password":
+                    case "username":
+                    case "phone":
+                        oInput.value = '';
+                        oInput.focus();
+                        oCancle.style.display = 'none';
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }      
     }
     //3验证用户名
     function checkUsername(){
@@ -357,7 +377,32 @@
             aMsg[0].innerHTML = '设置后不可更改<br>中英文均可，最长14个英文或7个汉字';        
         }
     }
-
+    //4.验证手机号
+    function checkPhone(){
+        oPhone.onblur = function(){
+            var sVal = oPhone.value;
+            //什么都不输入
+            if(sVal == ''){
+                aMsg[1].className = 'msg';
+                //防止走入后边逻辑，所以先清空后边逻辑
+                oPhone.className = '';
+            }//全空验证
+            else if(reg1.test(sVal)){
+                checkError(aMsg[1],'请输入手机号',oPhone);
+            }
+           //格式验证
+            else if(!reg4.test(sVal)){
+                checkError(aMsg[1],'手机格式不正确',oPhone);
+            }//正确
+            else{
+                checkOk(aMsg[1],oPhone);
+            }
+        }
+        oPhone.onfocus = function(){
+            aMsg[1].className = 'tiptext';
+            aMsg[1].innerHTML = '请输入中国大陆手机号，其他用户不可见';
+        }
+    }
 
 </script>
 </html>
