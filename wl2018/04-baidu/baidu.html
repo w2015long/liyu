@@ -402,6 +402,23 @@
             aMsg[1].className = 'tiptext';
             aMsg[1].innerHTML = '请输入中国大陆手机号，其他用户不可见';
         }
+        oPhone.onkeydown = function(ev){
+            var len = oPhone.value.length;
+            console.log(ev)
+            console.log(len)
+            if( (ev.keyCode>=48 && ev.keyCode<=57) ||
+                (ev.keyCode>=96 && ev.keyCode<=105) ||
+                ev.keyCode==37 || ev.keyCode==39 ||
+                ev.keyCode==8 
+                ){
+                return true;
+            }else if(len>10){
+                ev.preventDefault();
+            }
+            else{
+                ev.preventDefault();
+            }
+        }
     }
 
 </script>
