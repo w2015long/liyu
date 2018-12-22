@@ -45,10 +45,12 @@
 				<option value="xa">西安</option>
 			</select>
 			<div>
-				<input type="submit" value="提交测试">
+				<input type="submit" value="提交">
+				<!-- <button id="btn">测试</button> -->
+				<input type="button" id="btn" value="测试">
 			</div>
 		</form>
-		<button id="btn">测试</button>
+		
 	</div>
 </body>
 <script>
@@ -56,22 +58,26 @@
 	oForms.username.disabled = true; //禁用输入框 且值不会被提交
 	oForms.password.readOnly = true; //禁用密码框 只读值可以被提交
 	var oBtn = document.getElementById('btn');
-	oForms.sex[2].checked = true;
+	oForms.sex[2].checked = true;//复选框与单选框用checked
 	var aCheckbox = oForms.hobby;
 	var aRadio = oForms.sex;
 	var oSelect = oForms.city;
-	oSelect.options[2].selected = true;
-	// console.log(oSelect.options);
+	oSelect.options[2].selected = true;//下拉框选中属性 selected,如设置某个选项选中 oSelect.options[i].selected = true
+	console.log(oSelect.options);
 	oBtn.onclick = function(){
-	/*
+		var result = [];
 		for(var i=0;i<aCheckbox.length;i++){
-			console.log(aCheckbox[i].checked)
-		}	
-		
+			// console.log(aCheckbox[i].checked)
+			if(aCheckbox[i].checked){
+				result.push(aCheckbox[i]);
+			}
+		}
+		console.log(result);	
+		/*
 		for(var i=0;i<aRadio.length;i++){
 			console.log(aRadio[i].checked);
 		}
-		*/
+		
 		var result = [];
 		for(var i=0;i<oSelect.options.length;i++){
 			if(oSelect.options[i].selected){
@@ -79,6 +85,7 @@
 			}
 		}
 		console.log(result);
+	*/
 	}
 </script>
 </html>
