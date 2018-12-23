@@ -414,18 +414,20 @@
         }
         oPhone.onkeydown = function(ev){
             var len = oPhone.value.length;
-            console.log(ev)
-            console.log(len)
+            // console.log(ev)
+            // console.log(len)
+            
             if( (ev.keyCode>=48 && ev.keyCode<=57) ||
                 (ev.keyCode>=96 && ev.keyCode<=105) ||
-                ev.keyCode==37 || ev.keyCode==39 ||
+                (ev.keyCode)==37 || ev.keyCode==39 ||
                 ev.keyCode==8 
                 ){
-                return true;
+               
             }else{
-                ev.preventDefault();
+                return false;
             }
             if(len>10){
+                console.log(oPhone.value);
                 return false;
             }
         }
