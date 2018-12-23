@@ -29,6 +29,7 @@
             zoom: 1;
             display: block;
         }
+        /*清除浮动*/
         .reg div:after {
             content: "";
             clear: both;
@@ -253,7 +254,7 @@
                     <span class="msg"></span>
                     <div id="pwdChecklist" class="pwd-checklist" style="display:none">
                         <ul>
-                            <li class="pwd-checklist-item">长度为6~14个字符</li>
+                            <li class="pwd-checklist-item">长度为8~14个字符</li>
                             <li class="pwd-checklist-item">支持数字,大小写字母和标点符号</li>
                             <li class="pwd-checklist-item ">不允许有空格</li>
                         </ul>
@@ -300,8 +301,11 @@
     var oForms = document.forms[0];
     var oUsername = oForms.username;
     var aMsg = document.querySelectorAll('.msg');
+    var oCancle = oForms.querySelectorAll('.cancle');
     var oPhone = oForms.phone;
     var oPassword = oForms.password;
+    var oPwdChecklist = document.getElementById('pwdChecklist');
+    var oPasswordLi = oPwdChecklist.getElementsByTagName('li'); 
     //空白字符
     var reg1 = /^\s+$/;
     //非法字符
@@ -313,6 +317,7 @@
     init();
     checkUsername();
     checkPhone();
+    checkPwd();
     function init(){
         oUsername.focus();
         aMsg[0].className = 'tiptext';
@@ -420,6 +425,61 @@
             }
         }
     }
+    //5验证密码
+    function checkPwd(){
+        var bReg1 = false,bReg2 = false;,bReg3 = false;
+        oPassword.onfocus = function(){
+            oPwdChecklist.style.display = 'block';
+        }
+        //点击叉置空
+        oCancle[2].onclick = function(){
+            oPassword.value = '';
+            oPassword.focus();
+            oCancle[2].style.display = 'none';            
+        }
+        //实时验证密码
+        oPassword.oninput = function(){
+            var sVal = oPassword.value;
+            var okClass = "pwd-checklist-item pwd-checklist-item-success";
+            var errClass = "pwd-checklist-item pwd-checklist-item-error";
+            //长度为6~14个字符
+            var reg1 = /.{8,14}/;
+            //支持数字,大小写字母和标点符号
+            var reg2 = /^@#\w\!\$\*\{\}\[\]\(\)/;
+            //不允许有空格
+            var reg3 = /\s/;
+            if(reg1.test(sVal)){
+                oPasswordLi[0].className = okClass;
+                bReg1 = true;
+            }else{
+                oPasswordLi[0].className = errClass;
+                bReg1 = false;
+            }
+            if(reg2.test(sVal)){
+                oPasswordLi[1].className = errClass;
+                bReg2 = false;
+            }else{
+                oPasswordLi[1].className = okClass;
+                bReg2 = true;
+            if(reg3.test(sVal)){
+                oPasswordLi[2].className = errClass;
+                bReg3 = false;
+            }else{
+                oPasswordLi[2].className = okClass;
+                bReg3 = true;
+            }
+        }
+        oPassword.onblur = function(){
+            if(oPassword.value==''){
+                oPwdChecklist.style.display = 'none';
 
+            }
+            //验证成功
+            if(bReg1&&bReg3&&bReg2){
+                checkOk();
+            }
+            
+        }               
+    }
 </script>
 </html>
