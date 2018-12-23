@@ -307,13 +307,7 @@
     var bPwd = false;
     var oPwdChecklist = document.getElementById('pwdChecklist');
     var oPasswordLi = oPwdChecklist.getElementsByTagName('li'); 
-    //空白字符
-    var reg1 = /^\s+$/;
-    //非法字符
-    var reg2 = /^\d+$/;
-    var reg3 = /[^a-z\d_\u4e00-\u9fa5]/i;
-    //手机格式验证
-    var reg4 = /^1[356789]\d{9}$/;
+ 
     //2初始化
     init();
     checkUsername();
@@ -355,6 +349,11 @@
     }
     //3验证用户名
     function checkUsername(){
+        var reg1 = /^\s+$/;
+        //非法字符
+        var reg2 = /^\d+$/;
+        var reg3 = /[^a-z\d_\u4e00-\u9fa5]/i;
+
         oUsername.onblur = function(){
             var sVal = oUsername.value
             //1什么都不输入
@@ -385,6 +384,9 @@
     }
     //4.验证手机号
     function checkPhone(){
+        var reg1 = /^\s+$/;
+        //手机格式验证
+        var reg4 = /^1[356789]\d{9}$/; 
         oPhone.onblur = function(){
             var sVal = oPhone.value;
             //什么都不输入
