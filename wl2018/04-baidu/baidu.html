@@ -304,9 +304,11 @@
     var oCancle = oForms.querySelectorAll('.cancel');
     var oPhone = oForms.phone;
     var oPassword = oForms.password;
-    var bPwd = false;
+    
     var oPwdChecklist = document.getElementById('pwdChecklist');
     var oPasswordLi = oPwdChecklist.getElementsByTagName('li'); 
+    //全局验证变量
+    var bPwd = false;
  
     //2初始化
     init();
@@ -420,11 +422,11 @@
                 ev.keyCode==8 
                 ){
                 return true;
-            }else if(len>10){
+            }else{
                 ev.preventDefault();
             }
-            else{
-                ev.preventDefault();
+            if(len>10){
+                return false;
             }
         }
     }
@@ -455,12 +457,12 @@
             var reg2 = /@#\w\!\$\*\{\}\[\]\(\)/;
             //不允许有空格
             var reg3 = /\s/;
+            console.log(sVal);
             if(sVal == ''){
                 oCancle[2].style.display = 'none';
                 for(var i=0;i<oPasswordLi.length;i++){
                     oPasswordLi[i].className = 'pwd-checklist-item';
                 }
-                bPwd1 = false;bPwd2 = false;bPwd3 = false;                  
             }
             if(reg1.test(sVal)){
                 oPasswordLi[0].className = okClass;
