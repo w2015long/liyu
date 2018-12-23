@@ -306,13 +306,15 @@
     var oPassword = oForms.password;
     var oVerify = oForms.verify;
     var oSmsBtn = document.getElementById('smsBtn');
-  
+    var oSubBtn = document.getElementById('subBtn');
+
     var oPwdChecklist = document.getElementById('pwdChecklist');
     var oPasswordLi = oPwdChecklist.getElementsByTagName('li');
 
     //全局验证变量
     var bPwd = false;
     var bPhone = false;
+    var bVerify = false;
  
     //2初始化
     init();
@@ -320,6 +322,7 @@
     checkPhone();
     checkPassword();
     checkVerify();
+    handleSubmit();
     function init(){
         oUsername.focus();
         aMsg[0].className = 'tiptext';
@@ -518,6 +521,7 @@
             var sVal = oPhone.value;
             if(sVal == ''){
                 setError(aMsg[1],'请输入手机号',oPhone);
+                bVerify = false;
             }
             if(!bPhone){
                 return false;
@@ -531,14 +535,18 @@
             var reg1 = /[a-z0-9]{6}/i;
             if(!reg1.test(oVerify.value)){
                 setError(aMsg[3],'验证码格式错误',oVerify);
+                bVerify = false;
+            }else{
+               setOk(aMsg[3],oVerify);
+               bVerify = true;
             }
-            else if(oVerify.value==''){
-                console.log('空...');
+            if(oVerify.value==''){
                 aMsg[3].className = 'msg';
                 oVerify.className = '';
+                bVerify = false;
             }
         }
-    /*    
+  /*     
         oVerify.onkeydown = function(ev){
             var reg = /[a-z]/i;
             var len = oVerify.value.length;
@@ -555,7 +563,24 @@
                 return false;
             }
         }
-    */    
+   */   
+    }
+    function handleSubmit(){
+        oSubBtn.onclick = function(){
+            //全空验证
+            if(oUsername.value==''){
+                setError(aMsg[0],'请输入用户名',oUsername);
+            }else if(oPhone.value==''){
+                setError(aMsg[1],'请输入手机号',oPhone);
+            }else if(oPassword.value==''){
+                setError(aMsg[2],'请输入密码',oPassword);
+            }
+            else if(oVerify.value==''){
+                setError(aMsg[3],'请输入验证码',oVerify);
+            }else{
+                
+            }
+        }
     }   
 </script>
 </html>
