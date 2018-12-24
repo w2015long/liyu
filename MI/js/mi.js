@@ -13,8 +13,8 @@ oCart.onmouseenter = function(){
 	oCartA.style.color = '#ff6700';
 }
 oCart.onmouseleave = function(){
-	oContent.style.display = 'block';
-	oCartBox.style.backgroundColor = '#fff';
+	oContent.style.display = 'none';
+	oCartBox.style.backgroundColor = '#424242';
 	oCartA.style.color = '#b0b0b0'; 	
 }
 /*carousel轮播图*/
