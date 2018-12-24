@@ -3,34 +3,44 @@ function byId(id){
     return typeof(id) === "string" ? document.getElementById(id) : id;
 }
  /*头部购物车*/
-var oCart = document.querySelector('.cart');
-var oCartBox = document.querySelector('.cart-box');
-var oContent = document.querySelector('.cart-content');
-var oCartA = oCartBox.children[0];
-var oLoading = oContent.querySelector('.loading');
-var oEmpty = oContent.querySelector('.empty');
-console.log(oContent);
-oCart.onmouseenter = function(){
-	oCartBox.style.backgroundColor = '#fff';
-	oCartA.style.color = '#ff6700';
-	//获取数据时先加载loading图标
-	oLoading.style.display = 'block';
-	animate(oContent,{height:100},true,function(){
-		//加载完毕隐藏loading图标
+ handleCart();
+function handleCart(){ 
+	var oCart = document.querySelector('.cart');
+	var oCartBox = document.querySelector('.cart-box');
+	var oContent = document.querySelector('.cart-content');
+	var oCartA = oCartBox.children[0];
+	var oLoading = oContent.querySelector('.loading');
+	var oEmpty = oContent.querySelector('.empty');
+	console.log(oContent);
+	oCart.onmouseenter = function(){
+		oCartBox.style.backgroundColor = '#fff';
+		oCartA.style.color = '#ff6700';
+		//获取数据时先加载loading图标
+		oLoading.style.display = 'block';
+		animate(oContent,{height:100},true,function(){
+			//加载完毕隐藏loading图标
+			oLoading.style.display = 'none';
+			//后台购物车数据
+			oEmpty.style.display = 'block';
+		})
+	}
+	oCart.onmouseleave = function(){
+		oCartBox.style.backgroundColor = '#424242';
+		oCartA.style.color = '#b0b0b0';
+		//鼠标移开先把loading隐藏
 		oLoading.style.display = 'none';
-		//后台购物车数据
-		oEmpty.style.display = 'block';
-	})
+		animate(oContent,{height:0},true,function(){
+			//收回去再让数据隐藏
+			oEmpty.style.display = 'none';
+		})	
+	}
 }
-oCart.onmouseleave = function(){
-	oCartBox.style.backgroundColor = '#424242';
-	oCartA.style.color = '#b0b0b0';
-	//鼠标移开先把loading隐藏
-	oLoading.style.display = 'none';
-	animate(oContent,{height:0},true,function(){
-		//收回去再让数据隐藏
-		oEmpty.style.display = 'none';
-	})	
+/*下拉header-nav*/
+handleNav();
+function handleNav(){
+	var oheaderNavBox = document.querySelector('.header-nav-children');
+	var aheaderNavLi = document.querySelectorAll('.header-nav-item');
+	console.log(aheaderNavLi);
 }
 /*carousel轮播图*/
 var timer=null;
