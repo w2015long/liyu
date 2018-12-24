@@ -3,7 +3,7 @@ function byId(id){
     return typeof(id) === "string" ? document.getElementById(id) : id;
 }
  /*头部购物车*/
- handleCart();
+handleCart();
 function handleCart(){ 
 	var oCart = document.querySelector('.cart');
 	var oCartBox = document.querySelector('.cart-box');
@@ -11,7 +11,6 @@ function handleCart(){
 	var oCartA = oCartBox.children[0];
 	var oLoading = oContent.querySelector('.loading');
 	var oEmpty = oContent.querySelector('.empty');
-	console.log(oContent);
 	oCart.onmouseenter = function(){
 		oCartBox.style.backgroundColor = '#fff';
 		oCartA.style.color = '#ff6700';
@@ -38,93 +37,134 @@ function handleCart(){
 /*下拉header-nav*/
 handleNav();
 function handleNav(){
-	var oheaderNavBox = document.querySelector('.header-nav-children');
-	var aheaderNavLi = document.querySelectorAll('.header-nav-item');
-	console.log(aheaderNavLi);
+	var oNavBox = document.querySelector('.header-nav-children');
+	var aNavLi = document.querySelectorAll('.header-nav .header-nav-item');
+	var hiddenTimer = null;
+	oNavBox.style.overflow = 'hidden';
+	for(var i=0;i<aNavLi.length;i++){
+		clearTimeout(hiddenTimer);
+		aNavLi[i].onmouseenter = function(){
+			// oNavBox.style.overflow = 'hidden';
+			oNavBox.style.borderTop = '1px solid #ccc';
+			animate(oNavBox,{height:202},true,function(){
+				oNavBox.style.overflow = 'visible';
+			})
+		}
+		aNavLi[i].onmouseleave = function(){
+			hiddenTimer = setTimeout(hiddenContent,500)
+		}
+	}
+	oNavBox.onmouseenter = function(){
+		clearTimeout(hiddenTimer);
+	}
+	oNavBox.onmouseleave = function(){
+		hiddenContent();
+	}
+	function hiddenContent(){
+			oNavBox.style.overflow = 'hidden';
+			animate(oNavBox,{height:0},true,function(){
+				oNavBox.style.borderTop = 'none';
+			})
+	}
+
 }
 /*carousel轮播图*/
-var timer=null;
-var now=0;
-var aImgs=document.getElementsByClassName('carousel-imgs-item');
-var aBtn=document.querySelectorAll('.carousel-btn-item');
-var oCarousel=document.getElementById('carousel');
-var oRight=document.querySelector('.right-arrow');
-var oLeft=document.querySelector('.left-arrow');
-//改变轮播图
-function changesImg(){
-	for(var i=0;i<aImgs.length;i++){
-		aImgs[i].style.zIndex = '0';
-		aImgs[i].style.opacity='0';
-		aBtn[i].className='';
+handleCarousel();
+function handleCarousel(){
+	var timer=null;
+	var now=0;
+	var aImgs=document.getElementsByClassName('carousel-imgs-item');
+	var aBtn=document.querySelectorAll('.carousel-btn-item');
+	var oCarousel=document.getElementById('carousel');
+	var oRight=document.querySelector('.right-arrow');
+	var oLeft=document.querySelector('.left-arrow');
+	//改变轮播图
+	function changesImg(){
+		for(var i=0;i<aImgs.length;i++){
+			aImgs[i].style.zIndex = '0';
+			aImgs[i].style.opacity='0';
+			aBtn[i].className='';
+		}
+		aImgs[now].style.zIndex = '9';
+		aImgs[now].style.opacity='1';		
+		aBtn[now].className='active';
 	}
-	aImgs[now].style.zIndex = '9';
-	aImgs[now].style.opacity='1';		
-	aBtn[now].className='active';
-}
-//鼠标放上main区暂停播放
-oCarousel.onmouseover=function(){
-	stopAutoPlay()
-}
-//鼠标离开main区自动播放
-oCarousel.onmouseout=function(){
-	startAutoPlay()
-}
-//点击小圆点切换图片
-for(var i=0;i<aBtn.length;i++){
-	aBtn[i].index=i; //给每一个btn绑定一个事件
-	aBtn[i].onclick=function(){
-		now=this.index;
+	//鼠标放上main区暂停播放
+	oCarousel.onmouseover=function(){
+		stopAutoPlay()
+	}
+	//鼠标离开main区自动播放
+	oCarousel.onmouseout=function(){
+		startAutoPlay()
+	}
+	//点击小圆点切换图片
+	for(var i=0;i<aBtn.length;i++){
+		aBtn[i].index=i; //给每一个btn绑定一个事件
+		aBtn[i].onclick=function(){
+			now=this.index;
+			changesImg();
+		}
+	}
+	//右边按钮事件
+	oRight.onclick=function(){
+		now++
+		if(now>=aImgs.length){
+			now=0;
+		}
 		changesImg();
 	}
-}
-//右边按钮事件
-oRight.onclick=function(){
-	now++
-	if(now>=aImgs.length){
-		now=0;
+	//左边按钮事件
+	oLeft.onclick=function(){
+		now--
+		if(now<0){
+			now=aImgs.length-1
+		}
+		changesImg();
 	}
-	changesImg();
-}
-//左边按钮事件
-oLeft.onclick=function(){
-	now--
-	if(now<0){
-		now=aImgs.length-1
-	}
-	changesImg();
-}
 
-//播放轮播图
-function startAutoPlay(){
-	timer=setInterval(oRight.onclick,2000);
-}
-startAutoPlay();
-//暂停播放
-function stopAutoPlay(){
-	if(timer){
-		clearInterval(timer);
+	//播放轮播图
+	function startAutoPlay(){
+		timer=setInterval(oRight.onclick,2000);
+	}
+	startAutoPlay();
+	//暂停播放
+	function stopAutoPlay(){
+		if(timer){
+			clearInterval(timer);
+		}
 	}
 }
 /*flash闪购倒计时*/
-var sHour = byId(hour),sMinute = byId(minute),sSecond = byId(second);
-var endTime = new Date(2018, 12, 22, 8, 30, 0, 0);
-var endTimer = endTime.getTime();
-function to2Str(num){
-	return num<10 ? '0'+num : ''+num;
-}
-
-function handlerTimer(){
-
-	var allMilliSeconds = endTimer - Date.now();
-	if(allMilliSeconds<=0){
-		allMilliSeconds=0;
-		clearInterval(timer);
+handleFlashTimer();
+function handleFlashTimer(){
+	var sHour = byId(hour),sMinute = byId(minute),sSecond = byId(second);
+	var endTime = new Date(2018, 12, 22, 8, 30, 0, 0);
+	var endTimer = endTime.getTime();
+	function to2Str(num){
+		return num<10 ? '0'+num : ''+num;
 	}
-	var allSeconds = allMilliSeconds/1000;
-	var iHour = parseInt(allSeconds/3600), iMinute = parseInt((allSeconds%3600)/60),iSecond = parseInt(allSeconds%60);
-	sHour.innerHTML = to2Str(iHour);
-	sMinute.innerHTML = to2Str(iMinute);
-	sSecond.innerHTML = to2Str(iSecond);
+
+	function handlerTimer(){
+
+		var allMilliSeconds = endTimer - Date.now();
+		if(allMilliSeconds<=0){
+			allMilliSeconds=0;
+			clearInterval(timer);
+		}
+		var allSeconds = allMilliSeconds/1000;
+		var iHour = parseInt(allSeconds/3600), iMinute = parseInt((allSeconds%3600)/60),iSecond = parseInt(allSeconds%60);
+		sHour.innerHTML = to2Str(iHour);
+		sMinute.innerHTML = to2Str(iMinute);
+		sSecond.innerHTML = to2Str(iSecond);
+	}
+	setInterval(handlerTimer,500);
+	handlerTimer();
 }
-setInterval(handlerTimer,500);
-handlerTimer();
+handleFlashProduct();
+function handleFlashProduct(){
+	var leftBtn = document.querySelector('more-but more-but-left');
+	var rightBtn = document.querySelector('more-but more-but-right');
+	leftBtn.onclick = function(){
+		
+	}
+}		
