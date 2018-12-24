@@ -272,7 +272,7 @@
                    <input type="checkbox" name='isAgree'> 
                    <label for="isAgree">阅读并接受</label>
                    <a href="#">《百度用户协议》</a>及<a href="#">《百度隐私权保护声明》</a>  
-                   <span class="msg" id='agreeErr'>选“阅读并接受百度用户协议”</span>               
+                   <span class="msg" id='agreeErr'>请勾选“阅读并接受百度用户协议”</span>               
                 </div>           
                 <div class="subBtn">
                     <input type="button" value="注册" id="subBtn">
@@ -307,13 +307,15 @@
     var oVerify = oForms.verify;
     var oSmsBtn = document.getElementById('smsBtn');
     var oSubBtn = document.getElementById('subBtn');
+    var oIsAgree = oForms.isAgree;
 
     var oPwdChecklist = document.getElementById('pwdChecklist');
     var oPasswordLi = oPwdChecklist.getElementsByTagName('li');
 
     //全局验证变量
-    var bPwd = false;
+    var bName = false;
     var bPhone = false;
+    var bPwd = false;
     var bVerify = false;
  
     //2初始化
@@ -371,20 +373,25 @@
                 aMsg[0].className = 'msg';
                 //防止走入后边逻辑，所以先清空后边逻辑
                 oUsername.className = '';
+                bName = false;
             }//空字符验证
             else if(reg1.test(sVal)){
                 setError(aMsg[0],'请输入用户名',oUsername);
+                bName = false;
                
             }//长度验证
             else if(getLen(sVal)>14){
                 setError(aMsg[0],'用户名不能超过7个汉字或14个字符',oUsername);
+                bName = false;
                  
             }//非法字符验证
             else if(reg2.test(sVal) || reg3.test(sVal)){
-                setError(aMsg[0],'用户名仅支持中英文、数字和下划线,且不能为纯数字',oUsername);          
+                setError(aMsg[0],'用户名仅支持中英文、数字和下划线,且不能为纯数字',oUsername);
+                bName = false;          
             }//ok验证
             else{
                 setOk(aMsg[0],oUsername);
+                bName = true;
             }
         }
         oUsername.onfocus = function(){
@@ -546,39 +553,37 @@
                 bVerify = false;
             }
         }
-  /*     
-        oVerify.onkeydown = function(ev){
-            var reg = /[a-z]/i;
-            var len = oVerify.value.length;
-            if( (ev.keyCode>=48 && ev.keyCode<=57) ||
-                (ev.keyCode>=96 && ev.keyCode<=105) ||
-                (ev.keyCode)==37 || ev.keyCode==39 ||
-                ev.keyCode==8 || (reg.test(oVerify.value))
-                ){
-               
-            }else{
-                return false;
-            }
-            if(len>5){
-                return false;
-            }
-        }
-   */   
+
     }
     function handleSubmit(){
         oSubBtn.onclick = function(){
             //全空验证
             if(oUsername.value==''){
                 setError(aMsg[0],'请输入用户名',oUsername);
-            }else if(oPhone.value==''){
+            }
+            if(oPhone.value==''){
                 setError(aMsg[1],'请输入手机号',oPhone);
-            }else if(oPassword.value==''){
+            }
+            if(oPassword.value==''){
                 setError(aMsg[2],'请输入密码',oPassword);
             }
-            else if(oVerify.value==''){
+            
+            if(oVerify.value==''){
                 setError(aMsg[3],'请输入验证码',oVerify);
+            }
+            if(!oIsAgree.checked){
+                aMsg[4].style.display = 'inline';
             }else{
-                
+                aMsg[4].style.display = 'none';
+            }
+            //所有条件验证处理
+            if( bName&&
+                bPhone&&
+                bPwd&&
+                bVerify&&
+                oIsAgree.checked){
+                console.log('正在注册.....')
+                   oForms.submit(); 
             }
         }
     }   
