@@ -1,11 +1,4 @@
-						// <div class="img-box">
-						// 	<a href="#">
-						// 		<img src="images/4a43.png" alt="">
-						// 	</a>
-						// </div>
-						// <p class="product-title">小米电视4A 43英寸青春版</p>
-						// <p class="product-price">1499元起</p>
-						// <sapn class="flag">热卖</sapn>
+
 var navData = [
 	[
 		{

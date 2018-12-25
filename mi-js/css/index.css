@@ -132,6 +132,9 @@
 	z-index: 1000;
 	/*overflow: hidden;*/
 }
+.header .header-nav-children .container .loading{
+	margin-top: 80px;
+}
 .header .header-nav-children .children-list-item{
 	position: relative;
 	float: left;
@@ -530,7 +533,18 @@
 .flash .porduct-list .product-item{
 	height: 340px;
 }
-
+.flash .clo2.porduct-list{
+	position: relative;
+	height: 340px;
+	overflow: hidden;
+}
+.flash .bd .clo2 ul{
+	position: absolute;
+	top: 0;
+	left: 0px;
+	width: 1956px;
+	transition:left 0.6s ease; 
+}
 .flag{
 	position: absolute;
 	top: 0;

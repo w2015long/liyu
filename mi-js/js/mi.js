@@ -39,7 +39,10 @@ handleNav();
 function handleNav(){
 	var oNavBox = document.querySelector('.header-nav-children');
 	var aNavLi = document.querySelectorAll('.header-nav .header-nav-item');
+	var oNavContent = oNavBox.querySelector('.container');
+	var oLoading = oNavContent.querySelector('.loading');
 	var hiddenTimer = null;
+	var loadTimer = null;
 	oNavBox.style.overflow = 'hidden';
 	for(var i=0;i<aNavLi.length-2;i++){
 		aNavLi[i].index = i;
@@ -47,11 +50,20 @@ function handleNav(){
 			//移入到其他Li时也清除定时器
 			clearTimeout(hiddenTimer);
 			oNavBox.style.borderTop = '1px solid #ccc';
+			//高度没出来时先显示loading
+			oLoading.style.display = 'block';
 			animate(oNavBox,{height:202},true,function(){
 				oNavBox.style.overflow = 'visible';
 			})
-			//鼠标放上去时加载数据
-			loadData(this.index);
+			//鼠标放上去时模拟加载数据（有延迟）
+			var index = this.index;
+			//每每加载下一项数据之前先清除上一项定时器
+			clearTimeout(loadTimer);
+			loadTimer = setTimeout(function(){
+				oLoading.style.display = 'none';
+				loadData(index);
+			},500)
+			
 		}
 		//鼠标移除事件
 		aNavLi[i].onmouseleave = hiddenContent;
@@ -69,34 +81,27 @@ function handleNav(){
 		}, 500)
 	}
 	function loadData(index){
+		//data对应的是每一项导航栏的内容（相当于手机是一项，家电是一项）
 		var data = navData[index];
-		/*
-		<!-- 	<ul class="children-list">
-					<li class="children-list-item">
-						<div class="img-box">
-							<a href="#">
-								<img src="images/yuntai.jpg" alt="">
-							</a>
-						</div>
-						<p class="product-title">小米米家智能摄像机云台版</p>
-						<p class="product-price">199元起</p>
-						<sapn class="flag">热卖</sapn>
-					</li>
-					*/
-		var html = 	"<ul class="children-list">";
-		html += "<li class="children-list-item">";			
-		html += "<div class="img-box">"	;			
-		html += "<a href="+data[i].url+">";					
-		html += "<img src="+data[i].img+" alt="">";						
-		html += "</a>"	;				
-		html += "</div>";				
-		html += "<p class="product-title">"+data[i].title+"</p>";				
-		html += "<p class="product-price">"+data[i].price+"</p>";	
-		if(data[i].flag){
-			html += "<sapn class="flag">"+data[i].flag+"</sapn>";
-		}			
-		html += "</li>"	;
+		var html = 	"<ul class="+"children-list"+">";			
+		for(var i=0;i<data.length;i++){
+			// console.log(data.length);
+			// console.log(data[i].title);
+			html += "<li class="+"children-list-item"+">";			
+			html += "<div class="+"img-box"+">"	;			
+			html += "<a href="+data[i].url+">";					
+			html += "<img src="+data[i].img+">";						
+			html += "</a>"	;				
+			html += "</div>";				
+			html += "<p class="+"product-title"+">"+data[i].title+"</p>";				
+			html += "<p class="+"product-price"+">"+data[i].price+"</p>";	
+			if(data[i].flag){
+				html += "<sapn class="+"flag"+">"+data[i].flag+"</sapn>";
+			}			
+			html += "</li>"	;
+		}
 		html += "</ul>"	;
+		oNavContent.innerHTML = html;
 
 	}
 
@@ -193,11 +198,15 @@ function handleFlashTimer(){
 	setInterval(handlerTimer,500);
 	handlerTimer();
 }
-// handleFlashProduct();
-// function handleFlashProduct(){
-// 	var leftBtn = document.querySelector('more-but more-but-left');
-// 	var rightBtn = document.querySelector('more-but more-but-right');
-// 	leftBtn.onclick = function(){
-		
-// 	}
-// }		
+handleFlashProduct();
+function handleFlashProduct(){
+	var leftBtn = document.querySelector('.flash .hd .more-but.more-but-left');
+	var rightBtn = document.querySelector('.flash .hd .more-but.more-but-right');
+	var oUl = document.querySelector('.flash .clo2.porduct-list>ul');
+	rightBtn.onclick = function(){
+		oUl.style.left = "-978px";
+	}
+	leftBtn.onclick = function(){
+		oUl.style.left = "0px";
+	}	
+}		
