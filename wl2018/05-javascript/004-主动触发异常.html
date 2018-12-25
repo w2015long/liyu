@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>004-主动触发异常.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function sum(num){
+		try {
+			if(isNaN(parseInt(num))){
+				throw new Error("not a number....");
+			}
+
+			var result = 0;
+			for(var i=0;i<num;i++){
+				result += i;
+			}
+			return result;			
+			// statements
+		} catch(e) {
+			// statements
+			console.log(e);
+		}
+
+	}
+	function handleNum(num){
+		console.log(num*10);
+	}
+	var total = sum('a');
+	handleNum(total);
+</script>
+</html>
