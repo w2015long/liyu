@@ -112,19 +112,36 @@ function handleCategory(){
 	var aCategory = document.querySelectorAll('.banner .category .category-item');
 	var ocategoryContent = document.querySelector('.category-box .category-content');
 	var ocategoryBox = document.querySelector('.banner .category-box');
-	console.log(aCategory);
 	for(var i=0;i<aCategory.length;i++){
-
+		aCategory[i].index = i;
 		aCategory[i].onmouseenter = function(){
 			for(var j=0;j<aCategory.length;j++){
 				aCategory[j].className = 'category-item';
 			}			
 			this.className = 'category-item active';
 			ocategoryContent.style.display = 'block';
+			var index = this.index;
+			loadCategoryData(index);
 		}
 	}
 	ocategoryBox.onmouseleave = function(){
 		ocategoryContent.style.display = 'none';
+	}
+	function loadCategoryData(index){
+		var varietyData = categoryData[index];
+		console.log(varietyData.length);
+
+		var html = '<ul>';
+		for(var i=0;i<varietyData.length;i++){
+			html += '<li>';
+			html += '<a href='+varietyData[i].url+'>';
+			html += '<img src='+varietyData[i].img+ '>';
+			html += '<span>'+varietyData[i].name+'</span>';
+			html += '</a>';
+			html += '</li>';
+		}
+		html += '</ul>';
+		ocategoryContent.innerHTML = html;
 	}
 }
 /*carousel轮播图*/
@@ -197,7 +214,7 @@ function handleCarousel(){
 handleFlashTimer();
 function handleFlashTimer(){
 	var sHour = byId(hour),sMinute = byId(minute),sSecond = byId(second);
-	var endTime = new Date(2018, 12, 22, 8, 30, 0, 0);
+	var endTime = new Date('2019-01-01 00:00:59');
 	var endTimer = endTime.getTime();
 	function to2Str(num){
 		return num<10 ? '0'+num : ''+num;
@@ -230,4 +247,16 @@ function handleFlashProduct(){
 	leftBtn.onclick = function(){
 		oUl.style.left = "0px";
 	}	
-}		
+}
+handleTab();	
+function handleTab(){
+	var aElecBtn = document.querySelectorAll('.elec .hd .hd-list-item');
+	for(var i=0;i<aElecBtn.length;i++){
+		aElecBtn[i].onmouseenter = function(){
+			for(var j=0;j<aElecBtn.length;j++){
+				aElecBtn[j].className = 'hd-list-item';
+			}
+			this.className = 'hd-list-item hd-list-active';
+		}
+	}
+}	
