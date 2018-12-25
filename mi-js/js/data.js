@@ -997,3 +997,160 @@ var categoryData = [
             <span class="flag new-flag">新品</span>
 		</li>
 */
+var tabData = [
+	[
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/p1.jpg',
+			name:'小米MIX2 8GB+128GB黑色',
+			desc:'Unibady 全陶瓷',
+			price:'3699',
+			del:'4699',
+			evaluate:{
+				content : '一直想买一个小米电视，果然不失所望,一直想买一个小米电视，果然不失所望,一直想买一个小米电视，果然不失所望',
+				author:'小李飞刀',
+			},
+			flag:{
+				classTitle:'new-flag',
+				title:'新品'
+			}
+
+		},
+
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/p1.jpg',
+			name:'小米MIX2 8GB+128GB黑色',
+			desc:'Unibady 全陶瓷',
+			price:'3699',
+			del:'4699',
+			evaluate:{
+				content : '一直想买一个小米电视，果然不失所望,一直想买一个小米电视，果然不失所望,一直想买一个小米电视，果然不失所望',
+				author:'小李飞刀',
+			},
+			flag:{
+				classTitle:'new-flag',
+				title:'新品'
+			}
+
+		},
+
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/p1.jpg',
+			name:'小米MIX2 8GB+128GB黑色',
+			desc:'Unibady 全陶瓷',
+			price:'3699',
+			del:'4699',
+			evaluate:{
+				content : '一直想买一个小米电视，果然不失所望,一直想买一个小米电视，果然不失所望,一直想买一个小米电视，果然不失所望',
+				author:'小李飞刀',
+			},
+			flag:{
+				classTitle:'new-flag',
+				title:'新品'
+			}
+
+		},
+
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/p1.jpg',
+			name:'小米MIX2 8GB+128GB黑色',
+			desc:'Unibady 全陶瓷',
+			price:'3699',
+			del:'4699',
+			evaluate:{
+				content : '一直想买一个小米电视，果然不失所望,一直想买一个小米电视，果然不失所望,一直想买一个小米电视，果然不失所望',
+				author:'小李飞刀',
+			},
+			flag:{
+				classTitle:'new-flag',
+				title:'新品'
+			}
+
+		},
+
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/p1.jpg',
+			name:'小米MIX2 8GB+128GB黑色',
+			desc:'Unibady 全陶瓷',
+			price:'3699',
+			del:'4699',
+			evaluate:{
+				content : '一直想买一个小米电视，果然不失所望,一直想买一个小米电视，果然不失所望,一直想买一个小米电视，果然不失所望',
+				author:'小李飞刀',
+			},
+			flag:{
+				classTitle:'new-flag',
+				title:'新品'
+			}
+
+		},
+
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/p1.jpg',
+			name:'小米MIX2 8GB+128GB黑色',
+			desc:'Unibady 全陶瓷',
+			price:'3699',
+			del:'4699',
+			evaluate:{
+				content : '一直想买一个小米电视，果然不失所望,一直想买一个小米电视，果然不失所望,一直想买一个小米电视，果然不失所望',
+				author:'小李飞刀',
+			},
+			flag:{
+				classTitle:'new-flag',
+				title:'新品'
+			}
+
+		},
+
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/p1.jpg',
+			name:'小米MIX2 8GB+128GB黑色',
+			desc:'Unibady 全陶瓷',
+			price:'3699',
+			del:'4699',
+			evaluate:{
+				content : '一直想买一个小米电视，果然不失所望,一直想买一个小米电视，果然不失所望,一直想买一个小米电视，果然不失所望',
+				author:'小李飞刀',
+			},
+			flag:{
+				classTitle:'new-flag',
+				title:'新品'
+			}
+
+		},
+
+
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/ca.png',
+			name:'小白摄像机',
+			price:'369'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			icon:'&#xe615;',
+			name:'浏览更多',
+			desc:'热门'
+		}
+
+	],						
+
+];
+/*
+	<li class="product-item product-item-s">
+		<a href="#">
+			<div class="porduct-bg"></div>
+		</a>
+		<div class="content">
+			<div class="icon"><i class="iconfont">&#xe615;</i></div>
+			<p class="icon-name">浏览更多</p>
+			<p class="icon-desc">热门</p>
+		</div>	
+	</li>
+ */

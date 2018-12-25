@@ -250,13 +250,52 @@ function handleFlashProduct(){
 }
 handleTab();	
 function handleTab(){
+	loadTabData(0);
 	var aElecBtn = document.querySelectorAll('.elec .hd .hd-list-item');
+	var oElecUl = document.querySelector('.elec .bd .clo2 .ul1');
+	console.log(oElecUl)
 	for(var i=0;i<aElecBtn.length;i++){
+		aElecBtn[i].index = i;
 		aElecBtn[i].onmouseenter = function(){
 			for(var j=0;j<aElecBtn.length;j++){
 				aElecBtn[j].className = 'hd-list-item';
 			}
 			this.className = 'hd-list-item hd-list-active';
+			loadTabData(this.index);
 		}
+	}
+	function loadTabData(index){
+		console.log(index)
+		var data = tabData[index];
+		console.log(data);
+		var html = '';
+		for(var i=0;i<data.length;i++){
+			html +=	'<li class="product-item product-item-m">';
+			html +=		'<a href="'+data.url+'">';
+			html +=			'<div class="porduct-bg"></div>';
+			html +=		'</a>';
+			html +=		'<div class="content">';
+			html +=			'<img src="'+data.img+'" class="product-img" alt="">';
+			html +=			'<h3 class="porduct-name">'+data.name+'</h3>';
+			html +=			'<p class="porduct-desc">'+data.desc+'</p>';
+			html +=			'<div class="porduct-price">';
+			html +=				'<strong>'+data.price+'</strong>';
+			html +=				'<span>&nbsp;元</span>';
+			html +=				'<del>'+data.del+'元</del>';
+			html +=			'</div>';
+			if(data.evaluate){
+				html +=	'<div class="evaluate">';
+				html +=		'<p class="evaluate-item">'+data.evaluate.content+'</p>';
+				html +=		'<p class="evaluate-author">来至于<span>'+data.evaluate.author+'</span>的评价</p>';
+				html +=	'</div>';				
+			}
+			html += 	'</div>';
+			if(data.flag){
+				html += '<span class="flag '+data.flag.classTitle+'">'+data.flag.title+'</span>';
+			}
+			
+			html +=	'</li>';
+		}
+		oElecUl.innerHTML = html;
 	}
 }	
