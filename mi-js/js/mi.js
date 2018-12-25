@@ -106,6 +106,27 @@ function handleNav(){
 	}
 
 }
+/*category动态商品列表*/
+handleCategory();
+function handleCategory(){
+	var aCategory = document.querySelectorAll('.banner .category .category-item');
+	var ocategoryContent = document.querySelector('.category-box .category-content');
+	var ocategoryBox = document.querySelector('.banner .category-box');
+	console.log(aCategory);
+	for(var i=0;i<aCategory.length;i++){
+
+		aCategory[i].onmouseenter = function(){
+			for(var j=0;j<aCategory.length;j++){
+				aCategory[j].className = 'category-item';
+			}			
+			this.className = 'category-item active';
+			ocategoryContent.style.display = 'block';
+		}
+	}
+	ocategoryBox.onmouseleave = function(){
+		ocategoryContent.style.display = 'none';
+	}
+}
 /*carousel轮播图*/
 handleCarousel();
 function handleCarousel(){
