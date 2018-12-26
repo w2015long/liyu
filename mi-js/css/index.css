@@ -314,7 +314,7 @@
 	border-top: 1px solid #ccc;
 	z-index: 1009;
 	overflow: hidden;
-	/*display: none;*/
+	display: none;
 }
 
 .home .banner .category-box .category-content ul>li{
