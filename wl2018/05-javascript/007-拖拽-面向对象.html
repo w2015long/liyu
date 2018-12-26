@@ -51,7 +51,7 @@
 	Drag.prototype.bindEvent = function(){
 		var _this = this;
 		this.oBox.onmousedown = function(ev){
-			_this = downFn(ev);
+			_this.downFn(ev);
 		}
 	}
 	Drag.prototype.downFn = function(ev){
@@ -59,15 +59,15 @@
 		this.disY = ev.clientY - this.oBox.offsetTop;
 		var _this = this;
 		document.onmousemove = function(ev){
-			_this = moveFn(ev);
+			_this.moveFn(ev);
 		}
 		document.onmouseup = function(){
-			_this = upFn();
+			_this.upFn();
 		}			
 	}
 	Drag.prototype.moveFn = function(ev){
 		this.oBox.style.left = ev.clientX - this.disX + 'px';
-		this.oBox.style.top = ev,clientY - this.disX + 'px'; 		
+		this.oBox.style.top = ev.clientY - this.disY + 'px'; 		
 	}
 	Drag.prototype.upFn = function(){
 		document.onmousedown = null;
