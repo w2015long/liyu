@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>002-运行时错误.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//console.log(a);//Uncaught ReferenceError: a is not defined
+	//类型引用错误
+	var a = 9;//Uncaught TypeError: a is not a function
+	//a();
+	
+	
+	//递归爆栈
+	function sum(){
+		sum();//Uncaught RangeError: Maximum call stack size exceeded
+	}
+	sum();
+</script>
+</html>
