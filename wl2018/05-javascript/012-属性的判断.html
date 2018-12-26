@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>012-属性的判断.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	Person.prototype.showAge = function(){
+		console.log('I am '+this.age+' years old')
+	}
+	Person.prototype.sex = 'man';
+	p1 = new Person('Tom',19);
+	//传统判断
+	if(p1.sex){
+		console.log('p1有性别');
+	}else{
+		console.log('nothing......')
+	}	
+</script>
+</html>
