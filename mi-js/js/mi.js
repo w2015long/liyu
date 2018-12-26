@@ -250,7 +250,7 @@ function handleFlashProduct(){
 }
 handleTab();	
 function handleTab(){
-	loadTabData(0);
+	
 	var aElecBtn = document.querySelectorAll('.elec .hd .hd-list-item');
 	var oElecUl = document.querySelector('.elec .bd .clo2 .ul1');
 	console.log(oElecUl)
@@ -265,37 +265,58 @@ function handleTab(){
 		}
 	}
 	function loadTabData(index){
-		console.log(index)
 		var data = tabData[index];
-		console.log(data);
 		var html = '';
-		for(var i=0;i<data.length;i++){
+		for(var i=0;i<data.length-1;i++){
 			html +=	'<li class="product-item product-item-m">';
-			html +=		'<a href="'+data.url+'">';
+			html +=		'<a href="'+data[i].url+'">';
 			html +=			'<div class="porduct-bg"></div>';
 			html +=		'</a>';
 			html +=		'<div class="content">';
-			html +=			'<img src="'+data.img+'" class="product-img" alt="">';
-			html +=			'<h3 class="porduct-name">'+data.name+'</h3>';
-			html +=			'<p class="porduct-desc">'+data.desc+'</p>';
+			html +=			'<img src="'+data[i].img+'" class="product-img" alt="">';
+			html +=			'<h3 class="porduct-name">'+data[i].name+'</h3>';
+			html +=			'<p class="porduct-desc">'+data[i].desc+'</p>';
 			html +=			'<div class="porduct-price">';
-			html +=				'<strong>'+data.price+'</strong>';
+			html +=				'<strong>'+data[i].price+'</strong>';
 			html +=				'<span>&nbsp;元</span>';
-			html +=				'<del>'+data.del+'元</del>';
+			html +=				'<del>'+data[i].del+'元</del>';
 			html +=			'</div>';
-			if(data.evaluate){
+			if(data[i].evaluate){
 				html +=	'<div class="evaluate">';
-				html +=		'<p class="evaluate-item">'+data.evaluate.content+'</p>';
-				html +=		'<p class="evaluate-author">来至于<span>'+data.evaluate.author+'</span>的评价</p>';
+				html +=		'<p class="evaluate-item">'+data[i].evaluate.content+'</p>';
+				html +=		'<p class="evaluate-author">来至于<span>'+data[i].evaluate.author+'</span>的评价</p>';
 				html +=	'</div>';				
 			}
 			html += 	'</div>';
-			if(data.flag){
-				html += '<span class="flag '+data.flag.classTitle+'">'+data.flag.title+'</span>';
+			if(data[i].flag){
+				html += '<span class="flag '+data[i].flag.classTitle+'">'+data[i].flag.title+'</span>';
 			}
 			
 			html +=	'</li>';
 		}
+		var lastData = data[data.length-1];
+		html +=	'<li class="product-item product-item-s">';
+		html +=	'	<a href="'+lastData.top.url+'">';
+		html +=	'		<div class="porduct-bg"></div>';
+		html +=	'	</a>';
+		html +=	'	<div class="content">';
+		html +=	'		<img src="'+lastData.top.img+'" alt="" class="product-item-s-img">';
+		html +=	'		<p class="product-item-s-name">'+lastData.top.name+'</p>';
+		html +=	'		<p class="product-item-s-price"><span>'+lastData.top.price+'</span>元</p>';
+		html +=	'	</div>	';
+		html +=	'</li>			';
+		html +=	'<li class="product-item product-item-s">';
+		html +=	'	<a href="'+lastData.bottom.url+'">';
+		html +=	'		<div class="porduct-bg"></div>';
+		html +=	'	</a>';
+		html +=	'	<div class="content">';
+		html +=	'		<div class="icon"><i class="iconfont">'+lastData.bottom.icon+'</i></div>';
+		html +=	'		<p class="icon-name">'+lastData.bottom.name+'</p>';
+		html +=	'		<p class="icon-desc">'+lastData.bottom.desc+'</p>';
+		html +=	'	</div>	';
+		html +=	'</li>';
+
 		oElecUl.innerHTML = html;
 	}
+	loadTabData(0);
 }	
