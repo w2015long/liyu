@@ -14,6 +14,10 @@
 	}
 	console.log("Person",Person);
 	console.log("Person.prototype",Person.prototype);
-	console.log(Person.prototype.constructor);
+	console.log("Person.prototype.constructor",Person.prototype.constructor);//系统会给原型对象上添加一个构造器对象constructor(prototype.constructor)，这个构造器指向构造函数本身
+	console.log(Person===Person.prototype.constructor);//true
+	//系统会给原型对象上添加另外一个对象__proto__(prototype.__proto__)，这个对象指向Object的原型对象(Object.prototype)
+	console.log("Person.prototype.__proto__",Person.prototype.__proto__);
+	console.log(Person.prototype.__proto__===Object.prototype);//true
 </script>
 </html>

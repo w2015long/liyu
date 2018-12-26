@@ -5,9 +5,12 @@
 	<title>005-try-catch-finally语句.html</title>
 </head>
 <body>
-	
+	<input type="text" id="txt">
+	<button id="btn">测试</button>
 </body>
 <script>
+	var oTxt = document.getElementById('txt');
+	var oBtn = document.getElementById('btn');
 	function sum(num){
 		var result = 0;
 		try {
@@ -28,7 +31,12 @@
 	function handleNum(num){
 		console.log(num*10);
 	}
-	var total = sum('p');
+	var total = sum();
 	handleNum(total);
+	oBtn.onclick = function(){
+		var val = oTxt.value;
+		var total = sum(val);
+		handleNum(total);		
+	}
 </script>
 </html>
