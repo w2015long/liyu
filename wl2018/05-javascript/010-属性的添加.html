@@ -23,5 +23,9 @@
 	p1.name = 'Leo';//在实例上添加一个实例上的同名属性会覆盖原来的
 	console.log(p1.name);
 	console.log(p1);
+	p1.showAge = function(){
+		console.log('I am '+this.age+'  years old.......')
+	}
+	p1.showAge();//实例上添加和原型同名的方法，访问时会找实例上的
 </script>
 </html>

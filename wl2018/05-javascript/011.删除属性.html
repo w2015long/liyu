@@ -8,6 +8,17 @@
 	
 </body>
 <script>
-	
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	Person.prototype.showAge = function(){
+		console.log('I am '+this.age+'years old')
+	}
+	Person.prototype.sex = 'man';
+	p1 = new Person('Tom',19);
+	console.log(p1);
+	console.log(delete p1.name);
+	console.log(p1);	
 </script>
 </html>
