@@ -27,5 +27,10 @@
 		console.log('I am '+this.age+'  years old.......')
 	}
 	p1.showAge();//实例上添加和原型同名的方法，访问时会找实例上的
+	Person.prototype.sex = "man";
+	console.log("p1.sex",p1.sex);//添加到原型上的属性实例可以访问得到
+	console.log("Person:::::",Person);
+	p1.sex = 'woman';
+	console.log("p1：：：：",p1);
 </script>
 </html>

@@ -13,12 +13,23 @@
 		this.age = age;
 	}
 	Person.prototype.showAge = function(){
-		console.log('I am '+this.age+'years old')
+		console.log('I am '+this.age+' years old')
 	}
 	Person.prototype.sex = 'man';
 	p1 = new Person('Tom',19);
-	console.log(p1);
-	console.log(delete p1.name);
-	console.log(p1);	
+	p1.showAge();
+	console.log("p1------",p1)
+	p2 = new Person("Leo",22);
+	p2.showAge();
+	p1.sex = 'man';
+	console.log("p1!!!",p1);
+	console.log(delete p1.name);//只要没有(删除或原本就没有)该属性就返回true
+	console.log("p1::::::",p1);
+	
+	console.log("delete Person.prototype.age",delete Person.prototype.showAge);
+	console.log("delete Person.prototype.sex",delete Person.prototype.sex);
+	console.log("p1::",p1,"p2::",p2);
+	//p2.showAge();//原型上的属性或方法删除后，所有的实例都不能访问使用
+	console.log(p2.sex);//undefined
 </script>
 </html>
