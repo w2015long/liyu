@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>009-对象属性的访问.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	Person.prototype.showAge = function(){
+		console.log('I am '+this.age+'years old')
+	}
+	p1 = new Person('Tom',19);
+	console.log(p1);
+	console.log(p1.name);
+	console.log(p1.age);//先在实例上找
+	console.log(p1.showAge);//实例上没有就去原型上找
+	console.log(p1.toString);//原型上没有就去Object	父类上找
+
+	console.log(p1.test);//父类Object没有就返回undefined
+</script>
+</html>

@@ -19,5 +19,12 @@
 	//系统会给原型对象上添加另外一个对象__proto__(prototype.__proto__)，这个对象指向Object的原型对象(Object.prototype)
 	console.log("Person.prototype.__proto__",Person.prototype.__proto__);
 	console.log(Person.prototype.__proto__===Object.prototype);//true
+	console.log(Object.prototype.constructor===Object);//true
+	console.log(Object.prototype.__proto__);//null
+	console.log(Object.prototype);//系统自带的方法toString: ƒ toString()valueOf: ƒ valueOf()
+	var person1 = new Person('Tom',19);
+	console.log(person1);//系统会给实例上添加__proto__对象
+	console.log(person1.__proto__)//实例上的__proto__对象就是构造函数的原型对象
+	console.log(person1.__proto__===Person.prototype)//true
 </script>
 </html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>008-原型链.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//实例对象的__proto__对象-->构造函数的原型对象，构造函数的原型对象的__proto__-->Object的原型对象，Object的原型对象的__proto__ -->null
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	console.log(Person);
+	console.log(Person.prototype);
+	var p1 = new Person('Tom',19);
+	console.log(p1.__proto__);
+	Person.prototype.showAge = function(){
+		console.log('I am '+this.age+' years old');
+	}
+	p1.showAge();
+	console.log(p1.toString());
+</script>
+</html>

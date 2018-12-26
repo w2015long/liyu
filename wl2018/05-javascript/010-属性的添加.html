@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>010-属性的添加.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	Person.prototype.showAge = function(){
+		console.log('I am '+this.age+'years old')
+	}
+	p1 = new Person('Tom',19);
+	p1.QQ = '123456';
+	console.log(p1.QQ);
+	console.log(p1);
+	console.log(p1.name);	
+	p1.name = 'Leo';//在实例上添加一个实例上的同名属性会覆盖原来的
+	console.log(p1.name);
+	console.log(p1);
+</script>
+</html>
