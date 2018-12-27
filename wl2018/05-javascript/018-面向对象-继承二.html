@@ -19,8 +19,14 @@
 		Person.call(this,name,age);
 		this.major = major;
 	}
+	Object.defineProperty(Person.prototype,"eyes",{
+		value:2
+	})
 	console.log("Person.prototype",Person.prototype);
 	//Student.prototype = Person.prototype;//此方法可直接在子类上修改父类的原型
+	
+
+	//缺点：如果父类的方法是不可枚举的,子类就继承不到
 	for(var attr in Person){//此方法弊端在于父类上的有些属性遍历不到(不能枚举)
 		Student.prototype[attr] = Person.prototype[attr];
 	}

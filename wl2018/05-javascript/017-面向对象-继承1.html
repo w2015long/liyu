@@ -16,9 +16,10 @@
 		console.log('I am '+this.age+' years old')
 	}
 	function Student(name,age,major){
-		Person.call(this,name,age);
+		Person.call(this,name,age);//属性的继承
 		this.major = major;
 	}
+	//缺点：由于方法的继承是引用赋值,所以父类也会有子类的方法
 	Student.prototype = Person.prototype;//此方法可直接在子类上修改父类的原型
 	Student.prototype.showMajor = function(){
 		console.log('I from '+this.major);

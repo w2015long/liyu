@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>019-面向对象-继承三.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//让子类的原型指向父类的实例
+	function Person(name,age){
+		console.log('调用父类')
+		this.name = name;
+		this.age = age;
+	}
+	Person.prototype.showAge = function(){
+		console.log('I am '+this.age+' years old')
+	}
+	function Student(name,age,major){
+		Person.call(this,name,age);
+		this.major = major;
+	}
+	console.log('前：：：',Student.prototype);
+	Student.prototype = new Person();
+
+	Student.prototype.constructor = Student;	
+	console.log('后：：：',Student.prototype);
+	//缺点：在子类的原型上产生了不必要的父类的属性
+	//缺点：调用两次父类的构造函数
+	s1 = new Student('Tom',20,'Math');//调用两次父类的构造函数	
+</script>
+</html>

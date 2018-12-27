@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>020-面相对象-继承四.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//让子类的原型指向一个空的干净的对象，此对象指向父类的原型
+	function Person(name,age){
+		// console.log('调用父类')
+		this.name = name;
+		this.age = age;
+	}
+	Person.prototype.showAge = function(){
+		console.log('I am '+this.age+' years old')
+	}
+	function Student(name,age,major){
+		Person.call(this,name,age);
+		this.major = major;
+	}
+	Student.prototype.showMajor = function(){
+		console.log('I from '+this.major);
+	}	
+/*
+	obj1 = Object.create(null);
+	console.log(obj1)
+	obj2 = Object.create(Person.prototype);
+	console.log(obj2);
+	obj3 = {};
+	console.log(obj3);
+*/	
+	//Object.create(参数)会创建一个新对象,新创建对象的__proto__对象就是参数
+	Student.prototype = Object.create(Person.prototype);
+	Student.prototype.constructor = Student;
+	console.log(Student.prototype);
+	s1 = new Student('Leo',18,'computer');
+	console.log(s1);
+	s1.showAge();
+	p1 = new Person('Tom',20,'Math');
+	console.log(p1);
+	//p1.showMajor();
+</script>
+</html>
