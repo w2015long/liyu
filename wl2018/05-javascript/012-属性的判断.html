@@ -22,6 +22,13 @@
 		console.log('p1有性别');
 	}else{
 		console.log('nothing......')
-	}	
+	}
+	//判断实例上是否有该属性 obj.hasOwnProperty(attr)
+	console.log(p1.hasOwnProperty('name'));//true
+	console.log("p1:::::",p1);
+	for (var attr in p1){
+		console.log("p1[attr]",p1[attr]);
+	}
+		
 </script>
 </html>
