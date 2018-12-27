@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>103-运动动画.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			position: relative;
+			width: 600px;
+			height: 600px;
+			border: 1px solid #000;
+			margin: 8px auto ;
+		}
+		.son{
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			background: red;
+			animation: sport 4s linear ; 
+		}
+		@keyframes sport{
+			0%,100%{
+				top:0;
+				left: 0;
+			}25%{
+				top: 0;
+				left: 500px;
+			}50%{
+				left: 500px;
+				top: 500px;
+			}75%{
+				left: 0;
+				top: 500px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son"></div>
+	</div>
+</body>
+</html>

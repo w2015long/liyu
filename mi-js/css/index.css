@@ -309,14 +309,18 @@
 	left: 234px;
 	height: 460px;
 	min-width: 530px;
-	background-color: #fff;
+	/*width: 992px;*/
 	box-shadow: 2px 2px 2px rgba(0,0,0,0.25);
 	border-top: 1px solid #ccc;
 	z-index: 1009;
-	overflow: hidden;
+	/*overflow: hidden;*/
 	display: none;
 }
-
+.home .banner .category-box .category-content ul{
+	min-width: 530px;
+	height: 460px;
+	background-color: #fff;	
+}
 .home .banner .category-box .category-content ul>li{
 	float: left;
     width: 265px;
