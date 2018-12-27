@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>016-调用函数this指向.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Show(n1,n2){
+		console.log(this,n1,n2);
+	}
+	Show(1,2);
+	//函数名.call(参数1,参数2....),call 第一个参数是被调用函数里面的this,后面是对应的参数列表
+	Show.call({name:'call'},1,2);
+	//函数名.apply(参数1,[]),apply 第一个参数是被调用函数里面的this,第二个是参数接受一个数组做为参数列表
+	Show.apply({name:'apply'}, [1,2]);
+	//函数名.bind(参数1,参数2....),bind会返回一个函数,函数内部的this就是bind的参数1,第二个以及以后的参数做为参数列表
+	/*
+	var fn = Show.bind();
+	console.log(fn);
+	*/
+	var fn = Show.bind(null);
+	console.log(fn,1,2);
+</script>
+</html>

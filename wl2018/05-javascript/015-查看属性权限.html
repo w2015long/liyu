@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>015-查看属性权限.html</title>
+	<script>
+		function Person(name,age){
+			this.name = name;
+			this.age = age;
+		}
+		Person.prototype.showAge = function(){
+			console.log('I am '+this.age+' years old')
+		}
+		Person.prototype.sex = 'man';//属性定义在原型上
+		p1 = new Person('Tom',19);
+		Object.defineProperties(p1, {
+			eyes:{
+				value:2,
+				enumerable:true,
+			},
+			band:{
+				value:2,
+				enumerable:true,
+			}
+		})
+		for(var attr in p1){
+			console.log(attr,p1[attr]);
+		}
+		//Object.getOwnPropertyDescriptor(对象,属性名)
+		console.log(Object.getOwnPropertyDescriptor(p1,"name"));
+		console.log(Object.getOwnPropertyDescriptor(p1,'eyes'));
+		//查看原型上的属性权限
+		console.log(Object.getOwnPropertyDescriptor(Person.prototype,'sex'));		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

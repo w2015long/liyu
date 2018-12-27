@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>018-面向对象-继承二.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	Person.prototype.showAge = function(){
+		console.log('I am '+this.age+' years old')
+	}
+	function Student(name,age,major){
+		Person.call(this,name,age);
+		this.major = major;
+	}
+	console.log("Person.prototype",Person.prototype);
+	//Student.prototype = Person.prototype;//此方法可直接在子类上修改父类的原型
+	for(var attr in Person){//此方法弊端在于父类上的有些属性遍历不到(不能枚举)
+		Student.prototype[attr] = Person.prototype[attr];
+	}
+	Student.prototype.showMajor = function(){
+		console.log('I from '+this.major);
+	}
+	console.log("Student.prototype",Student.prototype);
+	s1 = new Student('Tom',19,'computer');
+	console.log(s1);
+	// s1.showAge();
+	p1 = new Person('Leo',98,'Math');//Person实例没有major属性
+	// p1.showMajor();	
+</script>
+</html>
