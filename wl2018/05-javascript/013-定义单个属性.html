@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>013-定义单个属性.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	Person.prototype.showAge = function(){
+		console.log('I am '+this.age+' years old')
+	}
+	Person.prototype.sex = 'man';//属性定义在原型上
+	p1 = new Person('Tom',19);
+	p1.qq = '12345';
+	console.log("p1:::\n",p1)
+	/*
+	Object.defineProperty(p1,"eyes",{
+		value:2,
+	})
+	*/
+/*
+	Object.defineProperty(p1, "eyse", {
+		value:2,
+		enumerable:true,//可枚举的 默认是false (设置为true是可以循环遍历出此属性)
+	})
+	p1.eyse = 4; //Object.defineProperty定义的 (默认是不可更改的，想要更改writable设置为true)
+
+	Object.defineProperty(p1, "eyse", {
+		value:2,
+		enumerable:true,//可枚举的 默认是false (设置为true是可以循环遍历出此属性)
+		writable:true,//可写 默认是false
+	})	
+	p1.eyse = 4;//Object.defineProperty定义的 (默认是不可更改的，想要更改writable设置为true)
+*/	
+/*
+	Object.defineProperty(p1, "eyse", {
+		value:2,
+		enumerable:true,//可枚举的 默认是false (设置为true是可以循环遍历出此属性)
+		writable:true,//可写 默认是false
+		//configurable  是否可删除,是否可以修改属性的权限，默认是false
+	})	
+	p1.eyse = 4;//Object.defineProperty定义的 (默认是不可更改的，想要更改writable设置为true)
+	console.log(delete p1.eyse);//false (configurable的默认值是false所以没有权限删除)
+*/
+	Object.defineProperty(p1, "eyse", {
+		value:2,
+		enumerable:true,//可枚举的 默认是false (设置为true是可以循环遍历出此属性)
+		writable:true,//可写 默认是false
+		configurable:true//configurable  是否可删除,是否可以修改属性的权限，默认是false
+	});
+	Object.defineProperty(p1, "eyse", {
+		value:2,
+		enumerable:false,//默认情况下会报错不能冲新修改此属性
+		writable:true,
+	})		
+	p1.eyse = 4;
+	console.log('Object.defineProperty',p1);
+	console.log('修改后',p1);
+
+	for(var attr in p1){
+		console.log(attr,p1[attr]);
+	}	
+</script>
+</html>
