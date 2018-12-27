@@ -17,6 +17,7 @@
 	}
 	Person.prototype.sex = 'man';
 	p1 = new Person('Tom',19);
+	p1.qq = '12345';
 	//传统判断
 	if(p1.sex){
 		console.log('p1有性别');
@@ -26,9 +27,33 @@
 	//判断实例上是否有该属性 obj.hasOwnProperty(attr)
 	console.log(p1.hasOwnProperty('name'));//true
 	console.log("p1:::::",p1);
+	//判断原型上是否有该属性 attr in obj
 	for (var attr in p1){
-		console.log("p1[attr]",p1[attr]);
+		console.log(p1[attr]);
 	}
-		
+	if("sex" in p1){//属性是一个string  要加引号
+		console.log('原型上有性别属性');
+	}else{
+		console.log('nothing,,,,,,,,')
+	}
+	//判断属性只在原型上
+	function hasPrototypeAttr(attr,obj){
+		return !obj.hasOwnProperty(attr) && (attr in obj)
+	}
+	if(hasPrototypeAttr("showAge",p1)){
+		console.log('该方法or属性只在原型上');
+	}else{
+		console.log('该方法or属性原型上没有')
+	}
+	if(hasPrototypeAttr("sex",p1)){
+		console.log('该方法or属性只在原型上');
+	}else{
+		console.log('该方法or属性原型上没有')
+	}
+	if(hasPrototypeAttr("qq",p1)){
+		console.log('该方法or属性只在原型上');
+	}else{
+		console.log('该方法or属性原型上没有')
+	}		
 </script>
 </html>
