@@ -13,14 +13,27 @@
 			this.name = name;
 			this.age = age;
 		}
+/*
 		Person.prototype.showAge = function(){
 			console.log('I am '+this.age+' years old')
 		}
 		Person.prototype.showName = function(){
 			console.log('I am '+this.name);
 		}
+*/		
+		Person.prototype = {
+			constructor:Person,
+			showName:function(){
+				console.log('I am '+this.name);
+			},
+			showAge:function(){
+				console.log('I am '+this.age+' years old')
+			}
+		}
 		w.Person = 	Person;	
 	})(window);
-	new Person('Tom',18);
+	p1 = new Person('Tom',18);
+	console.log(p1)
+	p1.showName();
 </script>
 </html>
