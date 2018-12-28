@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>021-继承拖拽.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+<body>
+	
+</body>
+<script>
+	function Drag(options){
+		this.oBox = null;
+		this.width = options.width;
+		this.height = options.height;
+		this.backgroundColor = options.backgroundColor;
+		this.disX = null;
+		this.disY = null;
+		this.init();
+		this.bindEvent();
+	}
+	Drag.prototype.init = function(){
+		this.oBox = document.createElement('div');
+		this.oBox.style.width = this.width + 'px';
+		this.oBox.style.height = this.height + 'px';
+		this.oBox.style.backgroundColor = this.backgroundColor;
+		this.oBox.style.position = 'absolute';
+		document.body.appendChild(this.oBox);
+	};
+	Drag.prototype.bindEvent = function(){
+		this.oBox.onmousedown = function(ev){
+			this.disX = ev.clientX - this.oBox.offsetLeft;
+			this.disY = ev.clientY - this.oBox.offsetTop;
+			document.onmousemove = this.fnMove.bind(this);
+			document.onmouseup = this.fnUp;
+		}.bind(this)
+	}
+	Drag.prototype.fnMove = function(ev){
+		console.log('father move .....')
+		this.oBox.style.left = ev.clientX - this.disX + 'px';
+		this.oBox.style.top = ev.clientY - this.disY + 'px';
+	}
+	Drag.prototype.fnUp = function(){
+		document.onmousemove = null;
+		document.onmouseup = null;
+	}
+	new Drag({
+		width:100,
+		height:100,
+		backgroundColor:'skyblue'
+	})
+	function LimitDrag(options){
+		Drag.call(this,options);//继承父类的属性
+	}
+	LimitDrag.prototype = Object.create(Drag.prototype);//继承父类的方法
+	LimitDrag.prototype.constructor = LimitDrag;
+	LimitDrag.prototype.fnMove = function(ev){
+		console.log('son move.....')
+		var l = ev.clientX - this.disX, t = ev.clientY - this.disY;
+		if(l<0){
+			l = 0;
+		}else if(l>=window.innerWidth - this.oBox.offsetWidth){
+			l = window.innerWidth - this.oBox.offsetWidth;
+		}
+		if(t<0){
+			t = 0;
+		}else if(t>=window.innerHeight - this.oBox.offsetHeight){
+			t = window.innerHeight - this.oBox.offsetHeight;
+		}	
+		this.oBox.style.left = l + 'px';
+		this.oBox.style.top = t + 'px';
+	}
+	new LimitDrag({
+		width:180,
+		height:180,
+		backgroundColor:"red"
+	})
+</script>
+</html>
