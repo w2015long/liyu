@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>027-循环中直接找到元素的索引.html</title>
+	<title>029-封闭空间-循环中直接找到元素的索引.html</title>
 	<style>
 		li{
 			list-style: none;
@@ -38,19 +38,15 @@
 	
 	(function(){
 		var aLi = document.getElementsByTagName('li');
+		var lastIndex = 0;
 		for(var i=0;i<aLi.length;i++){
-			aLi[i].index = i ;
-			var lastIndex = 0;
-			aLi[i].onmouseenter = function(){
-				/*
-				for(var j=0;j<aLi.length;j++){
-					aLi[j].className = '';
-				}//消耗系统资源
-				*/
-				aLi[lastIndex].className = '';
-				this.className = "active";
-				lastIndex = this.index;
-			}
+			(function(i){
+				aLi[i].onmouseenter = function(){
+					aLi[lastIndex].className = '';
+					this.className = 'active';
+					lastIndex = i;
+				}
+			})(i);
 		}
 	})();
 </script>
