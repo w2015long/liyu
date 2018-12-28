@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>024-函数防抖.html</title>
+	<style>
+		body{
+			height: 3000px;
+		}
+	</style>
+</head>
+<body>
+	
+</body>
+<script>
+	function debounce(fn,delay){
+		var timer = null;
+		return function(){
+			//每次滚动 都会清除上次定时器
+			clearTimeout(timer);
+			timer = setTimeout(fn,delay);
+		}
+	}
+	var i = 0;
+	window.onscroll = debounce(function(){
+		console.log(i++);
+	},500)
+</script>
+</html>

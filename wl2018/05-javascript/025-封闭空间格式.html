@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>025-封闭空间格式.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	(function(){
+		console.log('this is a  fn');
+	})()
+/*
+	!(function(){
+		console.log('this is a  fn...');
+	})()
+
+	+(function(){
+		console.log('this is a  fn1');
+	})()
+*/
+	;(function(){
+		console.log('this is a  fn2');
+	})()
+</script>
+</html>
