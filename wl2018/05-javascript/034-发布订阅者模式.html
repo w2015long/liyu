@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>034-发布订阅者模式.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	(function(w){
+		function Teacher(name){
+			this.name = name;
+			this.students = [];
+		}
+		Teacher.prototype = {
+			constrcutor:Teacher,
+			register:function(student){
+				this.students.push(student);
+			}
+			publish:function(task){
+				for(var i=0;i<students.length;i++){
+					
+				}
+			}
+		}
+		w.Teacher = Teacher;
+	})(window);
+
+	(function(w){
+		function Student(name,teacher){
+			this.name = name;
+			teacher.register(this);
+		}
+		Student.prototype = {
+			constrcutor:Student,
+			listen:function(task){
+				console.log(this.name+' should coding...')
+			}
+		}
+		w.Student = Student;
+	})(window);
+	var  t = new Teacher('Tom')
+	s1 = new Student('Leo',t);
+	s2 = new Student('Per',t);
+	console.log(t);
+</script>
+</html>
