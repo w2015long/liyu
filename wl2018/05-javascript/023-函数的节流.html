@@ -13,14 +13,14 @@
 	
 </body>
 <script>
-
-	function throttle(fn,wate){
+//函数节流,只要任务触发的间隔超过指定间隔的时候,任务就会执行。当高频率调用某个函数时，让它按某个特定的频率执行。
+	function throttle(fn,wait){
 		var lastTime = Date.now();
 		console.log("lastTime",lastTime/100)
 		return function(){
 			var currentTime = Date.now();
 			console.log("currentTime",currentTime/100)
-			if((currentTime - lastTime) > wate){
+			if((currentTime - lastTime) > wait){
 				fn();
 				lastTime = Date.now();
 			}
