@@ -17,12 +17,13 @@
 			constrcutor:Teacher,
 			register:function(student){
 				this.students.push(student);
-			}
+			},
 			publish:function(task){
-				for(var i=0;i<students.length;i++){
-					
+				for(var i=0;i<this.students.length;i++){
+					this.students[i].listen(task);
 				}
 			}
+
 		}
 		w.Teacher = Teacher;
 	})(window);
@@ -35,14 +36,18 @@
 		Student.prototype = {
 			constrcutor:Student,
 			listen:function(task){
-				console.log(this.name+' should coding...')
+				console.log(this.name+' got task:'+task);
 			}
+
 		}
 		w.Student = Student;
 	})(window);
-	var  t = new Teacher('Tom')
-	s1 = new Student('Leo',t);
-	s2 = new Student('Per',t);
+	t = new Teacher('Tom')
+	new Student('Leo',t);
+	new Student('Per',t);
+	new Student('Jner',t);
+
+	t.publish('coding.....');
 	console.log(t);
 </script>
 </html>
