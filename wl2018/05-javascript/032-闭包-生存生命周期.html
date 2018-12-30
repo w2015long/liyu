@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>032-闭包-生存生命周期.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//闭包有可能引起内存泄露 
+//由于闭包会使得函数中的变量都被保存在内存中，内存消耗很大
+	function show(){
+		var n = 1;
+		add = function(){
+			n++;
+		}
+		return function(){
+			return n;
+		}
+	}
+	//这个n一直保存在内存中
+	var fn = show()
+	console.log(fn());
+	add();
+	console.log(fn());
+
+	
+</script>
+</html>

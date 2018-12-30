@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>033-内存泄漏举例.html</title>
+	<style>
+		#box{
+			width: 200px;
+			height: 200px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script>
+	/*
+	(function(){
+//引用计数垃圾回收策略(garbage collector)如果没有引用指向该对象（零引用），对象将被垃圾回收机制回收。
+		var oBox = document.getElementById('box');
+		console.log(typeof oBox);
+		//这里引用了oBox
+		oBox.onclick = function(){
+			//这里又引用了oBox  所以引用计数垃圾回收不了
+			alert(oBox.id);
+		}
+		console.log(oBox);
+	})();
+	*/
+//清除内存解决方案
+	(function(){
+
+		var oBox = document.getElementById('box');
+		var id = oBox.id;
+		oBox.onclick = function(){
+			alert(id);
+		}
+		oBox = null;
+		console.log(oBox);
+	})();
+</script>
+</html>
