@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>036-皇帝上朝.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	(function(w){
+		function King(){
+			this.name = "皇帝";
+			this.id = Math.random();
+		}
+		King.prototype = {
+			constructor:King,
+			say:function(){
+				console.log(this.name + this.id + ' say:平身');
+			}
+		}
+		//King上写一个静态方法。保证每次都是同一个皇上
+		King.getKing = (function(){
+			var king = null;
+			return function(){
+				if(!king){
+					king = new King();
+				}
+				return king;
+			}
+		})();
+		w.King = King;
+	})(window);
+	for(var i=1;i<=5;i++){
+		console.log('Today is '+i);
+		// new King().say();
+		//调用静态上的同一个皇上
+		King.getKing().say();
+		
+	}
+</script>
+</html>
