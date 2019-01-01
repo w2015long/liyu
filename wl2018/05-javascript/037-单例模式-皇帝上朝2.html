@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>037-单例模式-皇帝上朝2.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	(function(w){
+		var king = null;
+		function King(){
+			if(!king){
+				this.name = '皇帝';
+				this.id = Math.random();
+				king = this;
+			}
+			return king;
+		}
+		King.prototype = {
+			constructor:King,
+			say:function(){
+				console.log(this.name + this.id + ' say:平身');
+			}
+		}
+		w.King = King;
+	})(window)
+	for(var i=1;i<=5;i++){
+		console.log('today is ' + i);
+		new King().say();
+	}
+</script>
+</html>
