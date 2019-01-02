@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>039-单例应用-惰性登录框.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.login{
+			width: 200px;
+			height: 300px;
+			margin: 20px auto;
+			background-color: rgba(50,50,50,0.4);
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">登录</button>
+</body>
+<script>
+	function getSingle(fn){
+		var obj = null;
+		return function(){
+			if(!obj){
+				obj = fn();
+			}
+			return obj;
+		}
+	}
+	function createLogin(){
+		var oDiv = document.createElement('div');
+		oDiv.className = 'login';
+		document.body.appendChild(oDiv);
+		return oDiv;
+	}
+	var oBtn = document.getElementById('btn');
+	var createSinggleLongin = getSingle(createLogin);
+	oBtn.onclick = function(){
+		createSinggleLongin();
+	}
+</script>
+</html>
