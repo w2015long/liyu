@@ -95,23 +95,22 @@
                 loadTimer = setTimeout(function(){
                     oLoading.style.display = 'none';
                     loadData(i);
-                },500);
+                },300);
             }
-            aLi[i].onmouseleave =  hiddenContent            
+            aLi[i].onmouseleave =  hiddenContent ;          
         })(i);
-
     }
     oNavBox.onmouseenter = function(){
         clearTimeout(hiddenTimer);
     }
     oNavBox.onmouseleave = hiddenContent;
     function hiddenContent(){
-        oNavBox.style.overflow = 'hidden';
         hiddenTimer = setTimeout(function(){
+            oNavBox.style.overflow = 'hidden';
             animate(oNavBox,{height:0},true,function(){
                 oNavBox.style.borderTop = 'none';
             });            
-        },500) 
+        },300) 
     }
     function loadData(index){
         var data = navData[index]; 
