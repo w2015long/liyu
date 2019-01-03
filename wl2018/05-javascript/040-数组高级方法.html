@@ -27,8 +27,13 @@
 	var isAllTrue = arr.every(function(value,index){
 		//遍历数组,所有值为真的情况下返回真,否则返回假
 		console.log('第 '+index+' 个的值是 '+value);
-		return value > 60 ;
+		return value > 60 ;//有假直接返回 不再往后找
 	})
 	console.log(isAllTrue);
+	var hasTrue = arr.some(function(value,index){
+		console.log('第 '+index+' 个的值是 '+value);
+		return value > 80;//有真直接返回 不再往后找了
+	})
+	console.log(hasTrue);
 </script>
 </html>
