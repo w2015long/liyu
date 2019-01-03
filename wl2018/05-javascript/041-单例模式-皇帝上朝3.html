@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>041-单例模式-皇帝上朝3.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	(function(w){
+		var emperor = null;
+		function Emperor(name){
+			if(!emperor){
+				this.name = name;
+				this.id = Math.random();
+				emperor = this;
+			}
+			return emperor;
+		}
+		Emperor.prototype = {
+			constructor:Emperor,
+			work:function(){
+				console.log(this.name+this.id+' say:有本早奏，无本退朝')
+			}
+		}
+		w.Emperor = Emperor;
+	})(window);
+	for(var i=1;i<=5;i++){
+		console.log('today is '+i);
+		new Emperor('爱新觉罗溥仪').work();
+	}
+</script>
+</html>
