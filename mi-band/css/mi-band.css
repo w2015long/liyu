@@ -1,3 +1,4 @@
+
 .top{
 	/*height: 40px;*/
 	background: #333333;
@@ -350,12 +351,23 @@
 	padding-bottom: 70px;
 	/*background: red;*/
 }
+.home .nav-fixed{
+	position: fixed;
+	top:0;
+	left: 0;
+	height: 0;
+	overflow: hidden;
+	z-index: 999999;
+}
+.home .nav-bar-box{
+	width: 100%;
+	background: #fff;
+	border-top: 1px solid #e0e0e0;
+	box-shadow: 0px 2px 2px rgba(0,0,0,0.3);
+}
 .home .nav-bar{
 	width: 1226px;
-	border-top: 1px solid #e0e0e0;
-	border-bottom: 1px solid #e0e0e0;
 	background: #fff;
-	/*box-shadow: 5px 0 20px rgba(0,0,0,0.3);*/
 }
 .home .nav-bar:nth-child(1){
 	height: 62px;   

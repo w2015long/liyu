@@ -43,17 +43,32 @@
 
 //固定导航栏
 (function(){
+    var isShow = false;
     window.onscroll=function(){
         //滚动的距离,距离顶部的距离
         var topScroll =document.body.scrollTop||
                     document.documentElement.scrollTop;
-        var bignav  = document.getElementById("bignav");//获取到导航栏id
+        var bignav  = document.querySelector(".home .nav-fixed");//获取到导航栏id
+        /*      
         if(topScroll > 140){  //当滚动距离大于140px时执行下面的东西
             bignav.style.position = 'fixed';
             bignav.style.top = '0px';
             bignav.style.zIndex = '9999';
         }else{//当滚动距离小于140的时候执行下面的内容，也就是让导航栏恢复原状
             bignav.style.position = 'static';
+        }       
+        */ 
+             
+        if(topScroll>143){
+            if(!isShow){
+               animate(bignav,{height:62},true);
+               isShow = true; 
+            }
+        }else{
+            if(isShow){
+                animate(bignav,{height:0},true);
+                isShow = false;
+            }
         }
         //固定carousel客户区
         var oMain=document.getElementById('main');
