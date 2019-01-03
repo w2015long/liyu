@@ -357,6 +357,9 @@
 	background: #fff;
 	/*box-shadow: 5px 0 20px rgba(0,0,0,0.3);*/
 }
+.home .nav-bar:nth-child(1){
+	height: 62px;   
+}
 .home .nav-bar .title{
 	float: left;
 	font-size: 18px;
