@@ -3,17 +3,15 @@
 (function(){
     var oCategoryHover = document.getElementById('category-hover');
     var oCategory = document.getElementById('category');
-    oCategoryHover.onmouseover=function(){
+    var noneTimer = null;
+    oCategory.onmouseenter = oCategoryHover.onmouseenter = function(){
+        clearTimeout(noneTimer);
         oCategory.style.display="block";
     }
-    oCategoryHover.onmouseout=function(){
-        oCategory.style.display="none";
-    }
-    oCategory.onmouseover=function(){
-        oCategory.style.display="block";
-    }
-    oCategory.onmouseout=function(){
-        oCategory.style.display="none";
+    oCategory.onmouseleave = oCategoryHover.onmouseleave = function(){
+        noneTimer = setTimeout(function(){
+            oCategory.style.display="none";
+        },500)
     }
 })();
 
@@ -63,7 +61,6 @@
                 oNavBox.style.borderTop = '1px solid #ccc';
                 oLoading.style.display = 'block';
                 animate(oNavBox,{height:202},true,function(){
-                    
                     oNavBox.style.overflow = 'visible';
                 });
                 //模拟加载数据
@@ -88,7 +85,7 @@
             animate(oNavBox,{height:0},true,function(){
                 oNavBox.style.borderTop = 'none';
             });            
-        },500)
+        },500) 
     }
     function loadData(index){
         var data = navData[index]; 
