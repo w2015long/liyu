@@ -1,4 +1,30 @@
 
+/*购物车*/
+(function(){
+    var oCart = document.querySelector('.top .cart');
+    var oCartBox = oCart.querySelector('.cart-box');
+    var oA = oCartBox.children[0];
+    var oCartMenu = oCart.querySelector('#cart-menu');
+    var oLoading = oCartMenu.querySelector('.loading');
+    var oEmpty = oCartMenu.querySelector('.empty');
+    oCart.onmouseenter = function(){
+        oCartBox.style.background = '#fff';
+        oA.style.color = '#ff6700';
+        oLoading.style.display = 'block';
+        animate(oCartMenu,{height:100},true,function(){
+            oLoading.style.display = 'none';
+            oEmpty.style.display = 'block';
+        })
+    }
+    oCart.onmouseleave = function(){
+        oCartBox.style.background = '#424242';
+        oA.style.color = '#b0b0b0';
+        oLoading.style.display = 'none';
+        animate(oCartMenu,{height:0},true,function(){
+            oEmpty.style.display = 'none';
+        })                
+    }
+})();
 /*header全部商品*/
 (function(){
     var oCategoryHover = document.getElementById('category-hover');

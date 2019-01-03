@@ -16,24 +16,10 @@
 	color: #413b36;
 	margin: 0 6px;
 }
-.top .cart .cart-box #cart-menu{
-	position: absolute;
-	top: 39px;
-	right: 0;
-	z-index: 99989;
-	display: none;
-	width: 316px;
-	height: 100px;
-	line-height: 100px;
-	text-align: center;
-	font-size: 12px;
-	background-color: #fff;
-	color: #424242;
-	box-shadow: 5px 0 30px rgba(50,50,50,0.3);
-}
-.top .cart .cart-box:hover #cart-menu{
+
+/*.top .cart .cart-box:hover #cart-menu{
 	display: block;
-} 
+} */
 .top .cart{
 	position: relative;
 	float: right;
@@ -43,13 +29,15 @@
 	text-align: center;
 }
 .top .cart .cart-box{
+	position: relative;
+	z-index:10000;
 	width: 120px;
 	height: 40px;
 }
-.top .cart .cart-box a:hover{
+/*.top .cart .cart-box a:hover{
 	color: #ff6700;
 	background: #fff;
-}
+}*/
 .top .cart .cart-box a{
 	display: inline-block;
 	width: 100%;
@@ -70,6 +58,30 @@
 	float: left;
 	height: 40px;
 	line-height: 40px;
+}
+.top .cart #cart-menu{
+	position: absolute;
+	top: 39px;
+	right: 0;
+	z-index: 9999;
+	width: 316px;
+	/*height: 100px;*/
+	text-align: center;
+	font-size: 12px;
+	background-color: #fff;
+	color: #424242;
+	box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+	overflow: hidden;
+}
+.top .cart #cart-menu .loading{
+	display: none;
+	margin-top: 38px;
+}
+.top .cart #cart-menu .empty{
+	display: none;
+	margin-top: 40px;
+	font-weight: 400;
+	font-size: 12px;	
 }
 /*选项卡header部分*/
 
