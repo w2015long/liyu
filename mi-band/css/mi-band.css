@@ -71,9 +71,7 @@
 	height: 40px;
 	line-height: 40px;
 }
-/*.header .container{
-	position: relative;
-}*/
+/*选项卡header部分*/
 
 .header .logo{
 	position: relative;
@@ -127,9 +125,7 @@
 	font-size: 16px;
 	color: #333;
 }
-.header .header-nav .com-nav:hover .children-list{
-	display: block;
-}
+
 .header .header-nav .header-nav-item a:hover{
 	color: #ff6700;
 }
@@ -137,68 +133,59 @@
 .header{
 	position: relative;
 }
-.header-nav .com-nav .children-list{
+.header .header-nav-box{
 	position: absolute;
-    top: 100px;
-    left: 0px;
-	width: 1226px;
-	padding: 0 62px 0 62px;
+	top: 100px;
+	left: 0;
+	width: 100%;
+	/*height: 202px;*/
+	box-shadow: 0px 2px 2px rgba(0,0,0,0.3);
 	background: #fff;
-	box-shadow: 1px 0 10px rgb(50,50,50);
-	display: none;
-	z-index: 999;
+	/*border-top: 1px solid #ccc;*/
+	z-index: 1000;
 }
-.header-nav .com-nav .children-list li{
+.header .header-nav-box .container .loading{
+	margin-top: 80px;
+}
+.header .header-nav-box .children-list-item{
 	position: relative;
 	float: left;
-	/*width: 204px;*/
-	/*height: 230px;*/
+	width: 204px;
+	height: 100%;
 	text-align: center;
-    width: 180px;
-    padding: 35px 12px 0;
-    text-align: center;
 }
-.header-nav .com-nav .children-list .right-line:after{
-	position: absolute;
-    top: 46px;
-    left: 205px;
-    display: block;
-    content: '';
-    width: 1px;
-    height: 100px;
-    background: #e0e0e0;
+.header .header-nav-box .children-list-item .img-box{
+	margin-top: 30px;
+	width: 204px;
+	height: 110px;
+	border-right: 1px solid #ccc;
 }
-
-.header-nav .com-nav .children-list li .product-bg{
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	background: rgba(225,225,225,0.2);
-	opacity: 0.2;
+.header .header-nav-box .children-list-item:last-of-type .img-box{
+	border-right: none;
 }
-.header-nav .com-nav .children-list li .content{
-	width: 100%;
-	height: 100%;
+.header .header-nav-box .children-list-item .img-box img{
+	width: 160px;
+	height: 110px;
 }
-.header-nav .com-nav .children-list li .product-img{
-    width: 160px;
-    height: 110px;
-    margin: 0;
-    text-align: center;
-}
-.header-nav .com-nav .children-list li .product-name{
-	margin: -18px auto 0;
+.header .header-nav-box .children-list-item .product-title{
 	font-size: 12px;
-	line-height: 20px;	
-	color: #333;
+	margin-top: 16px;
 }
-.header-nav .com-nav .children-list li .product-price{
+.header .header-nav-box .children-list-item .product-price{
+	margin-top: 3px;
 	font-size: 12px;
 	color: #ff6700;
-	margin: 0 auto 18px;
-    line-height: 20px;
+}
+.header .header-nav-box .children-list-item .flag{
+	position: absolute;
+	top: -1px;
+	left: 50%;
+	margin-left: -33px;
+	width: 66px;
+	height: 22px;
+	border: 1px solid #ff6700;
+	font-size: 14px;
+	color: #ff6700;
 }
 .new-flag{
 	position: absolute;

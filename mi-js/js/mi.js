@@ -214,8 +214,9 @@ function handleCarousel(){
 handleFlashTimer();
 function handleFlashTimer(){
 	var sHour = byId(hour),sMinute = byId(minute),sSecond = byId(second);
-	var endTime = new Date('2019-01-01 00:00:59');
+	var endTime = new Date('2019-06-01 00:00:59');
 	var endTimer = endTime.getTime();
+	var timer = null;
 	function to2Str(num){
 		return num<10 ? '0'+num : ''+num;
 	}
@@ -233,7 +234,7 @@ function handleFlashTimer(){
 		sMinute.innerHTML = to2Str(iMinute);
 		sSecond.innerHTML = to2Str(iSecond);
 	}
-	setInterval(handlerTimer,500);
+	timer = setInterval(handlerTimer,500);
 	handlerTimer();
 }
 handleFlashProduct();
