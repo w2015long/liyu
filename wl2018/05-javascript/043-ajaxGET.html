@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>043-ajaxGET.html</title>
+</head>
+<body>
+	<button id="btn">获取数据</button>
+</body>
+<script type="text/javascript">
+	var oBtn = document.getElementById('btn');
+	oBtn.onclick = function(){
+		//1生成对象
+		var oAjax = new XMLHttpRequest();
+		console.log('after new AJAX::',oAjax.readyState);//0: 请求未初始化
+		//2.建立连接
+		//Ajax的open（）方法有3个参数：1、method；2、url；3、boolean；
+		oAjax.open('GET','http://127.0.0.1:3000/042-data.json',true);
+		console.log('after open::',oAjax.readyState);//1: 服务器连接已建立
+		oAjax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		oAjax.send();
+		console.log('after send ::',oAjax.readyState);//1: 服务器连接已建立
+		//每当 readyState改变时，就会触发 onreadystatechange 事件。
+		oAjax.onreadystatechange = function(){
+			console.log('in onreadystateChange::',oAjax.readyState);
+			//2: 请求已接收
+			//3: 请求处理中
+			//4: 请求已完成，且响应已就绪
+			if(oAjax.readyState == 4){
+				if(oAjax.status == 200){
+					try{
+						var obj = JSON.parse(oAjax.responseText);
+						console.log(obj);
+					}catch(e){
+						console.log(e);
+					}
+				}else{
+					console.log('failed request... status=',oAjax.status);
+				}
+			}
+		}
+
+	}	
+</script>
+</html>
