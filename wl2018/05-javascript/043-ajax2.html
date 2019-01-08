@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>043-ajaxFn.html</title>
+</head>
+<body>
+	<button id="btn">简单数据请求</button>
+</body>
+<script type="text/javascript">
+	function ajax(method,url,data,fnSucc,fnFailed){
+
+		//1生成对象
+		var oAjax = new XMLHttpRequest();
+		if(method.toUpperCase() == "GET"){
+			if(data){
+				url = url + "?" + data;
+			}
+			oAjax.open(method,url,true);
+			//GET请求 可以不用设置请求头
+			// oAjax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			oAjax.send();
+		}else if(method.toUpperCase() == "POST"){
+			oAjax.open(method,url,true);
+			oAjax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			oAjax.send(data);
+		}
+
+		//每当 readyState改变时，就会触发 onreadystatechange 事件。
+		oAjax.onreadystatechange = function(){
+			if(oAjax.readyState == 4){
+				if(oAjax.status == 200){
+					try{
+						var obj = JSON.parse(oAjax.responseText);
+						typeof fnSucc == 'function' && fnSucc(obj);
+					}catch(e){
+						console.log(e);
+					}
+				}else{
+					typeof fnFailed == 'function' && fnFailed(oAjax.status)
+				}
+			}
+		}
+
+	}
+	var oBtn = document.getElementById('btn');
+	oBtn.onclick = function(){
+		/*
+		//POST请求
+		ajax(	'POST',
+				'http://127.0.0.1:3000/',
+				'{"name":"Leo","major":"computer"}',
+				function fnSucc(obj){
+					console.log(obj);
+				},
+				function fnFailed(status){
+					console.log(status);
+				}
+			)
+		*/
+		//GET请求	
+		ajax(	'get',
+				'http://127.0.0.1:3000/042-data.json',
+				'',
+				function fnSucc(arr){
+					var oUl = document.createElement('ul');
+					for(var i=0;i<arr.length;i++){
+						var oLi = document.createElement('li');
+						oLi.innerHTML = "姓名：" + arr[i].name  + ' ,年龄：' +　arr[i].age ;
+						oUl.appendChild(oLi);
+					}
+					document.body.appendChild(oUl);
+				},
+				function fnFailed(status){
+					console.log(status);
+				}
+			)		
+	}		
+</script>
+</html>
