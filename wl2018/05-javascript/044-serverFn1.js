@@ -10,6 +10,9 @@ var server = http.createServer(function(req,res){
 	// res.setHeader('Access-Control-Allow-Origin','http://127.0.0.1:3000');
 	res.setHeader('Access-Control-Allow-Origin','*');//*代表允许所有的源 在此地址端口请求
 	res.setHeader('Content-type','text/html');
+	res.setHeader('Access-Control-Expose-Headers','Access-Control-Allow-Origin');
+	res.setHeader('Access-Control-Allow-Methods','PUT,DELETE');//复杂跨域请求
+	res.setHeader('Access-Control-Allow-Headers','Kuazhu-test-Header');
 	var urlStr = req.url;
 	console.log(urlStr);
 	if(urlStr == '/favicon.ico'){

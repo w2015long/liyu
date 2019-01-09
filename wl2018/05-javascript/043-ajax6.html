@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>043-ajaxFn.html</title>
+</head>
+<body>
+	<button id="btn">简单数据请求</button>
+</body>
+<script type="text/javascript">
+	function ajax(method,url,data,fnSucc,fnFailed){
+
+		//1生成对象
+		var oAjax = new XMLHttpRequest();
+		if(method.toUpperCase() == "GET"){
+			if(data){
+				url = url + "?" + data;
+			}
+			oAjax.open(method,url,true);
+			//GET请求 可以不用设置请求头
+			// oAjax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			oAjax.send();
+		}else if(method.toUpperCase() == "POST"){
+			oAjax.open(method,url,true);
+			oAjax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			oAjax.send(data);
+		}else if(method.toUpperCase() == "PUT"){
+			oAjax.open(method,url,true);
+			oAjax.setRequestHeader('Kuazhu-test-Header','Kuazhu-test-Content');
+			oAjax.send();
+		}else if(method.toUpperCase() == "DELETE"){
+			oAjax.open(method,url,true);
+			oAjax.send();
+		}
+
+		//每当 readyState改变时，就会触发 onreadystatechange 事件。
+		oAjax.onreadystatechange = function(){
+			if(oAjax.readyState == 4){
+				console.log(oAjax.getResponseHeader("Access-Control-Allow-Origin"));
+				console.log(oAjax.getResponseHeader("Content-Type"));
+				if(oAjax.status == 200){
+					try{
+						var obj = JSON.parse(oAjax.responseText);
+						typeof fnSucc == 'function' && fnSucc(obj);
+					}catch(e){
+						console.log(e);
+					}
+				}else{
+					typeof fnFailed == 'function' && fnFailed(oAjax.status)
+				}
+			}
+		}
+		oAjax.onerror = function(){
+			console.log('this not Allow Origin');
+		}		
+
+	}
+	var oBtn = document.getElementById('btn');
+	oBtn.onclick = function(){
+
+		ajax(	'delete',
+				'http://127.0.0.1:3001/edit',
+				'',
+				function fnSucc(obj){
+					console.log(obj);
+				},
+				function fnFailed(status){
+					console.log(status);
+				}
+			)		
+	}		
+</script>
+</html>
