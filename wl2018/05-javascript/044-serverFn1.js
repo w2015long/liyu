@@ -7,17 +7,17 @@ var hostname = '127.0.0.1';
 var port = 3001;
 
 var server = http.createServer(function(req,res){
-	res.setHeader('Access-Control-Allow-Origin','http://127.0.0.1:3000')
+	// res.setHeader('Access-Control-Allow-Origin','http://127.0.0.1:3000');
+	res.setHeader('Access-Control-Allow-Origin','*');//*代表允许所有的源 在此地址端口请求
+	res.setHeader('Content-type','text/html');
 	var urlStr = req.url;
 	console.log(urlStr);
-	console.log(req.method);
 	if(urlStr == '/favicon.ico'){
 		res.end('/favicon.ico');
 	}
 	//请求路径带参数?
 	if(urlStr.search(/\?/) != -1){
 		var parm = url.parse(urlStr,true).query;
-		console.log(parm.name);
 		//根据前台数据做处理
 		var json = JSON.stringify(parm);
 		res.end(json);

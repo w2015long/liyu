@@ -4,9 +4,16 @@ var  fs = require('fs');
 var url = require('url');
 
 var hostname = '127.0.0.1';
-var port = 3000;
+var port = 3001;
 
 var server = http.createServer(function(req,res){
+	
+	res.setHeader('Access-Control-Allow-Origin','http://127.0.0.1:3000');
+	//res.setHeader('Access-Control-Allow-Origin','*');//*代表允许所有的源 在此地址端口请求
+	res.setHeader('Content-type','text/html');
+	res.setHeader('Kuazhu-type','kuazhuContent');
+	//如果想拿到其他字段，就必须在Access-Control-Expose-Headers里面指定。多个字段用逗号分隔
+	res.setHeader('Access-Control-Expose-Headers','Date,Access-Control-Allow-Origin,Kuazhu-type');
 	var urlStr = req.url;
 	console.log(urlStr);
 	if(urlStr == '/favicon.ico'){

@@ -29,6 +29,10 @@
 		//每当 readyState改变时，就会触发 onreadystatechange 事件。
 		oAjax.onreadystatechange = function(){
 			if(oAjax.readyState == 4){
+				console.log(oAjax.getResponseHeader("Access-Control-Allow-Origin"));
+				console.log(oAjax.getResponseHeader("Date"));
+				console.log(oAjax.getResponseHeader("Content-Type"));
+				console.log(oAjax.getResponseHeader("Kuazhu-type"));
 				if(oAjax.status == 200){
 					try{
 						var obj = JSON.parse(oAjax.responseText);
@@ -43,7 +47,7 @@
 		}
 		oAjax.onerror = function(){
 			console.log('this not Allow Origin');
-		}
+		}		
 
 	}
 	var oBtn = document.getElementById('btn');
