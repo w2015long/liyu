@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>046-jsonp.html</title>
+</head>
+<body>
+	<input type="text" id="txt">
+	<button id="btn">测试</button>
+</body>
+<script type="text/javascript">
+	var oTxt = document.getElementById('txt');
+	var oBtn = document.getElementById('btn');
+	oTxt.oninput = function(){
+		var val = oTxt.value;
+		var script = document.createElement('script');
+		// script.src = "http://127.0.0.1:3001/getData?callback=handleCallback"
+		script.src = "https://suggest.taobao.com/sug?code=utf-8&q="+val+"&_ksTS=1547096220553_324&callback=handleCallback&k=1&area=c2c&bucketid=20";
+		document.body.appendChild(script);
+	}
+</script>
+<script type="text/javascript">
+	function handleCallback(obj){
+		console.log(obj);
+	}
+</script>
+<!-- 非同源请求限制:不是一个源的文件不能操作另外一个源的文件,如Cookie/Storage/DOM/AJAX请求
+	script不包括在内 -->
+<!-- <script src="http://127.0.0.1:3001/getData?callback=handleCallback"></script> -->
+</html>
