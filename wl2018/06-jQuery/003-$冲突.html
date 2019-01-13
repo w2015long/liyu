@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>003-$冲突.html</title>
+	<script type="text/javascript">
+		(function(w){
+			function test(){
+				alert('解决$冲突');
+			}
+			w.$ = test;
+		})(window);
+	</script>
+	<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+	<script type="text/javascript">
+		var jQ = jQuery.noConflict();
+		console.log(jQ);
+		$();
+		jQ(function(){
+			alert('this is a jQuery');
+		});
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
