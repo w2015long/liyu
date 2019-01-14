@@ -318,3 +318,657 @@ var navData = [
 	]
 
 ];
+var categoryData = [
+	[
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},																					
+	],
+	[	
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cateMI6X.jpg',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cateMI6X.jpg',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cateMI6X.jpg',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cateMI6X.jpg',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cateMI6X.jpg',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cateMI6X.jpg',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cateMI6X.jpg',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cateMI6X.jpg',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cateMI6X.jpg',
+			name:'小米MIX 3'
+		}																
+	],
+	[	
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/youxiben-80.jpg',
+			name:'小米游戏本'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/youxiben-80.jpg',
+			name:'小米游戏本'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/youxiben-80.jpg',
+			name:'小米游戏本'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/youxiben-80.jpg',
+			name:'小米游戏本'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/youxiben-80.jpg',
+			name:'小米游戏本'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/youxiben-80.jpg',
+			name:'小米游戏本'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/youxiben-80.jpg',
+			name:'小米游戏本'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/youxiben-80.jpg',
+			name:'小米游戏本'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/youxiben-80.jpg',
+			name:'小米游戏本'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/youxiben-80.jpg',
+			name:'小米游戏本'
+		}																		
+	],
+	[	
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/dianfanbao.jpg',
+			name:'电饭煲'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/dianfanbao.jpg',
+			name:'电饭煲'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/dianfanbao.jpg',
+			name:'电饭煲'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/dianfanbao.jpg',
+			name:'电饭煲'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/dianfanbao.jpg',
+			name:'电饭煲'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/dianfanbao.jpg',
+			name:'电饭煲'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/dianfanbao.jpg',
+			name:'电饭煲'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/dianfanbao.jpg',
+			name:'电饭煲'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/dianfanbao.jpg',
+			name:'电饭煲'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/dianfanbao.jpg',
+			name:'电饭煲'
+		}																		
+	],	
+	[	
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/scooter.jpg',
+			name:'平衡车'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/scooter.jpg',
+			name:'平衡车'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/scooter.jpg',
+			name:'平衡车'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/scooter.jpg',
+			name:'平衡车'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/scooter.jpg',
+			name:'平衡车'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/scooter.jpg',
+			name:'平衡车'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/scooter.jpg',
+			name:'平衡车'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/scooter.jpg',
+			name:'平衡车'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/scooter.jpg',
+			name:'平衡车'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/scooter.jpg',
+			name:'平衡车'
+		}																		
+	],
+	[
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},																					
+	],
+	[	
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cateMI6X.jpg',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cateMI6X.jpg',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cateMI6X.jpg',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cateMI6X.jpg',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cateMI6X.jpg',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cateMI6X.jpg',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cateMI6X.jpg',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cateMI6X.jpg',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cateMI6X.jpg',
+			name:'小米MIX 3'
+		}																
+	],
+	[
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},																					
+	],
+	[	
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cateMI6X.jpg',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cateMI6X.jpg',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cateMI6X.jpg',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cateMI6X.jpg',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cateMI6X.jpg',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cateMI6X.jpg',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cateMI6X.jpg',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cateMI6X.jpg',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cateMI6X.jpg',
+			name:'小米MIX 3'
+		}																
+	],
+	[
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cate-mix3.png',
+			name:'小米MIX 3'
+		},																					
+	],
+	[	
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cateMI6X.jpg',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cateMI6X.jpg',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cateMI6X.jpg',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cateMI6X.jpg',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cateMI6X.jpg',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cateMI6X.jpg',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cateMI6X.jpg',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cateMI6X.jpg',
+			name:'小米MIX 3'
+		},
+		{
+			url:'https://www.kuazhu.com',
+			img:'images/cateMI6X.jpg',
+			name:'小米MIX 3'
+		}																
+	],				
+];

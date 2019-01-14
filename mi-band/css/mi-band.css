@@ -315,12 +315,9 @@
 	margin-right: 10px;
 	color: #757575;
 }
-.home .container{
-	/*position: relative;*/
-}
+
 .home .category-box{
-	position: absolute;
-	height: 460px;
+	position: relative;
 	min-width: 764px;
 }
 .home .category{
@@ -351,7 +348,7 @@
     width: 265px;
     height: 76px;	
 }
-.home .category-content>ul{
+.home .category-content ul{
 	float: left;
 }
 .home .category-content ul li a{

@@ -133,12 +133,11 @@ function handleCategory(){
     var oCategory = document.getElementById('category');    
     var lastIndex = 0;
     var noneTimer = null;
-
-    oCategoryHover.onmouseenter = oContent.onmouseenter = function(){
+    oCategoryHover.onmouseenter = oCategory.onmouseenter = oContent.onmouseenter = function(){
         clearTimeout(noneTimer);
         oCategory.style.display="block";
     }
-    oCategory.onmouseleave = oBox.onmouseleave = function(){
+    oCategoryHover.onmouseleave = oCategory.onmouseleave = oContent.onmouseleave = function(){
         noneTimer = setTimeout(function(){
             oCategory.style.display="none";
             oContent.style.display="none";
@@ -153,12 +152,30 @@ function handleCategory(){
                 this.className = 'category-item active';
                 lastIndex = i;
                 oContent.style.display = 'block';
-
+                loadData(i);
             }
             oBox.onmouseleave = function(){
                 aCategory[lastIndex].className = 'category-item';
             }            
         })(i);
+    }
+    function loadData(index){
+        var classify = categoryData[index];
+        console.log(Math.ceil(classify.length/6))
+         
+        var html =  '<ul class="children-list">';
+        for(var i=0;i<classify.length;i++){
+            html +=        '    <li>';
+            html +=        '        <a href="javascript:;">';
+            html +=        '            <img src="images/cate-mix3.png" alt="">';
+            html +=        '            <span>小米 MIX3</span>';
+            html +=        '        </a>';
+            html +=        '    </li>';
+            if(!(classify.length%6)){
+                html +=  '<ul class="children-list">';
+            }  
+            html +=        '</ul>    ';
+        }            
     }
 
 }
