@@ -26,9 +26,6 @@
     }
 })();
 
-
-
-
 //固定导航栏
 (function(){
     var isShow = false;
@@ -132,11 +129,26 @@ function handleCategory(){
     var oBox = document.querySelector('.home .category-box');
     var oContent = document.querySelector('.home .category-content');
     var aCategory = document.querySelectorAll('.home .category .category-item');
+    var oCategoryHover = document.getElementById('category-hover');
+    var oCategory = document.getElementById('category');    
     var lastIndex = 0;
+    var noneTimer = null;
+
+    oCategoryHover.onmouseenter = oContent.onmouseenter = function(){
+        clearTimeout(noneTimer);
+        oCategory.style.display="block";
+    }
+    oCategory.onmouseleave = oBox.onmouseleave = function(){
+        noneTimer = setTimeout(function(){
+            oCategory.style.display="none";
+            oContent.style.display="none";
+        },500)
+    }      
     
     for(var i=0;i<aCategory.length;i++){
         (function(i){
             aCategory[i].onmouseenter = function(){
+                oCategory.style.display="block";
                 aCategory[lastIndex].className = 'category-item';
                 this.className = 'category-item active';
                 lastIndex = i;
@@ -145,22 +157,9 @@ function handleCategory(){
             }
             oBox.onmouseleave = function(){
                 aCategory[lastIndex].className = 'category-item';
-                oContent.style.display = 'none';
             }            
         })(i);
     }
-    var oCategoryHover = document.getElementById('category-hover');
-    var oCategory = document.getElementById('category');
-    var noneTimer = null;
-    oCategory.onmouseenter = oContent.onmouseenter = function(){
-        clearTimeout(noneTimer);
-        oCategory.style.display="block";
-    }
-    oCategory.onmouseleave = oContent.onmouseenter = oCategoryHover.onmouseleave = function(){
-        noneTimer = setTimeout(function(){
-            oCategory.style.display="none";
-        },500)
-    }    
 
 }
 
