@@ -25,21 +25,9 @@
         })                
     }
 })();
-/*header全部商品*/
-(function(){
-    var oCategoryHover = document.getElementById('category-hover');
-    var oCategory = document.getElementById('category');
-    var noneTimer = null;
-    oCategory.onmouseenter = oCategoryHover.onmouseenter = function(){
-        clearTimeout(noneTimer);
-        oCategory.style.display="block";
-    }
-    oCategory.onmouseleave = oCategoryHover.onmouseleave = function(){
-        noneTimer = setTimeout(function(){
-            oCategory.style.display="none";
-        },500)
-    }
-})();
+
+
+
 
 //固定导航栏
 (function(){
@@ -49,16 +37,6 @@
         var topScroll =document.body.scrollTop||
                     document.documentElement.scrollTop;
         var bignav  = document.querySelector(".home .nav-fixed");//获取到导航栏id
-        /*      
-        if(topScroll > 140){  //当滚动距离大于140px时执行下面的东西
-            bignav.style.position = 'fixed';
-            bignav.style.top = '0px';
-            bignav.style.zIndex = '9999';
-        }else{//当滚动距离小于140的时候执行下面的内容，也就是让导航栏恢复原状
-            bignav.style.position = 'static';
-        }       
-        */ 
-             
         if(topScroll>143){
             if(!isShow){
                animate(bignav,{height:62},true);
@@ -71,15 +49,15 @@
             }
         }
         //固定carousel客户区
-        var oMain=document.getElementById('main');
-        //滚动的距离,距离顶部的距离
-        if(topScroll>200&&topScroll<720){
-            oMain.style.position = 'fixed';
-            oMain.style.top = '1px';
-            oMain.style.zIndex = '9988';
-        }else{//当滚动距离不在区间范围时候执行下面的内容，也就是让导航栏恢复原状
-            oMain.style.position = 'static';
-        }
+        // var oMain=document.getElementById('main');
+        // //滚动的距离,距离顶部的距离
+        // if(topScroll>200&&topScroll<720){
+        //     oMain.style.position = 'fixed';
+        //     oMain.style.top = '1px';
+        //     oMain.style.zIndex = '9988';
+        // }else{//当滚动距离不在区间范围时候执行下面的内容，也就是让导航栏恢复原状
+        //     oMain.style.position = 'static';
+        // }
     }    
 })();
 /*headerNav*/
@@ -147,6 +125,44 @@
         oNavContent.innerHTML = html;
     }
 })();
+
+/*全部商品动态列表*/
+handleCategory();
+function handleCategory(){
+    var oBox = document.querySelector('.home .category-box');
+    var oContent = document.querySelector('.home .category-content');
+    var aCategory = document.querySelectorAll('.home .category .category-item');
+    var lastIndex = 0;
+    
+    for(var i=0;i<aCategory.length;i++){
+        (function(i){
+            aCategory[i].onmouseenter = function(){
+                aCategory[lastIndex].className = 'category-item';
+                this.className = 'category-item active';
+                lastIndex = i;
+                oContent.style.display = 'block';
+
+            }
+            oBox.onmouseleave = function(){
+                aCategory[lastIndex].className = 'category-item';
+                oContent.style.display = 'none';
+            }            
+        })(i);
+    }
+    var oCategoryHover = document.getElementById('category-hover');
+    var oCategory = document.getElementById('category');
+    var noneTimer = null;
+    oCategory.onmouseenter = oContent.onmouseenter = function(){
+        clearTimeout(noneTimer);
+        oCategory.style.display="block";
+    }
+    oCategory.onmouseleave = oContent.onmouseenter = oCategoryHover.onmouseleave = function(){
+        noneTimer = setTimeout(function(){
+            oCategory.style.display="none";
+        },500)
+    }    
+
+}
 
 
 
