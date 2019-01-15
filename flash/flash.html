@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/flash.css">
-    <script defer src="js/band.js"></script>
 </head>
 <body>
 	<section class="top">
@@ -38,7 +37,18 @@
 						<span class="cart-text">购物车</span>
 						(<span class="cart-nub">0</span>)
 					</a>
-					<div id="cart-menu">购物车中还没有商品，赶紧选购吧！</div>
+				</div>	
+				<div id="cart-menu">
+					<div class="loading">
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>					
+					<div class="empty">
+						购物车中还没有商品，赶紧选购吧！
+					</div>
 				</div>
 			</div>
 			<div class="user-info">
@@ -63,648 +73,30 @@
 					<li class="header-nav-item" id="category-hover"><a href="#">全部商品分类</a></li>
 					<li class="header-nav-item com-nav">
 						<a href="#">小米手机</a>
-						<ul class="children-list" id="children-list">
-							<li class="right-line">
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/qingchun.png" class="product-img" alt="">
-									<h3 class="product-name">小米8青春版</h3>
-									<div class="product-price">
-										<strong>3699</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">新品</span>
-							</li>
-							<li class="right-line">
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/qingchun.png" class="product-img" alt="">
-									<h3 class="product-name">小米8青春版</h3>
-									<div class="product-price">
-										<strong>3699</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">新品</span>
-							</li>
-							<li class="right-line">
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/qingchun.png" class="product-img" alt="">
-									<h3 class="product-name">小米8青春版</h3>
-									<div class="product-price">
-										<strong>3699</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">新品</span>
-							</li>
-							<li class="right-line">
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/qingchun.png" class="product-img" alt="">
-									<h3 class="product-name">小米8青春版</h3>
-									<div class="product-price">
-										<strong>3699</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">新品</span>
-							</li>
-							<li class="right-line">
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/qingchun.png" class="product-img" alt="">
-									<h3 class="product-name">小米8青春版</h3>
-									<div class="product-price">
-										<strong>3699</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">新品</span>
-							</li>
-							<li>
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/qingchun.png" class="product-img" alt="">
-									<h3 class="product-name">小米8青春版</h3>
-									<div class="product-price">
-										<strong>3699</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">新品</span>
-							</li>
-						</ul>	
 					</li>
 					<li class="header-nav-item com-nav">
 						<a href="#">红米</a>
-						<ul class="children-list" id="children-list">
-							<li class="right-line">
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/hongmi.png" class="product-img" alt="">
-									<h3 class="product-name">红米6</h3>
-									<div class="product-price">
-										<strong>799</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">新品</span>
-							</li>
-							<li class="right-line">
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/hongmi.png" class="product-img" alt="">
-									<h3 class="product-name">红米6</h3>
-									<div class="product-price">
-										<strong>799</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">新品</span>
-							</li>
-							<li class="right-line">
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/hongmi.png" class="product-img" alt="">
-									<h3 class="product-name">红米6</h3>
-									<div class="product-price">
-										<strong>799</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">新品</span>
-							</li>
-							<li class="right-line">
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/hongmi.png" class="product-img" alt="">
-									<h3 class="product-name">红米6</h3>
-									<div class="product-price">
-										<strong>799</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">新品</span>
-							</li>
-							<li class="right-line">
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/hongmi.png" class="product-img" alt="">
-									<h3 class="product-name">红米6</h3>
-									<div class="product-price">
-										<strong>799</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">新品</span>
-							</li>
-							<li>
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/hongmi.png" class="product-img" alt="">
-									<h3 class="product-name">红米6</h3>
-									<div class="product-price">
-										<strong>799</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">新品</span>
-							</li>
-						</ul>
 					</li>
 					<li class="header-nav-item com-nav">
 						<a href="#">电视</a>
-						<ul class="children-list" id="children-list">
-							<li class="right-line">
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/tv.png" class="product-img" alt="">
-									<h3 class="product-name">小米电视4A 32英寸</h3>
-									<div class="product-price">
-										<strong>799</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">新品</span>
-							</li>
-							<li class="right-line">
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/tv.png" class="product-img" alt="">
-									<h3 class="product-name">小米电视4A 32英寸</h3>
-									<div class="product-price">
-										<strong>799</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">热卖</span>
-							</li>
-							<li class="right-line">
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/tv.png" class="product-img" alt="">
-									<h3 class="product-name">小米电视4A 32英寸</h3>
-									<div class="product-price">
-										<strong>799</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">新品</span>
-							</li>
-							<li class="right-line">
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/tv.png" class="product-img" alt="">
-									<h3 class="product-name">小米电视4A 32英寸</h3>
-									<div class="product-price">
-										<strong>799</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">热卖</span>
-							</li>
-							<li class="right-line">
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/tv.png" class="product-img" alt="">
-									<h3 class="product-name">小米电视4A 32英寸</h3>
-									<div class="product-price">
-										<strong>799</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">热卖</span>
-							</li>
-							<li>
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/tv.png" class="product-img" alt="">
-									<h3 class="product-name">小米电视4A 32英寸</h3>
-									<div class="product-price">
-										<strong>799</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">新品</span>
-							</li>
-						</ul>
-					</li>
-					<li class="header-nav-item com-nav">
-						<a href="#">笔记本</a>
-						<ul class="children-list" id="children-list">
-							<li class="right-line">
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/daohang160x110.jpg" class="product-img" alt="">
-									<h3 class="product-name">小米笔记本 Air13.3</h3>
-									<div class="product-price">
-										<strong>4999</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">新品</span>
-							</li>
-							<li class="right-line">
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/daohang160x110.jpg" class="product-img" alt="">
-									<h3 class="product-name">小米笔记本 Air13.3</h3>
-									<div class="product-price">
-										<strong>4999</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">新品</span>
-							</li>
-							<li class="right-line">
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/daohang160x110.jpg" class="product-img" alt="">
-									<h3 class="product-name">小米笔记本 Air13.3</h3>
-									<div class="product-price">
-										<strong>4999</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">新品</span>
-							</li>
-							<li class="right-line">
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/daohang160x110.jpg" class="product-img" alt="">
-									<h3 class="product-name">小米笔记本 Air13.3</h3>
-									<div class="product-price">
-										<strong>4999</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">新品</span>
-							</li>
-							<li class="right-line">
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/daohang160x110.jpg" class="product-img" alt="">
-									<h3 class="product-name">小米笔记本 Air13.3</h3>
-									<div class="product-price">
-										<strong>4999</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">新品</span>
-							</li>
-							<li>
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/daohang160x110.jpg" class="product-img" alt="">
-									<h3 class="product-name">小米笔记本 Air13.3</h3>
-									<div class="product-price">
-										<strong>4999</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">新品</span>
-							</li>
-						</ul>
 
 					</li>
 					<li class="header-nav-item com-nav">
+						<a href="#">笔记本</a>
+					</li>
+					<li class="header-nav-item com-nav">
 						<a href="#">空调</a>
-						<ul class="children-list" id="children-list">
-							<li>
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/kongtiao160x110.jpg" class="product-img" alt="">
-									<h3 class="product-name">米家互联网空调</h3>
-									<div class="product-price">
-										<strong>1999</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">新品</span>
-							</li>
-						</ul>
 
 					</li>
 					<li class="header-nav-item com-nav">
 						<a href="#">新品</a>
-						<ul class="children-list" id="children-list">
-							<li class="right-line">
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/shexiangjizengqiang!160x110.jpg" class="product-img" alt="">
-									<h3 class="product-name">米家小白智能摄像机</h3>
-									<div class="product-price">
-										<strong>399</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">新品</span>
-							</li>
-							<li class="right-line">
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/shexiangjizengqiang!160x110.jpg" class="product-img" alt="">
-									<h3 class="product-name">米家小白智能摄像机</h3>
-									<div class="product-price">
-										<strong>399</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">新品</span>
-							</li>
-							<li class="right-line">
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/shexiangjizengqiang!160x110.jpg" class="product-img" alt="">
-									<h3 class="product-name">米家小白智能摄像机</h3>
-									<div class="product-price">
-										<strong>399</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">新品</span>
-							</li>
-							<li class="right-line">
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/shexiangjizengqiang!160x110.jpg" class="product-img" alt="">
-									<h3 class="product-name">米家小白智能摄像机</h3>
-									<div class="product-price">
-										<strong>399</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">新品</span>
-							</li>
-							<li class="right-line">
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/shexiangjizengqiang!160x110.jpg" class="product-img" alt="">
-									<h3 class="product-name">米家小白智能摄像机</h3>
-									<div class="product-price">
-										<strong>399</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">新品</span>
-							</li>
-							<li>
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/shexiangjizengqiang!160x110.jpg" class="product-img" alt="">
-									<h3 class="product-name">米家小白智能摄像机</h3>
-									<div class="product-price">
-										<strong>399</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">新品</span>
-							</li>
-						</ul>
-					</li>
-					<li class="header-nav-item com-nav">
-						<a href="#">路由器</a>
-						<ul class="children-list" id="children-list">
-							<li class="right-line">
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/3G.png" class="product-img" alt="">
-									<h3 class="product-name">小米路由器3G</h3>
-									<div class="product-price">
-										<strong>179</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">新品</span>
-							</li>
-							<li class="right-line">
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/3G.png" class="product-img" alt="">
-									<h3 class="product-name">小米路由器3G</h3>
-									<div class="product-price">
-										<strong>179</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">双频双核</span>
-							</li>
-							<li class="right-line">
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/3G.png" class="product-img" alt="">
-									<h3 class="product-name">小米路由器3G</h3>
-									<div class="product-price">
-										<strong>179</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">双频双核</span>
-							</li>
-							<li class="right-line">
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/3G.png" class="product-img" alt="">
-									<h3 class="product-name">小米路由器3G</h3>
-									<div class="product-price">
-										<strong>179</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">双频双核</span>
-							</li>
-							<li class="right-line">
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/3G.png" class="product-img" alt="">
-									<h3 class="product-name">小米路由器3G</h3>
-									<div class="product-price">
-										<strong>179</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">双频双核</span>
-							</li>
-							<li>
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/3G.png" class="product-img" alt="">
-									<h3 class="product-name">小米路由器3G</h3>
-									<div class="product-price">
-										<strong>179</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">双频双核</span>
-							</li>
-						</ul>
 
 					</li>
 					<li class="header-nav-item com-nav">
+						<a href="#">路由器</a>
+					</li>
+					<li class="header-nav-item com-nav">
 						<a href="#">智能硬件</a>
-						<ul class="children-list" id="children-list">
-							<li class="right-line">
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/xiaoaimini!160x110.jpg" class="product-img" alt="">
-									<h3 class="product-name">小米小爱音响mini</h3>
-									<div class="product-price">
-										<strong>169</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">新品</span>
-							</li>
-							<li class="right-line">
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/xiaoaimini!160x110.jpg" class="product-img" alt="">
-									<h3 class="product-name">小米小爱音响mini</h3>
-									<div class="product-price">
-										<strong>169</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">新品</span>
-							</li>
-							<li class="right-line">
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/xiaoaimini!160x110.jpg" class="product-img" alt="">
-									<h3 class="product-name">小米小爱音响mini</h3>
-									<div class="product-price">
-										<strong>169</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">新品</span>
-							</li>
-							<li class="right-line">
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/xiaoaimini!160x110.jpg" class="product-img" alt="">
-									<h3 class="product-name">小米小爱音响mini</h3>
-									<div class="product-price">
-										<strong>169</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">新品</span>
-							</li>
-							<li class="right-line">
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/xiaoaimini!160x110.jpg" class="product-img" alt="">
-									<h3 class="product-name">小米小爱音响mini</h3>
-									<div class="product-price">
-										<strong>169</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">新品</span>
-							</li>
-							<li>
-								<a href="#">
-									<div class="product-bg"></div>
-								</a>
-								<div class="content">
-									<img src="images/xiaoaimini!160x110.jpg" class="product-img" alt="">
-									<h3 class="product-name">小米小爱音响mini</h3>
-									<div class="product-price">
-										<strong>169</strong>
-										<span>&nbsp;元起</span>
-								    </div>
-			                    </div>
-			                    <span class="flag new-flag">新品</span>
-							</li>
-						</ul>
 					</li>
 					<li class="header-nav-item"><a href="#">服务</a></li>
 					<li class="header-nav-item"><a href="#">社区</a></li>
@@ -737,33 +129,29 @@
 				</div>
 			</div>
 		</div>
+		<div class="header-nav-box">
+			<div class="container">
+				<div class="loading" style="display:none">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>				
+			</div>
+		</div>
 	</header>
 	<sectinon class="home">
-		<div class="container">
-			<div class="category" id="category">
-				<ul>
-					<li class="category-item">手机 电话卡<i class="iconfont">&#xe623;</i></li>
-					<li class="category-item">电视 盒子<i class="iconfont">&#xe623;</i></li>
-					<li class="category-item">笔记本 平板<i class="iconfont">&#xe623;</i></li>
-					<li class="category-item">手机 电话卡<i class="iconfont">&#xe623;</i></li>
-					<li class="category-item">家电 插线板<i class="iconfont">&#xe623;</i></li>
-					<li class="category-item">出行 穿戴<i class="iconfont">&#xe623;</i></li>
-					<li class="category-item">智能 路由器<i class="iconfont">&#xe623;</i></li>
-					<li class="category-item">电源 配件<i class="iconfont">&#xe623;</i></li>
-					<li class="category-item">耳机 音响<i class="iconfont">&#xe623;</i></li>
-					<li class="category-item">生活 箱包<i class="iconfont">&#xe623;</i></li>
-				</ul>
-			</div>
-			
-			<div class="hd">
+		<div class="hd">
+			<div class="container">
 				<h1 class="title">小米闪购</h1>
-				<ul class="timer">
+				<ul class="timer clearfix">
 					<li class="timer-item active">
 						<a href="javascript:;">
 							<em>10:00</em>
-							<span>
-								抢购中<br>
-								距离结束 00:52:13
+							<span id="timer">
+								<!-- 抢购中<br>
+								距离结束 00:52:13 -->
 							</span>
 						</a>
 					</li>
@@ -793,6 +181,29 @@
 					</li>
 				</ul>
 			</div>
+		</div>		
+		<div class="container">
+			<div class="category-box">
+				<div class="category" id="category">
+					<ul>
+						<li class="category-item">手机 电话卡<i class="iconfont">&#xe623;</i></li>
+						<li class="category-item">电视 盒子<i class="iconfont">&#xe623;</i></li>
+						<li class="category-item">笔记本 平板<i class="iconfont">&#xe623;</i></li>
+						<li class="category-item">手机 电话卡<i class="iconfont">&#xe623;</i></li>
+						<li class="category-item">家电 插线板<i class="iconfont">&#xe623;</i></li>
+						<li class="category-item">出行 穿戴<i class="iconfont">&#xe623;</i></li>
+						<li class="category-item">智能 路由器<i class="iconfont">&#xe623;</i></li>
+						<li class="category-item">电源 配件<i class="iconfont">&#xe623;</i></li>
+						<li class="category-item">耳机 音响<i class="iconfont">&#xe623;</i></li>
+						<li class="category-item">生活 箱包<i class="iconfont">&#xe623;</i></li>
+					</ul>
+				</div>
+				<div class="category-content">
+						
+				</div>
+			</div>	 
+			
+
 			<div class="bd">
 				<ul class="product-list clearfix">
 					<li class="product-item">
@@ -1135,4 +546,7 @@
 			</div>	
 	</section> -->
 </body>
+<script src="js/data.js"></script>
+<script src="js/tween.js"></script>
+<script src="js/index.js"></script>
 </html>
