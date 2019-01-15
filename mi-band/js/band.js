@@ -197,7 +197,7 @@ function handleCategory(){
 
 
 
-
+/*
 
 //carousel轮播图
 //封装一个获取元素ID的函数
@@ -265,3 +265,4 @@ oMain.onmouseout=function(){
 oMain.onmouseover=function(){
     stopAutoPlay();
 }
+*/
