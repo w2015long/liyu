@@ -142,8 +142,7 @@ function handleCategory(){
             oCategory.style.display="none";
             oContent.style.display="none";
         },500)
-    }      
-    
+    }
     for(var i=0;i<aCategory.length;i++){
         (function(i){
             aCategory[i].onmouseenter = function(){
@@ -161,21 +160,22 @@ function handleCategory(){
     }
     function loadData(index){
         var classify = categoryData[index];
-        console.log(Math.ceil(classify.length/6))
-         
-        var html =  '<ul class="children-list">';
+        var html =  '';
         for(var i=0;i<classify.length;i++){
-            html +=        '    <li>';
-            html +=        '        <a href="javascript:;">';
-            html +=        '            <img src="images/cate-mix3.png" alt="">';
-            html +=        '            <span>小米 MIX3</span>';
-            html +=        '        </a>';
-            html +=        '    </li>';
-            if(!(classify.length%6)){
-                html +=  '<ul class="children-list">';
+            if(!(i%6)){
+                html += '<ul class="children-list">';
+            }
+            html += '<li>';
+            html += '    <a href="'+classify[i].url+'">';
+            html += '        <img src="'+classify[i].img+'" alt="">';
+            html += '        <span>'+classify[i].name+'</span>';
+            html += '    </a>';
+            html += '</li>';
+            if((!((i+1)%6) && (i != 0)) || i == classify.length){
+                html +=    '</ul>'; 
             }  
-            html +=        '</ul>    ';
-        }            
+        }
+        oContent.innerHTML = html;            
     }
 
 }
