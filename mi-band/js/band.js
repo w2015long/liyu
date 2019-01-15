@@ -182,7 +182,7 @@ function handleCategory(){
             html += '        <span>'+classify[i].name+'</span>';
             html += '    </a>';
             html += '</li>';
-            if((!((i+1)%6) && (i != 0)) || i == classify.length){
+            if(!((i+1)%6) || i == classify.length){
                 html +=    '</ul>'; 
             }  
         }
