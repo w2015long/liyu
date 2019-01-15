@@ -30,10 +30,20 @@
 (function(){
     var isShow = false;
     window.onscroll=function(){
-        //滚动的距离,距离顶部的距离
         var topScroll =document.body.scrollTop||
-                    document.documentElement.scrollTop;
-        var bignav  = document.querySelector(".home .nav-fixed");//获取到导航栏id
+                        document.documentElement.scrollTop;
+        var oMain=document.getElementById('main');
+        //滚动的距离,距离顶部的距离
+        if(topScroll>200&&topScroll<700){
+            oMain.style.position = 'fixed';
+            oMain.style.top = '1px';
+            oMain.style.zIndex = '9988';
+        }else{
+            oMain.style.position = 'static';
+        }
+
+
+        var bignav  = document.querySelector(".home .nav-fixed");
         if(topScroll>143){
             if(!isShow){
                animate(bignav,{height:62},true);
@@ -45,16 +55,7 @@
                 isShow = false;
             }
         }
-        //固定carousel客户区
-        // var oMain=document.getElementById('main');
-        // //滚动的距离,距离顶部的距离
-        // if(topScroll>200&&topScroll<720){
-        //     oMain.style.position = 'fixed';
-        //     oMain.style.top = '1px';
-        //     oMain.style.zIndex = '9988';
-        // }else{//当滚动距离不在区间范围时候执行下面的内容，也就是让导航栏恢复原状
-        //     oMain.style.position = 'static';
-        // }
+
     }    
 })();
 /*headerNav*/

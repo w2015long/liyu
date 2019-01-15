@@ -192,3 +192,4 @@ function handleCategory(){
     timer = setInterval(handleTimer, 500);
     handleTimer();
 })();
+
