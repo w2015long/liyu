@@ -113,34 +113,39 @@ function handleCategory(){
 	var ocategoryContent = document.querySelector('.category-box .category-content');
 	var ocategoryBox = document.querySelector('.banner .category-box');
 	for(var i=0;i<aCategory.length;i++){
-		aCategory[i].index = i;
-		aCategory[i].onmouseenter = function(){
-			for(var j=0;j<aCategory.length;j++){
-				aCategory[j].className = 'category-item';
-			}			
-			this.className = 'category-item active';
-			ocategoryContent.style.display = 'block';
-			var index = this.index;
-			loadCategoryData(index);
+		var lastIndex = 0;
+		(function(i){
+			aCategory[i].onmouseenter = function(){
+				aCategory[lastIndex].className = 'category-item';
+				this.className = 'category-item active';
+				ocategoryContent.style.display = 'block'
+				loadCategoryData(i);
+				lastIndex = i;
+			}
+		})(i);
+		ocategoryContent.onmouseleave = function(){
+			aCategory[lastIndex].className = 'category-item';
+			ocategoryContent.style.display = 'none';
 		}
 	}
-	ocategoryBox.onmouseleave = function(){
-		ocategoryContent.style.display = 'none';
-	}
+
 	function loadCategoryData(index){
 		var varietyData = categoryData[index];
-		console.log(varietyData.length);
-
-		var html = '<ul>';
+		var html = '';
 		for(var i=0;i<varietyData.length;i++){
+			if(!(i%6)){
+				html += '<ul>';
+			}
 			html += '<li>';
 			html += '<a href='+varietyData[i].url+'>';
 			html += '<img src='+varietyData[i].img+ '>';
 			html += '<span>'+varietyData[i].name+'</span>';
 			html += '</a>';
 			html += '</li>';
+			if(!((i+1)%6) || i==varietyData.length){
+				html += '</ul>';
+			}
 		}
-		html += '</ul>';
 		ocategoryContent.innerHTML = html;
 	}
 }
