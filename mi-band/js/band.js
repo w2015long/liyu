@@ -2,6 +2,7 @@
 function byId(id){
     return typeof(id) === "string"?document.getElementById(id):id;
 }
+//官网https://item.mi.com/product/8810.html
 /*购物车*/
 (function(){
     var oCart = document.querySelector('.top .cart');
