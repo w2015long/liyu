@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>004-jQuery的试用.html</title>
+	<script>
+		(function(w){
+			function test(){
+				alert('$有冲突');
+			}
+			window.$ = test;
+		})(window)
+	</script>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		var jq = jQuery.noConflict();
+		jq(function(){
+			console.log('this is $');
+		});
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

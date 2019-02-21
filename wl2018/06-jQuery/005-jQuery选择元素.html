@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>005-jQuery选择元素.html</title>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			console.log($('div'));
+			console.log($('#div2'));
+			console.log($('.div3'));
+			console.log($('.box'));
+			console.log($(false));
+			console.log($(''));
+			console.log($(NaN));
+			console.log($(null));
+			console.log($(0));
+			console.log($(undefined));
+			// console.log($(true));
+
+		})
+	</script>
+</head>
+<body>
+	<div>div1</div>
+	<div id="div2">div2</div>
+	<div class="div3">div3</div>
+	<div class="box">div4</div>
+	<div class="box">div5</div>
+</body>
+</html>	
