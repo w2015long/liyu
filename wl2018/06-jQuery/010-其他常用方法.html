@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>010-其他常用方法.html</title>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			console.log($('div').index(document.getElementById('box')));
+			console.log($('div').index($(document.getElementById('box'))));
+			$('div').each(function(index,item){
+				// console.log(index,item);
+				console.log(this)
+			})	;
+			$('.div').data('test','999');
+			console.log($('.div').data('test'));
+			console.log($('div').eq(2).data('datakey'));
+		})
+	</script>
+</head>
+<body>
+	<div id="box">div1</div>
+	<div class="div">div2</div>
+	<div data-datakey='1999'>div3</div>
+</body>
+</html>

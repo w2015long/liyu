@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>009-其他静态方法.html</title>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		function test (){
+
+		}
+		var str = '  apple cat   ';
+		var arr = [1,2,3,6,9];
+		console.log(str);
+		console.log($.trim(str));
+		console.log($.isWindow(window));
+		console.log($.isFunction(str));
+		console.log($.isFunction(test));
+		console.log($.isArray(arr));
+		var obj1 = {name:"Tom",age:18};
+		var obj2 = {name:"Amy"};
+		// var obj3 = $.extend(true, obj1, obj2);
+		var obj4 = $.extend({}, obj1, obj2);
+		// console.log(obj3);
+		console.log(obj4)
+		console.log(obj1);	
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
