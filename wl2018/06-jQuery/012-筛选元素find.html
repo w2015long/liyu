@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>012-筛选元素find.html</title>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			console.log($('#ul1>.item1'));
+			console.log($('#ul1').find('.item2'));
+		})
+	</script>
+</head>
+<body>
+	<ul id="ul1">
+		<li class="item1">li1</li>
+		<li class="item1">li2</li>
+		<li class="item1">li3</li>
+		<li class="item1">li4</li>
+		<li class="item1">li5</li>
+		<li class="item2">li1</li>
+		<li class="item2">li2</li>
+		<li class="item2">li3</li>
+		<li class="item2">li4</li>
+		<li class="item2">li5</li>
+	</ul>
+</body>
+</html>
