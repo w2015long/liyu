@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>020-事件的绑定.html</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+			margin-top: 5px;
+		}
+	</style>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			function fn(){
+				console.log('this is fn');
+			}
+			/*
+			$('div').click(function(){
+				alert('this is clcik');
+			});
+			$('div').click(fn);	
+			
+			$('div').on('click',fn);
+			$('div').on('mouseover',function(){
+				console.log('this is mouseover')
+			});
+			*/
+			$('div').one('click',fn);//绑定一个一次性事件
+			$('div').one('mouseover',function(){
+				console.log('this is mouseover')
+			});					
+		})
+	</script>
+</head>
+<body>
+	<div>div1</div>
+	<div>div2</div>
+	<div>div3</div>
+</body>
+</html>
