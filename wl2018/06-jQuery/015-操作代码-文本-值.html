@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>015-操作代码-文本-值.html</title>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			/*
+			console.log($('div').html());//获取只获取第一个
+			console.log($('div').html('<h1>我是大标题</h1>'))//设置全部
+			*/
+		/*获取HTML内容包括HTML标签和文本，而获取文本内容只有标签里面的文本
+		设置带有标签的HTML内容,标签会起作用，而设置带有标签的文本内容，标签会被当做文本来显示*/
+			console.log($('div').text());
+			console.log($('div').text('<h1>我是大标题</h1>'));
+
+			console.log($('input').val());
+			console.log($('input').val('dag'));
+		})
+	</script>
+</head>
+<body>
+	<div>我是div1</div>
+	<div>
+		我是div2
+		<p>我是段落</p>
+	</div>
+	<input type="text" value="cat">	
+</body>
+</html>

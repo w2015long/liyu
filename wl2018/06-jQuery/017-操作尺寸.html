@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>017-操作尺寸.html</title>
+	<script src="js/jquery-1.12.4.js"></script>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box1{
+			width: 100px;
+			height: 100px;
+			padding: 10px;
+			border: 10px solid #999;
+			background: #f67;
+		}
+		.box2{
+			width: 160px;
+			height: 160px;
+			padding: 20px;
+			border: 20px solid #f90;
+			background: #89f;
+		}
+	</style>
+	<script>
+		$(function(){
+			console.log($('.box1').width());
+			console.log($('.box1').innerWidth());//包括内边距
+			console.log($('.box1').outerWidth());
+			$('.box1').innerWidth(200);
+			$('.box2').outerWidth(200);//包括内边距和边框
+
+		})
+	</script>
+</head>
+<body>
+	<div class="box1"></div>
+	<div class="box2"></div>
+</body>
+</html>
