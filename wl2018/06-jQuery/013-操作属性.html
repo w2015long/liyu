@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>013-操作属性.html</title>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			/*获取属性只获取第一个*/
+			console.log($('input').attr('value'));		
+			console.log($('input').prop('value'));
+			console.log($('input').attr('name'));		
+			console.log($('input').prop('name'));						
+			/*设置属性具有隐式迭代选中的都设置*/
+			$('input').attr('value','cat');
+			$('input').prop('value','dog');
+			/*属性节点的值具有true和false时用prop,其他的用attr*/
+			console.log($('input').eq(2).attr('checked'));
+			console.log($('input').eq(2).prop('checked'));
+			/*删除所有元素的值*/
+			// console.log($('input').removeAttr('name'));
+			console.log($('input').removeProp('name'));
+		})
+	</script>
+</head>
+<body>
+	<input type="text" value="apple" name="a1">
+	<input type="text" value="boy" name="b1">
+	<input type="checkbox">
+</body>
+</html>

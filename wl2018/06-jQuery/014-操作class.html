@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>014-操作class.html</title>
+	<style>
+		.layer{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+		}
+		.color{
+			color: red;
+		}
+		.bg{
+			background: #999;
+		}
+	</style>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			/*
+			// $('div').attr('class','layer color bg');
+			$('div').addClass('layer color bg');
+
+			//$('div').removeClass();//删除所有class
+			$('div').removeClass('bg');
+			*/
+			$('div').addClass('layer color');
+			$('button').click(function(){
+				$('div').toggleClass('bg');
+			})
+			
+		})
+	</script>
+</head>
+<body>
+	<button>切换</button>
+	<div>我是第一个</div>
+	<div>我是第二个</div>
+</body>
+</html>
