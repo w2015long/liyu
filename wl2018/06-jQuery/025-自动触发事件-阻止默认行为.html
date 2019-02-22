@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>025-自动触发事件-阻止默认行为.html</title>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			$('input').click(function(){
+				alert('this ia click');
+			});
+			// $('input').trigger('click');
+			$('input').triggerHandler('click');
+		})
+	</script>
+</head>
+<body>
+	<form action="https://www.kuazhu.com">
+		<input type="submit" value="提交">
+	</form>
+</body>
+</html>

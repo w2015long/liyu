@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>027-自定义事件.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+			margin: 20px auto;
+		}
+	</style>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			/*
+			$('div').on('myClick',function(){
+				alert('this is myClick');
+			});
+			$('div').trigger('myClick');
+			*/
+		
+		//用jQuery对象.trigger('自定义事件名',参数)来触发自定义的事件 
+			$('div').on('myClick',function(evt,arguments){
+				console.log('this is myClick');
+				console.log(arguments)
+			});
+			console.log('----------------')
+			$('div').trigger('myClick',{name:"Tom",age:18});//异步程序		
+		})
+	</script>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

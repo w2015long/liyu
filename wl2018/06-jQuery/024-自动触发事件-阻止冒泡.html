@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>024-自动触发事件-阻止冒泡.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.grandfather{
+			width: 500px;
+			height: 500px;
+			margin: 50px auto;
+			border: 1px solid #000;
+			background-color: #899;
+		}
+		.father{
+			width: 300px;
+			height: 300px;
+			border: 1px solid #000;
+			margin: 100px auto;
+			background: pink;
+		}
+		.son{
+			width: 100px;
+			height: 100px;
+			background: red;
+			margin: 100px auto;
+		}
+	</style>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			$('.son').click(function(evt){
+				alert('son');
+
+
+			});
+			$('.father').click(function(evt){
+				alert('father');
+
+			})
+			$('.grandfather').click(function(){
+				alert('grandfather');
+			})	;
+
+			
+			// $('.son').trigger('click');	
+			$('.son').triggerHandler('click');//阻止事件冒泡和默认行为的事件触发				
+		})
+	</script>
+</head>
+<body>
+	<div class="grandfather">
+		<div class="father">
+			<div class="son"></div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>026-自动触发事件a标签.html</title>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+/*a标签用trigger不阻止事件冒泡,但是会阻止默认行为,如果需要发生默认行为需要触发a标签的子元素*/
+			$('body').click(function(event) {
+				alert(' click body');
+			});
+			// $('a').trigger('click');
+			$('span').trigger('click');
+		})
+	</script>
+</head>
+<body>
+	<!-- <a href="https://www.kuazhu.com/">去学习</a> -->
+	<a href="https://www.kuazhu.com/"><span>去学习</span></a>
+</body>
+</html>
