@@ -24,10 +24,19 @@
 	border: 1px solid #ddd;
 	border-bottom: none;
 }
+.top .dropdown em{
+	transition: transform 0.5s ease-in;
+}
+.top .dropdown em.normal{
+	transform: rotate(0deg);
+}
+.top .dropdown em.rotate{
+	transform: rotate(180deg);
+}
 .top .left-nav .dropdown a{
 	display: inline-block;
 	width: 100%;
-	height: 100%;
+	/*height: 100%;*/
 	cursor: default;
 }
 .top .right-nav{
@@ -109,4 +118,25 @@
 	float: left;
 	width: 71px;
 	padding-left: 10px;
+}
+/*header头部部分*/
+.header{
+	width: 100%;
+	height: 110px;
+	/*background: #89f;*/
+}
+.header .header-logo{
+	float: left;
+	width: 190px;
+	height: 90px;
+}
+.header .header-logo img{
+	width: 190px;
+	height: 90px;
+}
+.header .header-search{
+	float: left;
+	width: 540px;
+	height: 63px;
+	background: #899;
 }
