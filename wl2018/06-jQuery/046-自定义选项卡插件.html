@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>046-自定义选项卡插件.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+		}
+		.tab ul{
+			width: 300px;
+			height: 30px;
+		}
+		.tab ul .btn{
+			float: left;
+			width: 50px;
+			height: 30px;
+			border: 1px solid #000;
+		}
+		.tab ul .btn.active{
+			background: #f80;
+		}
+		.tab ul .content{
+			display: none;
+			width: 350px;
+			height: 350px;
+			border: 1px solid #000;
+		}
+		.tab ul .content.show{
+			display: block;
+		}
+	</style>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script type="text/javascript">
+		;(function($){
+			$.fn.extend({
+				tab:function(options){
+					var DEFAULTS = {
+						activeClass:'active',
+						btnSelector:'ul .btn',
+						enentType:'click',
+						contentSelector:'ul .content'
+					};
+					options = $.extend(DEFAULTS,options);
+					this.each(function(){
+						var $tab = $(this);
+						var $btn = $tab.find(options.btnSelector);
+						console.log($btn )
+						$btn.on('click',function(){
+							$(this).addClass(options.activeClass).siblings().removeClass(options.activeClass);
+							var index = $(this).index();
+							$tab.find(options.contentSelector).eq(index).addClass('show').siblings().removeClass('show');
+						})
+					})
+				}
+			});
+			
+		})(jQuery);
+	</script>
+	<script>
+		$(function(){
+			$('.tab').tab();
+		})
+	</script>
+</head>
+<body>
+	<div class="tab">
+		<ul>
+			<li class="btn active">btn1</li>
+			<li class="btn">btn2</li>
+			<li class="btn">btn3</li>
+			<li class="btn">btn4</li>
+			<li class="btn">btn5</li>
+		</ul>
+		<ul>
+			<li class="content show">content1</li>
+			<li class="content">content2</li>
+			<li class="content">content3</li>
+			<li class="content">content4</li>
+			<li class="content">content5</li>
+		</ul>
+	</div>
+</body>
+</html>
