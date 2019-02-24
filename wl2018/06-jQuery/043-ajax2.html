@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>043-ajax2.html</title>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			$('button').eq(0).on('click',function(){
+				$.get('042-data.json',function(data,statusMsg,jqXHR){
+					console.log(data);
+					console.log(data,statusMsg,jqXHR);
+				},'json');
+				/*				
+				$.get('042-data.json',{name:"Leo",age:98},function(data){
+					console.log(data);
+				},'json');
+				*/
+			});
+			$('button').eq(1).on('click',function(){
+				$.post('042-data.json',{name:"Leo",age:98},function(data,statusMsg,jqXHR){
+					console.log(data);
+					console.log(data,statusMsg,jqXHR);
+				},'json');					
+			});	
+			$('button').eq(2).on('click',function(){
+				$.getJSON('042-data.json',{name:"Amy",age:69},function(data,statusMsg,jqXHR){
+					console.log(data);
+					console.log(data,statusMsg,jqXHR);
+				});					
+			});							
+		})
+	</script>
+</head>
+<body>
+	<button>get获取</button>
+	<button>post获取</button>
+	<button>getJSON获取</button>
+
+</body>
+</html>

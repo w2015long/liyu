@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>043-ajax3.html</title>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			$('button').click(function(){
+				$.ajax({
+					url:'042-data.json',
+					type:'GET',
+					dataType:'json',
+					/*
+					success:function(data,statusMsg,jqXHR){
+						console.log('success::::');
+						// console.log(data.name);
+						console.log(JSON.parse(data).name);
+						console.log(data,statusMsg,jqXHR);
+					},
+					error:function(jqXHR,statusMsg){
+						console.log('error::::');
+						console.log(jqXHR,statusMsg);
+					},
+					complete:function(jqXHR,statusMsg){
+						console.log('complete::::');
+						console.log(jqXHR,statusMsg);
+					}	
+					*/			
+				})
+
+				.done(function(data,statusMsg,jqXHR){
+						console.log('done::::');
+						console.log(data.name);
+						console.log(data,statusMsg,jqXHR);
+				})
+				.fail(function(jqXHR,statusMsg){
+						console.log('fail::::');
+						console.log(jqXHR,statusMsg);					
+				})	
+				// .abort()
+				.always(function(jqXHR,statusMsg){
+						console.log('always::::');
+						console.log(jqXHR,statusMsg);					
+				});			
+			})
+		})
+	</script>
+</head>
+<body>
+	<button>获取数据</button>
+</body>
+</html>

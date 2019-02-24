@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>044-自定义插件.html</title>
+	<style>
+		div{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+		}
+	</style>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		;(function($){
+			console.log($.prototype === $.fn);
+			$.fn.setColor = function(options){
+				var DEFAULTS = {color:'red'};
+				options = $.extend({},DEFAULTS,options);
+				return this.each(function(index,item){
+					this.style.color = options.color;
+				});
+			}
+		})(jQuery);
+	</script>
+	<script>
+		$(function(){
+			$('button').on('click',function(){
+				$('div').setColor({color:'pink'});
+			})
+		})
+	</script>
+</head>
+<body>
+	<button>测试</button>
+	<div>this is div1</div>
+	<div>this is div2</div>
+</body>
+</html>

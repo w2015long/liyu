@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>043-jsonp-ajax.html</title>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			$('button').click(function(){
+				$.ajax({
+					url:'http://127.0.0.1:3001',
+					dataType:'jsonp',
+					json:'callback',
+					success:function(data,statusMsg,jqXHR){
+						console.log(data.name);
+						console.log(data,statusMsg,jqXHR);
+					}
+				})				
+			})
+		})
+	</script>
+</head>
+<body>
+	<button>获取数据</button>
+</body>
+</html>

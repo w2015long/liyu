@@ -4,6 +4,17 @@
 	<meta charset="UTF-8">
 	<title>040-替换节点.html</title>
 	<script src="js/jquery-1.12.4.js"></script>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+		}
+	</style>
 	<script>
 		$(function(){
 			$('button').eq(0).click(function(){
@@ -12,7 +23,11 @@
 			$('button').eq(1).click(function(){
 				var $dom = $('<h1>我是你大标题</h1>');
 				$('div').replaceWith($dom);
-			});			
+			});	
+			$('button').eq(2).click(function(){
+				var $dom = $('<h4>我是标题</h4>');
+				$dom.replaceAll($('div'));
+			});						
 		})
 	</script>
 </head>
@@ -22,6 +37,7 @@
 	<button>替换3</button>
 	<div>
 		我是div
+		<p>我还文本</p>
 	</div>
 </body>
 </html>
