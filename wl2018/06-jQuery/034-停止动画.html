@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>034-停止动画.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background: red;
+			margin-top: 10px;
+		}
+	</style>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			$('#start').click(function(){
+				/*
+				$('div').animate({width:500},1000,function(){
+					console.log('width done');
+				});
+				$('div').animate({height:500},1000,function(){
+					console.log('height done');
+				});
+				$('div').animate({opacity:0.3},1000,function(){
+					console.log('opacity done')
+				});
+				*/
+			
+				$('div')
+				.animate({width:500},1000,function(){
+					console.log('width done')})
+				.animate({height:500},1000,function(){
+					console.log('height done');
+				})
+				.animate({opacity:0.3},1000,function(){
+					console.log('opacity done');
+				})
+			
+		/*
+				$('div').animate({width:500},1000,function(){
+					$('div').animate({height:500},1000,function(){
+						$('div').animate({opacity:0.3},function(){
+							console.log('complete done');
+						})
+					})
+				})
+		*/		
+			});
+			$('#stop').on('click',function(){
+//第一个参数默认false(表示不清空,如果是true,后续动画不执行)
+//第二个参数默认是false,表示停止在当前状态,如果是ture,则跳到正在执行动画的最后状态
+				// $('div').stop();
+				// $('div').stop(false,false);
+				// $('div').stop(false,true);
+				// $('div').stop(true,false);
+				$('div').stop(true,true);
+			})
+		})
+	</script>
+</head>
+<body>
+	<button id="start">动画</button>
+	<button id="stop">停止</button>
+	<div></div>
+</body>
+</html>

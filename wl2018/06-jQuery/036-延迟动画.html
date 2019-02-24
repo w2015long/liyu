@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>036-延迟动画.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background: red;
+			margin-top: 10px;
+		}
+	</style>	
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			$('button').click(function(){
+				$('div')
+				.animate({width:500},1000,function(){
+					console.log('width done')})
+				.delay(2000)
+				.animate({height:500},1000,function(){
+					console.log('height done');
+				})
+				.animate({opacity:0.3},1000,function(){
+					console.log('opacity done');
+				})				
+			})
+		})
+	</script>
+</head>
+<body>
+	<button>动画</button>
+	<div></div>
+</body>
+</html>
