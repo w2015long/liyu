@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>038-添加节点.html</title>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			$('button').eq(0).click(function(){
+				var $li = $('<li>new li</li>');
+				$('ul').append($li);
+			});
+			$('button').eq(1).click(function(){
+				var $li = $('<li>new li</li>');
+				$li.appendTo($('ul'));
+			});
+			$('button').eq(2).click(function(){
+				var $li = $('<li>new li</li>');
+				$('ul').prepend($li);
+			});
+			$('button').eq(3).click(function(){
+				var $li = $('<li>new li</li>');
+				$($li).prependTo('ul');
+			});
+			$('button').eq(4).click(function(){
+				var $h2 = $('<h2>new h2</h2>');
+				$('ul').after($h2);
+			});				
+			$('button').eq(5).click(function(){
+				var $h2 = $('<h2>new h2</h2>');
+				$('ul').before($h2);
+			});											
+		})
+	</script>
+</head>
+<body>
+	<button>append节点</button>
+	<button>appendTo节点</button>
+	<button>prepend节点</button>
+	<button>prependTo节点</button>
+	<button>after节点</button>
+	<button>before节点</button>
+	<ul>
+		<li>normal li 1</li>
+		<li>normal li 2</li>
+		<li>normal li 3</li>
+	</ul>
+</body>
+</html>
