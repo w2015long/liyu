@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>047-jQuery方法补充.html</title>
+	<script src="js/jquery-1.12.4.js"></script>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+		}
+	</style>
+	<script>
+		$(function(){
+			function fn (){
+				console.log(this);
+			};
+			/*
+			var result = fn.bind({name:"Tom"});
+			result();
+			*/
+		//$.proxy(函数,内部this)
+			var fn1 = $.proxy(fn,{name:"Leo"});
+			fn1();
+		//jQuery对象.is(选择器) ,检测jQuery对象中是否有匹配元素
+			console.log($('div').is('.box'));
+
+/*可见性过滤 $('选择器:hidden') $('选择器:visible')*/	
+			console.log($('div:visible'));	
+			console.log($('div:hidden'));
+			$('div').hover(function(){
+				console.log('event enter');
+			},function(){
+				console.log('event leave')
+			})	
+		})
+	</script>
+</head>
+<body>
+	<div class="box">div1</div>
+	<div style="display:none">div2</div>
+	<div>div3</div>
+</body>
+</html>
