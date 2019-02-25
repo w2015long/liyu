@@ -42,7 +42,7 @@
 					var DEFAULTS = {
 						activeClass:'active',
 						btnSelector:'ul .btn',
-						enentType:'click',
+						eventType:'click',
 						contentSelector:'ul .content'
 					};
 					options = $.extend(DEFAULTS,options);
@@ -50,7 +50,7 @@
 						var $tab = $(this);
 						var $btn = $tab.find(options.btnSelector);
 						console.log($btn )
-						$btn.on('click',function(){
+						$btn.on(options.eventType,function(){
 							$(this).addClass(options.activeClass).siblings().removeClass(options.activeClass);
 							var index = $(this).index();
 							$tab.find(options.contentSelector).eq(index).addClass('show').siblings().removeClass('show');
@@ -63,7 +63,7 @@
 	</script>
 	<script>
 		$(function(){
-			$('.tab').tab();
+			$('.tab').tab({eventType:'mouseover'});
 		})
 	</script>
 </head>
