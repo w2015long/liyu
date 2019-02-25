@@ -5,7 +5,8 @@
 	<title>049-jQuery基础原理.html</title>
 </head>
 <body>
-	
+	<div>div</div>
+	<div class="box"></div>
 </body>
 <script src="js/kQuery-1.0.js"></script>
 <!-- <script src="js/jquery-1.12.4.js"></script> -->
@@ -16,14 +17,30 @@
 		console.log($(function(){}))
 	})
 	*/
+	
 	//1.布尔值
 	console.log($(null));	
-	console.log($(NaN));	
-	console.log($(false));	
-	console.log($(undefined));
+	// console.log($(NaN));	
+	// console.log($(false));	
+	// console.log($(undefined));
+	
 	//2.函数
-	console.log(function(){});
-	//3.对象
+	console.log($(function(){}));
+	//3.数组
+	//3.1真数组
+	var arr = [1,5,8,9,10];
+	console.log($(arr));
+	//3.2伪数组
+	var likeArr = {0:'apple',1:'boy',2:'cat',length:3};
+	console.log($(likeArr));
+	//4.字符串
+	//4.1 html代码
+	console.log($('<h1>标题</h1><div><span>span</span></div>'));
+	//4.2 选择器
+	// console.log($('.box'));
+	//5.对象
+	var obj = {Tom:"Leo",age:18};
+	console.log(obj)
 	
 </script>
 </html>
