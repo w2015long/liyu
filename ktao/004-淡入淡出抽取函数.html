@@ -31,7 +31,7 @@
 </body>
 <script src="js/jquery-1.12.4.js"></script>
 <script>
-	function init($elem){
+	function init1($elem){
 		if($elem.is(':hidden')){
 			$elem.data('status','hidden');
 		}else{
@@ -51,7 +51,7 @@
 		callback();
 	}
 	var salient = {
-		init:init,
+		init:init1,
 		show:function($elem){
 			/*
 			if($elem.data('status') == 'show') return ;
@@ -83,8 +83,15 @@
 	var js = {
 		fade:{
 			init:function($elem){
+				/*
+				if($elem.is(':hidden')){
+					$elem.data('status','hidden');
+				}else{
+					$elem.data('status','shown');
+				}
+				*/
 				$elem.removeClass('transition');
-				init();
+				init1($elem);
 			},
 			show:function($elem){
 				/*
