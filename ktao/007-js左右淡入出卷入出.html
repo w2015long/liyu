@@ -143,7 +143,61 @@
 				});					
 			}			
 
-		}		
+		},
+		fadeSlideLeftRight:{
+			init:function($elem){
+				$elem.removeClass('transition');
+				//1.获取初始值	
+				var styles = {
+					width:$elem.css('width'),
+					paddingLeft:$elem.css('paddingLeft'),
+					paddingRight:$elem.css('paddingRight'),
+					borderLeftWidth:$elem.css('borderLeftWidth'),
+					borderRightWidth:$elem.css('borderRightWidth'),
+					opacity:$elem.css('opacity')
+				};
+				//2.保存初始值	
+				$elem.data('row',styles);
+				//3初始化	
+				init($elem,function(){
+					$elem.css({
+						width:0,
+						paddingLeft:0,
+						paddingRight:0,
+						borderLeftWidth:0,
+						borderRightWidth:0,
+						opacity:0						
+					})
+				});		
+			},
+			show:function($elem){
+				show($elem,function(){
+					$elem.show();//display:block
+					$elem.stop()
+					.animate($elem.data('row'),function(){
+						$elem.trigger('shown').data('status','shown');
+					})					
+				});					
+			},
+			hide:function($elem){
+				hide($elem,function(){
+					
+					$elem.stop()
+					.animate({
+						width:0,
+						paddingLeft:0,
+						paddingRight:0,
+						borderLeftWidth:0,
+						borderRightWidth:0,
+						opacity:0							
+					},function(){
+						$elem.hide();//display:none;
+						$elem.trigger('hidden').data('status','hidden');
+					})						
+				});					
+			}			
+
+		},				
 	}  
 	js._init = function($elem){
 		$elem.removeClass('transition');
@@ -208,7 +262,8 @@
 		
 		js.slide.hide($elem);
 	});
-*/	
+*/
+/*	
 	js.slideLeftRight.init($elem);
 	$('button').eq(0).on('click',function(){
 		js.slideLeftRight.show($elem);
@@ -216,6 +271,15 @@
 	$('button').eq(1).on('click',function(){
 		
 		js.slideLeftRight.hide($elem);
+	});
+*/
+	js.fadeSlideLeftRight.init($elem);
+	$('button').eq(0).on('click',function(){
+		js.fadeSlideLeftRight.show($elem);
+	});
+	$('button').eq(1).on('click',function(){
+		
+		js.fadeSlideLeftRight.hide($elem);
 	});
 </script>
 </html>
