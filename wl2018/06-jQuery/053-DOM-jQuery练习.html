@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>053-DOM-jq练习</title>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			$('.item1').prepend('<li class="item0">item0</li>');
+			$('.item1').append('<li class="item2">item2</li>');
+			// $('.item3').append('<li class="item4">item4</li>');
+			$('.item7').replaceWith('<li class="item4">item4</li>');
+			$('.item5').append('<li class="item6">item6</li>');
+		})
+	</script>
+</head>
+<body>
+	<div class="box">
+		<ul class="list">
+			<li class="item1">item1</li>
+			<li class="item3">item3</li>
+			<li class="item7">item7</li>
+			<li class="item5">item5</li>
+		</ul>
+	</div>
+</body>
+</html>

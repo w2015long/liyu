@@ -13,6 +13,9 @@
 .clearfix{
 	*zoom: 1;
 }
+.transition{
+	transition: all 0.3s ease-in;
+}
 li{
 	list-style: none;
 }
@@ -32,4 +35,14 @@ a:hover{
 }
 .fr{
 	float: right;
+}
+.dropdown{
+	position: relative;
+}
+.dropdown-layer{
+	display: none;
+	position: absolute;
+}	
+[class *= '-active'] .arrow{
+	transform: rotate(180deg);
 }
