@@ -1,4 +1,4 @@
-/*头部导航*/
+/*顶部导航*/
 	.nav-side{
 	    width: 100%;
 	    height: 34px;
@@ -49,7 +49,7 @@
 	.dropdown-item:hover{
 		background: #f4f0f4;
 	}
-/*
+	/*
 	.dropdown:hover .dropdown-toggle{
 		display: block;
 		width: 82px;
@@ -68,7 +68,7 @@
 		border: 1px solid #ddd;
 		border-top: none;
 	}
-*/
+	*/
 
 	.menu-active .dropdown-toggle{
 		display: block;
@@ -87,5 +87,151 @@
 		width: 92px;
 		border: 1px solid #ddd;
 		border-top: none;
+	}
+/*header头部部分*/
+	.header{
+		width: 100%;
+		height: 110px;
+	}
+	.header .header-logo-box{
+		float: left;
+	}
+	.header .header-logo{
+		display: block;
+		width: 190px;
+		height: 90px;
+		background: #fff url(../imgs/logo.png) center center no-repeat;
+		background-size: cover;
+		text-indent: -9999px;
+	}
+	.header .header-search{
+		float: left;
+		width: 540px;
+		height: 110px;
+		margin-left: 160px;
+	}
+	.header .main-search{
+		position: relative;
+		width: 100%;
+		height: 84px;
+		margin: 26px 0 0;
+	}
+	.header .main-search .fa-search{
+		position: absolute;
+		top: 0;
+		left: 0;
+	    width: 25px;
+	    height: 40px;
+	    line-height: 40px;
+	    text-align: right;
+	    font-size: 14px;
+	    color: #ccc;	
+	}
+	.header .main-search form{
+		margin: 0;
+		padding: 0;
+	}
+	.header .main-search .search-keyword-box{
+		float: left;
+		width: 390px;
+		height: 36px;
+		background: #fff;
+		padding: 0 0 0 28px;
+		border: 2px solid #FA0;
+		border-right: none;
+	}
+	.header .main-search .search-keyword-box .search-keyword{
+		width: 362px;
+		height: 36px;
+		border: none;
+		outline: none;
+		font-size: 12px;
+		padding-left: 4px;
+		background: #fff;
+		color: #BBB;
+	}
+	.header .main-search .serch-btn{
+		float: left;
+		width: 120px;
+		height: 40px;
+		border: 0;
+		background: #f90;
+		font-size: 18px;
+		text-indent: 2px;
+		color: #fff;
+		font-family: "MicroSoft YaHei";
+		font-weight: bold;
+		cursor: pointer;
+	}
+	.header .main-search .serch-btn:hover{
+		background: #f80;
+	}
+	.header .main-search .hot-words{
+		position: absolute;
+		bottom: 20px;
+		left: 0;
+		width: 100%;
+		height: 18px;
+	}
+	.header .main-search .hot-words .hot-words-item:first-child{
+		margin-left:0px ;
+	}
+	.header .main-search .hot-words .hot-words-item{
+		float: left;
+		margin-left:10px ;
+		color: #889399;
+	}
+	.header .main-search .hot-words .hot-words-item:hover{
+		color: #f60;
+	}
+	.header .main-search .hot-words .hot-words-item .sep{
+		color: #e2e2e2;
+		margin-left: 8px;
+	}
+/*nav-bar开始*/
+/*nav-bar导航条*/
+	.nav-bar{
+		width: 100%;
+		height: 38px;
+	}
+	.nav-bar .homepage-sort{
+		float: left;
+		width: 190px;
+		height: 38px;
+		background: #f90;
+		font-family: "Microsoft Yahei";
+		
+	}
+	.nav-bar .homepage-sort:hover{
+		background: #f80;
+	}
+	.nav-bar .homepage-sort a{
+		display: block;
+		margin: 9px 0 9px 8px; 
+		font-size: 13px;
+		font-weight: bold;
+		color: #fff;
+	}
+	.nav-bar .nav-home{
+		float: left;
+		width: 795px;
+		height: 38px;
+	}
+	.nav-bar .nav-home ul .nav-home-item{
+		float: left;
+		height: 38px;
+		line-height: 38px;
+		padding: 0 12px 0 13px;
+	}
+	.nav-bar .nav-home ul .nav-home-item a{ 
+		display: inline-block;
+		font-size: 15px;
+		font-family: "Microsoft Yahei";
+		font-weight: bold;	
+	}
+	.nav-bar .nav-right{
+		float: right;
+		width: 170px;	
+		height: 38px;
 	}
 
