@@ -19,16 +19,7 @@
 				this.$elem.trigger('dropdown-' + ev.type);
 			}.bind(this));
 			//3.绑定事件
-			if(this.options.eventName == 'click'){
-				this.$elem.on('click',function(ev){
-					ev.stopPropagation();
-					this.show();
-				}.bind(this));
-				$(document).on('click',$.proxy(this.hide,this));
-			}else{
-				this.$elem.hover($.proxy(this.show,this),$.proxy(this.hide,this));
-			}
-			
+			this.$elem.hover($.proxy(this.show,this),$.proxy(this.hide,this));
 			
 		},
 		show:function(){
@@ -53,12 +44,7 @@
 			this.$elem.removeClass(this.activeClass);
 		}
 	}
-	Dropdown.DEFAULTS = {
-		js:true,
-		mode:'slideDownUp',
-		delay:200,
-		eventName:'hover'
-	};
+	Dropdown.DEFAULTS = {js:true,mode:'slideDownUp',delay:200};
 
 
 	//注册插件
@@ -66,18 +52,8 @@
 		dropdown:function(options){
 			return this.each(function(){
 				var $elem = $(this);
-				var dropdownObj = $elem.data('dropdown');
-				// console.log(dropdownObj)    
-				if(!dropdownObj){
-					options = $.extend({},Dropdown.DEFAULTS,options);
-					dropdownObj = new Dropdown($elem,options);
-					dropdownObj = $elem.data('dropdown',dropdownObj);
-				}
-				if(typeof dropdownObj[options] == 'function'){
-					dropdownObj[options]($elem);
-				}
-				
-				
+				options = $.extend({},Dropdown.DEFAULTS,options);
+				new Dropdown($elem,options);
 			});
 		}
 	})

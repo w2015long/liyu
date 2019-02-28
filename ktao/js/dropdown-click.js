@@ -57,7 +57,7 @@
 		js:true,
 		mode:'slideDownUp',
 		delay:200,
-		eventName:'hover'
+		eventName:'click'
 	};
 
 
@@ -66,18 +66,8 @@
 		dropdown:function(options){
 			return this.each(function(){
 				var $elem = $(this);
-				var dropdownObj = $elem.data('dropdown');
-				// console.log(dropdownObj)    
-				if(!dropdownObj){
-					options = $.extend({},Dropdown.DEFAULTS,options);
-					dropdownObj = new Dropdown($elem,options);
-					dropdownObj = $elem.data('dropdown',dropdownObj);
-				}
-				if(typeof dropdownObj[options] == 'function'){
-					dropdownObj[options]($elem);
-				}
-				
-				
+				options = $.extend({},Dropdown.DEFAULTS,options);
+				new Dropdown($elem,options);
 			});
 		}
 	})
