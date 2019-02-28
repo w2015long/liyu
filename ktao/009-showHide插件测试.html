@@ -3,8 +3,59 @@
 <head>
 	<meta charset="UTF-8">
 	<title>009-showHide插件测试.html</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/index.css">	
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 200px;
+			height: 200px;
+			padding: 20px;
+			border: 10px solid #000;
+			background: red;
+		}
+		button{
+			width: 60px;
+			height: 40px;
+
+		}
+	</style>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script src="js/showHide.js"></script>
+	<script>
+		$(function(){
+			$('div').on('show shown hide hidden',function(ev){
+				if(ev.type == 'show'){
+					console.log('show....')
+				}else if(ev.type == 'shown'){
+					console.log('shown....');
+				}else if(ev.type == 'hide'){
+					console.log('hide....')
+				}else if(ev.type == 'hidden'){
+					console.log('hidden....')
+				}
+			});	
+			$('div').showHide({
+				js:true,
+				mode:'slideDownUp'
+			});					
+			$('button').eq(0).on('click',function(){
+				$('div').showHide('show');	
+			});
+			$('button').eq(1).on('click',function(){
+				$('div').showHide('hide');				
+			});
+		})
+	</script>
 </head>
 <body>
-	
+	<button>显示</button>
+	<button>隐藏</button>
+	<div class="transition"></div>
 </body>
 </html>

@@ -201,7 +201,7 @@
 	}  
 	js._init = function($elem){
 		$elem.removeClass('transition');
-		_init($elem);		
+		init($elem);		
 	}
 	js._show = function($elem,mode){
 		show($elem,function(){
@@ -232,7 +232,7 @@
 		}
 
 	});
-	/*
+/*
 	salient.init($elem);
 	$('button').eq(0).on('click',function(){
 		salient.show($elem);
@@ -241,8 +241,8 @@
 		
 		salient.hide($elem);
 	});
-	*/
-	/*
+*/
+/*
 	js.fade.init($elem);
 	$('button').eq(0).on('click',function(){
 		js.fade.show($elem);
@@ -251,19 +251,10 @@
 		
 		js.fade.hide($elem);
 	});
-	*/
-	
-/*
-	js.slide.init($elem);
-	$('button').eq(0).on('click',function(){
-		js.slide.show($elem);
-	});
-	$('button').eq(1).on('click',function(){
-		
-		js.slide.hide($elem);
-	});
 */
-/*	
+	
+
+	
 	js.slideLeftRight.init($elem);
 	$('button').eq(0).on('click',function(){
 		js.slideLeftRight.show($elem);
@@ -272,7 +263,8 @@
 		
 		js.slideLeftRight.hide($elem);
 	});
-*/
+
+/*
 	js.fadeSlideLeftRight.init($elem);
 	$('button').eq(0).on('click',function(){
 		js.fadeSlideLeftRight.show($elem);
@@ -281,5 +273,6 @@
 		
 		js.fadeSlideLeftRight.hide($elem);
 	});
+	*/
 </script>
 </html>

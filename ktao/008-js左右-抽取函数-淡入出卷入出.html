@@ -95,12 +95,13 @@
 		},
 		slideLeftRight:{
 			init:function($elem){
+				//1.初始化
 				js._customInit($elem,{
-					width:$elem.css('width'),
-					paddingLeft:$elem.css('paddingLeft'),
-					paddingRight:$elem.css('paddingRight'),
-					borderLeftWidth:$elem.css('borderLeftWidth'),
-					borderRightWidth:$elem.css('borderRightWidth')					
+					width:0,
+					paddingLeft:0,
+					paddingRight:0,
+					borderLeftWidth:0,
+					borderRightWidth:0					
 				})
 				/*
 				$elem.removeClass('transition');
@@ -127,15 +128,26 @@
 				*/	
 			},
 			show:function($elem){
+				js._customShow($elem);
+				/*
 				show($elem,function(){
 					$elem.show();//display:block
 					$elem.stop()
 					.animate($elem.data('row'),function(){
 						$elem.trigger('shown').data('status','shown');
 					})					
-				});					
+				});	
+				*/				
 			},
 			hide:function($elem){
+				js._customHide($elem,{
+					width:0,
+					paddingLeft:0,
+					paddingRight:0,
+					borderLeftWidth:0,
+					borderRightWidth:0					
+				});
+				/*
 				hide($elem,function(){
 					
 					$elem.stop()
@@ -149,12 +161,22 @@
 						$elem.hide();//display:none;
 						$elem.trigger('hidden').data('status','hidden');
 					})						
-				});					
+				});	
+				*/				
 			}			
 
 		},
 		fadeSlideLeftRight:{
 			init:function($elem){
+				js._customInit($elem,{
+					width:0,
+					paddingLeft:0,
+					paddingRight:0,
+					borderLeftWidth:0,
+					borderRightWidth:0,
+					opacity:0						
+				})
+				/*
 				$elem.removeClass('transition');
 				//1.获取初始值	
 				var styles = {
@@ -177,20 +199,32 @@
 						borderRightWidth:0,
 						opacity:0						
 					})
-				});		
+				});	
+				*/	
 			},
 			show:function($elem){
+				js._customShow($elem);
+				/*
 				show($elem,function(){
 					$elem.show();//display:block
 					$elem.stop()
 					.animate($elem.data('row'),function(){
 						$elem.trigger('shown').data('status','shown');
 					})					
-				});					
+				});	
+				*/				
 			},
 			hide:function($elem){
+				js._customHide($elem,{
+					width:0,
+					paddingLeft:0,
+					paddingRight:0,
+					borderLeftWidth:0,
+					borderRightWidth:0,
+					opacity:0						
+				});
+				/*
 				hide($elem,function(){
-					
 					$elem.stop()
 					.animate({
 						width:0,
@@ -203,14 +237,15 @@
 						$elem.hide();//display:none;
 						$elem.trigger('hidden').data('status','hidden');
 					})						
-				});					
+				});		
+				*/			
 			}			
 
 		},				
 	}  
 	js._init = function($elem){
 		$elem.removeClass('transition');
-		_init($elem);		
+		init($elem);		
 	}
 	js._show = function($elem,mode){
 		show($elem,function(){
@@ -233,20 +268,33 @@
 		//1.获取初始值	
 		var styles = {};
 		for(var key in options){
+			//key = options[key]
 			styles[key] = $elem.css(key);
 		}
 		//2.保存初始值	
 		$elem.data('row',styles);
 		//3初始化	
 		init($elem,function(){
-			$elem.css({
-				width:0,
-				paddingLeft:0,
-				paddingRight:0,
-				borderLeftWidth:0,
-				borderRightWidth:0							
-			})
+			$elem.css(options);
 		});	
+	}
+	js._customShow = function($elem){
+		show($elem,function(){
+			$elem.show();//display:block
+			$elem.stop()
+			.animate($elem.data('row'),function(){
+				$elem.trigger('shown').data('status','shown');
+			});					
+		});			
+	}
+	js._customHide = function($elem,options){
+		hide($elem,function(){
+			$elem.stop()
+			.animate(options,function(){
+				$elem.hide();//display:none;
+				$elem.trigger('hidden').data('status','hidden');
+			});						
+		});		
 	}
 	var $elem = $('div');
 	$elem.on('show shown hide hidden',function(ev){
@@ -259,7 +307,6 @@
 		}else if(ev.type == 'hidden'){
 			console.log('hidden....')
 		}
-
 	});
 	/*
 	salient.init($elem);
@@ -282,17 +329,7 @@
 	});
 	*/
 	
-/*
-	js.slide.init($elem);
-	$('button').eq(0).on('click',function(){
-		js.slide.show($elem);
-	});
-	$('button').eq(1).on('click',function(){
-		
-		js.slide.hide($elem);
-	});
-*/
-/*	
+	/*	
 	js.slideLeftRight.init($elem);
 	$('button').eq(0).on('click',function(){
 		js.slideLeftRight.show($elem);
@@ -301,7 +338,9 @@
 		
 		js.slideLeftRight.hide($elem);
 	});
-*/
+	*/
+
+
 	js.fadeSlideLeftRight.init($elem);
 	$('button').eq(0).on('click',function(){
 		js.fadeSlideLeftRight.show($elem);
@@ -310,5 +349,6 @@
 		
 		js.fadeSlideLeftRight.hide($elem);
 	});
+
 </script>
 </html>
