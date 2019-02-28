@@ -1,37 +1,14 @@
-.container{
-	width: 1200px;
-	margin-left: auto;
-	margin-right: auto;
-}
-.clearfix:after{
-	display: block;
-	content: '';
-	clear: both;
-	height: 0;
-	visibility: hidden;
-}
-.clearfix{
-	*zoom: 1;
-}
-.transition{
-	transition: all 0.3s ease-in;
-}
-li{
-	list-style: none;
-}
-body {
-	color: #333;
-	font: 12px/1.5 arial, tahoma, 宋体;
-}
-a{
-	text-decoration: none;
-	color: #333;
-}
-a:hover{
-	color: #f67;
-}
-/*loading*/
-		.loading{
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>001-loader动画.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.loader{
 			position: relative;
 			width: 4px;
 			height: 20px;
@@ -41,8 +18,8 @@ a:hover{
 			transform: scale(1,1);
 			animation: load 1s ease-in infinite;
 		}
-		.loading:after,
-		.loading:before{
+		.loader:after,
+		.loader:before{
 			position: absolute;
 			top: 50%;
 			left: 50%;
@@ -52,12 +29,12 @@ a:hover{
 			border-radius: 4px;
 			background: #ff6700;
 		}
-		.loading:after{
+		.loader:after{
 			margin: -10px 0 0 5px;
 			transform: scale(1,0.5);
 			animation: load 1s ease-in infinite 0.3s;
 		}
-		.loading:before{
+		.loader:before{
 			margin: -10px 0 0 -9px;
 			transform: scale(1,0.5);
 			animation: load 1s ease-in infinite 0.6s;
@@ -72,19 +49,9 @@ a:hover{
 				transform: scale(1,0.5);
 			}
 		}
-.fl{
-	float: left;
-}
-.fr{
-	float: right;
-}
-.dropdown{
-	position: relative;
-}
-.dropdown-layer{
-	display: none;
-	position: absolute;
-}	
-[class *= '-active'] .arrow{
-	transform: rotate(180deg);
-}
+	</style>
+</head>
+<body>
+	<div class="loader"></div>
+</body>
+</html>
