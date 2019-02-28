@@ -67,7 +67,7 @@
 			return this.each(function(){
 				var $elem = $(this);
 				var dropdownObj = $elem.data('dropdown');
-				if(!dropdownObj){
+				if(!dropdownObj){//单例模式
 					options = $.extend({},Dropdown.DEFAULTS,options);
 					dropdownObj = new Dropdown($elem,options);
 					$elem.data('dropdown',dropdownObj);

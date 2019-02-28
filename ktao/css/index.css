@@ -151,7 +151,7 @@
 		background: #fff;
 		color: #BBB;
 	}
-	.header .main-search .serch-btn{
+	.header .main-search .search-btn{
 		float: left;
 		width: 120px;
 		height: 40px;
@@ -166,6 +166,27 @@
 	}
 	.header .main-search .serch-btn:hover{
 		background: #f80;
+	}
+	.header .main-search .search-layer{
+		display: none;
+		position: absolute;
+		top: 40px;
+		left: 0;
+		width: 538px;
+		border: 1px solid #ddd;
+		border-top: none;
+
+	}
+	.header .main-search .search-layer li{
+		width: 100%;
+		height: 30px;
+		padding: 0 10px;
+		box-sizing: border-box;
+		line-height: 30px;
+		background: #fff;
+	}
+	.header .main-search .search-layer li:hover{
+		background: #eee;
 	}
 	.header .main-search .hot-words{
 		position: absolute;
