@@ -67,14 +67,13 @@
 			return this.each(function(){
 				var $elem = $(this);
 				var dropdownObj = $elem.data('dropdown');
-				// console.log(dropdownObj)    
 				if(!dropdownObj){
 					options = $.extend({},Dropdown.DEFAULTS,options);
 					dropdownObj = new Dropdown($elem,options);
-					dropdownObj = $elem.data('dropdown',dropdownObj);
+					$elem.data('dropdown',dropdownObj);
 				}
 				if(typeof dropdownObj[options] == 'function'){
-					dropdownObj[options]($elem);
+					dropdownObj[options]();
 				}
 				
 				

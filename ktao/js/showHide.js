@@ -197,6 +197,7 @@
 				if(!showHideObj){//单例模式
 					options = $.extend({},DEFAULTS,options);
 					showHideObj = getShowHide($elem,options);
+					// console.log(showHideObj)
 					showHideObj = $elem.data('objShowHide',showHideObj);
 				}
 				//第二次调用(传入的方法)
