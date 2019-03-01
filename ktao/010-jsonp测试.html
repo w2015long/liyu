@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>010-jsonp测试.html</title>
+</head>
+<body>
+	<button>获取数据</button>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		var url = 'https://suggest.taobao.com/sug?code=utf-8&q=vn&_ksTS=1551425739455_330&callback=jsonp331&k=1&area=c2c&bucketid=11';
+		$.ajax({
+			url:url,
+			dataType:'jsonp',
+			json:'callback'
+		})
+		.done(function(data){
+			console.log(data)
+		})
+		.fail(function(error){
+			console.log(error)
+		})
+		.always(function(){
+			console.log('always....');
+		})
+	})
+</script>
+</html>
