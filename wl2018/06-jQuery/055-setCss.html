@@ -20,31 +20,25 @@
 	<div>div1</div>
 	<div>div2</div>
 	<div>div3</div>
+	
 </body>
 <script src="js/jquery-1.12.4.js"></script>
 <script>
 	;(function($){
-
-
 		//注册插件
 		$.fn.extend({
-			setCss:function(){
-				console.log(arguments)
+			setCSS:function(arg1,arg2){
 
-				if($.isString(arguments[0])){
-					// console.log(11)
+				if($.isString(arg1)){//传入字符串
 					//获取属性
-					var attr = arguments[0]
 					if(arguments.length == 1){
-						
-						return  getComputedStyle(this[0], false)[attr];
+						return  getComputedStyle(this[0], false)[arg1];
 					}else if(arguments.length == 2){
-
 						for(var i=0;i<this.length;i++){
-							console.log(arguments[0])
-							this.style[attr] = arguments[1];
+							this[i].style[arg1] = arg2;
 						}
 					}
+<<<<<<< HEAD
 				}else if($.isObj(arguments[0])){
 					// console.log(this.length)
 					/*
@@ -56,13 +50,18 @@
 					})
 					*/
 					// var att =  arguments[0]
+=======
+				}
+				if($.isObj(arg1)){//传入对象
+>>>>>>> 604d2c6a7cbaf9d4c900533a18d81b8b21f2a73e
 					for(var i=0;i<this.length;i++){
-						for(key in arguments[0]){
-							this.style[key] = arguments[0][key];
+						for(key in arg1){
+							this[i].style[key] = arg1[key];
 						}
 					}
 					
 				}
+				return this;
 			}
 		})
 		$.extend({
@@ -78,7 +77,12 @@
 	})(jQuery);
 </script>
 <script>
+<<<<<<< HEAD
 	var res = $('div').setCss("width");
 	// console.log(res)
+=======
+	var res = $('div').setCSS({'height':'300px'});
+	console.log(res)
+>>>>>>> 604d2c6a7cbaf9d4c900533a18d81b8b21f2a73e
 </script>
 </html>
