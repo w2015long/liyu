@@ -38,22 +38,9 @@
 							this[i].style[arg1] = arg2;
 						}
 					}
-<<<<<<< HEAD
-				}else if($.isObj(arguments[0])){
-					// console.log(this.length)
-					/*
-					return this.each(function(){
 
-					});
-					this.each(function(){
-	
-					})
-					*/
-					// var att =  arguments[0]
-=======
 				}
 				if($.isObj(arg1)){//传入对象
->>>>>>> 604d2c6a7cbaf9d4c900533a18d81b8b21f2a73e
 					for(var i=0;i<this.length;i++){
 						for(key in arg1){
 							this[i].style[key] = arg1[key];
@@ -77,12 +64,8 @@
 	})(jQuery);
 </script>
 <script>
-<<<<<<< HEAD
-	var res = $('div').setCss("width");
-	// console.log(res)
-=======
+
 	var res = $('div').setCSS({'height':'300px'});
 	console.log(res)
->>>>>>> 604d2c6a7cbaf9d4c900533a18d81b8b21f2a73e
 </script>
 </html>
