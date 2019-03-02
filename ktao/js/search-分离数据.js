@@ -45,12 +45,6 @@
 				ev.stopPropagation();
 			})
 			//事件代理下拉层每一项点击事件
-			// this.layer.delegate('selector','eventType', function(event) {selector});
-			this.layer.on('click','.search-layer-hots',function(){
-				//1.获取下拉层当前点击值
-				//2.下拉层点击值赋到input框
-				//3.触发提交事件
-			});
 		},
 		appendHtml:function(html){
 			console.log('is come');
@@ -85,10 +79,29 @@
 				json:'callback'
 			})
 			.done(function(data){
+				/*
+				console.log(data)
+				//由后台数据生成html
+				var html = '';
+				for(var i=0;i<data.result.length;i++){
+					html += '<li class="search-layer-hots">'+data.result[i][0]+'</li>'
+				}
+				//加载下拉层
+				this.appendHtml(html);
+				//根据数据是否显示下拉层
+				if(html == ''){
+					this.hideLayer();
+				}else{
+					this.showLayer();
+				}
+				*/
 				this.elem.trigger('readData',[data]);
 			}.bind(this))
 			.fail(function(err){
-
+				/*
+				this.appendHtml('');
+				this.hideLayer();
+				*/
 				this.elem.trigger('readNoData');
 			}.bind(this))
 			.always(function(){

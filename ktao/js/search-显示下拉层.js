@@ -45,15 +45,8 @@
 				ev.stopPropagation();
 			})
 			//事件代理下拉层每一项点击事件
-			// this.layer.delegate('selector','eventType', function(event) {selector});
-			this.layer.on('click','.search-layer-hots',function(){
-				//1.获取下拉层当前点击值
-				//2.下拉层点击值赋到input框
-				//3.触发提交事件
-			});
 		},
 		appendHtml:function(html){
-			console.log('is come');
 			this.layer.html(html);
 
 			this.isLoaded = !!html;//如果html为空  此值为false
@@ -79,17 +72,33 @@
 				//数据为空 不应该发送ajax请求 直接return 不在朝下走
 				return ;
 			}
+			//用户动态获取数据
+			// var url = 'https://suggest.taobao.com/sug?code=utf-8&q='+this.getInputVal()
 			$.ajax({
 				url:this.options.url+inputVal,
 				dataType:'jsonp',
 				json:'callback'
 			})
 			.done(function(data){
-				this.elem.trigger('readData',[data]);
+				console.log(data)
+				//由后台数据生成html
+				var html = '';
+				for(var i=0;i<data.result.length;i++){
+					html += '<li class="search-layer-hots">'+data.result[i][0]+'</li>'
+				}
+				//加载下拉层
+				this.appendHtml(html);
+				//根据数据是否显示下拉层
+				if(html == ''){
+					this.hideLayer();
+				}else{
+					this.showLayer();
+				}
+				
 			}.bind(this))
 			.fail(function(err){
-
-				this.elem.trigger('readNoData');
+				this.appendHtml('');
+				this.hideLayer();
 			}.bind(this))
 			.always(function(){
 				
@@ -106,7 +115,7 @@
 
 	//注册插件
 	$.fn.extend({
-		search:function(options,val){
+		search:function(options){
 			return this.each(function(){
 				var $elem = $(this);
 				var searchObj = $elem.data('search');
@@ -116,7 +125,7 @@
 					$elem.data('search',searchObj);
 				}
 				if(typeof searchObj[options] == 'function'){
-					searchObj[options](val);
+					searchObj[options]();
 				}
 				
 				
