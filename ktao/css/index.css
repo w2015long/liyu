@@ -38,7 +38,7 @@
 		line-height: 32px;
 
 	}
-	.dropdown .dropdown-toggle{
+	.nav-side .dropdown .dropdown-toggle{
 		display: block;
 		width: 82px;
 	    height: 35px;
@@ -257,13 +257,8 @@
 		height: 38px;
 	}
 /*banner*/
-	.banner{
-		position: relative;
-	}
-
 	.banner .category{
-		position: absolute;
-		top: 0;
+		position: relative;
 		width: 190px;
 		height: 482px;
 		z-index: 99;
@@ -293,14 +288,52 @@
 	.banner .category .category-list .sep{
 		color: #6d6968 ;
 	}
-	/*轮播图*/
-	.banner .carousel .leftBtn{
-		display: block;
-		position: absolute;
-		left: 190px;
-		margin-top: 50%;
-		top: -32px;
-		width: 30px;
-		height: 64px;
-		background: red;
+	.category .dropdown{
+		position: static;
 	}
+	.category .dropdown-layer{
+		/*display: block;*/
+		top:0;
+		left:100%;
+		width: 774px;
+		height: 482px;
+		background: #999;
+		padding-bottom: 24px;
+		box-sizing: border-box;
+	}
+	.category-details{
+		overflow: hidden;
+		margin-top: 24px;
+		font-size: 14px;
+		width: 764px;
+	}
+	.category-details-title{
+		width: 84px;
+		text-align: right;
+		box-sizing: border-box;
+		padding-right: 10px;
+		border-right: 1px solid #ccc;
+	}
+	.category-details-title-link{
+		font-weight: bold;
+	}
+	.category-details-item{
+		width: 670px;
+		line-height: 20px;
+	}
+	.category-details-item .link{
+		margin-left: 10px;
+		display: inline-block;
+	}
+	.category-active .dropdown-toggle{
+		background: #ccc;
+	}
+	.category-active .dropdown-link,
+	.category-active .dropdown-icon{
+		color: #ea675a;
+	}
+	.category .loading{
+		margin: 220px auto;
+	}	
+/*轮播图*/
+

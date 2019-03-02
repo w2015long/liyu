@@ -30,6 +30,9 @@ a{
 a:hover{
 	color: #f67;
 }
+a.link:hover{
+	color: #ea675a;
+}
 /*loading*/
 		.loading{
 			position: relative;
