@@ -1,18 +1,4 @@
 ;(function($){
-//缓存
-	var cache = {
-		data:{},
-		count:0,
-		addData:function(key,val){
-			this.data[key] = val;
-			this.count++;
-		},
-		getData:function(key){
-			return this.data[key];
-		}
-	}
-
-
 	function Search($elem,options){
 		//1.罗列属性
 		this.elem = $elem;
@@ -21,10 +7,8 @@
 		this.searchForm = $elem.find('.search-form');
 		this.searchInput = $elem.find('.search-keyword');
 		this.layer = $elem.find('.search-layer');
-
 		this.isLoaded = false;
 		this.timer = null;
-		this.jqXHR = null;
 		//2.初始化
 		this.init();
 		if(this.options.autoComplete){
@@ -98,7 +82,6 @@
 			this.layer.showHide('hide');
 		},		
 		getData:function(){
-			console.log('will get data....');
 			var inputVal = this.getInputVal();
 			if(inputVal == ''){
 				//数据为空 下拉层数据也为空
@@ -108,36 +91,22 @@
 				//数据为空 不应该发送ajax请求 直接return 不在朝下走
 				return ;
 			}
-			console.log('cache',cache);
-			
-			//如果缓存中有数据 直接从缓存中取
-			if(cache.getData(inputVal)){
-				this.elem.trigger('readData',[cache.getData(inputVal)]);
-				//取了缓存数据直接return 
-				return;
-			}
-			console.log('will trigger ajax....');
-			//保证获取最新的ajax请求
-			if(this.jqXHR){
-				this.jqXHR.abort();
-			}
-			this.jqXHR = $.ajax({
+			console.log('will get data....')
+			$.ajax({
 				url:this.options.url+inputVal,
 				dataType:'jsonp',
 				json:'callback'
 			})
 			.done(function(data){
 				this.elem.trigger('readData',[data]);
-				//缓存数据
-				cache.addData(inputVal,data);
 			}.bind(this))
 			.fail(function(err){
 
 				this.elem.trigger('readNoData');
 			}.bind(this))
 			.always(function(){
-				this.jqXHR = null;
-			}.bind(this));
+				
+			})
 		},
 		setInputVal:function(val){
 			//替换里边的html标签
@@ -149,7 +118,7 @@
 		url:'https://suggest.taobao.com/sug?code=utf-8&q=',
 		js:true,
 		mode:'slideDownUp',
-		getDataDelay:300
+		getDataDelay:200
 	};
 
 
