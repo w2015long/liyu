@@ -1,5 +1,5 @@
 ;(function($){
-	function Category($elem,options){
+	function Carousel($elem,options){
 		//1.罗列属性
 		this.$elem = $elem;
 		this.options = options;
@@ -7,8 +7,8 @@
 		//2.初始化
 		this.init();
 	}
-	Category.prototype = {
-		constructor:Category,
+	Carousel.prototype = {
+		constructor:Carousel,
 		init:function(){
 			if(this.options.slide){//划入划出
 
@@ -18,7 +18,7 @@
 		},
 
 	}
-	Category.DEFAULTS = {
+	Carousel.DEFAULTS = {
 		js:true,
 		mode:'fade',
 		slide:false
@@ -27,17 +27,17 @@
 
 	//注册插件
 	$.fn.extend({
-		dropdown:function(options){
+		carousel:function(options){
 			return this.each(function(){
 				var $elem = $(this);
-				var categoryObj = $elem.data('category');
-				if(!categoryObj){//单例模式
-					options = $.extend({},Category.DEFAULTS,options);
-					categoryObj = new Category($elem,options);
-					$elem.data('category',categoryObj);
+				var carouselObj = $elem.data('carousel');
+				if(!carouselObj){//单例模式
+					options = $.extend({},Carousel.DEFAULTS,options);
+					carouselObj = new Carousel($elem,options);
+					$elem.data('carousel',carouselObj);
 				}
-				if(typeof categoryObj[options] == 'function'){
-					categoryObj[options]();
+				if(typeof carouselObj[options] == 'function'){
+					carouselObj[options]();
 				}
 				
 				
