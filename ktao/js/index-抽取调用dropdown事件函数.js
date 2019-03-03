@@ -15,7 +15,28 @@
 	
 	$menuDrop.dropdown({js:true,mode:'slideDownUp',delay:200});
 	$menuDrop.on('dropdown-show',function(ev){
-
+		/*
+		var $elem = $(this);
+		var loadUrl = $elem.data('file');
+		if(!loadUrl) return;
+		var $layer = $elem.find('.dropdown-layer');
+		//防止多次请求数据 设置一个变量控制是否请求
+		var isLoaded = $elem.data('isLoaded');
+		if(isLoaded) return ;//如果已经请求到数据 就终止
+		$.getJSON(loadUrl, function(data) {
+				var html = '';
+				for(var i=0;i<data.length;i++){
+					html += '<li class="dropdown-item"><a href="'+data[i].url+'">'+data[i].name+'</a></li>'
+				}
+				//模拟网络延时
+				setTimeout(function(){
+					$layer.html(html);
+					//第一次请求到数据 变量设为true
+					$elem.data('isLoaded',true);
+				},800);
+				
+		});
+		*/
 		loadHtmlOnce($(this),buildMenuLayer)
 
 	});
@@ -69,7 +90,36 @@
 	
 	$categoryDrop.dropdown({js:true,mode:'slideLeftRight',delay:200});
 	$categoryDrop.on('dropdown-show',function(ev){
-
+		/*
+		var $elem = $(this);
+		var loadUrl = $elem.data('file');
+		if(!loadUrl) return;
+		var $layer = $elem.find('.dropdown-layer');
+		//防止多次请求数据 设置一个变量控制是否请求
+		var isLoaded = $elem.data('isLoaded');
+		if(isLoaded) return ;//如果已经请求到数据 就终止
+		$.getJSON(loadUrl, function(data) {		
+				var html = '';
+				for(var i=0;i<data.length;i++){
+					html += '<dl class="category-details">';
+					html += '	<dt class="category-details-title fl">';
+					html += '		<a href="#" class="category-details-title-link">'+data[i].title+'</a>';
+					html += '	</dt>';
+					html += '	<dd class="category-details-item fl">';
+					for(var j=0;j<data[i].items.length;j++){
+						html += '<a href="#" class="link">'+data[i].items[j]+'</a>';
+					}
+					html += '</dl>';
+				}
+				//模拟网络延时
+				setTimeout(function(){
+					$layer.html(html);
+					//第一次请求到数据 变量设为true
+					$elem.data('isLoaded',true);
+				},800);
+				
+		});
+		*/
 		loadHtmlOnce($(this),buildCategoryLayer);
 	});
 	function buildCategoryLayer($elem,data){

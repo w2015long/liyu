@@ -275,9 +275,9 @@
 	    line-height: 32px;
 	    box-sizing: border-box;
 	}
-	.banner .category .category-list:hover{
+/*	.banner .category .category-list:hover{
 		background: rgba(0,0,0,0.5);
-	}
+	}*/
 	.banner .category .category-list a{
 	    display: inline-block;
 	    vertical-align: middle;
@@ -326,14 +326,14 @@
 		display: inline-block;
 	}
 	.category-active .dropdown-toggle{
-		background: #ccc;
+		background: #f88;
 	}
 	.category-active .dropdown-link,
 	.category-active .dropdown-icon{
 		color: #ea675a;
 	}
 	.category .loading{
-		margin: 220px auto;
+		margin: 240px auto;
 	}	
 /*轮播图*/
 
