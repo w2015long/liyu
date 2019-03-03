@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>跨淘宝</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<style>
+		div{
+			position: absolute;
+			top: 100px;
+			left: 10px;
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<button>复原</button>
+	<button>移动</button>
+	<div></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+;(function($){
+	function Salient($elem){
+		this.$elem = $elem;
+		this.$elem.removeClass('transition');
+		this.currentX = parseFloat(this.$elem.css('left'));
+		this.currentY = parseFloat(this.$elem.css('top'));
+	}
+	Salient.prototype = {
+		constructor:Salient,
+		to:function(x,y){
+			x = (typeof x == 'number') ? x : this.currentY;
+			y = (typeof y == 'number') ? y : this.currentY;
+			if(this.currentX == x && this.currentY == y) return;
+			// console.log('will move....')
+			this.$elem.css({
+				left:x,
+				top:y
+			});
+			this.currentX = x;
+			this.currentY = y;
+		},
+		x:function(x){
+			this.to(x);
+		},
+		y:function(y){
+			this.to(null,y);
+		}
+	};
+	var $elem = $('div');
+	var move = new Salient($elem);
+	$elem.on('move moved',function(ev){
+		console.log(ev.type);
+	})
+	$('button:eq(0)').click(function(){
+		// move.to(10,100);
+		// move.x(400);
+	});
+	$('button:eq(1)').click(function(){
+		// move.to(300,100);
+		move.y(300);
+	});	
+})(jQuery);
+</script>
+</html>

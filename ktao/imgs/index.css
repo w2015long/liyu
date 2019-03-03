@@ -393,9 +393,9 @@
 		left:100%;
 	}
 /*轮播图公共样式结束*/
-	.banner .carousel-wrap,
-	.banner .carousel-wrap .carousel-item img {
-		width: 795px;
-		height: 482px;
+	.focus .carousel-wrap,
+	.focus .carousel-wrap .carousel-item img {
+		width: 728px;
+		height: 504px;
 	}	
 
