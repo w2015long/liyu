@@ -92,4 +92,7 @@
 					$elem.data('isLoaded',true);
 				},800);		
 	}
+	//carousel轮播图部分
+	var $carousel = $('.carousel .carousel-wrap');
+	$carousel.carousel({});
 })(jQuery);
