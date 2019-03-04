@@ -263,29 +263,29 @@
 		height: 482px;
 		z-index: 99;
 	}
-	.banner .category ul{
+	.category ul{
 		width: 190px;
 		height: 480px;
 		background: #262221;	
 	}
-	.banner .category .category-list{
+	.category .dropdown{
 	    width: 190px;
 	    height: 32px;
 	    padding: 0 8px 0 10px;
 	    line-height: 32px;
 	    box-sizing: border-box;
 	}
-/*	.banner .category .category-list:hover{
+/*	.category .dropdown:hover{
 		background: rgba(0,0,0,0.5);
 	}*/
-	.banner .category .category-list a{
+	.category .dropdown a{
 	    display: inline-block;
 	    vertical-align: middle;
 	    color: #FFF;
 	    font-size: 14px;
 	    text-decoration: none;
 	}
-	.banner .category .category-list .sep{
+	.category .dropdown .sep{
 		color: #6d6968 ;
 	}
 	.category .dropdown{
@@ -326,10 +326,10 @@
 		display: inline-block;
 	}
 	.category-active .dropdown-toggle{
-		background: #f88;
+		background: rgba(0,0,0,0.8);
 	}
-	.category-active .dropdown-link,
-	.category-active .dropdown-icon{
+	.category-active .dropdown-toggle .dropdown-link,
+	.category-active .dropdown-toggle .sep{
 		color: #ea675a;
 	}
 	.category .loading{
@@ -392,10 +392,10 @@
 	.carousel-wrap.slide .carousel-item{
 		left:100%;
 	}
-/*轮播图公共样式结束*/
 	.banner .carousel-wrap,
 	.banner .carousel-wrap .carousel-item img {
 		width: 795px;
 		height: 482px;
 	}	
+/*轮播图公共样式结束*/	
 

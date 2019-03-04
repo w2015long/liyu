@@ -67,7 +67,7 @@
 	//加载category
 	var $categoryDrop = $('.category .dropdown');
 	
-	$categoryDrop.dropdown({js:true,mode:'slideLeftRight',delay:200});
+	$categoryDrop.dropdown({js:true,mode:'slideLeftRight',delay:100});
 	$categoryDrop.on('dropdown-show',function(ev){
 
 		loadHtmlOnce($(this),buildCategoryLayer);
