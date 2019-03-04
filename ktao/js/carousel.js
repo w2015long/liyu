@@ -62,9 +62,9 @@
 				//初始化显示隐藏插件
 				this.carouselItems.showHide(this.options);
 				//懒加载
-				this.carouselItems.on('show shown hide hidden',function(ev){
-					_this.$elem.trigger('carousel-'+ev.type,this);
-					console.log(_this.carouselItems.index(this),ev.type);
+				this.carouselItems.on('show',function(ev,index,elem){
+					_this.$elem.trigger('carousel-'+ev.type,[_this.carouselItems.index(this),this]);
+					// console.log(_this.carouselItems.index(this),ev.type);
 				})				
 				this.tab = this._fade;
 			}

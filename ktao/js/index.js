@@ -94,8 +94,17 @@
 	}
 	//carousel轮播图部分
 	var $carousel = $('.carousel .carousel-wrap');
-	$carousel.on('carousel-show',function(ev){
-		
+	$carousel.on('carousel-show',function(ev,index,elem){
+		// console.log(index,elem);
+		var $img = $(elem).find('.carousel-img');
+		var imgUrl = $(elem).data('src');
+		var image = new Image();
+		image.onload = function(){
+			$(elem).attr('src',imgUrl);
+		}		
+		image.onerror = function(){
+			$(elem).attr('src','imgs/blank.gif');
+		}
 	})
 	$carousel.carousel({
 		slide:false,
