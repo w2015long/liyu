@@ -18,7 +18,6 @@
 		init:function(){
 			
 			/*--------------------------------*/
-			var _this = this;
 			//显示默认的指示按钮
 			this.btns.eq(this.now).addClass('active');
 			this.$elem
@@ -40,7 +39,7 @@
 				this.$elem.hover($.proxy(this.pause,this),$.proxy(this.autoplay,this));
 			}
 			//监听底部按钮事件
-			
+			var _this = this;
 			this.btns.on('click',function(){
 				_this.tab(_this.btns.index(this));
 			});	
@@ -61,11 +60,6 @@
 				this.carouselItems.eq(this.now).show();
 				//初始化显示隐藏插件
 				this.carouselItems.showHide(this.options);
-				//懒加载
-				this.carouselItems.on('show shown hide hidden',function(ev){
-					_this.$elem.trigger('carousel-'+ev.type,this);
-					console.log(_this.carouselItems.index(this),ev.type);
-				})				
 				this.tab = this._fade;
 			}
 		},

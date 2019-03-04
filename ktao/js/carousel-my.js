@@ -1,5 +1,37 @@
 ;(function($){
+	function switchover($elem,mode){
+		this.$elem
+		.hover(function() {
+			this.controls.show();
+		}.bind(this), function() {
+			this.controls.hide();
+		}.bind(this))
+		.delegate('.control-left', 'click', function(ev) {//(事件代理)
+			if(mode == '_slide'){
+				this._slide(this._correctIndex(this.now-1),-1);
+			}else{this._fade(this._correctIndex(this.now-1));}
+		}.bind(this))
+		.delegate('.control-right', 'click', function(ev) {
+			if(mode == '_slide'){
+				this._slide(this._correctIndex(this.now+1),1);
+			}else{this._fade(this._correctIndex(this.now+1));}
+				
+		}.bind(this));	
+		//自动播放
+		if(this.options.interval){
+			this.autoplay();
+			//鼠标放上暂停 离开自动播放
+			this.$elem.hover($.proxy(this.pause,this),$.proxy(this.autoplay,this));
+		}
+		//监听底部按钮事件
+		var _this = this;
+		this.btns.on('click',function(){
+			_this._slide(_this.btns.index(this));
+		});			
 
+	}
+
+	/*-----------------------------------------*/
 	function Carousel($elem,options){
 		//1.罗列属性
 		this.$elem = $elem;
@@ -16,35 +48,8 @@
 	Carousel.prototype = {
 		constructor:Carousel,
 		init:function(){
-			
-			/*--------------------------------*/
-			var _this = this;
 			//显示默认的指示按钮
 			this.btns.eq(this.now).addClass('active');
-			this.$elem
-			.hover(function() {
-				this.controls.show();
-			}.bind(this), function() {
-				this.controls.hide();
-			}.bind(this))
-			.delegate('.control-left', 'click', function(ev) {//(事件代理)
-				this.tab(this._correctIndex(this.now-1),-1);	
-			}.bind(this))
-			.delegate('.control-right', 'click', function(ev) {
-				this.tab(this._correctIndex(this.now+1),1);	
-			}.bind(this));	
-			//自动播放
-			if(this.options.interval){
-				this.autoplay();
-				//鼠标放上暂停 离开自动播放
-				this.$elem.hover($.proxy(this.pause,this),$.proxy(this.autoplay,this));
-			}
-			//监听底部按钮事件
-			
-			this.btns.on('click',function(){
-				_this.tab(_this.btns.index(this));
-			});	
-			/*--------------------------------*/
 			if(this.options.slide){//划入划出
 				//隐藏所有
 				this.$elem.addClass('slide');
@@ -53,7 +58,7 @@
 				//初始化移动插件
 				this.carouselItems.move(this.options);	
 				//监听左右按钮事件
-				this.tab = this._slide;																			
+				switchover.call(this,this.$elem,'_slide');																			
 			}else{//淡入淡出
 				//隐藏所有
 				this.$elem.addClass('fade');
@@ -61,12 +66,9 @@
 				this.carouselItems.eq(this.now).show();
 				//初始化显示隐藏插件
 				this.carouselItems.showHide(this.options);
-				//懒加载
-				this.carouselItems.on('show shown hide hidden',function(ev){
-					_this.$elem.trigger('carousel-'+ev.type,this);
-					console.log(_this.carouselItems.index(this),ev.type);
-				})				
-				this.tab = this._fade;
+				//监听左右按钮事件
+				switchover.call(this,this.$elem,'_fade');
+
 			}
 		},
 		_fade:function(index){
@@ -84,12 +86,10 @@
 		_slide:function(index,direction){
 			//向右滑动 方向为1 左滑方向-1
 			if(this.now == index) return ;
-			if(!direction){
-				if(this.now < index){
-					direction = 1;
-				}else{
-					direction = -1;
-				}
+			if(this.now < index){
+				direction = 1;
+			}else{
+				direction = -1;
 			}
 			//即将显示的放到指定位置
 			this.carouselItems.eq(index)
