@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test-plugin</title>
+</head>
+<body>
+	
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+//注册插件
+;(function($){
+	$.fn.extend({
+		plugin:function(options){
+			var DEFAULTS = {js:true};
+			return this.each(function(){
+				var $elem = $(this);
+				var pluginObj = $elem.data('plugin');
+				if(!pluginObj){
+					options = $.extend({},DEFAULTS,options);
+					pluginObj = new Plugin();
+					$elem.data('plugin',pluginObj);
+				}
+				typeof 	pluginObj[options] == 'function' && pluginObj[options]();			
+			});
+
+		}
+	})
+})(jQuery);
+</script>
+</html>
