@@ -31,6 +31,7 @@
 
 	}
 
+
 	/*-----------------------------------------*/
 	function Carousel($elem,options){
 		//1.罗列属性
@@ -58,7 +59,32 @@
 				//初始化移动插件
 				this.carouselItems.move(this.options);	
 				//监听左右按钮事件
-				switchover.call(this,this.$elem,'_slide');																			
+				switchover.call(this,this.$elem,'_slide');
+				/*
+				this.$elem
+				.hover(function() {
+					this.controls.show();
+				}.bind(this), function() {
+					this.controls.hide();
+				}.bind(this))
+				.delegate('.control-left', 'click', function(ev) {//(事件代理)
+					this._slide(this._correctIndex(this.now-1),-1);	
+				}.bind(this))
+				.delegate('.control-right', 'click', function(ev) {
+					this._slide(this._correctIndex(this.now+1),1);	
+				}.bind(this));	
+				//自动播放
+				if(this.options.interval){
+					this.autoplay();
+					//鼠标放上暂停 离开自动播放
+					this.$elem.hover($.proxy(this.pause,this),$.proxy(this.autoplay,this));
+				}
+				//监听底部按钮事件
+				var _this = this;
+				this.btns.on('click',function(){
+					_this._slide(_this.btns.index(this));
+				});	
+				*/																				
 			}else{//淡入淡出
 				//隐藏所有
 				this.$elem.addClass('fade');
@@ -66,8 +92,33 @@
 				this.carouselItems.eq(this.now).show();
 				//初始化显示隐藏插件
 				this.carouselItems.showHide(this.options);
-				//监听左右按钮事件
 				switchover.call(this,this.$elem,'_fade');
+				/*
+				//监听左右按钮事件
+				this.$elem
+				.hover(function(){//显示隐藏左右按钮
+					this.controls.show();
+				}.bind(this),function(){
+					this.controls.hide();
+				}.bind(this))
+				.delegate('.control-left', 'click', function(ev) {//(事件代理)
+					this._fade(this._correctIndex(this.now-1));	
+				}.bind(this))
+				.delegate('.control-right', 'click', function(ev) {
+					this._fade(this._correctIndex(this.now+1));	
+				}.bind(this));
+				//监听底部按钮事件
+				var _this = this;
+				this.btns.on('click',function(){
+					_this._fade(_this.btns.index(this));
+				});
+				//自动播放
+				if(this.options.interval){
+					this.autoplay();
+					//鼠标放上暂停 离开自动播放
+					this.$elem.hover($.proxy(this.pause,this),$.proxy(this.autoplay,this));
+				}
+				*/
 
 			}
 		},

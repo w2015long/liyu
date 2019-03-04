@@ -94,5 +94,9 @@
 	}
 	//carousel轮播图部分
 	var $carousel = $('.carousel .carousel-wrap');
-	$carousel.carousel({});
+	$carousel.carousel({
+		slide:false,
+		activeIndex:3,
+		interval:1500		
+	});
 })(jQuery);

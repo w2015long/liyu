@@ -1,37 +1,4 @@
 ;(function($){
-	function switchover($elem,mode){
-		this.$elem
-		.hover(function() {
-			this.controls.show();
-		}.bind(this), function() {
-			this.controls.hide();
-		}.bind(this))
-		.delegate('.control-left', 'click', function(ev) {//(事件代理)
-			if(mode == '_slide'){
-				this._slide(this._correctIndex(this.now-1),-1);
-			}else{this._fade(this._correctIndex(this.now-1));}
-		}.bind(this))
-		.delegate('.control-right', 'click', function(ev) {
-			if(mode == '_slide'){
-				this._slide(this._correctIndex(this.now+1),1);
-			}else{this._fade(this._correctIndex(this.now+1));}
-				
-		}.bind(this));	
-		//自动播放
-		if(this.options.interval){
-			this.autoplay();
-			//鼠标放上暂停 离开自动播放
-			this.$elem.hover($.proxy(this.pause,this),$.proxy(this.autoplay,this));
-		}
-		//监听底部按钮事件
-		var _this = this;
-		this.btns.on('click',function(){
-			_this._slide(_this.btns.index(this));
-		});			
-
-	}
-
-	/*-----------------------------------------*/
 	function Carousel($elem,options){
 		//1.罗列属性
 		this.$elem = $elem;
@@ -40,7 +7,6 @@
 		this.carouselItems = this.$elem.find('.carousel-item');
 		this.btns = this.$elem.find('.btns .btn-item');
 		this.controls = this.$elem.find('.control');
-		this.itemWidth = this.$elem.width();
 		this.timer = null;
 		//2.初始化
 		this.init();
@@ -48,17 +14,8 @@
 	Carousel.prototype = {
 		constructor:Carousel,
 		init:function(){
-			//显示默认的指示按钮
-			this.btns.eq(this.now).addClass('active');
 			if(this.options.slide){//划入划出
-				//隐藏所有
-				this.$elem.addClass('slide');
-				//默认显示
-				this.carouselItems.eq(this.now).css('left',0);	
-				//初始化移动插件
-				this.carouselItems.move(this.options);	
-				//监听左右按钮事件
-				switchover.call(this,this.$elem,'_slide');																			
+
 			}else{//淡入淡出
 				//隐藏所有
 				this.$elem.addClass('fade');
@@ -66,8 +23,33 @@
 				this.carouselItems.eq(this.now).show();
 				//初始化显示隐藏插件
 				this.carouselItems.showHide(this.options);
+				//显示默认的指示按钮
+				this.btns.eq(this.now).addClass('active');
+
 				//监听左右按钮事件
-				switchover.call(this,this.$elem,'_fade');
+				this.$elem
+				.hover(function(){//显示隐藏左右按钮
+					this.controls.show();
+				}.bind(this),function(){
+					this.controls.hide();
+				}.bind(this))
+				.delegate('.control-left', 'click', function(ev) {//(事件代理)
+					this._fade(this._correctIndex(this.now-1));	
+				}.bind(this))
+				.delegate('.control-right', 'click', function(ev) {
+					this._fade(this._correctIndex(this.now+1));	
+				}.bind(this));
+				//监听底部按钮事件
+				var _this = this;
+				this.btns.on('click',function(){
+					_this._fade(_this.btns.index(this));
+				});
+				//自动播放
+				if(this.options.interval){
+					this.autoplay();
+					//鼠标放上暂停 离开自动播放
+					this.$elem.hover($.proxy(this.pause,this),$.proxy(this.autoplay,this));
+				}
 
 			}
 		},
@@ -82,27 +64,6 @@
 			this.carouselItems.eq(index).showHide('show');
 			this.btns.eq(index).addClass('active');
 			this.now = index;
-		},
-		_slide:function(index,direction){
-			//向右滑动 方向为1 左滑方向-1
-			if(this.now == index) return ;
-			if(this.now < index){
-				direction = 1;
-			}else{
-				direction = -1;
-			}
-			//即将显示的放到指定位置
-			this.carouselItems.eq(index)
-			.css('left',direction * this.itemWidth);
-			//划出当前张
-			this.carouselItems.eq(this.now)
-			.move('x',-1*direction * this.itemWidth);
-			this.btns.eq(this.now).removeClass('active');			
-			//划入将要显示的
-			this.carouselItems.eq(index).move('x',0);
-			this.btns.eq(index).addClass('active');			
-			this.now = index;
-
 		},
 		_correctIndex:function(index){
 			if(index<0) return this.carouselItems.length - 1;
