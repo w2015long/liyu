@@ -23,19 +23,47 @@
 <script src="js/jquery-1.12.4.js"></script>
 <script>
 ;(function($){
+//公共函数
+	function init($elem){
+		this.$elem = $elem;
+		this.$elem.removeClass('transition');
+		this.currentX = parseFloat(this.$elem.css('left'));
+		this.currentY = parseFloat(this.$elem.css('top'));		
+	}
+	function shift(x,y,callback){
+		x = (typeof x == 'number') ? x : this.currentX;
+		y = (typeof y == 'number') ? y : this.currentY;
+		if(this.currentX == x && this.currentY == y) return;
+		this.$elem.trigger('move');
+		/*
+		this.$elem.css({
+			left:x,
+			top:y
+		});
+		this.$elem.trigger('moved');
+		*/
+		typeof callback == 'function' && callback();
+		this.currentX = x;
+		this.currentY = y;
+	}
+
+
 	function Salient($elem){
+		init.call(this,$elem);
+		/*
 		this.$elem = $elem;
 		this.$elem.removeClass('transition');
 		this.currentX = parseFloat(this.$elem.css('left'));
 		this.currentY = parseFloat(this.$elem.css('top'));
+		*/
 	}
 	Salient.prototype = {
 		constructor:Salient,
 		to:function(x,y){
+			/*
 			x = (typeof x == 'number') ? x : this.currentX;
 			y = (typeof y == 'number') ? y : this.currentY;
 			if(this.currentX == x && this.currentY == y) return;
-			// console.log('will move....')
 			this.$elem.trigger('move');
 			this.$elem.css({
 				left:x,
@@ -44,6 +72,14 @@
 			this.$elem.trigger('moved');
 			this.currentX = x;
 			this.currentY = y;
+			*/
+			shift.call(this,x,y,function(){
+				this.$elem.css({
+					left:x,
+					top:y
+				});
+				this.$elem.trigger('moved');				
+			}.bind(this))
 		},
 		x:function(x){
 			this.to(x);
@@ -54,14 +90,12 @@
 	};
 	/*----------------------------------------------------*/
 	function Js($elem){
-		this.$elem = $elem;
-		this.$elem.removeClass('transition');
-		this.currentX = parseFloat(this.$elem.css('left'));
-		this.currentY = parseFloat(this.$elem.css('top'));
+		init.call(this,$elem);
 	}
 	Js.prototype = {
 		constructor:Js,
 		to:function(x,y){
+			/*
 			//处理x 与 方法
 			x = (typeof x == 'number') ? x : this.currentX;
 			y = (typeof y == 'number') ? y : this.currentY;
@@ -77,9 +111,17 @@
 			},function(){
 				this.$elem.trigger('moved');
 			}.bind(this));
-			
-			this.currentX = x;
-			this.currentY = y;
+			*/
+			shift.call(this,x,y,function(){
+				this.$elem
+				.stop()
+				.animate({
+					left:x,
+					top:y
+				},function(){
+					this.$elem.trigger('moved');
+				}.bind(this));				
+			}.bind(this));
 		},
 		x:function(x){
 			this.to(x);
@@ -94,12 +136,12 @@
 		console.log(ev.type);
 	})
 	$('button:eq(0)').click(function(){
-		// move.to(10,100);
-		move.x(10);
+		move.to(10,100);
+		// move.y(100);
 	});
 	$('button:eq(1)').click(function(){
-		// move.to(300,100);
-		move.x(400);
+		move.to(300,400);
+		// move.y(400);
 	});	
 })(jQuery);
 </script>
