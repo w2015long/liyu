@@ -114,10 +114,10 @@
 	//懒加载优化
 	var items = {};//0:loaded 1:loaded
 	//防止多次触发carousel-show事件
-	$carousel.totalItemNum = $carousel.find('.carousel-img').length;
-	$carousel.allLoadedNum = 0;
-	$carousel.loadFn = null;
-	$carousel.on('carousel-show',$carousel.loadFn = function(ev,index,elem){
+	var totalItemNum = $carousel.find('.carousel-img').length;
+	var allLoadedNum = 0;
+	var loadFn = null;
+	$carousel.on('carousel-show',loadFn = function(ev,index,elem){
 		console.log('carousel-show will trigger.....')
 		//防止多次加载图片
 		if(items[index] != 'loaded'){
@@ -129,16 +129,13 @@
 			},function(imgUrl){
 				$img.attr('src','imgs/quesheng.jpg');
 			})
-			$carousel.allLoadedNum++;
+			allLoadedNum++;
 			items[index] = 'loaded';			
 		}
 		
-		if($carousel.totalItemNum == $carousel.allLoadedNum){
-			$carousel.off('carousel-show',$carousel.loadFn);
+		if(totalItemNum == allLoadedNum){
+			$carousel.off('carousel-show',loadFn);
 		}
-		//1.开始加载
-		//2.执行加载
-		//3.加载完毕
 	})
 	$carousel.carousel({
 		slide:true,

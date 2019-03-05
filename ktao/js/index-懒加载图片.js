@@ -104,41 +104,32 @@
 			// $img.attr('src','imgs/quesheng.jpg');
 			typeof error == 'function' && error(imgUrl);
 		}
-		//模拟网络延时
-		setTimeout(function(){
-			image.src = imgUrl;
-		},300)
-				
+		image.src = imgUrl;		
 	}
 	var $carousel = $('.carousel .carousel-wrap');
-	//懒加载优化
-	var items = {};//0:loaded 1:loaded
-	//防止多次触发carousel-show事件
-	$carousel.totalItemNum = $carousel.find('.carousel-img').length;
-	$carousel.allLoadedNum = 0;
-	$carousel.loadFn = null;
-	$carousel.on('carousel-show',$carousel.loadFn = function(ev,index,elem){
-		console.log('carousel-show will trigger.....')
-		//防止多次加载图片
-		if(items[index] != 'loaded'){
-			console.log(index,'will load....');
-			var $img = $(elem).find('.carousel-img');
-			var imgUrl = $img.data('src');
-			loadImg(imgUrl,function(imgUrl){
-				$img.attr('src',imgUrl);
-			},function(imgUrl){
-				$img.attr('src','imgs/quesheng.jpg');
-			})
-			$carousel.allLoadedNum++;
-			items[index] = 'loaded';			
+	$carousel.on('carousel-show',function(ev,index,elem){
+		console.log(index,elem);
+		var $img = $(elem).find('.carousel-img');
+		var imgUrl = $img.data('src');
+		/*直接赋值缺点
+		$img.attr('src',imgUrl);
+		1.网络慢卡顿
+		2.失败时不易处理*/
+		/*
+		var image = new Image();
+		image.onload = function(){
+			$img.attr('src',imgUrl);
+		}		
+		image.onerror = function(){
+			$img.attr('src','imgs/quesheng.jpg');
 		}
-		
-		if($carousel.totalItemNum == $carousel.allLoadedNum){
-			$carousel.off('carousel-show',$carousel.loadFn);
-		}
-		//1.开始加载
-		//2.执行加载
-		//3.加载完毕
+		image.src = imgUrl;
+		*/
+		loadImg(imgUrl,function(imgUrl){
+			$img.attr('src',imgUrl);
+		},function(imgUrl){
+			$img.attr('src','imgs/quesheng.jpg');
+		})
 	})
 	$carousel.carousel({
 		slide:true,
