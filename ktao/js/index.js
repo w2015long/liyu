@@ -110,6 +110,7 @@
 		},300)
 				
 	}
+	/*1.开始加载*/
 	var $carousel = $('.carousel .carousel-wrap');
 	//懒加载优化
 	var items = {};//0:loaded 1:loaded
@@ -136,7 +137,7 @@
 		if($carousel.totalItemNum == $carousel.allLoadedNum){
 			$carousel.off('carousel-show',$carousel.loadFn);
 		}
-		//1.开始加载
+		
 		//2.执行加载
 		//3.加载完毕
 	})
