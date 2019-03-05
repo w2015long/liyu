@@ -4,11 +4,11 @@
 		//1.罗列属性
 		this.$elem = $elem;
 		this.options = options;
-		this.now = this.options.activeIndex;
 		this.carouselItems = this.$elem.find('.carousel-item');
 		this.btns = this.$elem.find('.btns .btn-item');
 		this.controls = this.$elem.find('.control');
 		this.itemWidth = this.$elem.width();
+		this.now = this._correctIndex(options.activeIndex);
 		this.timer = null;
 		//2.初始化
 		this.init();
