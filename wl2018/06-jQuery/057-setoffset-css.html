@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>setCss</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		button{
+			width: 80px;
+			height: 40px;
+			font-size: 30px;
+		}
+	</style>
+</head>
+<body>
+	<button>&gt;</button>
+	<div></div>
+	
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	;(function($){
+		//注册插件
+		$.fn.extend({
+			setCSS:function(arg1,arg2){
+
+				if($.isString(arg1)){//传入字符串
+					//获取属性
+					if(arguments.length == 1){
+						return  getComputedStyle(this[0], false)[arg1];
+					}else if(arguments.length == 2){
+						for(var i=0;i<this.length;i++){
+							this[i].style[arg1] = arg2;
+						}
+					}
+
+				}
+				if($.isObj(arg1)){//传入对象
+					for(var i=0;i<this.length;i++){
+						for(key in arg1){
+							this[i].style[key] = arg1[key];
+						}
+					}
+					
+				}
+				return this;
+			}
+		})
+		$.extend({
+			isString : function(str){
+				return typeof str == 'string';
+			},
+
+			isObj : function(str){
+				return typeof str == 'object';
+			}
+		})		
+
+	})(jQuery);
+</script>
+<script>
+
+	$("button").click(function(){
+		$('div').setCSS({
+			position:'absolute',
+			width:'150px',
+			height:'150px',
+			marginTop:'10px',
+			backgroundColor:'#f88',
+			left:'200px',
+			top:'300px'			
+
+		})
+
+	});
+	$('div').click(function(){
+		if($('div').css('position') == 'absolute'){
+			$('div').setCSS({
+				position:'absolute',
+				left:'1200px',
+				top:'500px'			
+			})			
+		}else{
+			$('div').setCSS({
+				position:'static',		
+			})				
+		}
+
+	})	
+</script>
+</html>

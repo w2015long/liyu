@@ -19,6 +19,7 @@
 			
 			/*--------------------------------*/
 			var _this = this;
+
 			//显示默认的指示按钮
 			this.btns.eq(this.now).addClass('active');
 			this.$elem
@@ -44,6 +45,8 @@
 			this.btns.on('click',function(){
 				_this.tab(_this.btns.index(this));
 			});	
+			//初始化加载图片
+			this.$elem.trigger('carousel-show',[this.now,this.carouselItems[this.now]]);
 			/*--------------------------------*/
 			if(this.options.slide){//划入划出
 				//隐藏所有
@@ -52,6 +55,15 @@
 				this.carouselItems.eq(this.now).css('left',0);	
 				//初始化移动插件
 				this.carouselItems.move(this.options);	
+				//监听懒加载
+				
+				this.carouselItems.on('move',function(ev,index,elem){
+					var index = _this.carouselItems.index(this);
+					if(_this.now != index){//只监听将要显示的图片
+						_this.$elem.trigger('carousel-show',[index,this]);
+					}
+
+				})						
 				//监听左右按钮事件
 				this.tab = this._slide;																			
 			}else{//淡入淡出
@@ -61,10 +73,12 @@
 				this.carouselItems.eq(this.now).show();
 				//初始化显示隐藏插件
 				this.carouselItems.showHide(this.options);
-				//懒加载
+				//监听懒加载
+				//只监听将要显示的图片
 				this.carouselItems.on('show',function(ev,index,elem){
-					_this.$elem.trigger('carousel-'+ev.type,[_this.carouselItems.index(this),this]);
-					// console.log(_this.carouselItems.index(this),ev.type);
+					var index = _this.carouselItems.index(this);
+					_this.$elem.trigger('carousel-show',[index,this]);
+					console.log(index,ev.type);
 				})				
 				this.tab = this._fade;
 			}

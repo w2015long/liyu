@@ -95,19 +95,25 @@
 	//carousel轮播图部分
 	var $carousel = $('.carousel .carousel-wrap');
 	$carousel.on('carousel-show',function(ev,index,elem){
-		// console.log(index,elem);
+		console.log(index,elem);
 		var $img = $(elem).find('.carousel-img');
-		var imgUrl = $(elem).data('src');
+		var imgUrl = $img.data('src');
+		/*直接赋值缺点
+		$img.attr('src',imgUrl);
+		1.网络慢卡顿
+		2.失败时不易处理*/
+
 		var image = new Image();
-		image.onload = function(){
-			$(elem).attr('src',imgUrl);
-		}		
-		image.onerror = function(){
-			$(elem).attr('src','imgs/blank.gif');
-		}
+		console.log(image)
+		// image.onload = function(){
+			
+		// }		
+		// image.onerror = function(){
+		// 	$(elem).attr('src','imgs/quesheng.jpg');
+		// }
 	})
 	$carousel.carousel({
-		slide:false,
+		slide:true,
 		activeIndex:0,
 		interval:0		
 	});
