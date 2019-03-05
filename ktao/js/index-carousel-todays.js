@@ -171,61 +171,6 @@
 		interval:0		
 	});	
 	/*floor选项卡*/
-	var $floor = $('.floor');
-	function tabLazyLoad($elem){
-		/*1.开始加载*/
-		//懒加载优化
-		var items = {};//0:loaded 1:loaded
-		//防止多次触发tab-show事件
-		$elem.totalItemNum = $elem.find('.floor-img').length;
-		$elem.allLoadedNum = 0;
-		$elem.loadFn = null;
-		$elem.on('tab-show',$elem.loadFn = function(ev,index,elem){
-			
-			console.log('tab-show will trigger.....')
-			//防止多次加载图片
-			if(items[index] != 'loaded'){
-				$elem.trigger('tab-load',[index,elem]);
-			}
-		});
-		/*2.执行加载*/
-		$elem.on('tab-load',function(ev,index,elem){
-			console.log(index,'will load....');
-			var $imgs = $(elem).find('.floor-img');
-			//加载elem元素里多张图片
-			$imgs.each(function(){
-				var $img = $(this);
-				var imgUrl = $img.data('src');
-				loadImg(imgUrl,function(imgUrl){
-					$img.attr('src',imgUrl);
-				},function(imgUrl){
-					$img.attr('src','imgs/quesheng.jpg');
-				})
-				$elem.allLoadedNum++;
-				items[index] = 'loaded';
-				
-				if($elem.totalItemNum == $elem.allLoadedNum){
-					$elem.trigger('tab-loaded');
-				}
-			});
-		});	
-		/*3.加载完毕*/
-		$elem.on('tab-loaded',function(){
-			$elem.off('tab-show',$elem.loadFn);
-		});
-	}
-	$floor.each(function() {
-		// tabLazyLoad($floor)	;
-	});
-	
-	$floor.tab({});
-
-
-
-	/*获取是否显示*/
-	function isVisible($elem){
-		return ($(window).hight() + $(window).scrollTop().top > $elem.offset().top)&&
-		$elem.offset().top + $elem.hight() > $(window).scrollTop();
-	}
-	
+	var $tab = $('.floor');
+	$tab.tab({});
 })(jQuery);
