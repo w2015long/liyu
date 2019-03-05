@@ -94,6 +94,48 @@
 	}
 	//carousel轮播图部分
 	/*-------------------------------------------------------*/
+	function carouselLazyLoad($elem){
+		/*1.开始加载*/
+		//懒加载优化
+		var items = {};//0:loaded 1:loaded
+		//防止多次触发carousel-show事件
+		$elem.totalItemNum = $elem.find('.carousel-img').length;
+		$elem.allLoadedNum = 0;
+		$elem.loadFn = null;
+		$elem.on('carousel-show',$elem.loadFn = function(ev,index,elem){
+			
+			console.log('carousel-show will trigger.....')
+			//防止多次加载图片
+			if(items[index] != 'loaded'){
+				$elem.trigger('carousel-load',[index,elem]);
+			}
+		});
+		/*2.执行加载*/
+		$elem.on('carousel-load',function(ev,index,elem){
+			console.log(index,'will load....');
+			var $imgs = $(elem).find('.carousel-img');
+			//加载elem元素里多张图片
+			$imgs.each(function(){
+				var $img = $(this);
+				var imgUrl = $img.data('src');
+				loadImg(imgUrl,function(imgUrl){
+					$img.attr('src',imgUrl);
+				},function(imgUrl){
+					$img.attr('src','imgs/quesheng.jpg');
+				})
+				$elem.allLoadedNum++;
+				items[index] = 'loaded';
+				
+				if($elem.totalItemNum == $elem.allLoadedNum){
+					$elem.trigger('carousel-loaded');
+				}
+			});
+		});	
+		/*3.加载完毕*/
+		$elem.on('carousel-loaded',function(){
+			$elem.off('carousel-show',$elem.loadFn);
+		});
+	}
 	function loadImg(imgUrl,success,error){
 		var image = new Image();
 		image.onload = function(){
@@ -112,41 +154,7 @@
 	}
 	/*1.开始加载*/
 	var $bannerCarousel = $('.carousel .carousel-wrap');
-	//懒加载优化
-	var items = {};//0:loaded 1:loaded
-	//防止多次触发carousel-show事件
-	$bannerCarousel.totalItemNum = $bannerCarousel.find('.carousel-img').length;
-	$bannerCarousel.allLoadedNum = 0;
-	$bannerCarousel.loadFn = null;
-	$bannerCarousel.on('carousel-show',$bannerCarousel.loadFn = function(ev,index,elem){
-		
-		console.log('carousel-show will trigger.....')
-		//防止多次加载图片
-		if(items[index] != 'loaded'){
-			$bannerCarousel.trigger('carousel-load',[index,elem]);
-		}
-	});
-	/*2.执行加载*/
-	$bannerCarousel.on('carousel-load',function(ev,index,elem){
-		console.log(index,'will load....');
-		var $img = $(elem).find('.carousel-img');
-		var imgUrl = $img.data('src');
-		loadImg(imgUrl,function(imgUrl){
-			$img.attr('src',imgUrl);
-		},function(imgUrl){
-			$img.attr('src','imgs/quesheng.jpg');
-		})
-		$bannerCarousel.allLoadedNum++;
-		items[index] = 'loaded';
-		
-		if($bannerCarousel.totalItemNum == $bannerCarousel.allLoadedNum){
-			$bannerCarousel.trigger('carousel-loaded');
-		}
-	});	
-	/*3.加载完毕*/
-	$bannerCarousel.on('carousel-loaded',function(){
-		$bannerCarousel.off('carousel-show',$bannerCarousel.loadFn);
-	})		
+	carouselLazyLoad($bannerCarousel);	
 	$bannerCarousel.carousel({
 		slide:true,
 		activeIndex:0,
@@ -155,47 +163,8 @@
 
 
 	/*今日热销轮播图*/
-	/*1.开始加载*/
 	var $todaysCarousel = $('.todays .carousel-wrap');
-	//懒加载优化
-	var items = {};//0:loaded 1:loaded
-	//防止多次触发carousel-show事件
-	$todaysCarousel.totalItemNum = $todaysCarousel.find('.carousel-img').length;
-	$todaysCarousel.allLoadedNum = 0;
-	$todaysCarousel.loadFn = null;
-	$todaysCarousel.on('carousel-show',$todaysCarousel.loadFn = function(ev,index,elem){
-		
-		console.log('carousel-show will trigger.....')
-		//防止多次加载图片
-		if(items[index] != 'loaded'){
-			$todaysCarousel.trigger('carousel-load',[index,elem]);
-		}
-	});
-	/*2.执行加载*/
-	$todaysCarousel.on('carousel-load',function(ev,index,elem){
-		console.log(index,'will load....');
-		var $imgs = $(elem).find('.carousel-img');
-		//加载elem元素里多张图片
-		$imgs.each(function(){
-			var $img = $(this);
-			var imgUrl = $img.data('src');
-			loadImg(imgUrl,function(imgUrl){
-				$img.attr('src',imgUrl);
-			},function(imgUrl){
-				$img.attr('src','imgs/quesheng.jpg');
-			})
-			$todaysCarousel.allLoadedNum++;
-			items[index] = 'loaded';
-			
-			if($todaysCarousel.totalItemNum == $todaysCarousel.allLoadedNum){
-				$todaysCarousel.trigger('carousel-loaded');
-			}
-		});
-	});	
-	/*3.加载完毕*/
-	$todaysCarousel.on('carousel-loaded',function(){
-		$todaysCarousel.off('carousel-show',$todaysCarousel.loadFn);
-	})		
+	carouselLazyLoad($todaysCarousel);	
 	$todaysCarousel.carousel({
 		slide:true,
 		activeIndex:0,
