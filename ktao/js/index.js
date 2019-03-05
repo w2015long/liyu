@@ -119,28 +119,34 @@
 	$carousel.allLoadedNum = 0;
 	$carousel.loadFn = null;
 	$carousel.on('carousel-show',$carousel.loadFn = function(ev,index,elem){
+		
 		console.log('carousel-show will trigger.....')
 		//防止多次加载图片
 		if(items[index] != 'loaded'){
-			console.log(index,'will load....');
-			var $img = $(elem).find('.carousel-img');
-			var imgUrl = $img.data('src');
-			loadImg(imgUrl,function(imgUrl){
-				$img.attr('src',imgUrl);
-			},function(imgUrl){
-				$img.attr('src','imgs/quesheng.jpg');
-			})
-			$carousel.allLoadedNum++;
-			items[index] = 'loaded';			
+			$carousel.trigger('carousel-load',[index,elem]);
 		}
+	});
+	/*2.执行加载*/
+	$carousel.on('carousel-load',function(ev,index,elem){
+		console.log(index,'will load....');
+		var $img = $(elem).find('.carousel-img');
+		var imgUrl = $img.data('src');
+		loadImg(imgUrl,function(imgUrl){
+			$img.attr('src',imgUrl);
+		},function(imgUrl){
+			$img.attr('src','imgs/quesheng.jpg');
+		})
+		$carousel.allLoadedNum++;
+		items[index] = 'loaded';
 		
 		if($carousel.totalItemNum == $carousel.allLoadedNum){
-			$carousel.off('carousel-show',$carousel.loadFn);
+			$carousel.trigger('carousel-loaded');
 		}
-		
-		//2.执行加载
-		//3.加载完毕
-	})
+	});	
+	/*3.加载完毕*/
+	$carousel.on('carousel-loaded',function(){
+		$carousel.off('carousel-show',$carousel.loadFn);
+	})		
 	$carousel.carousel({
 		slide:true,
 		activeIndex:0,
