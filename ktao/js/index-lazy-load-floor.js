@@ -356,26 +356,4 @@
 		clearTimeout($floor.floorIsShowTimer);
 		$floor.floorIsShowTimer = setTimeout(floorIsShow,300);
 	});
-	//电梯
-	//获取楼层号
-	function getFloorNum(){
-		var num = -1;
-		$floor.each(function(index, elem) {
-			num = index;
-			if($(elem).offset().top > $win.scrollTop()+$win.height()/2){
-				num = index - 1;
-				return false;
-			}
-		});
-		return num;
-	}
-	//设置动态电梯
-	
-
-
-
-
-
-
-
 })(jQuery);
