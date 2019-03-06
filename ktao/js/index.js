@@ -175,8 +175,44 @@
 
 	/*floor选项卡------------------------------------*/
 	var $floor = $('.floor');
-	
-	function tabLazyLoad($elem){
+	var $win = $(window);
+	var $doc = $(document);	
+	function floorHtmlLazyLoad($elem){
+		
+		//懒加载优化
+		var items = {};//0:loaded 1:loaded
+		//防止多次触发tab-show事件
+		$elem.totalItemNum = $elem.find('.floor-img').length;
+		$elem.allLoadedNum = 0;
+		$elem.loadFn = null;
+		/*1.开始加载*/
+		$elem.on('floor-show',$elem.loadFn = function(ev,index,elem){
+			
+			console.log('floor-show will trigger.....')
+			//防止多次加载图片
+			if(items[index] != 'loaded'){
+				$elem.trigger('floor-load',[index,elem]);
+			}
+		});
+		/*2.执行加载*/
+		$elem.on('floor-load',function(ev,index,elem){
+			console.log(index,'will load floor html....');
+			var $imgs = $(elem).find('.floor-img');
+			//加载HTML
+
+			$elem.allLoadedNum++;
+			items[index] = 'loaded';
+			
+			if($elem.totalItemNum == $elem.allLoadedNum){
+				$elem.trigger('floor-loaded');
+			}			
+		});	
+		/*3.加载完毕*/
+		$elem.on('floor-loaded',function(){
+			$elem.off('floor-show',$elem.loadFn);
+		});
+	}	
+	function floorTabLazyLoad($elem){
 		/*1.开始加载*/
 		//懒加载优化
 		var items = {};//0:loaded 1:loaded
@@ -218,20 +254,12 @@
 			$elem.off('tab-show',$elem.loadFn);
 		});
 	}
-
-	$floor.each(function() {
-		// tabLazyLoad($floor)	;
-	});
 	
 	$floor.tab({});
-	$floor.on('tab-show',function(ev,index,elem){
-		// console.log(index,elem);
-	})
+
 
 
 	/*获取是否显示*/
-	var $win = $(window);
-	var $doc = $(document);
 	function isVisible($elem){
 		return ($win.height() + $win.scrollTop() > $elem.offset().top)&&
 		($elem.offset().top + $elem.height() > $win.scrollTop());
@@ -245,9 +273,13 @@
 			
 		});		
 	}
-	$win.on('scroll resize load',floorIsShow);
+	$win.on('scroll resize load',function(){
+		clearTimeout($floor.floorIsShowTimer);
+		$floor.floorIsShowTimer = setTimeout(floorIsShow,300);
+	});
 	$doc.on('floor-show',function(ev,index,elem){
-		console.log(index,elem);
+		// console.log(index,elem);
+		floorHtmlLazyLoad($doc);
 	})
 	
 })(jQuery);
