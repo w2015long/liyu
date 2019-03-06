@@ -1,4 +1,4 @@
-/*顶部导航----------------------------*/
+/*顶部导航*/
 	.nav-side{
 	    width: 100%;
 	    height: 34px;
@@ -258,9 +258,9 @@
 		height: 38px;
 	}
 /*banner 分类列表-----------------------*/
-	.banner{
+/*	.banner{
 		height: 482px;
-	}
+	}*/
 	.banner .category{
 		position: relative;
 		width: 190px;
@@ -391,8 +391,8 @@
 	}
 	.focus-ad {
 		width: 100%;
-		height: 90px;
-		background: url(../images/focus-ad.png) no-repeat;
+		height: 68px;
+		background: url(../imgs/focus-ad.png) no-repeat;
 	}
 	.banner .slider{
 		margin-left: 8px;
@@ -418,8 +418,8 @@
 	.floor{
 		height: 538px;
 		margin-bottom: 10px;
-		background: pink;
-		font-size: 80px;
+		/*background: pink;*/
+		/*font-size: 80px;*/
 	}
 	.floor .floor-hd{
 		width: 100%;
@@ -463,7 +463,7 @@
 		color: #ea675a;
 	}
 	.floor .tab-item-wrap .tab-item.tab-item-active{
-		background: url(../images/floor-arrow.png) no-repeat center bottom;
+		background: url(../imgs/floor-arrow.png) no-repeat center bottom;
 		color: #ea675a;
 	}
 	.floor .tab-item-wrap .tab-divider{
@@ -476,7 +476,7 @@
 	.floor .tab-panel{
 		display: none;
 	}
-	.floor .floor-item .floor-img,
+	/*.floor .floor-item .floor-img,*/
 	.floor .floor-item{
 		width: 200px;
 		height: 234px;
@@ -501,4 +501,4 @@
 		position: relative;
 		z-index: 2;
 	}
-/*楼层结束*/
+/*楼层结束

@@ -18,14 +18,30 @@
 			//1.初始化
 			this.tabItems.eq(this.now).addClass('tab-item-active');
 			this.tabPanels.eq(this.now).show();
+			//传递消息
+			/*
+			this.tabPanels.on('show shown hide hidden',function(ev){
+				console.log(_this.tabPanels.index(this),ev.type);
+			})
+			*/
+			this.tabPanels.on('show',function(ev){
+				// console.log(_this.tabPanels.index(this),ev.type);
+				_this.$elem.trigger('tab-show',[_this.tabPanels.index(this),this])
+			})		
 			//2.初始化显示隐藏插件
 			this.tabPanels.showHide(this.options);
 			//3.监听事件
 			var eventName = this.options.eventName == 'click' ? 'click':'mouseenter';
 			this.$elem.on(eventName,'.tab-item',function(){
 				var index = _this.tabItems.index(this)
-				_this.tabItems._toggle(index);
+				_this._toggle(index);
 			})
+			//自动播放
+			if(this.options.interval){
+				this.autoplay();
+				//鼠标放上暂停 离开自动播放
+				this.$elem.hover($.proxy(this.pause,this),$.proxy(this.autoplay,this));
+			}			
 		},
 		_toggle:function(index){
 			if(this.now == index) return ;
@@ -56,7 +72,7 @@
 	Tab.DEFAULTS = {
 		js:true,
 		mode:'fade',
-		activeIndex:2,
+		activeIndex:0,
 		interval:0,
 		eventName:'click'
 	};
