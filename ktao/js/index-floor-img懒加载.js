@@ -220,7 +220,7 @@
 	}
 
 	$floor.each(function() {
-		// tabLazyLoad($floor)	;
+		tabLazyLoad($floor)	;
 	});
 	
 	$floor.tab({});
@@ -230,24 +230,9 @@
 
 
 	/*获取是否显示*/
-	var $win = $(window);
-	var $doc = $(document);
 	function isVisible($elem){
-		return ($win.height() + $win.scrollTop() > $elem.offset().top)&&
-		($elem.offset().top + $elem.height() > $win.scrollTop());
+		return ($(window).hight() + $(window).scrollTop().top > $elem.offset().top)&&
+		$elem.offset().top + $elem.hight() > $(window).scrollTop();
 	}
-	function floorIsShow(){
-		$floor.each(function(index, elem) {
-			if(isVisible($(elem))){
-				// console.log('第 '+(index+1)+' 层 show....');
-				$doc.trigger('floor-show',[index,elem]);
-			}
-			
-		});		
-	}
-	$win.on('scroll resize load',floorIsShow);
-	$doc.on('floor-show',function(ev,index,elem){
-		console.log(index,elem);
-	})
 	
 })(jQuery);

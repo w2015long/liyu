@@ -24,6 +24,7 @@
 				console.log(_this.tabPanels.index(this),ev.type);
 			})
 			*/
+			this.$elem.trigger('tab-show',[this.now,this.tabPanels[this.now]]);
 			this.tabPanels.on('show',function(ev){
 				// console.log(_this.tabPanels.index(this),ev.type);
 				_this.$elem.trigger('tab-show',[_this.tabPanels.index(this),this])
