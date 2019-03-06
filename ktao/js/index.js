@@ -180,11 +180,12 @@
 		if(!data){
 			console.log('get data once....')
 			$.getJSON(url,function(resData){
-				data = $elem.data(url,resData);
-				typeof callback == 'function' && callback(data);
+				console.log(resData)
+				$elem.data(url,resData);
+				callback(resData);
 			})
 		}else{
-			typeof callback == 'function' && callback(data);
+			callback(data);
 		}
 	}
 
@@ -245,7 +246,8 @@
 
 	var $floor = $('.floor');
 	var $win = $(window);
-	var $doc = $(document);	
+	var $doc = $(document);
+	//楼层懒加载	
 	function floorHtmlLazyLoad($elem){
 		
 		//懒加载优化
@@ -257,7 +259,7 @@
 		/*1.开始加载*/
 		$elem.on('floor-show',$elem.loadFn = function(ev,index,elem){
 			
-			console.log('floor-show will trigger.....')
+			// console.log('floor-show will trigger.....')
 			//防止多次加载图片
 			if(items[index] != 'loaded'){
 				$elem.trigger('floor-load',[index,elem]);
@@ -269,6 +271,7 @@
 			//加载HTML
 			//1.生成HTML
 			getDataOnce($elem,'data/floor/floorData.json',function(data){
+				console.log(data)
 				var html = buildFloorHtml(data[index]);
 				//2.加载HTML
 				$(elem).html(html);
@@ -277,9 +280,7 @@
 				//4.激活选项卡
 				$(elem).tab({});
 			})
-			
-			
-			
+	
 			$elem.allLoadedNum++;
 			items[index] = 'loaded';
 			
@@ -334,6 +335,8 @@
 			$elem.off('tab-show',$elem.loadFn);
 		});
 	}
+	//楼层懒加载	
+	floorHtmlLazyLoad($doc);
 
 	/*获取是否显示*/
 	function isVisible($elem){
@@ -343,7 +346,7 @@
 	function floorIsShow(){
 		$floor.each(function(index, elem) {
 			if(isVisible($(elem))){
-				// console.log('第 '+(index+1)+' 层 show....');
+				console.log('第 '+(index)+' 层 show....');
 				$doc.trigger('floor-show',[index,elem]);
 			}
 			
@@ -353,5 +356,4 @@
 		clearTimeout($floor.floorIsShowTimer);
 		$floor.floorIsShowTimer = setTimeout(floorIsShow,300);
 	});
-	floorHtmlLazyLoad($doc);
 })(jQuery);
