@@ -173,7 +173,76 @@
 
 
 
-	/*floor选项卡------------------------------------*/
+	/*floor选项卡-----------------------------------------------*/
+	//获取json数据并存储
+	function getDataOnce($elem,url,callback){
+		var data = $elem.data(url);
+		if(!data){
+			console.log('get data once....')
+			$.getJSON(url,function(resData){
+				data = $elem.data(url,resData);
+				typeof callback == 'function' && callback(data);
+			})
+		}else{
+			typeof callback == 'function' && callback(data);
+		}
+	}
+
+	//楼层HTML懒加载
+	function buildFloorHtml(oneFloorData){
+		var html = '';
+		html += '<div class="container">';
+		html += buildFloorHeadHtml(oneFloorData);
+		html += buildFloorBodyHtml(oneFloorData);
+		html += '</div>';
+		return html;
+	}
+	function buildFloorHeadHtml(oneFloorData){
+		var html = '';
+			html +=	'<div class="floor-hd">';
+			html +=	'	<h2 class="floor-title fl">';
+			html +=	'		<span class="floor-title-num">'+oneFloorData.num+'F</span>';
+			html +=	'		<span class="floor-title-text">'+oneFloorData.text+'</span>';
+			html +=	'	</h2>';
+			html +=	'	<ul class="tab-item-wrap fr">';
+			for(var i=0; i<oneFloorData.items.length;i++){
+				html +=	'		<li class="fl">';
+				html +=	'			<a class="tab-item" href="javascript:;">'+oneFloorData.tabs[i]+'</a>';
+				html +=	'		</li>';
+				if(i != oneFloorData.tabs.length){
+					html +=	'<li class="fl tab-divider"></li>';
+				}	
+			}
+			html +=	'	</ul>';
+			html +=	'</div>';
+
+		return html;	
+	}
+	function buildFloorBodyHtml(oneFloorData){
+		var html = '';
+		html +=	'<div class="floor-bd">';
+		for(var i=0;i<oneFloorData.items.length;i++){
+			html +=	'	<ul class="tab-panel clearfix">';
+			for(var j=0;j<oneFloorData.items[i].length;j++){
+				html +=	'		<li class="floor-item fl">';
+				html +=	'			<p class="floor-item-pic">';
+				html +=	'				<a href="#">';
+				html +=	'					<img class="floor-img" src="imgs/floor/loading.gif" data-src="imgs/floor/'+oneFloorData.num+'/'+(i+1)+'/'+(j+1)+'.png" alt="">';
+				html +=	'				</a>';
+				html +=	'			</p>';
+				html +=	'			<p class="floor-item-name">';
+				html +=	'				<a class="link" href="#">'+oneFloorData.items[i][j].name+'</a>';
+				html +=	'			</p>';
+				html +=	'			<p class="floor-item-price">￥'+oneFloorData.items[i][j].price+'</p>';
+				html +=	'		</li>';	
+			}
+			html +=	'	</ul>';
+		}
+		html +=	'</div>';
+		return html;
+	}
+
+
 	var $floor = $('.floor');
 	var $win = $(window);
 	var $doc = $(document);	
@@ -196,10 +265,21 @@
 		});
 		/*2.执行加载*/
 		$elem.on('floor-load',function(ev,index,elem){
-			console.log(index,'will load floor html....');
-			var $imgs = $(elem).find('.floor-img');
+			console.log(index+' will load floor html....');
 			//加载HTML
-
+			//1.生成HTML
+			getDataOnce($elem,'data/floor/floorData.json',function(data){
+				var html = buildFloorHtml(data[index]);
+				//2.加载HTML
+				$(elem).html(html);
+				//3.图片懒加载
+				floorTabLazyLoad($(elem));
+				//4.激活选项卡
+				$(elem).tab({});
+			})
+			
+			
+			
 			$elem.allLoadedNum++;
 			items[index] = 'loaded';
 			
@@ -254,10 +334,6 @@
 			$elem.off('tab-show',$elem.loadFn);
 		});
 	}
-	
-	$floor.tab({});
-
-
 
 	/*获取是否显示*/
 	function isVisible($elem){
@@ -277,9 +353,5 @@
 		clearTimeout($floor.floorIsShowTimer);
 		$floor.floorIsShowTimer = setTimeout(floorIsShow,300);
 	});
-	$doc.on('floor-show',function(ev,index,elem){
-		// console.log(index,elem);
-		floorHtmlLazyLoad($doc);
-	})
-	
+	floorHtmlLazyLoad($doc);
 })(jQuery);
