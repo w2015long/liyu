@@ -397,7 +397,13 @@
 		})	
 	});
 
-
+	//toolbar回顶部
+	
+	$('#backToTop').on('click',function(){
+		$('html,body').animate({
+			scrollTop:0
+		})
+	})
 
 
 

@@ -536,8 +536,7 @@
 	.toolbar{
 		position: fixed;
 		top: 50%;
-		right: 50%;
-		margin-right: -648px;
+		right: 0;
 		margin-top: -102px;
 	}
 	.toolbar-item{
@@ -556,11 +555,11 @@
 		height: 40px;
 		line-height: 40px;
 		background: #ccc;
+		font-size: 16px;
 		position: relative;
-		z-index: 2;
+		z-index: 99;
 	}
 	.toolbar-text{
-		display: none;
 		width: 60px;
 		height: 40px;
 		line-height: 40px;
@@ -568,15 +567,14 @@
 		position: absolute;
 		left:0;
 		top:0;
-		z-index: 1;
+		z-index: 66;
 	}
 	.toolbar-item:hover .toolbar-text{
-		display: block;
 		left:-60px;
 		background: #ea675a;
 		color: #fff;
 	}
-/*	.toolbar-item:hover .toolbar-icon{
+	.toolbar-item:hover .toolbar-icon{
 		background: #ea675a;
-	}*/
-/*工具条结束*/
+		color: #fff;
+	}
