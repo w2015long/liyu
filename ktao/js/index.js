@@ -361,18 +361,40 @@
 	function getFloorNum(){
 		var num = -1;
 		$floor.each(function(index, elem) {
+			//如果是最后一页(if条件不满足) 就让num 等于index
 			num = index;
 			if($(elem).offset().top > $win.scrollTop()+$win.height()/2){
 				num = index - 1;
+				//条件满足终止循环
 				return false;
 			}
 		});
 		return num;
 	}
 	//设置动态电梯
-	
-
-
+	var $elevator = $('#elevator');
+	var $elevatorItems = $elevator.find('.elevator-item');
+	function setElevator(){
+		var num = getFloorNum();
+		if(num == -1){
+			$elevator.fadeOut();
+		}else{
+			$elevator.fadeIn();
+			$elevatorItems.removeClass('elevator-active');
+			$elevatorItems.eq(num).addClass('elevator-active');
+		}
+	}
+	$win.on('scroll resize load',function(){
+		clearTimeout($elevator.ElevatorTimer);
+		$elevator.ElevatorTimer = setTimeout(setElevator,200);
+	})
+	//点击电梯直达楼层
+	$elevator.on('click','.elevator-item',function(){
+		var num = $elevatorItems.index(this);
+		$('html,body').animate({
+			scrollTop:$floor.eq(num).offset().top
+		})	
+	})
 
 
 
