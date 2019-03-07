@@ -61,6 +61,42 @@
 		return html;		
 	}
 	$search.search();
+/*-----------------------------------------------------------------*/
+	/*
+	options = {
+		$elem:$elem,
+		totalItemNum:5,
+		eventName:'carousel-show',
+		eventPrefix:'carousel'
+	}
+	 */
+	
+	function lazyLoad(options){
+		/*1.开始加载*/
+		//懒加载优化
+		var items = {},
+			$elem = options.$elem,
+			totalItemNum = options.totalItemNum,
+			allLoadedNum = 0,
+			loadFn = null;
+		$elem.on(options.eventName,$elem.loadFn = function(ev,index,elem){
+			//防止多次加载图片
+			if(items[index] != 'loaded'){
+				$elem.trigger(options.eventPrefix+'-load',[index,elem,function(){
+					$elem.allLoadedNum++;
+					items[index] = 'loaded';
+					if($elem.totalItemNum == $elem.allLoadedNum){
+						$elem.trigger(options.eventPrefix+'-loaded');
+					}					
+				}]);
+			}
+		});
+		/*3.加载完毕*/
+		$elem.on(options.eventPrefix+'-loaded',function(){
+			$elem.off(options.eventName,$elem.loadFn);
+		});
+	}
+	
 
 
 
@@ -94,6 +130,7 @@
 	}
 	//carousel轮播图部分
 	/*-------------------------------------------------------*/
+	//此函数已共通(不再使用)
 	function carouselLazyLoad($elem){
 		/*1.开始加载*/
 		//懒加载优化
@@ -154,7 +191,38 @@
 	}
 	/*1.开始加载*/
 	var $bannerCarousel = $('.carousel .carousel-wrap');
-	carouselLazyLoad($bannerCarousel);	
+	/*2.banner轮播图执行加载*/
+	$bannerCarousel.on('carousel-load',function(ev,index,elem,success){
+		console.log(index,'will load....');
+		var $imgs = $(elem).find('.carousel-img');
+		//加载elem元素里多张图片
+		$imgs.each(function(){
+			var $img = $(this);
+			var imgUrl = $img.data('src');
+			loadImg(imgUrl,function(imgUrl){
+				$img.attr('src',imgUrl);
+			},function(imgUrl){
+				$img.attr('src','imgs/quesheng.jpg');
+			})
+			/*
+			$elem.allLoadedNum++;
+			items[index] = 'loaded';
+			if($elem.totalItemNum == $elem.allLoadedNum){
+				$elem.trigger('carousel-loaded');
+			}
+			*/
+			success();
+		});
+	});	
+	lazyLoad({
+		$elem:$bannerCarousel,
+		totalItemNum:$bannerCarousel.find('.carousel-img').length,
+		eventName:'carousel-show',
+		eventPrefix:'carousel'		
+	});
+
+
+	//carouselLazyLoad($bannerCarousel);	
 	$bannerCarousel.carousel({
 		slide:true,
 		activeIndex:0,
@@ -164,7 +232,30 @@
 
 	/*今日热销轮播图*/
 	var $todaysCarousel = $('.todays .carousel-wrap');
-	carouselLazyLoad($todaysCarousel);	
+	//carouselLazyLoad($todaysCarousel);
+	/*2.ad轮播图执行加载*/
+	$todaysCarousel.on('carousel-load',function(ev,index,elem,success){
+		console.log(index,'will load....');
+		var $imgs = $(elem).find('.carousel-img');
+		//加载elem元素里多张图片
+		$imgs.each(function(){
+			var $img = $(this);
+			var imgUrl = $img.data('src');
+			loadImg(imgUrl,function(imgUrl){
+				$img.attr('src',imgUrl);
+			},function(imgUrl){
+				$img.attr('src','imgs/quesheng.jpg');
+			});
+			success();
+		});
+	});		
+	lazyLoad({
+		$elem:$todaysCarousel,
+		totalItemNum:$todaysCarousel.find('.carousel-img').length,
+		eventName:'carousel-show',
+		eventPrefix:'carousel'		
+	});	
+	
 	$todaysCarousel.carousel({
 		slide:true,
 		activeIndex:0,
@@ -180,7 +271,6 @@
 		if(!data){
 			console.log('get data once....')
 			$.getJSON(url,function(resData){
-				console.log(resData)
 				$elem.data(url,resData);
 				callback(resData);
 			})
@@ -247,6 +337,22 @@
 	var $floor = $('.floor');
 	var $win = $(window);
 	var $doc = $(document);
+	//楼层懒加载在此监听
+	$floor.on('tab-load',function(ev,index,elem,success){
+		console.log(index,'will load....');
+		var $imgs = $(elem).find('.floor-img');
+		//加载elem元素里多张图片
+		$imgs.each(function(){
+			var $img = $(this);
+			var imgUrl = $img.data('src');
+			loadImg(imgUrl,function(imgUrl){
+				$img.attr('src',imgUrl);
+			},function(imgUrl){
+				$img.attr('src','imgs/quesheng.jpg');
+			})
+			success();
+		});
+	});		
 	//楼层懒加载	
 	function floorHtmlLazyLoad($elem){
 		
@@ -276,7 +382,14 @@
 				//2.加载HTML
 				$(elem).html(html);
 				//3.图片懒加载
-				floorTabLazyLoad($(elem));
+					//floorTabLazyLoad($(elem));
+					//楼层懒加载在上面监听
+				lazyLoad({
+					$elem:$(elem),
+					totalItemNum:$(elem).find('.floor-img').length,
+					eventName:'tab-show',
+					eventPrefix:'tab'						
+				})
 				//4.激活选项卡
 				$(elem).tab({});
 			})
@@ -336,7 +449,7 @@
 		});
 	}
 	//楼层懒加载	
-	floorHtmlLazyLoad($doc);
+	//floorHtmlLazyLoad($doc);
 
 	/*获取是否显示*/
 	function isVisible($elem){

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Palindrome</title>
+	<script>
+		function isPalindrome(min,max){
+			var result = [];
+			for(var i=min;i<=max;i++){
+				if(String(i) === String(i).split('').reverse().join('')){
+					result.push(i);
+				}
+			}
+			return result;
+		}
+		console.log(isPalindrome(1,10000))
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
