@@ -130,6 +130,49 @@
 	}
 	//carousel轮播图部分
 	/*-------------------------------------------------------*/
+	//此函数已共通(不再使用)
+	function carouselLazyLoad($elem){
+		/*1.开始加载*/
+		//懒加载优化
+		var items = {};//0:loaded 1:loaded
+		//防止多次触发carousel-show事件
+		$elem.totalItemNum = $elem.find('.carousel-img').length;
+		$elem.allLoadedNum = 0;
+		$elem.loadFn = null;
+		$elem.on('carousel-show',$elem.loadFn = function(ev,index,elem){
+			
+			console.log('carousel-show will trigger.....')
+			//防止多次加载图片
+			if(items[index] != 'loaded'){
+				$elem.trigger('carousel-load',[index,elem]);
+			}
+		});
+		/*2.执行加载*/
+		$elem.on('carousel-load',function(ev,index,elem){
+			console.log(index,'will load....');
+			var $imgs = $(elem).find('.carousel-img');
+			//加载elem元素里多张图片
+			$imgs.each(function(){
+				var $img = $(this);
+				var imgUrl = $img.data('src');
+				loadImg(imgUrl,function(imgUrl){
+					$img.attr('src',imgUrl);
+				},function(imgUrl){
+					$img.attr('src','imgs/quesheng.jpg');
+				})
+				$elem.allLoadedNum++;
+				items[index] = 'loaded';
+				
+				if($elem.totalItemNum == $elem.allLoadedNum){
+					$elem.trigger('carousel-loaded');
+				}
+			});
+		});	
+		/*3.加载完毕*/
+		$elem.on('carousel-loaded',function(){
+			$elem.off('carousel-show',$elem.loadFn);
+		});
+	}
 	function loadImg(imgUrl,success,error){
 		var image = new Image();
 		image.onload = function(){
@@ -178,6 +221,8 @@
 		eventPrefix:'carousel'		
 	});
 
+
+	//carouselLazyLoad($bannerCarousel);	
 	$bannerCarousel.carousel({
 		slide:true,
 		activeIndex:0,
@@ -187,6 +232,7 @@
 
 	/*今日热销轮播图*/
 	var $todaysCarousel = $('.todays .carousel-wrap');
+	//carouselLazyLoad($todaysCarousel);
 	/*2.ad轮播图执行加载*/
 	$todaysCarousel.on('carousel-load',function(ev,index,elem,success){
 		console.log(index,'will load....');
@@ -308,6 +354,102 @@
 		});
 	});		
 	//楼层懒加载	
+	function floorHtmlLazyLoad($elem){
+		
+		//懒加载优化
+		var items = {};//0:loaded 1:loaded
+		//防止多次触发tab-show事件
+		$elem.totalItemNum = $elem.find('.floor-img').length;
+		$elem.allLoadedNum = 0;
+		$elem.loadFn = null;
+		/*1.开始加载*/
+		$elem.on('floor-show',$elem.loadFn = function(ev,index,elem){
+			
+			// console.log('floor-show will trigger.....')
+			//防止多次加载图片
+			if(items[index] != 'loaded'){
+				$elem.trigger('floor-load',[index,elem]);
+			}
+		});
+		/*2.执行加载*/
+		$elem.on('floor-load',function(ev,index,elem){
+			console.log(index+' will load floor html....');
+			//加载HTML
+			//1.生成HTML
+			getDataOnce($elem,'data/floor/floorData.json',function(data){
+				console.log(data)
+				var html = buildFloorHtml(data[index]);
+				//2.加载HTML
+				$(elem).html(html);
+				//3.图片懒加载
+					//floorTabLazyLoad($(elem));
+					//楼层懒加载在上面监听
+				lazyLoad({
+					$elem:$(elem),
+					totalItemNum:$(elem).find('.floor-img').length,
+					eventName:'tab-show',
+					eventPrefix:'tab'						
+				})
+				//4.激活选项卡
+				$(elem).tab({});
+			})
+	
+			$elem.allLoadedNum++;
+			items[index] = 'loaded';
+			
+			if($elem.totalItemNum == $elem.allLoadedNum){
+				$elem.trigger('floor-loaded');
+			}			
+		});	
+		/*3.加载完毕*/
+		$elem.on('floor-loaded',function(){
+			$elem.off('floor-show',$elem.loadFn);
+		});
+	}	
+	function floorTabLazyLoad($elem){
+		/*1.开始加载*/
+		//懒加载优化
+		var items = {};//0:loaded 1:loaded
+		//防止多次触发tab-show事件
+		$elem.totalItemNum = $elem.find('.floor-img').length;
+		$elem.allLoadedNum = 0;
+		$elem.loadFn = null;
+		$elem.on('tab-show',$elem.loadFn = function(ev,index,elem){
+			
+			console.log('tab-show will trigger.....')
+			//防止多次加载图片
+			if(items[index] != 'loaded'){
+				$elem.trigger('tab-load',[index,elem]);
+			}
+		});
+		/*2.执行加载*/
+		$elem.on('tab-load',function(ev,index,elem){
+			console.log(index,'will load....');
+			var $imgs = $(elem).find('.floor-img');
+			//加载elem元素里多张图片
+			$imgs.each(function(){
+				var $img = $(this);
+				var imgUrl = $img.data('src');
+				loadImg(imgUrl,function(imgUrl){
+					$img.attr('src',imgUrl);
+				},function(imgUrl){
+					$img.attr('src','imgs/quesheng.jpg');
+				})
+				$elem.allLoadedNum++;
+				items[index] = 'loaded';
+				
+				if($elem.totalItemNum == $elem.allLoadedNum){
+					$elem.trigger('tab-loaded');
+				}
+			});
+		});	
+		/*3.加载完毕*/
+		$elem.on('tab-loaded',function(){
+			$elem.off('tab-show',$elem.loadFn);
+		});
+	}
+	//楼层懒加载	
+	//floorHtmlLazyLoad($doc);
 	$doc.on('floor-load',function(ev,index,elem,success){
 		console.log(index+' will load floor html....');
 		//加载HTML
@@ -395,7 +537,7 @@
 		$('html,body').animate({
 			scrollTop:$floor.eq(num).offset().top
 		})	
-	});
+	})
 
 
 
