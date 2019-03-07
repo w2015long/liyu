@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>004-拖拽基础.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#wrap{
+			width: 500px;
+			height: 400px;
+			background: gray;
+		}
+		#target{
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+	</div>
+	<div id="target" draggable='true'></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	/*dragstart 当元素开始拖动时触发
+	drag 被拖动元素拖动时触发
+	dragend 拖拽时松开鼠标时触发*/
+	$('#target')
+	.on('dragstart',function(ev){
+		console.log('       target:::dragstart...')
+	})
+	.on('drag',function(ev){
+		console.log('       target:::drag...')
+	})
+	.on('dragend',function(ev){
+		console.log('       target:::dragend...')
+	});
+/*drop 当放置被拖动元素时触发
+dragover 被拖动元素正在到放置到容器时触发,默认无法把元素放置到其他元素中,如果需要设置允许放置,我们必须阻止对元素的默认处理方式。
+dragenter 当被拖动元素进入容器时触发
+dragleave 当被拖动元素离开容器时触发
+dragend 被拖动元素在容器中松开鼠标时触发
+drag 容器中的被拖动元素拖动时触发*/
+	$("#wrap")
+	.on('drop',function(ev){
+		console.log('wrap:::drop.....');
+	})
+	.on('dragover',function(ev){
+		console.log('wrap:::dragover.....');
+		ev.preventDefault();	
+	})
+	.on('dragenter',function(ev){
+		console.log('wrap:::dragenter.....')
+	})
+	.on('dragleave',function(ev){
+		console.log('wrap:::dragleave.....')
+	})
+	.on('dragend',function(ev){
+		console.log('wrap:::dragend.....')
+	})
+	.on('drag',function(ev){
+		console.log('wrap:::drag.....')
+	})							
+</script>
+</html>
