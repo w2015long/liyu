@@ -78,22 +78,25 @@
 			$elem = options.$elem,
 			totalItemNum = options.totalItemNum,
 			allLoadedNum = 0,
-			loadFn = null;
-		$elem.on(options.eventName,$elem.loadFn = function(ev,index,elem){
+			loadFn = null,
+			eventName = options.eventName,
+			eventPrefix = options.eventPrefix;
+		$elem.on(eventName,loadFn = function(ev,index,elem){
 			//防止多次加载图片
 			if(items[index] != 'loaded'){
-				$elem.trigger(options.eventPrefix+'-load',[index,elem,function(){
-					$elem.allLoadedNum++;
+				$elem.trigger(eventPrefix+'-load',[index,elem,function(){
+					allLoadedNum++;
 					items[index] = 'loaded';
-					if($elem.totalItemNum == $elem.allLoadedNum){
-						$elem.trigger(options.eventPrefix+'-loaded');
+					if(totalItemNum == allLoadedNum){
+						$elem.trigger(eventPrefix+'-loaded');
 					}					
 				}]);
 			}
 		});
 		/*3.加载完毕*/
-		$elem.on(options.eventPrefix+'-loaded',function(){
-			$elem.off(options.eventName,$elem.loadFn);
+		$elem.on(eventPrefix+'-loaded',function(){
+			console.log('all done.........')
+			$elem.off(eventName,loadFn);
 		});
 	}
 	
@@ -109,24 +112,24 @@
 		loadHtmlOnce($(this),buildCategoryLayer);
 	});
 	function buildCategoryLayer($elem,data){
-				var html = '';
-				for(var i=0;i<data.length;i++){
-					html += '<dl class="category-details">';
-					html += '	<dt class="category-details-title fl">';
-					html += '		<a href="#" class="category-details-title-link">'+data[i].title+'</a>';
-					html += '	</dt>';
-					html += '	<dd class="category-details-item fl">';
-					for(var j=0;j<data[i].items.length;j++){
-						html += '<a href="#" class="link">'+data[i].items[j]+'</a>';
-					}
-					html += '</dl>';
-				}
-				//模拟网络延时
-				setTimeout(function(){
-					$elem.find('.dropdown-layer').html(html);
-					//第一次请求到数据 变量设为true
-					$elem.data('isLoaded',true);
-				},800);		
+		var html = '';
+		for(var i=0;i<data.length;i++){
+			html += '<dl class="category-details">';
+			html += '	<dt class="category-details-title fl">';
+			html += '		<a href="#" class="category-details-title-link">'+data[i].title+'</a>';
+			html += '	</dt>';
+			html += '	<dd class="category-details-item fl">';
+			for(var j=0;j<data[i].items.length;j++){
+				html += '<a href="#" class="link">'+data[i].items[j]+'</a>';
+			}
+			html += '</dl>';
+		}
+		//模拟网络延时
+		setTimeout(function(){
+			$elem.find('.dropdown-layer').html(html);
+			//第一次请求到数据 变量设为true
+			$elem.data('isLoaded',true);
+		},800);		
 	}
 	//carousel轮播图部分
 	/*-------------------------------------------------------*/
@@ -161,13 +164,6 @@
 			},function(imgUrl){
 				$img.attr('src','imgs/quesheng.jpg');
 			})
-			/*
-			$elem.allLoadedNum++;
-			items[index] = 'loaded';
-			if($elem.totalItemNum == $elem.allLoadedNum){
-				$elem.trigger('carousel-loaded');
-			}
-			*/
 			success();
 		});
 	});	
@@ -181,7 +177,7 @@
 	$bannerCarousel.carousel({
 		slide:true,
 		activeIndex:0,
-		interval:0		
+		interval:1000		
 	});
 
 
@@ -330,13 +326,20 @@
 			$(elem).tab({});
 		});
 		success()	
-	});		
+	});
+
+	$doc.on('floor-loaded',function(){
+		console.log('here .........')
+		$win.off('scroll resize',$floor.floorShowFn);
+	});	
+	//楼层懒加载	
 	lazyLoad({
 		$elem:$doc,
-		totalItemNum:$doc.find('.floor-img').length,
+		totalItemNum:$floor.length,
 		eventName:'floor-show',
 		eventPrefix:'floor'			
-	})
+	});
+
 
 
 	/*获取是否显示*/
@@ -353,9 +356,10 @@
 			
 		});		
 	}
-	$win.on('scroll resize load',function(){
+	$win.on('scroll resize load', $floor.floorShowFn = function(){
+		console.log('floor is shown .........');
 		clearTimeout($floor.floorIsShowTimer);
-		$floor.floorIsShowTimer = setTimeout(floorIsShow,300);
+		$floor.floorIsShowTimer = setTimeout(floorIsShow,200);
 	});
 	//电梯
 	//获取楼层号
