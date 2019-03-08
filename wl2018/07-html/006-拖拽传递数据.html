@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>006-拖拽传递数据.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#wrap{
+			width: 500px;
+			height: 400px;
+			background: gray;
+		}
+		#target{
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+	</div>
+	<div id="target" draggable='true'></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$("#target")
+	.on('dragstart',function(ev){
+		var id = ev.originalEvent.dataTransfer.setData('id',ev.target.id);
+	});
+
+	$('#wrap')
+	.on('drop',function(ev){
+		var targetId = ev.originalEvent.dataTransfer.getData('id');
+		console.log(targetId)
+		$(this).append($('#'+targetId));
+	})
+	.on('dragover',function(ev){
+		ev.preventDefault();
+	})
+
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>004-storage.html</title>
+</head>
+<body>
+	<h1>storage</h1>
+</body>
+<script>
+	/*localStorage 和 sessionStorage的api相同*/
+	console.log('localStorage',localStorage);
+	console.log('sessionStorage',sessionStorage);
+	localStorage.setItem('username', 'tom');//setItem(key,value) 设置
+	localStorage.setItem('age','20');
+	localStorage.setItem('major','coomputer');
+	console.log(localStorage.getItem('age'));//getItem(key) 获取
+	console.log(localStorage.getItem('major'))
+	localStorage.removeItem('major');
+	console.log(localStorage.getItem('major'));
+	//localStorage.clear();//clear() 清除所有
+	console.log(localStorage.length);//length 内容个数
+	console.log(localStorage.key(1))//key(num) 获取key的值
+/*
+setItem(key,value) 设置
+getItem(key) 获取
+removeItem(key) 删除
+clear() 清除所有
+length 内容个数
+ key(num) 获取key的值
+ */	
+</script>
+</html>

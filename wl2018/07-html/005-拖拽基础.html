@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>004-拖拽基础.html</title>
+	<title>005-拖拽基础.html</title>
 	<style>
 		*{
 			margin: 0;
@@ -48,12 +48,14 @@ dragend 被拖动元素在容器中松开鼠标时触发
 drag 容器中的被拖动元素拖动时触发*/
 	$("#wrap")
 	.on('drop',function(ev){
+		$(this).append($('#target'));
 		console.log('wrap:::drop.....');
 	})
 	.on('dragover',function(ev){
 		console.log('wrap:::dragover.....');
 		ev.preventDefault();	
 	})
+	/*
 	.on('dragenter',function(ev){
 		console.log('wrap:::dragenter.....')
 	})
@@ -65,6 +67,7 @@ drag 容器中的被拖动元素拖动时触发*/
 	})
 	.on('drag',function(ev){
 		console.log('wrap:::drag.....')
-	})							
+	})	
+	*/ 						
 </script>
 </html>
