@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>008-拖拽-test.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.wrap{
+			width: 300px;
+			height: 300px;
+			margin: 100px auto;
+			background: gray;
+		}
+		.target{
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+	</style>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			$('.wrap')
+			.on('drop',function(ev){
+				$(this).append($('.target'));
+			})
+			.on('dragover',function(ev){
+				ev.preventDefault();
+			})
+			.on('dragend',function(){
+				alert('drag over.....');
+			})
+		})
+	</script>
+</head>
+<body>
+	<div class="wrap"></div>
+	<div class="target" draggable='true'>target</div>
+</body>
+</html>
