@@ -31,7 +31,10 @@
 				ev.preventDefault();
 			})
 			.on('dragend',function(){
-				alert('drag over.....');
+				setTimeout(function(){
+					alert('drag over.....');
+				}, 200)
+				
 			})
 		})
 	</script>
