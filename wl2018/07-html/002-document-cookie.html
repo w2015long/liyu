@@ -2,16 +2,19 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>002-document-cookie.html</title>
+	<title>002-cookie有效期设置.html</title>
 </head>
 <body>
-	
+	<p>cookie</p>
 </body>
 <script>
-	document.cookie = 'username=tmo';
-	document.cookie = 'age=19';
+	// document.cookie = 'username=tmo';
+	// document.cookie = 'age=19';
 	var oDate = new Date();
 	console.log(oDate);
-	
+	// oDate.setDate(oDate.getDate() + 1);
+	// document.cookie = "name=leo;expires="+ oDate;
+	document.cookie = 'major=computer;max-age=10';
+
 </script>
 </html>
