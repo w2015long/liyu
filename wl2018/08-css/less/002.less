@@ -1,0 +1,35 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+p{
+	font-size: 24px;
+	color: pink;
+}
+div{
+	margin-bottom: 10px;
+}
+//我是注释一 编译被删除
+/*我是注释二 编译被保留*/
+@width:300px;
+@height: 200px;
+@color: #ff6800;
+.border-radius-def(@r:20px){
+	-webkit-border-radius:@r;
+	-o-border-radius:@r;
+	-ms-border-radius:@r;
+	border-radius: @r;
+}
+.box1{
+	width: @width;
+	height: @height;
+	color: @color;
+	background: gray;
+}
+.box2{
+	.box1;
+}
+.box3{
+	.box1;
+	.border-radius-def(30px)
+}
