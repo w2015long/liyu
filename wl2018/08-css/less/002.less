@@ -11,13 +11,13 @@ div{
 }
 //我是注释一 编译被删除
 /*我是注释二 编译被保留*/
-@width:300px;
-@height: 200px;
+@width:100px;
+@height: 80px;
 @color: #ff6800;
 .border-radius-def(@r:20px){
 	-webkit-border-radius:@r;
-	-o-border-radius:@r;
 	-ms-border-radius:@r;
+	-o-border-radius:@r;
 	border-radius: @r;
 }
 .box1{
@@ -25,11 +25,41 @@ div{
 	height: @height;
 	color: @color;
 	background: gray;
+	text-align: center;
 }
+// 选择符合条件的混合模式,根据传入的参数来决定使用哪个混合
+ .triangle(@_,@w,@c){
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	border-style: solid;
+	border-width: @w;
+	border-color: @c transparent transparent transparent;
+} 
+.triangle(top,@w,@c){
+	border-width: @w;
+	border-color: @c transparent transparent transparent;
+} 
+.triangle(left,@w,@c){
+	border-width: @w;
+	border-color: transparent transparent transparent @c;
+} 
+.triangle(bottom,@w,@c){
+	border-width: @w;
+	border-color: transparent transparent  @c transparent;
+}
+.triangle(right,@w,@c){
+	border-width: @w;
+	border-color: transparent @c transparent transparent;
+}  
 .box2{
 	.box1;
 }
 .box3{
 	.box1;
-	.border-radius-def(30px)
+	// .border-radius-def;
+	.border-radius-def(40px);
+}
+.box4{
+	.triangle(top,90px,blue);
 }
