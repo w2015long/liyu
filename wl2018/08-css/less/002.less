@@ -58,8 +58,60 @@ div{
 .box3{
 	.box1;
 	// .border-radius-def;
-	.border-radius-def(40px);
+	.border-radius-def(20px);
 }
 .box4{
 	.triangle(top,90px,blue);
 }
+/*嵌套模式*/
+.list{
+	width: 600px;
+	li{
+		width: 100%;
+		height: 40px;
+		line-height: 40px;
+		border-bottom: 1px solid #ccc;
+		a{
+			float: right;
+			text-decoration: none;
+			color: #89f;
+		}
+		span{
+			float: left;
+			font-size: 18px;
+			color: red;
+		}
+		&:hover{
+			background: @color;
+		}
+	}
+}
+/*运算*/
+.fs(@n){
+	font-size: @n - 10px;
+	width: @n * 10px;
+	height: @n + 5px;
+}
+.box5{
+	.fs(50px);
+	background: @color;
+}
+/*避免编译*/
+.box6{
+	font-size: ~'calc(30px - 10px)';
+}
+/*!important*/
+.box7{
+	.box1!important;
+}
+/*传属性与值*/
+/* .set(@attr,@val){
+    @{attr}:unit(@val/10,px);
+} */
+.set(@attr,@val){
+	@{attr}:unit(@val,px);
+}
+.box8{
+	.set(font-size,30);
+}
+
