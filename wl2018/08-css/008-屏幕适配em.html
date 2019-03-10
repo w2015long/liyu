@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>008-屏幕适配百分比em.html</title>
+	<!-- 
+当前元素字体的大小,1em=当前元素的font-size
+可以根据不同的屏幕来设置元素的font-size,再利用em来适配,但是元素的font-size可以被继承,同时js和css经常会修改font-size,如果用em来适配的话容易造成混乱
+	 -->
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		img{
+			width: 15em;
+			float: left;
+		}
+		p{
+			font-size: 1em;
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<img src="images/timg.jpg" alt="">
+	<p>我是文字</p>
+</body>
+</html>

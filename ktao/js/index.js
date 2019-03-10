@@ -177,7 +177,7 @@
 	$bannerCarousel.carousel({
 		slide:true,
 		activeIndex:0,
-		interval:1000		
+		interval:2000		
 	});
 
 
@@ -209,7 +209,7 @@
 	$todaysCarousel.carousel({
 		slide:true,
 		activeIndex:0,
-		interval:0		
+		interval:1600		
 	});	
 
 

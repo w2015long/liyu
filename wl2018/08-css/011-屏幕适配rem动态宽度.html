@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>011-屏幕适配rem动态宽度.html</title>
+	<!-- 
+根元素字体的大小,默认值是16px
+可以根据不同的屏幕来设置根元素的font-size,再利用rem来适配
+根元素的font-size需要动态设置,一般有JS和媒体查询两种方法来动态设置
+	 -->
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		img{
+			width: 5rem;
+			float: left;
+		}
+		p{
+			font-size: 1rem;
+		}
+	</style>
+</head>
+<body>
+	<img src="images/timg.jpg" alt="">
+	<p>我是文字</p>
+</body>
+<script>
+	(function(win,doc){
+		var oRoot = document.getElementsByTagName('html')[0];
+
+		function refresh(){
+			var iWidth = doc.body.clientWidth || doc.documentElement.clientWidth;
+			var iFontsize = iWidth / 10;
+			oRoot.style.fontSize = iFontsize + 'px';
+		}
+		win.addEventListener('resize',refresh,false);
+		win.addEventListener('DOMContentloaded',refresh,false);
+	})(window,document);
+</script>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>009-屏幕适配vw-vh.html</title>
+	<!-- 
+1vw=当前设备宽度的1%,vh=当前设备高度的1%
+可以适配布局和文字,但兼容性不好
+	 -->
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		img{
+			width: 30vw;
+			float: left;
+		}
+		p{
+			font-size: 2vw;
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<img src="images/timg.jpg" alt="">
+	<p>我是文字</p>
+</body>
+</html>
