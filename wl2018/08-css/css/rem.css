@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+/*1rem = 32px*/
+img {
+  float: left;
+  width: 5rem;
+}
+p {
+  font-size: 0.5rem;
+  color: red;
+  padding: 0rem 0.3125rem 0rem 0.625rem;
+}
