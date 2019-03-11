@@ -1,0 +1,41 @@
+/*1rem = 32px*/
+.header {
+  height: 1.3125rem;
+  line-height: 1.3125rem;
+  font-size: 0.5625rem;
+  border: 1px solid #cccccc;
+}
+.header .icon-back {
+  width: 1.3125rem;
+  text-align: center;
+}
+.header .header-title {
+  display: inline-block;
+  width: 6.5625rem;
+  text-align: center;
+}
+.header .icon-more {
+  margin-left: 0.9375rem;
+}
+.nav {
+  height: 1.3125rem;
+  line-height: 1.3125rem;
+  border-width: 0rem 0rem 0.03125rem 0rem;
+  border-style: solid;
+  border-color: #ccc;
+  font-size: 0.5rem;
+}
+.nav .icon-address {
+  width: 1.5625rem;
+  text-align: center;
+  color: #ccc;
+}
+.nav .address-home {
+  margin-left: -0.5625rem;
+  color: #ccc;
+}
+.nav .product-write {
+  float: right;
+  margin-right: 0.3125rem;
+  color: #ed3b3d;
+}

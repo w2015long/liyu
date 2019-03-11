@@ -7,3 +7,24 @@
 	color:@color;
 	font-size: 18px;
 }
+
+/*test*/
+@rem:32;
+/*1rem = 32px*/
+.rem(@attr,@val1){
+	@{attr}:unit(@val1 / @rem,rem);
+}
+img{
+	display: inline-block;
+	.rem(width,160);
+}
+p{
+	display: inline-block;
+	.rem(font-size,16);
+}
+.div{
+	float: left;
+	background: @color;
+	.rem(width,100);
+	.rem(height,100);
+}

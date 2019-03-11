@@ -6,3 +6,19 @@
   color: #ff0000;
   font-size: 18px;
 }
+/*test*/
+/*1rem = 32px*/
+img {
+  display: inline-block;
+  width: 5rem;
+}
+p {
+  display: inline-block;
+  font-size: 0.5rem;
+}
+.div {
+  float: left;
+  background: #ff0000;
+  width: 3.125rem;
+  height: 3.125rem;
+}

@@ -1,0 +1,57 @@
+@rem:32;
+/*1rem = 32px*/
+.rem(@attr,@val1){
+	@{attr}:unit(@val1 / @rem,rem);
+}
+.rem(@attr,@val1,@val2){
+	@{attr}:unit(@val1 / @rem,rem) unit(@val2 / @rem,rem);
+}
+.rem(@attr,@val1,@val2,@val3){
+	@{attr}:unit(@val1 / @rem,rem) unit(@val2 / @rem,rem) unit(@val3 / @rem,rem);
+}
+.rem(@attr,@val1,@val2,@val3,@val4){
+	@{attr}:unit(@val1 / @rem,rem) unit(@val2 / @rem,rem) unit(@val3 / @rem,rem) unit(@val4 / @rem,rem);
+}
+.bd(@c){
+	border: 1px solid @c;
+}
+.header{
+	.rem(height,42);
+	.rem(line-height,42);
+	.rem(font-size,18);
+	.bd(#ccc);
+	.icon-back{
+		.rem(width,42);
+		text-align: center;
+	}
+	.header-title{
+		display: inline-block;
+		.rem(width,210);
+		text-align: center;
+	}
+	.icon-more{
+		.rem(margin-left,30);
+	}
+}
+.nav{
+	.rem(height,42);
+	.rem(line-height,42);
+	.rem(border-width,0,0,1,0);
+	border-style: solid;
+	border-color:#ccc;
+	.rem(font-size,16);
+	.icon-address{
+		.rem(width,50);
+		text-align:center;
+		color: #ccc;
+	}
+	.address-home{
+		.rem(margin-left,-18);
+		color: #ccc;
+	}
+	.product-write{
+		float: right;
+		.rem(margin-right,10);
+		color: #ed3b3d;
+	}
+}
