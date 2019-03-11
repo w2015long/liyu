@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>023-容器属性-换行.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 1000px;
+			height: 600px;
+			border: 1px solid #000;
+			margin: 10px auto;
+			display: flex;
+/*
+flex-wrap:;
+nowrap(默认值):不换行,元素的宽度按照指定款的的比例从新计算
+wrap:换行,第一行在上方,换行后项目的垂直对齐方式由align-items/align-content来决定 
+wrap-reverse:换行,第一行在下方
+
+
+
+flex-flow:flex-direction属性和flex-wrap属性的简写形式,默认值为row nowrap
+ */			
+			/*flex-direction: row;*/
+			/*flex-wrap: nowrap;*/
+			flex-flow: row wrap;
+		}
+		.son{
+			height: 150px;
+		}
+		.son1{
+			width: 200px;
+			background: red;
+		}
+		.son2{
+			width: 400px;
+			background: blue;
+		}
+		.son3{
+			width: 500px;
+			background: pink;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son son1">son1</div>
+		<div class="son son2">son2</div>
+		<div class="son son3">son3</div>
+	</div>
+</body>
+</html>

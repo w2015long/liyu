@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>017-媒体查询-基本使用.html</title>
+	<style>
+/*
+width, 浏览器窗口的宽度,可以有min/max前缀
+height, 浏览器窗口的高度,可以有min/max前缀 
+device-width,设备宽度,可以有min/max前缀 
+device-height,设备高度,可以有min/max前缀 
+orientation,移动设备窗口的方向,portrait(纵向),landscape(横向)
+(min-width:400px) 浏览器窗口的宽度最小是400px样式生效,换句话说是大于等于400px时样式生效
+(max-width:800px) 浏览器窗口的宽度最大是800px样式生效,换句话说是小于等于800px时样式生效
+ */	
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		@media screen and (width:320px){
+			body{
+				background-color: red;
+			}			
+		}
+
+	</style>
+</head>
+<body>
+	
+</body>
+</html>

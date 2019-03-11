@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>021-弹性布局基本.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 1000px;
+			height: 600px;
+			border: 1px solid #000;
+			margin: 10px auto;
+			display: flex;
+/*
+flex-direction
+				row(默认值):水平方向,起点在左端
+				row-reverse:水平方向,起点在右端
+				column:垂直方向,起点在上沿
+				column-reverse:垂直方向,起点在下沿
+ */			
+			flex-direction: row-reverse;
+		}
+		.son{
+			height: 50px;
+		}
+		.son1{
+			width: 100px;
+			background: red;
+		}
+		.son2{
+			width: 200px;
+			background: blue;
+		}
+		.son3{
+			width: 400px;
+			background: pink;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son son1">son1</div>
+		<div class="son son2">son2</div>
+		<div class="son son3">son3</div>
+	</div>
+</body>
+</html>
