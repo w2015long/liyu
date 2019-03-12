@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>030-项目属性-algi-self</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 1000px;
+			height: 600px;
+			border: 1px solid #000;
+			margin: 10px auto;
+			display: flex;
+/*
+	flex 是flex-grow,flex-shrink,flex-basis的简写,默认值为0 1 auto,后两个属性可选
+	align-self 允许单个项目有与其他项目不一样的对齐方式,可覆盖align-items属性
+*/			
+			flex-wrap: wrap;
+			align-items: stretch;
+			/*align-content: stretch;*/
+
+			/*align-items: flex-start;*/
+			/*align-content: flex-start;*/
+
+			/*align-items: flex-end;*/
+			/*align-content: flex-end;*/
+
+			/*align-items: center;*/
+			/*align-content: center;*/
+
+
+			/*align-items: baseline;*/
+			/*align-content: baseline;*/
+		}
+		.son{
+			height: 150px;
+			/*height: auto;*/
+		}
+		.son1{
+			width: 200px;
+			background: red;
+		}
+		.son2{
+			width: 300px;
+			background: blue;
+			align-self: center;
+		}
+		.son3{
+			width: 600px;
+			background: pink;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son son1">son1</div>
+		<div class="son son2">son2</div>
+		<div class="son son3">son3</div>
+	</div>
+</body>
+</html>
