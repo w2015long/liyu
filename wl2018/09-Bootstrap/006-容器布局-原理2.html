@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<title>006-容器布局-原理2</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.container{
+			margin: 0 auto;
+			height: 50px;
+			background: red;
+		}
+		@media screen and (max-width:768px){.container{width:100%;}}
+		@media screen and (min-width:768px) and (max-width: 992px){.container{width:750px;}}
+		@media screen and (min-width:992px) and (max-width: 1220px){.container{width:970px;}}
+		@media screen and (min-width:1200px){.container{width:1170px;}}		
+	</style>
+</head>
+<body>
+	<div class="container">
+		
+	</div>
+</body>
+<script>
+	/*
+	;(function(win,doc){
+		var oCon = doc.querySelector('.container');
+		function resize(){
+			var iWidth = doc.body.clientWidth || doc.documentElement.clientWidth;
+			if(iWidth >= 1200){
+				oCon.style.width = '1170px';
+			}else if(iWidth >= 992){
+				oCon.style.width = '970px';
+			}else if(iWidth >= 768){
+				oCon.style.width = '750px';
+			}else{
+				oCon.style.width = '100%';
+			}
+		}
+		win.addEventListener('resize',resize,false);
+		win.addEventListener('DOMContentloaded',resize,false);
+	})(window,document);
+	*/
+</script>
+</html>
