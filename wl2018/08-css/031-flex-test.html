@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>031-flex-test.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 1000px;
+			height: 600px;
+			border: 1px solid #000;
+			margin: 10px auto;
+			text-align: center;
+			display: flex;
+			flex-direction: row-reverse;
+			justify-content: flex-end;
+		}
+		.son{
+			width: 100px;
+			height: 100px;
+			background: pink;
+			margin-left: 5px;
+		}
+		.center{
+			align-self: center;
+		}
+		.end{
+			align-self: flex-end;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="box1 son">box1</div>
+		<div class="box2 son">box2</div>
+		<div class="box3 son">box3</div>
+		<div class="box4 son center">box4</div>
+		<div class="box5 son center">box5</div>
+		<div class="box6 son center">box6</div>
+		<div class="box7 son end">box7</div>
+		<div class="box8 son end">box8</div>
+		<div class="box9 son end">box9</div>
+	</div>	
+</body>
+</html>
