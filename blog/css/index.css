@@ -1,0 +1,16 @@
+/*顶部导航开始*/
+	#blog a:hover{
+		color: #ff6700;
+	}
+	.blog .collapse .nav li{
+		font-size: 16px;
+	}
+	.blog .navbar-nav>li.active>a{
+		color: #ff6700;
+		background: transparent;
+	}
+/*顶部导航结束*/
+/*banner开始*/
+	.banner{
+		height: 1000px;
+	}
