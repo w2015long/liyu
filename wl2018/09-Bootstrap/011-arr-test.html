@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>arr-test</title>
+	<script>
+		var arr = [1,2,3,4,5,6];
+		var res = arr.map( function(item, index) {
+			return function show(){
+				return item;
+			}
+		});
+
+		console.log(res)
+		res.forEach( function(element, index) {
+			console.log(element());
+		});
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
