@@ -66,9 +66,6 @@
 	.main-panel:hover .panel-title{
 		color: #ff6700;
 	}
-	.aside-panel .panel-body{
-		background-color: #f7f7f7;
-	}
 	.aside-panel .panel-heading	{
 		background: transparent;
 		border: none;
