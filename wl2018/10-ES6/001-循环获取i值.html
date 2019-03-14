@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>001-循环获取i值</title>
+</head>
+<body>
+	<button>1</button>
+	<button>2</button>
+	<button>3</button>
+	<button>4</button>
+	<button>5</button>
+</body>
+<script>
+	var aBtn = document.getElementsByTagName('button');
+
+	/*
+	for(var i=0;i<aBtn.length;i++){
+		aBtn[i].onclick = function(){
+			console.log(i)
+		}
+	}
+	*/
+	/*
+	for(var i=0;i<aBtn.length;i++){
+		aBtn[i].index = i;
+		aBtn[i].onclick = function(){
+			console.log(this.index)
+		}
+	}
+	*/
+	/*
+	for(var i=0;i<aBtn.length;i++){
+		(function(i){//闭包拿i
+			aBtn[i].onclick = function(){
+				console.log(i)
+			}			
+		})(i);
+	}
+	*/
+	for(let i=0;i<aBtn.length;i++){
+		aBtn[i].onclick = function(){
+			console.log(i)
+		}
+	}
+</script>	
+</html>
