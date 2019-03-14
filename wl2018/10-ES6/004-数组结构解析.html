@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>004-数组结构解析.html</title>
+	<script>
+		/*
+		let [a,b,c] = [1,2,3];
+		console.log(a,b,c);
+
+		let [x,[y,z],p] = [9,[8,7],6];
+		console.log(x,y,z,p);
+
+		let [a,b=99,c] = [1,null,3];
+		console.log(a,b,c);//1,null,3
+
+		*/
+		let [a,b=99,c] = [1,undefined,3];//可以在等号左边数组中用等号设置默认值,当等号左边数组中对应的右边位置的值是undefined(没有或者是undefined)时默认值才会生效,否则取右边的值
+		console.log(a,b,c)
+
+
+		let [x,[y,z],p] = [9,[8],6];
+		console.log(x,y,z,p);//如果解构不成功,变量的值就等于undefined 
+
+		let [l,k,j] = {}//Uncaught TypeError: {} is not iterable
+		console.log(l,k,j);
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

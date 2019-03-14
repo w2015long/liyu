@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>003-const常量.html</title>
+	<script>
+
+		/*
+		var PI = 3.1415926;
+		PI += 1;
+		console.log(PI);
+		//const 作用:定义常量(一旦定义,值就不能改变)
+		const Pi = 3.1415926;
+		//常量不可以再次赋值
+		Pi += 1 ; //Uncaught TypeError: Assignment to constant variable.
+		console.log(Pi);
+		
+		const PI;//定义常量的时候必须赋初值
+		console.log(PI)
+		*/
+		/*
+		if(1){
+			const PI = 3.1415926;
+			console.log(PI);
+		}
+		console.log(PI);//const定义的常量在const命令所在的代码块内有效
+		
+		console.log(PI);//const定义的常量不会声明提升
+		const PI = 3.1415926;
+		*/
+	
+		const CONFIG = {
+			environment:'dev',
+			username:'root',
+			password:'root'
+		}
+
+		//对于复杂数据来说常量指向数据保存的地址,const保证的是这个地址不变,但地址指向的数据是可以修改的
+		CONFIG.username = 'Leo';
+		console.log(CONFIG);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

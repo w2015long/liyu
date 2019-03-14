@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>001-let变量.html</title>
+	<script>
+/*
+		//let定义过的变量不能再定义,var定义过的变量可以重新定义
+		var a = 1;
+		var a = 2;
+		console.log('var::',a);
+		let b = 1;
+		let b = 2;//Uncaught SyntaxError: Identifier 'b' has already been declared
+		console.log('let::',b);		
+*/
+
+		/*
+		//let定义的变量不会声明提升,var定义的变量会发生声明提升 
+		console.log(a);
+		var a = 1;
+
+		console.log(b)//Uncaught ReferenceError: b is not defined
+		let b = 2;
+		*/
+	/*
+		//let定义的变量在let命令所在的代码块内有效,var定义的变量在函数范围内有效
+		
+		{
+			var a = 1; 
+			console.log(a);
+		}
+		console.log(a);
+
+		{
+			let b = 2;
+			console.log(b);
+		}
+		console.log(b)//Uncaught ReferenceError: b is not defined
+	*/
+
+
+		function out(){
+			var a = 1;
+			function inside(){
+				a = 2;
+				console.log('in a = ',a);
+			}
+			console.log('before a = ',a);
+			inside();
+			console.log('out a = ',a);
+		}
+		out();
+
+
+		function _out(){//函数级作用域仍然存在
+			let b = 1;
+			function _inside(){
+				b = 2;
+				console.log('let:: in b = ',b);
+			}
+			console.log('let:: before b = ',b);
+			_inside();
+			console.log('let:: out b = ',b);
+		}
+		_out();		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
