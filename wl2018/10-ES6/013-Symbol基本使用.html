@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>013-Symbol基本使用.html</title>
+</head>
+<body>
+<script>
+	let s = Symbol();
+	console.log(s,typeof s);
+	let obj = {user:'Tom'}
+	console.log('before',obj);
+	obj.user = 'Leo';
+	console.log('after',obj);
+
+
+	let s1 = Symbol('user');
+	let s2 = Symbol('user');
+	let obj1 = {
+		age:18,
+		[s1]:"Tom",
+	}
+	obj1[s2] = "Amy";
+	console.log(obj1);
+
+	//Symbol值作为对象属性时是不可枚举的,可以利用Reflect.ownKeys(obj)获取对象上的所有key来遍历
+	for(let key in obj1){
+		console.log(key,obj1[key]);
+	}
+
+	console.log(obj1.getOwnPropertyDescriptors());
+</script>	
+	
+</body>
+</html>

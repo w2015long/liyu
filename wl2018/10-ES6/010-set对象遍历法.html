@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>010-set对象遍历法.html</title>
+	<script>
+		let set = new Set([11,22,33,55]);
+		//Set只有值没有键,所以key和value一样
+		set.add(66);
+		//keys():返回键名的遍历器
+		for(let key of set.keys()){
+			console.log('key',key);
+		}
+		//values():返回键值的遍历器
+		for(let value of set.values()){
+			console.log('value',value);
+		}	
+
+		for(let value of set){
+			console.log('val',value);
+		}	
+		//entries():返回键值对的遍历器
+		for(let entry of set.entries()){
+			console.log('entry',entry);
+		}	
+
+		set.forEach(function(value,index){
+			console.log('forEach',index,value);
+		})				
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

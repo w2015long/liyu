@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>014-函数参数定义默认值.html</title>
+	<script>
+
+		/*
+		function show(name,age){
+			name = name || "Tom";
+			age = age || 18;
+			console.log(name,age);
+		}
+
+		show();
+		show('Leo');
+		show('Amy',88);
+		*/
+	
+		function show(age,name="Tom"){
+			console.log(name,age);
+		}
+		show();
+
+		show(18);
+
+		show(88,"Amy");
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

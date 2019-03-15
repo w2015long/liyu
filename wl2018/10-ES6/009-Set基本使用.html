@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>009-Set基本使用.html</title>
+	<script>
+		let s = new Set();
+		console.log(typeof s);//object
+
+		s.add(11);
+		s.add(22);
+		s.add(22);//值唯一
+		// s.delete(22);
+		console.log(s.size);//Set对象的size属性返回Set实例的值的总数
+		console.log('delete',s.delete(33));
+
+		console.log('has',s.has(11));
+		// s.clear();//clear():清除所有值,没有返回值
+		console.log(s);
+
+
+		let arr = [99,88,66,55,66];
+		let set = new Set(arr);
+		console.log(set);
+
+		let arr1 = [...set];
+		console.log(arr1);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
