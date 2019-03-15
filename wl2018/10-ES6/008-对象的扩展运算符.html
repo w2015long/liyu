@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>008-对象的扩展运算符.html</title>
+	<script>
+		let obj1 = {
+			user:'Tom',
+			major:'English',
+			friend:{//如果被拷贝对象中有复杂数据,实际拷贝的是引用
+				name:'Amy',
+				major:'Math'
+			}
+		}
+
+		let obj2 = {...obj1};//如果被拷贝对象中有复杂数据,实际拷贝的是引用
+		console.log(obj2);
+		obj2.user = 'Leo';	
+		obj2.friend.name = 'Peter';
+		console.log(obj1,obj2);
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

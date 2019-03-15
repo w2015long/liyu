@@ -6,7 +6,7 @@
 	<script>
 		var arr1 = [11,22,33];
 		console.log(...arr1);
-
+		//求和
 		function sum(...arr){
 			let temp = 0;
 			for(let i=0;i<arr.length;i++){
@@ -15,6 +15,26 @@
 			return temp;
 		}
 		console.log(sum(...arr1));
+		//求最大值
+		console.log(Math.max(...arr1));
+		console.log(Math.max.apply(Math,arr1));
+
+
+		//深拷贝数组
+		let arr2 = arr1.concat();
+		arr2.push(66);
+		console.log(arr1,arr2);
+
+		let arr3 = arr1.slice();
+		arr3.push(66);
+		console.log(arr1,arr3);
+
+
+		//ES6
+		let arr4 = [...arr1];
+		arr4.push(66);
+		console.log(arr1,arr4);
+		
 	</script>
 </head>
 <body>
