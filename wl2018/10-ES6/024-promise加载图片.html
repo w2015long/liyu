@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>024-promise加载图片.html</title>
+</head>
+<body>
+<script>
+	function loadImg(url,success,error){
+		var img = new Image();
+		img.onload  = function(){
+			success(url);
+		}
+		img.error = function(){
+			error();
+		}
+		img.src = url;
+	}
+
+	loadImg('imgs/carousel2.jpg',function(url){
+		console.log('load success...',url)
+	},function(){
+		console.log('load failed...')
+	});
+
+
+	function loadImgPromise(url){
+		return new Promise((resolve,reject)=>{
+			var img = new Image();
+			img.onload  = function(){
+				resolve(url);
+			}
+			img.error = function(){
+				reject();
+			}			
+			img.src = url;
+		})
+	}
+
+
+	loadImgPromise('imgs/carousel2x.jpg')
+	.then(url=>{
+		console.log('load fulfilled...',url)
+	},()=>{
+		console.log('加载失败....')
+	})
+</script>	
+</body>
+</html>

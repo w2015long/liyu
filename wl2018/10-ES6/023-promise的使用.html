@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>023-promise的使用.html</title>
+	<script>
+		let promise = new Promise((resolve,reject)=>{
+			//Promise 新建后就会立即执行
+			console.log('new Promise.....')
+
+
+			//resolve函数在异步操作成功时(从pending变为fulfilled)调用,并将异步操作的结果作为参数传递出去
+			resolve('hello');
+			
+
+			//reject在异步操作失败时(从pending变为rejected)调用,并将异步操作报出的错误作为参数传递出去
+			reject('出错了');
+		})
+		
+
+
+		//Promise实例生成以后,可以用then方法分别指定resolved状态和rejected状态的回调函数,rejected状态的回调函数可以省略
+		promise
+		.then((data)=>{
+			console.log('success',data);
+		},(err)=>{
+			console.log('failed',err)
+		})			
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
