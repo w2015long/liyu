@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>012-test-fn.html</title>
+	<script>
+		function fn(a){
+			console.log('previous',a);
+			var a = 2;
+			function a(){}
+			console.log('later',a);
+		}
+		fn(1);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
