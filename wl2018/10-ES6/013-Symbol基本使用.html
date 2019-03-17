@@ -16,6 +16,8 @@
 
 	let s1 = Symbol('user');
 	let s2 = Symbol('user');
+
+	console.log(s1 == s2);//false
 	let obj1 = {
 		age:18,
 		[s1]:"Tom",
@@ -28,7 +30,9 @@
 		console.log(key,obj1[key]);
 	}
 
-	console.log(obj1.getOwnPropertyDescriptors());
+	console.log('getOwnPropertyDescriptors',Object.getOwnPropertyDescriptors(obj1));
+	//Symbol值作为对象属性时是不可枚举的,可以利用Reflect.ownKeys(obj)获取对象上的所有key来遍历
+	console.log('Reflect.ownKeys',Reflect.ownKeys(obj1));
 </script>	
 	
 </body>

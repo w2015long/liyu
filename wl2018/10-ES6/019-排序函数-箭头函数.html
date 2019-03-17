@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>019-排序函数-箭头函数.html</title>
+	<script type="text/javascript">
+		let arr = [22,88,66,99,56,39,96];
+
+		let temp = arr.sort();
+		console.log('temp',temp);
+
+
+		/*
+		let result = arr.sort(function(n1,n2){
+			return n1 - n2;
+		})
+		console.log(result);
+		*/
+		let result = arr.sort((n1,n2) => n1-n2);
+		console.log(result);		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

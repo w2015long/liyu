@@ -22,6 +22,16 @@
 			return x + y;
 		}
 		console.log(addNum(9,9));
+
+		//如果函数体只有返回值,函数体的花括号和return语句可以省略,简写
+		let intSum = (x,y) => x+y;
+		console.log(intSum(1,2));
+
+
+		//如果只有一个参数,圆括号可以省略,简写:
+		let minus = x => x-3;
+
+		console.log(minus(10));
 	</script>
 </head>
 <body>
