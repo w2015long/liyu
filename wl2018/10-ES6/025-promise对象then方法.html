@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>025-promise对象then方法.html</title>
+</head>
+<body>
+<script>
+	let p1 = new Promise((resolve,reject)=>{
+		resolve('is ok')
+	})
+
+
+	
+	let p2 = p1
+	.then(data=>{
+		console.log(data);
+	})
+
+	console.log(p2);
+</script>	
+</body>
+</html>

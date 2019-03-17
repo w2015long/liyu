@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>030-Promise.all方法.html</title>
+	<script>
+		function loadImgPromise(url){
+			return new Promise((resolve,reject)=>{
+				var img = new Image();
+				img.onload  = function(){
+					resolve(url);
+				}
+				img.error = function(){
+					reject(url);
+				}			
+				img.src = url;
+			})
+		}
+
+		['imgs/carousel1.jpg','imgs/carousel2.jpg','imgs/carousel3.jpg']
+		.map(url=>{
+			console.log(url)
+		})		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

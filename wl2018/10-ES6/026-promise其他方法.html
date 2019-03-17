@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>026-promise其他方法</title>
+</head>
+<body>
+<script>
+	let promise = new Promise((resolve,reject)=>{
+		//resolve('success');
+		reject('failed..')
+	})
+	promise
+	.then(data=>{
+		console.log(data);
+	})
+	.catch(err=>{
+		console.log(err)
+	})
+	.finally(()=>{
+		console.log('allways....')
+	})
+</script>
+</body>
+</html>
