@@ -11,18 +11,19 @@
 		img.onload  = function(){
 			success(url);
 		}
-		img.error = function(){
+		img.onerror = function(){
 			error();
 		}
 		img.src = url;
 	}
 	/*
-	loadImg('imgs/carousel2.jpg',function(url){
+	loadImg('imgs/carousel2a.jpg',function(url){
 		console.log('load success...',url)
 	},function(){
 		console.log('load failed...')
 	});
 	*/
+	
 
 	function loadImgPromise(url){
 		return new Promise((resolve,reject)=>{
@@ -30,7 +31,7 @@
 			img.onload  = function(){
 				resolve(url);
 			}
-			img.error = function(){
+			img.onerror = function(){
 				reject('加载失败....');
 			}			
 			img.src = url;
@@ -40,11 +41,12 @@
 
 	loadImgPromise('imgs/carousel2.jpg')
 	.then(url=>{
-		console.log('load fulfilled...',url)
+		console.log(url,'will load fulfilled...')
 	})
 	.catch(err=>{
 		console.log(err);
 	})
+
 </script>	
 </body>
 </html>

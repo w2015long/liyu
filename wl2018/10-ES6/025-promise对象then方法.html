@@ -10,14 +10,38 @@
 		resolve('is ok')
 	})
 
-
-	
+/*
+	console.log('p1',p1);//状态不同 resolved
+	//then方法返回的是一个新的Promise实例
 	let p2 = p1
 	.then(data=>{
 		console.log(data);
+		return data;
+	})//新promise成功函数的参数由上一个promise return的值决定
+	.then(data=>{
+		console.log('p2 data',data);
 	})
 
-	console.log(p2);
+	console.log('p2',p2);//状态不同 pending
+
+	console.log(p1 === p2);//false
+*/	
+	
+	//then方法返回的是一个新的Promise实例
+	//
+	let p3 = null;
+	let p2 = p1
+	.then(data=>{
+		console.log(data);
+		return p3 =  new Promise((resolve,reject)=>{
+			resolve('good')
+		});
+	});
+
+	p2.then(data=>{
+		console.log('p2 data',data);
+		console.log('p2===p3',p2===p3);
+	})	
 </script>	
 </body>
 </html>

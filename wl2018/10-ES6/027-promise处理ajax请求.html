@@ -10,11 +10,17 @@
 	$(function(){
 		$.get('https://api.github.com/users/kuazhu',data=>{
 			console.log('jq ajax',data);
+			$.get(data.followers_url,data=>{
+				console.log('3::',data)
+				$.get(data[0].followers_url,data=>{
+					console.log('3::',data)
+				})
+			})
 		})
 	})
 
 
-	
+	/*
 	let getDataPromise = url =>{
 		return new Promise((resolve,reject)=>{
 			resolve(url);
@@ -31,7 +37,7 @@
 	.then(data=>{
 		console.log('then  ',data);
 	})
-	
+	*/
 </script>
 </body>
 </html>
