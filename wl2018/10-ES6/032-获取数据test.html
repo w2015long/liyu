@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>032-获取数据test.html</title>
+</head>
+<body>
+<script type="text/javascript" src='js/jquery-1.12.4.js'></script>	
+<script type="text/javascript">
+	let getDataPromise = url => {
+		return new Promise((resolve,reject)=>{
+			$.get(url,data=>{
+				resolve('fulfilled'+data);
+			})
+		})
+	}
+
+
+	getDataPromise('https://127.0.0.1:3000')
+	.then(data=>getDataPromise(data.kuazhu_url))
+	.then(userInfo=>{
+		console.log(userInfo.phoneNum);
+	})
+</script>
+</body>
+</html>

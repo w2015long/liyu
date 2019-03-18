@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>033-Generator函数语法.html</title>
+</head>
+<body>
+<script type="text/javascript">
+	function * gen(){
+		console.log('in gen...');
+		yield 'get data';
+		console.log('do something after get data');
+
+		yield 'get userInfo';
+		console.log('do something after get userInfo');
+
+		yield 'get information';
+		return 'information';
+
+	}
+	let g = gen();//调用 Generator 函数后，该函数并不执行,返回一个遍历器对象
+
+	//console.log(typeof g,g);//object  , suspended
+
+	//每次调用next方法，会返回一个对象，表示当前阶段的信息（value属性和done属性）
+
+	let result = g.next();
+	console.log(result);//value属性是yield语句后面表达式的值，表示当前阶段的值；
+	console.log(g.next());//done属性是一个布尔值，表示 Generator 函数是否执行完毕，即是否还有下一个阶段
+	console.log(g.next());
+	//如果该函数没有return语句，则返回的对象的value属性值为undefined
+	console.log(g.next());//最后一个value值是return的值
+</script>	
+</body>
+</html>
