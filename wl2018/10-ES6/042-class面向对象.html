@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>042-class面向对象.html</title>
+</head>
+<body>
+<script type="text/javascript">
+	class Preson{
+		constructor(name,age){
+			this.name = name;
+			this.age = age;
+		}
+		sayName(){
+			console.log('I am '+this.name);
+		}
+		sayAge(){
+			console.log('I am '+this.age+" years old")
+		}
+		static sayHi(){
+			console.log('say Hi....');
+		}
+	}
+	let p = new Preson('Tom',18);
+	console.log(p);
+	p.sayName();
+	p.sayAge();	
+	Preson.sayHi();
+
+
+console.log('--------------------------------')
+
+	class Student extends Preson{
+		constructor(name,age,major){
+			super(name,age);
+			this.major = major;
+		}
+		sayMajor(){
+			console.log('I am major '+this.major);
+		}
+	}
+
+	let s = new Student('Leo',26,'Computer');
+	console.log(s);
+	s.sayName();
+	s.sayAge();	
+	s.sayMajor();
+	Student.sayHi();	
+</script>	
+</body>
+</html>
