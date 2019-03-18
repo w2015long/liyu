@@ -10,19 +10,31 @@
 				img.onload  = function(){
 					resolve(url);
 				}
-				img.error = function(){
-					reject(url);
+				img.onerror = function(){
+					reject('加载失败');
 				}			
 				img.src = url;
 			})
 		}
 
-		['imgs/carousel1.jpg','imgs/carousel2.jpg','imgs/carousel3.jpg']
+		let aPromises = ['imgs/carousel1.jpg','imgs/carousel2.jpg','imgs/carousel3.jpg']
 		.map(url=>{
-			console.log(url)
+			return loadImgPromise(url);
+		});
+
+		let allArr = Promise.all(aPromises);
+		//当数组中的所有Promise实例的状态都变成fulfilled时,Promise实例的状态才会变成fulfilled,此时,返回值组成一个数组传递给新Promise实例的回调函数
+		console.log(allArr);
+
+		allArr
+		.then(data=>{
+			console.log('data::',data);
+		})//当数组中有一个Promise实例被rejected,新Promise实例的状态就变成rejected,此时第一个被reject的实例的返回值会传递给新Promise实例的回调函数
+		.catch(err=>{
+			console.log('err::',err);
 		})	
 
-			
+
 	</script>
 </head>
 <body>

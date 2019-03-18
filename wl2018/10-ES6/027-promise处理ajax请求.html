@@ -7,7 +7,7 @@
 <body>
 <script src="js/jquery-1.12.4.js"></script>
 <script>
-	$(function(){
+	/*
 		$.get('https://api.github.com/users/kuazhu',data=>{
 			console.log('jq ajax',data);
 			$.get(data.followers_url,data=>{
@@ -17,27 +17,28 @@
 				})
 			})
 		})
-	})
   
+	*/
 
-	/*
 	let getDataPromise = url =>{
 		return new Promise((resolve,reject)=>{
-			resolve(url);
+			$.get(url,data=>{
+				resolve(data);
+			})
 		})
 	}
 
 	getDataPromise('https://api.github.com/users/kuazhu')
 	.then(data=>{
-		return getDataPromise(data.followers_url)
+		return getDataPromise(data.followers_url);
 	})
 	.then(data=>{
-		return getDataPromise(data.followers_url);
+		return getDataPromise(data[0].followers_url);
 	})
 	.then(data=>{
 		console.log('then  ',data);
 	})
-	*/
+
 </script>
 </body>
 </html>
