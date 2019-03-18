@@ -10,11 +10,18 @@
 			console.log('y= '+y);
 			let z = yield (y + 20);
 			console.log('z= '+z);
-
+			return (x+y+z);//15
 		}
 		let g = gen(5);
+		/*
 		console.log(g.next());//{value:15,done:false}
 		console.log(g.next());//{value:NaN,done:false}
+		console.log(g.next());//{value:NaN,done:true}
+		*/
+
+		console.log(g.next());//{value:15,done:false}
+		console.log(g.next(8));//{value:28,done:false}
+		console.log(g.next(2));//{value:15,done:true}		
 	</script>
 </head>
 <body>

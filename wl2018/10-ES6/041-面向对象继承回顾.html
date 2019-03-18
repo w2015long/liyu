@@ -6,7 +6,34 @@
 </head>
 <body>
 <script type="text/javascript">
-	function Person
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	Person.prototype = {
+		constructor:Person,
+		sayName(){
+			console.log('I am '+this.name);
+		},
+		sayAge(){
+			console.log('I am '+this.age+" years old");
+		}
+	}
+	Person.sayHi = function(){
+		console.log('Hi....');
+	}
+	let p = new Person('Tom',18);
+	p.sayName();
+	p.sayAge();
+	Person.sayHi();
+	console.log('--------------------------------');
+
+	function Student(name,age,major){
+		Person.call(this,name,age);
+		this.major = major;
+	}	
+	let s = new Student('Leo',26,"computer");
+	console.log(s)
 </script>	
 </body>
 </html>

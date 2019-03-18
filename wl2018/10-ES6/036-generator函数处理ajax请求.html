@@ -16,9 +16,9 @@
 	}	
 
 	function * gen(url){
-		let data1 = yield getDataPromise(url);
-		let data2 = yield getDataPromise(data1);
-		let data3 = yield getDataPromise(data2);
+		let followersUrl = yield getDataPromise(url);
+		let firstFolUrl = yield getDataPromise(followersUrl);
+		let data = yield getDataPromise(firstFolUrl);
 
 	}
 	let g = gen('https://api.github.com/users/kuazhu');

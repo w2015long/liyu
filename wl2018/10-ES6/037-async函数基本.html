@@ -9,12 +9,14 @@
 
 	//async function表示这个函数里面有异步处理
 	async function fn(){
-		let data = await 'hello'
-		console.log(data);
+		
+		 return 'hello'
 	}
 	let p = fn();
 	console.log(p);//async函数返回一个 Promise 对象，可以使用then方法添加回调函数。
-
+	p.then(data=>{
+		console.log(data);
+	})
 </script>	
 </body>
 </html>

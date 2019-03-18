@@ -5,6 +5,23 @@
 	<title>035-for-of遍历Generator.html</title>
 </head>
 <body>
-	
+<script type="text/javascript">
+	function * gen(){
+		yield 1;
+		yield 2;
+		yield 3;
+		yield 4;
+	}
+	let g = gen();
+	/*
+	console.log(g.next());
+	console.log(g.next());
+	console.log(g.next());
+	console.log(g.next());
+	*/
+	for(let val of g){
+		console.log(val);
+	}
+</script>
 </body>
 </html>
