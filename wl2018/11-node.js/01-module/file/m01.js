@@ -1,6 +1,2 @@
-// console.log(arguments);
-// console.log(arguments+'');
-function arg(){
-	console.log(arguments+'');
-}
-arg();
+// console.log(arguments.callee);
+console.log(arguments.callee+'');
