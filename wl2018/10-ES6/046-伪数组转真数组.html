@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>046-伪数组转真数组.html</title>
+</head>
+<body>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+</body>
+<script type="text/javascript">
+	let likeArr = {0:'a',1:'b',2:'c',length:3}
+	console.log("likeArr",likeArr);
+	console.log(Array.from(likeArr));
+
+	let aBox = document.querySelectorAll('.box');
+	console.log('aBox',aBox);
+	console.log(Array.from(aBox));
+
+	function arg(){
+		console.log(arguments);
+		console.log(Array.from(arguments));
+	}
+	arg(11,22,33);
+</script>
+</html>

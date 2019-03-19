@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>047-数组其他方法.html</title>
+</head>
+<body>
+<script type="text/javascript">
+
+//参数是一个回调函数，所有数组成员依次执行该回调函数，直到找出第一个返回值为true的成员，然后返回该成员。如果没有符合条件的成员，则返回undefined。	
+	let arr = [11,22,66,88,99];
+	console.log(arr.find(n=>n>25));//66
+	console.log(arr.find(n=>n>70));//88
+	console.log(arr.find(n=>n>100));//undefined
+
+	console.log(arr.findIndex(n=>n==22));//0
+	console.log(arr.findIndex(n=>n>70));//3
+	console.log(arr.findIndex(n=>n>100));//-1	
+
+	console.log(arr.includes(22));//true
+	console.log(arr.includes('22'));//false
+	console.log(arr.includes(100));//false		
+</script>	
+</body>
+</html>
