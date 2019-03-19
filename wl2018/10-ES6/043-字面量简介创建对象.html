@@ -7,7 +7,23 @@
 </head>
 <body>
 <script type="text/javascript">
+	let username = "Tom",
+		age = '18';
+	// let obj = {username:username,age:age}
 	
+	//属性和方法简写
+	let obj = {
+		username,
+		age,
+		sayNmae(){
+			console.log('I am '+this.username);
+		},
+		sayAge(){
+			console.log('I am '+this.age+" years old");
+		}
+	}
+	//构造函数不能用箭头函数
+	console.log(obj);	
 </script>	
 </body>
 </html>

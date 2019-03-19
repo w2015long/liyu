@@ -29,11 +29,18 @@
 	console.log('--------------------------------');
 
 	function Student(name,age,major){
+		//属性的继承
 		Person.call(this,name,age);
 		this.major = major;
-	}	
+	}
+	//方法的继承
+	Student.prototype = Object.create(Person.prototype);
+	Student.sayHi = Person.sayHi;
 	let s = new Student('Leo',26,"computer");
-	console.log(s)
+	console.log(s);
+	s.sayName();
+	s.sayAge();	
+	Student.sayHi();
 </script>	
 </body>
 </html>
