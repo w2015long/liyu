@@ -6,21 +6,29 @@
 </head>
 <body>
 <script type="text/javascript">
+	//await后的处理需要等待，如果不是promise 对象,就直接返回对应的值
+	async function fn(){
+		//await只能放到async函数体中
+		let str = await 'routine must wait..';
+		console.log(str);
+	}
+	console.log(fn());
+	
 	let promise = ()=>{
 		return new Promise((resolve,reject)=>{
 			setTimeout(()=>{
-				resolve('fulfilled')
+				resolve('resolve will do..')
 			},222)
 		})
 	}
+	/*
+	//await表示后面的处理需要等待,通常await后面是一个 Promise 对象，返回该对象的结果。如果不是 Promise 对象，就直接返回对应的值。
 	async function awaitFn(){
 		let p = await promise();
 		console.log(p)
 	}
-	awaitFn()
-	// .then(data=>{
-	// 	console.log(data)
-	// })
+	console.log(awaitFn());
+	*/
 </script>	
 </body>
 </html>

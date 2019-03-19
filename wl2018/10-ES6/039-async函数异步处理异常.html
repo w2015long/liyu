@@ -5,6 +5,43 @@
 	<title>039-async函数异步处理异常.html</title>
 </head>
 <body>
-	
+<script type="text/javascript">
+	let promise = new Promise((resolve,reject)=>{
+		setTimeout(()=>{
+			resolve('promise will done....')
+		},200)
+	})
+
+	async function dealWith(){
+
+		//await命令后面的 Promise 对象如果变为reject状态，程序中止,reject的参数会被catch方法的回调函数接收到。
+		await Promise.reject('first serve fail...');
+		let data = await promise;
+		console.log(data);	
+	}
+	dealWith()
+	.catch(err=>{
+		console.log(err);
+	})
+console.log('-------------------------')
+
+	async function tryHandle(){
+		try{
+			await Promise.reject('second serve fail......');
+		}
+		catch(err){
+			console.log(err);
+		}
+		try{
+			let data = await promise;
+			console.log(data);				
+		}
+		catch(e){
+			console.log(e);
+		}
+
+	}
+	tryHandle()
+</script>	
 </body>
 </html>
