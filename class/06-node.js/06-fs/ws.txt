@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>028-封闭空间-构建对象.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	(function(w){
+		function Person(name,age){
+			this.name = name;
+			this.age = age;
+		}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>030-函数防抖综合.html</title>
+	<style>
+		body{
+			height: 3000px;
+		}
+	</style>
+</head>
+<body>
+	
+</body>
+<script>
+
+//从体验方面看，我们希望第一次触发加载更多的时候，就执行回调。而不是在最后一次触发的时候执行回调。如果我们一直滚动页面，那加载更多就一直不触发...这种体验是不是很糟糕。基于上面问题，我们再次进行封装，多添加一个参数。
+	function debounce(fn, wait, immediate) {
+	    var timer = null;
+	    var context, args, result, timestamp;
+
+	    var later = function() {
+	        var oDate = new Date();
+	        var last = oDate.getTime() - timestamp; // 计算第一次时间戳与当前时间戳的差值。
+
+	        if (last < wait && last >= 0) { // 在等待时间内触发此函数，重新计时。
+	            timer = setTimeout(later, wait - last);
+	        } else {
+	            timer = null;
+	            if(!immediate) { // 限制immediate 为true时，执行回调函数。
+	                result = fn.apply(context, args);
+	                if(!timer) context = args = null;
+	            }
+	        }
+	    }
+
+	    return function() {
+	        var oDate = new Date();  
+	        var callNow = immediate && !timer; // 代表第一次调用立即执行。
+	      
+	        timestamp = oDate.getTime(); // 记录下当前时间戳
+	        context = this; // 保存上下文
+	        args = arguments; 
+	    
+	        if(!timer) { // 第一次触发时，timer为空，进入此分支
+	            timer = setTimeout(later, wait);
+	        }
+
+	        if(callNow) { // 第一次触发且immediate为true，进入此分支
+	            result = fn.apply(context, args);
+	            context = args = null;  
+	        }
+	        
+	        return result;
+	    }
+	}
+	var i = 0;
+	window.onscroll = debounce(function(){
+		console.log('第',i++,'触发');
+	},500,false)
+</script>
+</html>
+		Person.prototype = {
+			constructor:Person,
+			showName:function(){
+				console.log('I am '+this.name);
+			},
+			showAge:function(){
+				console.log('I am '+this.age+' years old')
+			}
+		}
+		w.Person = 	Person;	
+	})(window);
+	p1 = new Person('Tom',18);
+	console.log(p1)
+	p1.showName();
+</script>
+</html>
