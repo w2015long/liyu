@@ -46,6 +46,26 @@ async function updataData(id,name){
 		return obj;
 	}
 }
+async function deleteData(id){
+	//1获取原有数据
+	let data = await readFile(filePath);
+	let arr = JSON.parse(data);
+	//2筛选除删除外的其他数据
+	let newArr = arr.filter(val=>val['id']!=id);
+	//3保存新的数据
+	let strData = JSON.stringify(newArr);
+	await writeFile(filePath,strData);
+	return newArr;
+
+}
+deleteData('15532516187653119')
+.then(data=>{
+	console.log('after delete::',data);
+}) 
+.catch(err=>{
+	console.log('this is err::',err);
+})
+/*
 updataData('15532516187653119','Peter')
 .then(data=>{
 	console.log(data);
@@ -53,6 +73,7 @@ updataData('15532516187653119','Peter')
 .catch(err=>{
 	console.log('this is err::',err);
 })
+*/
 /*
 getData('15532516187653119')
 .then(data=>{
