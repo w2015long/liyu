@@ -5,7 +5,7 @@ class MyReadable extends Readable{
 		super();
 		this.index = 0;
 	}
-	_read(){
+	_read(){//会推送数据到读取队列
 		this.index++;
 		if(this.index>5){
 			this.push(null);

@@ -11,4 +11,4 @@ fs.writeSync(fd,'hello');
 fs.closeSync(fd);
 */
 //fs.writeFileSync(file, data[, options])
-fs.writeFileSync('02.txt','kuazhu',{flags:'w'})
+fs.writeFileSync('02.txt','kuazhu',{flag:'w'})
