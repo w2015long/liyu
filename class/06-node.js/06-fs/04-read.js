@@ -27,5 +27,6 @@ fs.readFile('01.txt',{flag:'r'},(err,data)=>{
 	if(err) throw err;
 	console.log('readFile::',data.toString());
 })
+console.log('do something..')
 
 
