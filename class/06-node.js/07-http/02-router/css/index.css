@@ -1,3 +1,7 @@
 body{
-	background-color: #ff6700;
+	background-color: #666;
+}
+img{
+	width: 400px;
+	margin: 10px auto;
 }
