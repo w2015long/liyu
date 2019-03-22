@@ -1,4 +1,5 @@
 const fs = require('fs');
+/*
 //1打开文件
 //fs.open(path, flags[, mode], callback)
 fs.open('01.txt','w',(err,fd)=>{
@@ -13,8 +14,12 @@ fs.open('01.txt','w',(err,fd)=>{
 			console.log('close success...')
 		});
 	})		
-	
-
+})
+*/
+//fs.writeFile(file, data[, options], callback)
+fs.writeFile('01.txt','hello-kuazhu',{flag:'w'},err=>{
+	if(err) throw err;
+	console.log('write file success');
 })
 
 
