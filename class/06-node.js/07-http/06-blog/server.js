@@ -14,6 +14,7 @@ const server = http.createServer((req,res)=>{
 	console.log('url',req.url);
 	let  reqUrl = url.parse(req.url,true);
 	console.log(reqUrl);
+	// pathname: '/lib/bootstrap/css/bootstrap.min.css',
 	let pathname = reqUrl.pathname;
 	//约定：如果请求根目录 返回根目录下的index.html
 	if(pathname.lastIndexOf('.')==-1){

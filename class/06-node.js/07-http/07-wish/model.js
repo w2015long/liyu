@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 const util = require('util');
-const filePath = 'data.json';
+const filePath = './data/wish.json';
 const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
 
@@ -21,10 +21,10 @@ async function add(name){
 	return arr;
 }
 
-async function getData(){
+async function getAll(){
 	//1获取原有数据
 	let data = await readFile(filePath);
-	let arr = JSON.parse(data);
+	let arr = JSON.parse(data);	
 	return arr;
 }
 
@@ -46,15 +46,9 @@ async function updataData(id,name){
 		return obj;
 	}
 }
-async function deleteData(id){
-	//1获取原有数据
-	let data = await readFile(filePath);
-	let arr = JSON.parse(data);
-	//2筛选除删除外的其他数据
-	let newArr = arr.filter(val=>val['id']!=id);
-	//3保存新的数据
-	let strData = JSON.stringify(newArr);
-	await writeFile(filePath,strData);
-	return newArr;
 
+module.exports = {
+	add,
+	getAll,
+	updataData
 }
