@@ -11,14 +11,14 @@ const mime = require('./mime.json');
 const hostname = '127.0.0.1';
 const port = 3000;
 
-const {	add,getData,updataData} = require('./model.js');
+const {	add,getData,remove} = require('./model.js');
 
 const server = http.createServer((req,res)=>{
 	// console.log('url',req.url);
 	let  reqUrl = url.parse(req.url,true);
-	// console.log(reqUrl);
+	//console.log("reqUrl>>>>>>",reqUrl);
 	let pathname = reqUrl.pathname;
-	console.log('pathname>>>>>>',pathname);
+	//console.log('pathname>>>>>>',pathname);
 
 	if(pathname == '/' || pathname == '/index.html'){//获取首页
 		getData()
@@ -66,6 +66,26 @@ const server = http.createServer((req,res)=>{
 			})
 			
 		})
+	}
+	else if(pathname=='/del'){
+		let id = reqUrl.query.id;
+		remove(id)
+		.then(()=>{
+			//end()必须接收json作为参数
+			let result = JSON.stringify({
+				status:0,//代表success
+			});
+			res.setHeader('Content-Type','text/html; charset=utf-8');
+			res.end(result);			
+		})
+		.catch(err=>{
+			let result = JSON.stringify({
+				status:10,//代表fail
+				message:'add maybe fail'
+			});
+			res.setHeader('Content-Type','text/html; charset=utf-8');
+			res.end(result);
+		})		
 	}
 
 	else{//请求静态资源
