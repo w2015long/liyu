@@ -2,7 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const url = require('url');
-const querystring = require('querystring');
+
 
 
 
@@ -17,7 +17,7 @@ const server = http.createServer((req,res)=>{
 	let  reqUrl = url.parse(req.url,true);
 	//console.log("reqUrl>>>>>>",reqUrl);
 	let pathname = reqUrl.pathname;
-	//console.log('pathname>>>>>>',pathname);
+	// console.log('pathname>>>>>>',pathname);
 
 	//约定:
 	//1.以/static开头的路径认为是请求静态资源
@@ -26,7 +26,8 @@ const server = http.createServer((req,res)=>{
 	//					/Wish/del/id
 	//					/Wish/index.html
 	if(pathname.startsWith('/static')){//请求静态资源
-		let filePath = path.normalize(__dirname + '/static'+pathname);
+		
+		let filePath = path.normalize(__dirname + pathname);
 		//path.extname(path)
 		let extname = path.extname(filePath);		
 		fs.readFile(filePath,(err,data)=>{
@@ -38,13 +39,14 @@ const server = http.createServer((req,res)=>{
 		})			
 	}else{//路由请求
 		let paths = pathname.split('/');
-		//console.log(paths);
-		let controller = paths.find(data=>'Wish') || 'Wish';
-		let action = paths.find(data=>'index')||'index';
+		console.log(paths);
+		let controller = paths[1] || 'Wish';
+		let action = paths[2] || 'index';
 		let args = paths.slice(3);
-		console.log(args);
+		console.log('args',args);
 		//console.log("controller>>>",controller);
 		try{
+			//mode 是Controller 文件内类的实例
 			let mode = require('./Controller/' +　controller);
 			mode[action] && mode[action].apply(null,[req,res].concat(args));
 		}

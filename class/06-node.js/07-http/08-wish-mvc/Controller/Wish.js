@@ -1,6 +1,8 @@
 
-
+const path = require('path');
 const swig = require('swig');
+const querystring = require('querystring');
+
 
 const {	add:addData,getData,remove} = require('../Model/model.js');
 
@@ -9,7 +11,7 @@ class Wish{
 	index(req,res,...args){
 		getData()
 		.then(data=>{//获取后台数据后处理html文件
-			let template = swig.compileFile(path.normalize(__dirname + '/static/index.html'));
+			let template = swig.compileFile(path.normalize(__dirname + '/../View/Wish/index.html'));
 			let output = template({
 				data
 			})
@@ -53,7 +55,8 @@ class Wish{
 		})		
 	}
 	del(req,res,...args){
-		remove(id)
+		//console.log(args[0]);
+		remove(args[0])
 		.then(()=>{
 			//end()必须接收json作为参数
 			let result = JSON.stringify({
@@ -72,3 +75,5 @@ class Wish{
 		})			
 	}
 }
+
+module.exports = new Wish();

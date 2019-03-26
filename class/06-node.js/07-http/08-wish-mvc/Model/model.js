@@ -1,9 +1,11 @@
 const fs = require('fs');
-
+const path = require('path');
 const util = require('util');
-const filePath = '../data/wish.json';
 const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
+
+
+const filePath = path.normalize(__dirname+'./../data/wish.json');
 
 const colorArr = ['blue','green','purple','red','pink','orange','coral','fuchsia','#089','#9ad'];
 
