@@ -41,15 +41,12 @@ db.once('open', () => {
 	Model.prototype.save()
 	Model.create()
  */	
-	
+	let arr = [];
+	for(let i=0;i<10;i++){
+		arr.push({name:getName(),age:getAge(),major:getMajor()})
+	}
 	userModel.insertMany(
-		[
-			{name:getName(),age:getAge(),major:getMajor()},
-			{name:getName(),age:getAge(),major:getMajor()},
-			{name:getName(),age:getAge(),major:getMajor()},
-			{name:getName(),age:getAge(),major:getMajor()},
-			{name:getName(),age:getAge(),major:getMajor()}
-		],
+		arr,
 		(err,docs)=>{
 			if(err){
 				console.log('insertMany data err::',err);
