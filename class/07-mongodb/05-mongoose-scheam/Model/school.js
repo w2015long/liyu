@@ -13,11 +13,25 @@ const userSchema = new mongoose.Schema({
 const userSchema = new mongoose.Schema({
 	name: {
 		type:String,
-		default:''
+		required:[true,'用户名必须输入'],
+		maxlength:[5,'用户名最多五位'],
+		minlength:[2,'用户名至少两位']
 	},
 	age:{
 		type:Number,
-		default:0
+		required:[true,'年龄必须输入'],
+		max:[150,'不好，已经超出范围'],
+		min:[10,'用户不满10周岁']
+	},
+	phone:{
+		type:Number,
+		validate:{
+			validator:function(num){
+				return /^1[356789]\d{9}$/.test(num);
+			},
+			message:'{VALUE}此手机号不合法'
+		}
+		
 	},
 	major:{
 		type:String,

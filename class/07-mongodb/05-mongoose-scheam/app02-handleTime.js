@@ -22,8 +22,6 @@ db.once('open', () => {
 	userModel.findOne(
 		{
 			name:'Mike',
-			age:'40',
-			major:'Math'
 		}
 
 	)
