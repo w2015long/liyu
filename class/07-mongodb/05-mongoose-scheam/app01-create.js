@@ -22,6 +22,7 @@ db.once('open', () => {
 		{
 			name:'Mike',
 			age:'30',
+			phone:16689898989,
 			major:'Math'
 		}
 

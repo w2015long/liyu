@@ -10,6 +10,7 @@ const userSchema = new mongoose.Schema({
 	major:String
 }); 
 */
+const blogModel = require('./blog.js');
 const userSchema = new mongoose.Schema({
 	name: {
 		type:String,
@@ -51,6 +52,23 @@ const userSchema = new mongoose.Schema({
 		default:[]
 	}
 });
+
+//添加实例方法(相当于原型链上添加方法)
+userSchema.methods.findBlogs = function(callback){
+	//console.log('this>>>>>',this) this是 userModel的一个实例
+	// 在Model的原型上有Model.prototype.model()方法,该方法返回一个指定的Model  
+	console.log(this.model('blog')===blogModel);//true
+	this.model('blog').find({author:this._id},callback);
+}
+
+//添加静态方法(相当于类上添加方法)
+userSchema.statics.findByPhone = function(phone,callback){
+	//console.log(this)// this 是 UserModel
+	//
+	////Model.model()方法返回一个指定的Model,因此this和this.model('User'))相等
+	console.log(this === this.model('school'))//true
+	this.findOne({phone},callback);
+} 
 
 //3.生成模型model 
 //mongoose.model第一个参数表示数据库的集合,mongoose会自动变为复数
