@@ -14,7 +14,7 @@
 <script>
 	$('#get').on('click',function(){
 		$.ajax({
-			url:'/get',
+			url:'/user',
 			type:'get',
 		})
 		.done(function(result){
@@ -27,7 +27,7 @@
 
 	$('#post').on('click',function(){
 		$.ajax({
-			url:'/post',
+			url:'/user',
 			type:'post',
 		})
 		.done(function(result){
@@ -40,7 +40,7 @@
 
 	$('#put').on('click',function(){
 		$.ajax({
-			url:'/put',
+			url:'/user',
 			type:'put',
 		})
 		.done(function(result){
@@ -53,7 +53,7 @@
 
 	$('#delete').on('click',function(){
 		$.ajax({
-			url:'/delete',
+			url:'/user',
 			type:'delete',
 		})
 		.done(function(result){

@@ -3,7 +3,10 @@ const app = express();
 const port = 3000;
 
 
-app.use(express.static('public'))
+app.use(express.static('public'));
+
+app.all('/', (req, res) => res.send('this is a get require'));
+
 app.get('/get', (req, res) => res.send('this is a get require'));
 app.post('/post', (req, res) => res.send('this is a post require'));
 app.put('/put', (req, res) => res.send('this is a put require'));

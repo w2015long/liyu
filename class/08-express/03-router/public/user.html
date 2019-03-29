@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>router</title>
+</head>
+<body>
+	<button id="get">get请求</button>
+	<button id="post">post请求</button>
+	<button id="put">put请求</button>
+	<button id="delete">delete请求</button>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$('#get').on('click',function(){
+		$.ajax({
+			url:'/',
+			type:'get',
+		})
+		.done(function(result){
+			console.log(result);
+		})
+		.fail(function(err){
+			console.log('this is ajax err:',err);
+		})
+	});
+
+	$('#post').on('click',function(){
+		$.ajax({
+			url:'/',
+			type:'post',
+		})
+		.done(function(result){
+			console.log(result);
+		})
+		.fail(function(err){
+			console.log('this is ajax err:',err);
+		})
+	})
+
+	$('#put').on('click',function(){
+		$.ajax({
+			url:'/',
+			type:'put',
+		})
+		.done(function(result){
+			console.log(result);
+		})
+		.fail(function(err){
+			console.log('this is ajax err:',err);
+		})
+	})
+
+	$('#delete').on('click',function(){
+		$.ajax({
+			url:'/',
+			type:'delete',
+		})
+		.done(function(result){
+			console.log(result);
+		})
+		.fail(function(err){
+			console.log('this is ajax err:',err);
+		})
+	})			
+</script>	
+</html>
