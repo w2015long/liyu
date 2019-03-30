@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{% block title %} {% endblock %}</title>
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	{% block head %} {% endblock %}
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			height: 100vh;
+			display: flex;
+			flex-direction: column;
+		}
+		section{
+			display: flex;
+			flex-direction: row;
+			flex-grow: 1;			
+		}
+		header,footer{
+			flex:0 0 10vh;
+			background: #cece;
+		}
+		nav,aside{
+			flex:0 0 10vw;
+			background: #f67;
+		}
+		.main{
+			flex-grow: 1;
+			background: #8f9;
+
+		}
+	</style>
+</head>
+<body>
+	<header>
+		头部导航
+	</header>
+	<section>
+		<nav>nav</nav>
+		<div class="main">
+			{% block content %} {% endblock %}
+		</div>
+		<aside>aside</aside>
+	</section>
+	<footer>footer</footer>
+</body>
+{% include './footer.html' %}
+{% block footer %} {% endblock %}
+</html>

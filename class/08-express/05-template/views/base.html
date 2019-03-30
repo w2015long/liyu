@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{{ title }}</title>
+</head>
+<body>
+	<h1>
+		{{ content }}
+	</h1>
+	<p>
+		{{ obj.name }}
+		{{ obj.age }}
+	</p>
+	<p>
+		<!-- 判断 -->
+		{% if name == 'Tom' %}
+			<h3>hello Tom</h3>
+		{% elseif name == 'Leo' %}
+			<h2>hello Leo</h2>
+		{% else %}
+			<h1>hello guy</h1>		
+		{% endif %}
+	</p>
+	<div>
+		<!-- 循环 -->
+		{% for key, val in arr %}
+			<p>
+				第{{ key }}个喜欢{{val}}颜色
+			</p>
+		{% endfor %}	
+	</div>
+</body>
+</html>

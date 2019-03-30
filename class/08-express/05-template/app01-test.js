@@ -21,13 +21,17 @@ app.set('views', './views')
 app.set('view engine', 'html')
 
 
-app.get('/test', (req, res) => {
+app.get('/', (req, res) => {
     //4.渲染模板
     //第一个参数是相对于模板目录的文件
     //第二个参数是传递给模板的数据
     res.render('test',{
         title:'跨猪网',
-        content:'我是内容'
+        content:'我是内容',
+        obj:{
+        	name:'Tom',
+        	age:18
+        }
     })
 	
 });
