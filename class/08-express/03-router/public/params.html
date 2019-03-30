@@ -14,7 +14,7 @@
 <script>
 	$('#get').on('click',function(){
 		$.ajax({
-			url:'/user',
+			url:'/users/88/books/9898',
 			type:'get',
 		})
 		.done(function(result){
@@ -27,7 +27,7 @@
 
 	$('#post').on('click',function(){
 		$.ajax({
-			url:'/user',
+			url:'/',
 			type:'post',
 		})
 		.done(function(result){
@@ -40,7 +40,7 @@
 
 	$('#put').on('click',function(){
 		$.ajax({
-			url:'/user',
+			url:'/',
 			type:'put',
 		})
 		.done(function(result){
@@ -53,7 +53,7 @@
 
 	$('#delete').on('click',function(){
 		$.ajax({
-			url:'/user',
+			url:'/?userId=123&booksId=369',
 			type:'delete',
 		})
 		.done(function(result){
