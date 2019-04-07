@@ -1,2 +1,5 @@
 # liyu
-for class
+
+Just for learning
+
+address of the course：https://www.kuazhu.com/
