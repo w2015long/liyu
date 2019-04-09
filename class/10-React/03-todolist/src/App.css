@@ -1,0 +1,14 @@
+.app{
+	width: 500px;
+	height: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	list-style: none;
+}
+.app li{
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	list-style: none;
+	border-bottom: 1px solid #000;
+}
