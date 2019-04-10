@@ -48,7 +48,12 @@ class App extends Component{
 			// 在返回组件内容时,如果不想有多余的标签,可以使用React.Fragment来代替html标签
 			<div className = "app">
 				<input onChange={this.handleVal.bind(this)} value={this.state.val}/>
-				<button onClick={this.handleAdd.bind(this)}>新增</button>
+				{/*行间样式*/}
+				<button 
+
+					style = {{width:100,height:30,marginLeft:10,background:'#f88'}}
+					onClick={this.handleAdd.bind(this)}
+				>新增</button>
 				<ul>
 					{
 						// console.log(this.state.list)
