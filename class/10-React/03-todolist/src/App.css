@@ -1,14 +1,23 @@
 .app{
-	width: 500px;
+	position: relative;
+	left:50%;
+	margin-left: -15%;
+	width: 30%;
 	height: 500px;
-	margin-left: auto;
-	margin-right: auto;
 	list-style: none;
+}
+.app input{
+	width: 75%;
+	height: 30px;
+}
+.app ul{
+	list-style: none;
+	margin-left: 0;
+	padding-left: 0;	
 }
 .app li{
 	width: 100%;
 	height: 40px;
 	line-height: 40px;
-	list-style: none;
-	border-bottom: 1px solid #000;
+	border-bottom: 1px solid #a67;
 }
