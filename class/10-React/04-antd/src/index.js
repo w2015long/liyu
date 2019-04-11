@@ -7,10 +7,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App.js'
 
-import { DatePicker } from 'antd';
-ReactDOM.render(<DatePicker />, document.getElementById('root'));
 
-// ReactDOM.render(<App/>,document.getElementById('root'))
+
+ReactDOM.render(<App/>,document.getElementById('root'))
 
 
 /*

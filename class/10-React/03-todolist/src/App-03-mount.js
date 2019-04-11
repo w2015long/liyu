@@ -16,34 +16,15 @@ class App extends Component{
 		this.handleAdd = this.handleAdd.bind(this);
 	}
 
-	// static getDerivedStateFromProps(nextProps, prevState){
-	// 	console.log('getDerivedStateFromProps (nextProps, prevState)',nextProps, prevState)
-	// 	return {
-	// 		// list:['打豆豆']
-	// 	}
-	// }
+	static getDerivedStateFromProps(nextProps, prevState){
+		console.log('getDerivedStateFromProps (nextProps, prevState)',nextProps, prevState)
+		return {
+			// list:['打豆豆']
+		}
+	}
 	componentDidMount(){
 		//组件挂载完毕执行,多用于发送ajax获取数据
 		console.log('componentDidMount')
-	}
-
-	/*----------------------update--------------------------*/
-
-	static getDerivedStateFromProps(props,state){
-		console.log('getDerivedStateFromProps (props,state)',props,state);
-		return {}
-	}
-	shouldComponentUpdate(nextProps,nextState){
-		console.log('shouldComponentUpdate',nextProps,nextState);
-		// return false
-		return true
-	}
-	getSnapshotBeforeUpdate(prevProps,prevState){
-		console.log('getSnapshotBeforeUpdate',prevProps,prevState);
-		return 'custom snapshot'
-	}
-	componentDidUpdate(prevProps, prevState,snapshot){
-		console.log('componentDidUpdate',prevProps, prevState,snapshot)
 	}
 	handleAdd(ev){	
 		this.setState(preState=>({

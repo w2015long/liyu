@@ -7,6 +7,10 @@ class Item extends Component{
 		console.log('02 Item constructor')
 		super(props);
 	}
+	componentWillUnmount(){
+		//卸载,当组件从 DOM 中移除时会调用
+		console.log('Item componentWillUnmount')
+	}
 	/*
 父组件给子组件传递参数
 	父组件定义属性并赋值

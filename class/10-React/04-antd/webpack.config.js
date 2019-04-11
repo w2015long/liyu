@@ -57,7 +57,10 @@ module.exports = {
 			    use: {
 			        loader: 'babel-loader',
 			        options: {
-			            presets: ['env', 'react']
+			            presets: ['env', 'react'],
+			            plugins: [
+            						["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }] 
+        						 ]
 			        }
 			    }               
 			}					  
@@ -75,8 +78,8 @@ module.exports = {
 			hash:true//给生成的js/css文件添加一个唯一的hash
 		}),
 		//时时清理更新后上一次文件
-		new CleanWebpackPlugin(),
-		["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }] 
+		new CleanWebpackPlugin()
+
 	],
 	//启动一个服务器(webpack-dev-server)实时动态刷新页面
     devServer: {
