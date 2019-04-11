@@ -1,11 +1,13 @@
 .app{
 	position: relative;
+	top: 20px;
 	left:50%;
 	margin-left: -15%;
 	width: 30%;
 	height: 500px;
 	list-style: none;
 }
+/*
 .app input{
 	width: 75%;
 	height: 30px;
@@ -21,3 +23,4 @@
 	line-height: 40px;
 	border-bottom: 1px solid #a67;
 }
+*/

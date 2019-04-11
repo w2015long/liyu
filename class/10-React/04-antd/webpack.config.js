@@ -58,6 +58,7 @@ module.exports = {
 			        loader: 'babel-loader',
 			        options: {
 			            presets: ['env', 'react'],
+			            //antd按需加载
 			            plugins: [
             						["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }] 
         						 ]
