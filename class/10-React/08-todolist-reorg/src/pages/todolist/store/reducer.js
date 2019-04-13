@@ -14,12 +14,7 @@ export default (state=defaultState,action)=>{
 		case CHANGE_ITEM:
 	  		//1.copy state
 	  		const newState = JSON.parse(JSON.stringify(state))
-	  		//2.更新 state
-		/*
-			 不是纯函数的例子
-			 newState.val = action.payload + Date.now
-			 newState.val = action.payload + Math.random()
-		*/	  		
+	  		//2.更新 state  		
 	  		newState.val = action.payload
 	  		return newState
 		case ADD_ITEM:

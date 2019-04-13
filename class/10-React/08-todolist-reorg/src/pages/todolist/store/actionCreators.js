@@ -1,30 +1,30 @@
-import {ADD_ITEM,CHANGE_ITEM,DEL_ITEM,INIT_ITEM} from './actionTypes.js'
+import * as types from './actionTypes.js'
 import axios from 'axios'
 
 let getAddAction = (payload)=>{
 	return {
-		type:ADD_ITEM,
+		type:types.ADD_ITEM,
 		payload		
 	}
 }
 
 let getChangeAction = (payload)=>{
 	return {
-		type:CHANGE_ITEM,
+		type:types.CHANGE_ITEM,
 		payload		
 	}
 }
 
 let getDelAction = (payload)=>{
 	return {
-		type:DEL_ITEM,
+		type:types.DEL_ITEM,
 		payload		
 	}
 }
 
 let getInitAction = payload=>{
 	return {
-		type:INIT_ITEM,
+		type:types.INIT_ITEM,
 		payload		
 	}
 }

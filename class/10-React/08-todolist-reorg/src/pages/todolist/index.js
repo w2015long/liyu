@@ -2,16 +2,14 @@
 
 import React,{Component,Fragment} from 'react';
 import { connect } from 'react-redux'
-import './App.css';
+import './index.css';
 import {  Row, Col ,Button,Input,List} from 'antd'
 
-import {getAddAction,getChangeAction,getDelAction,loadInitDataAction} from './store/getAction.js'
-
-
+import {actionTypes} from './store/'
 
 
 //容器组件
-class App extends Component{
+class Todolist extends Component{
 
 	componentDidMount(){
 		this.props.handleInit()
@@ -20,7 +18,7 @@ class App extends Component{
 	render() {
 		const {val,list,handleChange,handleAdd,handleDle} = this.props;
 		return (
-			<div className = "app">
+			<div className = "Todolist">
 			    <Row>
 			      <Col span={18}>
 			      	<Input 
@@ -57,42 +55,41 @@ class App extends Component{
 	}
 }
 
-//store里的state映射到组件的props上
-const mapStateToProps = (state) => {
-	// console.log(state)
+const mapStateToProps = state => {
+	console.log('first',state)
 	return {
-		val:state.val,
-		list:state.list
+		val:state.todolistReducer.val,
+		list:state.todolistReducer.list
 	}
 }
-//派发一系列action的方法映射到组件的props上
+
 const mapDispatchToProps = dispatch=>{
-	// console.log(dispatch)
 	return{
 
 		handleChange:(ev)=>{
 			const value = ev.target.value;
-			const action = getChangeAction(value)
+			const action = actionTypes.getChangeAction(value)
 			dispatch(action)			
 		},
 		handleAdd:()=>{
-			const action = getAddAction()
+			const action = actionTypes.getAddAction()
 			dispatch(action)			
 		},
 		handleDle:(index)=>{
-			const action = getDelAction(index)
+			const action = actionTypes.getDelAction(index)
 			dispatch(action)			
 		},
 		handleInit:()=>{
-			const action = loadInitDataAction()
+			const action = actionTypes.loadInitDataAction()
 			dispatch(action)				
 		}
 
 	}
 }
 
-//connect方法让指定的组件(App)与store连接
+
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(App)
+)(Todolist)
