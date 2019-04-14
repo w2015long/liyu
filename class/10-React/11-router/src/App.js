@@ -47,15 +47,12 @@ class App extends Component{
 
 
 	render() {
-		cosnt ProtectRoute = ({component:Component,...rest})=>{
-			return (
-				<Route 
-					{...rest}
-					render = {(props)=>(this.state.isLogin ? <Component {...props} /> : <Login />)}
-
-				/>
-			)
-		}	
+		const ProtectRoute = ({component:Component,...rest})=>(
+			<Route
+				{...rest}
+				render={(props)=>(this.state.isLogin ? <Component {...props} /> : <Login />)}
+			 />
+		)
 		return (
 			<Router>
 				<div className = "app">
