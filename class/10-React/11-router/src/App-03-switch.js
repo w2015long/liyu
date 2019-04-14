@@ -28,6 +28,8 @@ class Index extends Component{
 class Users extends Component{
 	render(){
 		return (
+			<div>{ this.props.params.id }</div>
+			
 			<Switch>
 			  <Route exact path="/users" render={() => <h2>This is users page</h2>}/>
 			  <Route path="/users/about"  render={() => <h2>This is users about page</h2>}/>

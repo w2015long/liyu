@@ -6,7 +6,8 @@ import {
 	BrowserRouter as Router,
 	Route,
 	Link,
-	Switch
+	Switch,
+	Redirect
 
 } from "react-router-dom"
 
@@ -20,6 +21,12 @@ class Index extends Component{
 	}
 }
 
+class Login extends Component{
+	render(){
+		return <h1>please login !</h1>
+	}
+}
+
 // class About extends Component{
 // 	render(){
 // 		return <h2>this is About page </h2>
@@ -28,6 +35,7 @@ class Index extends Component{
 class Users extends Component{
 	render(){
 		return (
+
 			<Switch>
 			  <Route exact path="/users" render={() => <h2>This is users page</h2>}/>
 			  <Route path="/users/about"  render={() => <h2>This is users about page</h2>}/>
@@ -41,16 +49,21 @@ class App extends Component{
 	constructor(props){
 		super(props);
 		this.state = {
-			isLogin:true
+			isLogin:false
 		}
 	}
 
 
 	render() {
-		const ProtectRoute = ({component:Component,...rest})=>(
+		const ProtectRoute = ({component:Users,...rest})=>(
 			<Route
 				{...rest}
-				render={(props)=>(this.state.isLogin ? <Component {...props} /> : <Login />)}
+				render={(props)=>(
+					this.state.isLogin
+					? <Users {...props} />
+					// : <Login />
+					: <Redirect to="/login" />
+				)}
 			 />
 		)
 		return (
@@ -80,7 +93,7 @@ class App extends Component{
 
 			        <Route path="/" exact component={Index} />
 			        <Route path="/about/" render={() => <h3>Please select a topic</h3>} />
-
+			        <Route path="/login" component={Login} />
 			        <ProtectRoute path="/users/" component={Users} />
 
 				</div>
