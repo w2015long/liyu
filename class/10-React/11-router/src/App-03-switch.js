@@ -44,18 +44,7 @@ class App extends Component{
 			isLogin:true
 		}
 	}
-
-
 	render() {
-		cosnt ProtectRoute = ({component:Component,...rest})=>{
-			return (
-				<Route 
-					{...rest}
-					render = {(props)=>(this.state.isLogin ? <Component {...props} /> : <Login />)}
-
-				/>
-			)
-		}	
 		return (
 			<Router>
 				<div className = "app">
@@ -84,7 +73,7 @@ class App extends Component{
 			        <Route path="/" exact component={Index} />
 			        <Route path="/about/" render={() => <h3>Please select a topic</h3>} />
 
-			        <ProtectRoute path="/users/" component={Users} />
+			        <Route path="/users/" component={Users} />
 
 				</div>
 			</Router>
