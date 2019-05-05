@@ -1,0 +1,5 @@
+/* pages/article/article.wxss */
+.slide-image{
+  height: 300rpx;
+  width: 100%;
+}

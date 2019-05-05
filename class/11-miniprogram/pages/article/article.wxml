@@ -1,0 +1,15 @@
+<!--pages/article/article.wxml-->
+<swiper
+  indicator-dots="true"
+  autoplay="true"
+>
+  <swiper-item>
+    <image src="../../images/carousel2.jpg" class="slide-image" />
+  </swiper-item>
+  <swiper-item>
+    <image src="../../images/carousel1.jpg" class="slide-image" />
+  </swiper-item>
+  <swiper-item>
+    <image src="../../images/carousel3.jpg" class="slide-image" />
+  </swiper-item>    
+</swiper>
