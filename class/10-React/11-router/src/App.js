@@ -61,7 +61,6 @@ class App extends Component{
 				render={(props)=>(
 					this.state.isLogin
 					? <Users {...props} />
-					// : <Login />
 					: <Redirect to="/login" />
 				)}
 			 />
