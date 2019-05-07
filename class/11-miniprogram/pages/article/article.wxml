@@ -1,4 +1,6 @@
 <!--pages/article/article.wxml-->
+<import src="./article-template/article-template.wxml" />
+
 <swiper
   indicator-dots="true"
   autoplay="true"
@@ -14,8 +16,8 @@
   </swiper-item>    
 </swiper>
 <view class='article-wrap'>
-  <view wx:for="{{articles}}" wx:for-index="idx" wx:for-item="article" wx:key="idx"> 
-    <view class='article-item'>
+  <block wx:for="{{articles}}" wx:for-index="idx" wx:for-item="article" wx:key="idx"> 
+    <!-- <view class='article-item'>
         <view class='article-head'>
           <image class='article-head-avatar' src='{{article.avatar}}'></image>
           <text class='article-head-date'>{{article.date}}</text>
@@ -29,6 +31,9 @@
           <image class='article-footer-icon' src='../../images/bg5.jpg'></image>
           <text class='article-footer-text'>{{article.view}}</text>       
         </view>
-      </view>   
-  </view>
+      </view>    -->
+      <view bindtap='tapArticleItem' data-article-id="{{article.articleId}}">
+        <template is="articleItem" data="{{...article}}" />
+      </view>
+  </block>
 </view>

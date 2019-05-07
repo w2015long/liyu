@@ -1,36 +1,26 @@
 // pages/article/article.js
+var {articles} = require('../../data/db.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    articles:[
-      {
-        avatar:'../../images/blog.jpg',
-        date:'2019-05-06',
-        title:'华为meit30发布会',
-        photo:'../../images/carousel3.jpg',
-        desc:'我是文章，使用警告：此Api非官方版本，请各位尽量将分享功能迁移至腾讯官方版，会更稳定些',
-        star: '9999',
-        view: '86520'
-      },
-      {
-        avatar: '../../images/blog.jpg',
-        date: '2019-05-09',
-        title: '华为meit56发布会',
-        photo: '../../images/bg4.jpg',
-        desc: '分享失败了，是不是可以告诉用户：不要紧，可能是网络问题，一会儿再试试',
-        star: '89',
-        view: '56'
-      },      
-    ]
+   
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+    /*
+    this.setData({articles:articles},function(){
+      console.log('in',this.data)
+    }.bind(this));
+    console.log('out' ,this.data);
+    */
+
     this.setData({ articles: articles})
     //console.log('article:onLoad')
   },
@@ -82,5 +72,15 @@ Page({
    */
   onShareAppMessage: function () {
     //console.log('article:onShareAppMessage')
-  }
+  },
+  // 跳转到详情页
+  tapArticleItem: function (ev) {
+    // console.log(ev.currentTarget)
+    var articleId = ev.currentTarget.dataset.articleId;
+    // console.log(articleId)
+    wx.navigateTo({
+      url: './article-detail/article-detail?articleId=' + articleId,
+    })
+   
+  }  
 })
