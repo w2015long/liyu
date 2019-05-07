@@ -69,6 +69,7 @@
 			}
 
 		}
+
 	}
 	kQuery.fn.extend = kQuery.extend= function(options){
 		// console.log(this == kQuery.fn);//true
@@ -101,7 +102,49 @@
 		},
 		isArray : function(str){
 			return typeof str == 'object' && length in str;
-		}		
+		},
+		each:function(arr,fn){
+			if(kQuery.isArray(arr)){
+				for(var i=0;i<arr.length;i++){
+					var res = fn.call(arr[i],i,arr[i]);
+					if(res == false){
+						break
+					}else if(res == true){
+						continue
+					}						
+				}
+			}else{
+				for(var key in arr){
+					var res = fn.call(arr[key],key,arr[key])
+					if(res == false){
+						break
+					}else if(res == true){
+						continue
+					}	
+
+				}
+			}
+			return arr;
+		},
+		map:function(arr,fn){
+			var result = [];
+			if(kQuery.isArray(arr)){
+				for(var i=0;i<arr.length;i++){
+					var res = fn.(arr[i],i);
+					if(res){
+						result.push(res)
+					}
+				}
+			}else{
+				for(var key in arr){
+					var res = fn.(arr[key],key);
+					if(res){
+						result.push(res)
+					}
+				}
+			}
+			return result
+		}				
 	})	
 
 	kQuery.fn.init.prototype = kQuery.fn;

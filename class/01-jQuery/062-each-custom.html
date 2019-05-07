@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>062-each-custom.html</title>
+	<!-- <script src="js/jquery-1.12.4.js"></script> -->
+	<script src="js/kQuery-1.1.0.js"></script>
+	<script>
+		$(function(){
+			var arr = [11,9,8,7,6];
+			var likeArr = {0:'apple',1:'tomato',2:'banner','length':3}
+			/*
+			$.each(arr,function(index,item){
+				console.log(index,item)
+				console.log(this)
+				if(index == 0){
+					return false
+				}
+			})
+			*/
+			var res = $.map(likeArr,function(item,index){
+				if(item == 'tomato'){
+					return item	
+				} 
+			})
+			console.log(res)
+		})
+	</script>	
+</head>
+<body>
+	
+</body>
+</html>
