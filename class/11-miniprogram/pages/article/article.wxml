@@ -6,13 +6,13 @@
   autoplay="true"
 >
   <swiper-item>
-    <image src="../../images/carousel2.jpg" class="slide-image" />
+    <image src="https://s2.ax1x.com/2019/05/08/Eck0MT.jpg" class="slide-image" />
   </swiper-item>
   <swiper-item>
-    <image src="../../images/carousel1.jpg" class="slide-image" />
+    <image src="https://s2.ax1x.com/2019/05/08/EckgiR.jpg" class="slide-image" />
   </swiper-item>
   <swiper-item>
-    <image src="../../images/carousel3.jpg" class="slide-image" />
+    <image src="https://s2.ax1x.com/2019/05/08/EckRRx.jpg" class="slide-image" />
   </swiper-item>    
 </swiper>
 <view class='article-wrap'>
