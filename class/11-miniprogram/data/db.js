@@ -17,11 +17,11 @@ var articles = [
     }
   },
   {
-    avatar: '/images/blog.jpg',
+    avatar: 'https://i.loli.net/2019/05/09/5cd3ddd617b7d.jpg',
     author: 'Amy',
     date: '2019-05-09',
     title: '演唱会',
-    photo: '/images/bg4.jpg',
+    photo: 'https://i.loli.net/2019/05/09/5cd3dd8a2fe7e.jpg',
     desc: '分享失败了，是不是可以告诉用户：不要紧，可能是网络问题，一会儿再试试',
     content:"分享失败了，是不是可以告诉用户：不要紧，可能是网络问题，一会儿再试试分享失败了，是不是可以告诉用户：不要紧，可能是网络问题，一会儿再试试分享失败了，是不是可以告诉用户：不要紧，可能是网络问题，一会儿再试试分享失败了，是不是可以告诉用户：不要紧，可能是网络问题，一会儿再试试",
     star: '8966',

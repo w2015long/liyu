@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>005-v-model.html</title>
+</head>
+<body>
+	<div id="app">
+		<p>{{message}}</p>
+		<p>默认<input type="text" v-model="message"/></p>
+		<p>lazy<input type="text" v-model.lazy="message"/></p>
+		<p>number<input type="text" v-model.number="message"/></p>
+		<p>trim<input type="text" v-model.trim="message"/></p>
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	new Vue({
+		el:'#app',
+		data:{
+			message:'hello vue'
+		}
+	})
+</script>
+</html>

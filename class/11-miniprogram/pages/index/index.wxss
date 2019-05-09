@@ -1,6 +1,6 @@
 /**index.wxss**/
 page{
-  background-color: #a8a3b8;
+  background-color: #808080;
   padding: 200rpx 0;
 }
 .userinfo {

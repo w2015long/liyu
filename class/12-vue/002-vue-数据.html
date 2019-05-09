@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>002-vue-数据.html</title>
+</head>
+<body>
+	<div id="app">
+		<p ref = "p" class="page">{{message}}</p>
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			message:'hello vue'
+		}
+	})
+	console.log(vm.$el)
+	console.log(vm.$data.message);
+	console.log(vm.$refs.p.className);
+	vm.$watch('message',()=>{
+		console.log('data has been changed')
+	})
+</script>
+</html>
