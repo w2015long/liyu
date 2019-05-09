@@ -22,21 +22,31 @@ Page({
     getMovie(hotUrl, function (data){
         this.setData({
           hotData: data,
-          hotTag:'正在热映'
+          hotTag:'正在热映',
+          hotType:'hot'
         })
     }.bind(this));
     
     getMovie(comingUrl, function (data) {
       this.setData({
         comingData: data,
-        comingTag: '即将上映'
+        comingTag: '即将上映',
+        comingType:'coming'
       })
     }.bind(this));  
     getMovie(top250Url, function (data) {
       this.setData({
         top250Data: data,
-        top250Tag:'豆瓣Top250'
-      })
+        top250Tag:'豆瓣Top250',
+        top250Type:'top250'
+      }) 
     }.bind(this));      
+  },
+  bandleMore: function(ev){
+    // console.log(ev.currentTarget.dataset.type);
+    var type = ev.currentTarget.dataset.type;
+    wx.navigateTo({
+      url: '/pages/movie/movie-more/movie-more?type=' + type,
+    })
   }
 })
