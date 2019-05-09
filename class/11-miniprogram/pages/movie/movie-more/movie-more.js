@@ -13,7 +13,9 @@ Page({
   },
   handleGetMovie:function(data){
     this.data.totalCount += data.length;
-    this.data.totalData = this.data.totalData.concat(data)
+    console.log('len',data.length)
+    console.log(this.data.totalCount)
+    this.data.totalData = this.data.totalData.concat(data);
     this.setData({
       movies: this.data.totalData 
     })
@@ -42,11 +44,14 @@ Page({
        default:
         break              
     }
+
     this.data.requestUrl = requestUrl;
+
     wx.setNavigationBarTitle({
       title: title,
-    })
-    getMovie(requestUrl, this.handleGetMovie);
+    });
+
+    getMovie(this.data.requestUrl,this.handleGetMovie);
   },
 
  
@@ -55,10 +60,14 @@ Page({
    */
   onPullDownRefresh: function () {
     var _this = this;
+    wx.showNavigationBarLoading();
     getMovie(this.data.requestUrl, function (data) {
       _this.setData({
         movies: data
-      })
+      },function(){
+        wx.hideNavigationBarLoading();
+      });
+      
     });    
   },
 
@@ -67,6 +76,7 @@ Page({
    */
   onReachBottom: function () {
     var nextUrl = this.data.requestUrl + '?start='+ this.data.totalCount + '&count=20';
+    
     getMovie(nextUrl, this.handleGetMovie);
   },
 
