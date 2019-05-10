@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>020-计算属性-基础.html</title>
+</head>
+<body>
+	<div id="app">
+		<p>原始 message: "{{ message }}"</p>
+		<p>翻转 message: "{{ message.split('').reverse().join('') }}"</p>
+		<p>计算属性 message: "{{ reversedMessage }}"</p>
+		<p>调用方法 message: "{{ reverse() }}"</p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	let vm = new Vue({
+		el:"#app",
+		data:{
+			message:"hello"
+		},
+		computed:{
+			reversedMessage(){
+				return this.message.split('').reverse().join('')
+			}
+		},
+		methods:{
+			reverse(){
+				return this.message.split('').reverse().join('')
+			}
+		}	
+	})
+</script>		
+</html>

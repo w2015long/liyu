@@ -7,11 +7,8 @@
 <body>
 	<div id="app">
 		<input type="text" v-model="score"/>
-		<p v-if="score >= 90">优秀</p>
-		<p v-else-if="score >= 80">优良</p>
-		<p v-else-if="score >= 70">良好</p>
-		<p v-else-if="score >= 60">及格</p>
-		<p v-else>不及格</p>
+		<p v-show="score >= 60">及格</p>
+		<p v-show="score < 60">不及格</p>
 	</div>
 </body>
 <script type="text/javascript" src="js/vue.js"></script>
@@ -23,6 +20,6 @@
 		}
 		
 	})
-	//只有条件符合才会 插入DOM树 与show 不同
+	//带有 v-show 的元素始终会被渲染并保留在 DOM 中。v-show 只是简单地切换元素的 CSS 属性 display
 </script>
 </html>

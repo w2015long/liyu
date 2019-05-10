@@ -19,9 +19,14 @@
 	})
 	console.log(vm.$el)
 	console.log(vm.$data.message);
+	console.log(vm.message == vm.$data.message)
 	console.log(vm.$refs.p.className);
 	vm.$watch('message',()=>{
 		console.log('data has been changed')
 	})
+	/*
+	vm.$destroy()
+	完全销毁一个实例。清理它与其它实例的连接，解绑它的全部指令及事件监听器。
+	 */
 </script>
 </html>
