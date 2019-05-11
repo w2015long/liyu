@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>013-事件event-阻止冒泡.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.large{
+			width: 500px;
+			height: 500px;
+			margin: 20px auto;
+			border: 1px solid #000;
+			background: #808080;
+		}
+		.bigger{
+			width: 300px;
+			height: 300px;
+			margin: 100px auto;
+			border: 1px solid #000;
+			background: skyblue;
+		}
+		.small{
+			width: 100px;
+			height: 100px;
+			margin: 100px auto;
+			border: 1px solid #000;
+			background: tomato;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div class="large" @click="clickLarge">
+			<div class="bigger" @click="clickBigger">
+				<div class="small" @click="clickSmall($event)"></div>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	let vm =new Vue({
+		el:'#app',
+		data:{
+			
+		},
+		methods:{
+			clickLarge(){
+				console.log('clickLarge')
+			},
+			clickBigger(){
+				console.log('clickbigger')
+			},
+			clickSmall(event){
+				// console.log(event)
+				event.stopPropagation();
+				console.log('clickSmall')
+			}
+		}
+	})
+</script>
+</html>

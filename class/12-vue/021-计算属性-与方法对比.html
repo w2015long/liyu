@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>021-计算属性-与方法对比.html</title>
+</head>
+<body>
+	<div id="app">
+		<p>原始 message: "{{ message }}"</p>
+		<p>计算属性 message: "{{ timer }}"</p>
+		<p>定义方法 message: "{{ getTimer() }}"</p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	let vm = new Vue({
+		el:"#app",
+		data:{
+			message:Date.now()
+		},
+		computed:{
+			timer(){
+				return Date.now()
+			}
+		},
+		methods:{
+			getTimer(){
+				return Date.now()
+			}
+		}	
+	})
+</script>		
+</html>

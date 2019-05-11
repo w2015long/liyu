@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>022-计算属性-setter与getter.html</title>
+</head>
+<body>
+	<div id="app">
+		<input type="text" v-model="fullName" />
+		<p>firstName:{{firstName}}</p>
+		<p>lastName:{{lastName}}</p>
+		<p>fullName:{{fullName}}</p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	let vm = new Vue({
+		el:"#app",
+		data:{
+			firstName:'Wang',
+			lastName:'Jason',
+		},
+		computed:{
+			/*
+			// getter
+			fullName(){
+				return this.firstName + ' ' + this.lastName
+			}
+			*/
+			fullName:{
+				get(){
+					return this.firstName + ' ' + this.lastName
+				},
+				set(newVal){
+					var names = newVal.split(' ');
+					this.firstName = names[0];
+					this.lastName = names[names.length-1]
+				}				
+			}
+
+		},
+		methods:{
+
+		}	
+	})
+</script>		
+</html>

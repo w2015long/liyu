@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>019-事件-修饰符-自身只触发一次</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.large{
+			width: 500px;
+			height: 500px;
+			margin: 20px auto;
+			border: 1px solid #000;
+			background: #808080;
+		}
+		.bigger{
+			width: 300px;
+			height: 300px;
+			margin: 100px auto;
+			border: 1px solid #000;
+			background: skyblue;
+		}
+		.small{
+			width: 100px;
+			height: 100px;
+			margin: 100px auto;
+			border: 1px solid #000;
+			background: tomato;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div class="large" @click.capture="clickLarge">
+			<!-- .once 自身事件只出发一次,冒泡不会停止-->
+			<div class="bigger" @click.once="clickBigger">
+				<div class="small" @click="clickSmall"></div>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	let vm =new Vue({
+		el:'#app',
+		data:{
+			
+		},
+		methods:{
+			clickLarge(){
+				console.log('Large')
+			},
+			clickBigger(){
+				console.log('bigger')
+			},
+			clickSmall(){
+				console.log('Small')
+			}
+		}
+	})
+</script>
+</html>
