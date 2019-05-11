@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>009-属性绑定v-bind.html</title>
+</head>
+<body>
+	<div id="app">
+		<a href="https://www.kuazhu.com">跨猪</a>
+		<a v-bind:href="baiduUrl">百度</a>
+		<a :href="gitHubUrl">同性交友</a>
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	let vm = new Vue({
+		el:'#app',
+		data:{
+			baiduUrl:'https://www.baidu.com',
+			gitHubUrl:'https://www.gitHub.com'
+		}
+	})
+</script>
+</html>

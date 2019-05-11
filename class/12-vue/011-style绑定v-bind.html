@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>011-style绑定v-bind.html</title>
+</head>
+<body>
+	<div id="app">
+		<p :style="{color: activeColor,fontSize:fontSize+'px'}">
+			:style="{color: activeColor,fontSize:fontSize+'px'}"
+		</p>
+		<p :style="styleObject">
+			:style="styleObject"
+		</p>	
+		<p :style="[baseStyles,styleObject]">
+			:style="[baseStyles,styleObject]"
+		</p>
+		<p :style="styleArr">
+			:style="styleArr"
+		</p>					
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	let vm = new Vue({
+		el:'#app',
+		data:{
+  			activeColor: 'red',
+  			fontSize: 30,
+  			styleObject: {
+    			color: 'skyblue',
+    			fontSize: '18px'
+  			},
+  			baseStyles:{
+  				fontStyle : 'oblique'
+  			},
+  			styleArr:[
+  				{
+  					backgroundColor:'#898989'
+  				},{	
+  					fontSize :'36px'
+  				}
+  			]
+		}
+	})
+</script>
+</html>

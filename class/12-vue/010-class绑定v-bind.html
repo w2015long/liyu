@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>010-class绑定v-bind.html</title>
+	<style type="text/css">
+
+		p{
+			width: 60%;
+			font-size: 26px;
+		}
+		.static{
+			background: #808080;
+		}
+		.active{
+			font-style: italic;
+			font-weight: bold;
+			color:skyblue; 
+		}
+		.danger{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<p class="static">static</p>
+		<p :class="{active:isActive}">{active:isActive}</p>
+		<p :class="{active:isActive,danger:hasError}" class="static">:class="{active:isActive,'text-danger':hasError}"</p>
+		<p :class="classObj" class="static">:class="classObj" class="static"</p>
+		<p :class="classArr" class="static">:class="classArr" class="static"</p>
+		<p :class="[hasError ? 'danger' : '']" class="static">:class="[hasError ? 'danger' : '']" class="static"</p>
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	let vm = new Vue({
+		el:'#app',
+		data:{
+			isActive:true,
+			hasError:true,
+			classObj:{
+				active:true,
+				danger:false
+			},
+			classArr:['active','danger']
+		},
+
+	})
+</script>
+</html>
