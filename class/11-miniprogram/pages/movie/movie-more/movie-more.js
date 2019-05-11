@@ -9,12 +9,20 @@ Page({
   data: {
     requestUrl:'',
     totalCount:0,
-    totalData:[]
+    totalData:[],
+    isEnd:false
   },
   handleGetMovie:function(data){
+    wx.hideNavigationBarLoading();
+    if(data.length == 0) {
+      wx.showToast({
+        title: '我是有底线的',
+      })
+      this.data.isEnd = true;
+      return
+    }
+    
     this.data.totalCount += data.length;
-    console.log('len',data.length)
-    console.log(this.data.totalCount)
     this.data.totalData = this.data.totalData.concat(data);
     this.setData({
       movies: this.data.totalData 
@@ -34,11 +42,11 @@ Page({
         title = '正在热映';
         break
       case 'coming':
-        requestUrl = baseUrl + 'v2/movie/in_theaters';
+        requestUrl = baseUrl + 'v2/movie/coming_soon';
         title = '即将上映';
         break
       case 'top250':
-        requestUrl = baseUrl + 'v2/movie/in_theaters';
+        requestUrl = baseUrl + 'v2/movie/top250';
         title = 'top250';
         break
        default:
@@ -75,8 +83,14 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    if(this.data.isEnd){
+      wx.showToast({
+        title: '我是有底线的',
+      });
+      return
+    }
+    wx.showNavigationBarLoading()
     var nextUrl = this.data.requestUrl + '?start='+ this.data.totalCount + '&count=20';
-    
     getMovie(nextUrl, this.handleGetMovie);
   },
 
