@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>035-动态组件-is属性.html</title>
+</head>
+<body>
+	<div id="app">
+		<button @click="currentView='tab-home'">home</button>
+		<button @click="currentView='tab-article'">article</button>
+		<component :is="currentView"></component>
+	</div>
+	<template id="tab-home">
+		<div>
+			<h1>home page</h1>
+		</div>
+	</template>	
+	<template id="tab-article">
+		<div>
+			<h1>article page</h1>
+		</div>
+	</template>		
+</body>
+<script src="js/vue.js"></script>
+<script>
+	Vue.component('tab-home',{
+		template:'#tab-home'
+	});
+	Vue.component('tab-article',{
+		template:'#tab-article'
+	})	
+	let vm = new Vue({
+		el:"#app",
+		data:{
+			currentView:'tab-home'
+		}
+	});
+</script>		
+</html>

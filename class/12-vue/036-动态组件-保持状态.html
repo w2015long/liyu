@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>036-动态组件-保持状态.html</title>
+</head>
+<body>
+	<div id="app">
+		<button
+			v-for="tab in tabs" 
+			@click="currentView=tab"
+		>{{tab}}</button>
+		<component :is="currentTab"></component>
+	</div>
+	<template id="tab-home">
+		<div>
+			<h1>home page</h1>
+		</div>
+	</template>	
+	<template id="tab-article">
+		<div>
+			<h1>article page</h1>
+		</div>
+	</template>		
+</body>
+<script src="js/vue.js"></script>
+<script>
+	Vue.component('tab-home',{
+		template:'#tab-home'
+	});
+	Vue.component('tab-article',{
+		template:'#tab-article'
+	})	
+	let vm = new Vue({
+		el:"#app",
+		data:{
+			currentView:'home',
+			tabs:['home','article']
+		},
+		computed:{
+			currentTab(){
+				return 'tab-'+this.currentView;
+			}
+		}
+	});
+</script>		
+</html>

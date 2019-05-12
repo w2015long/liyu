@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>029-组件-定义父子组件1.html</title>
+</head>
+<body>
+	<div id="app">
+		<ul>
+			<todo-item></todo-item>
+		</ul>
+		<template id='task'></template>
+		<template id='dateline'></template>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	const task = Vue.extend({
+		template:'#task',
+		data(){
+			return {
+				task:'吃饭'
+			}
+		}
+	})
+	const dateline = Vue.extend({
+		template:'#dateline',
+		data(){
+			return {
+				dateline:'今天'
+			}
+		}
+	})	
+	Vue.component('todo-item',{
+		components:{
+			'task'
+		}
+	})
+	let vm = new Vue({
+		el:"#app",
+		data:{
+
+		}	
+	});
+</script>		
+</html>

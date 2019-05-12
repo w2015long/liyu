@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>031-组件-父子组件传值.html</title>
+</head>
+<body>
+	<div id="app">
+		<ul>
+			<todo-item
+				v-for="item in items"
+				key="item.id"
+				task="item.task"
+				dateline="item.dateline"
+			></todo-item>
+		</ul>
+		<template id='todo-item'>
+			<div>
+				<task></task>
+			</div>
+		</template>
+		<template id='task'></template>
+		<template id='dateline'></template>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	const task = Vue.extend({
+		template:'#task',
+		data(){
+			return {
+				task:'吃饭'
+			}
+		}
+	})
+	const dateline = Vue.extend({
+		template:'#dateline',
+		data(){
+			return {
+				dateline:'今天'
+			}
+		}
+	})	
+	Vue.component('todo-item',{
+		template:'#todo-item'
+		components:{
+			task:task,
+			dateline:dateline
+		}
+	})
+	let vm = new Vue({
+		el:"#app",
+		data:{
+			items:[
+				{
+					id:1,
+					task:'learn React',
+					dateline:'今天中午'
+				},{
+					id:2,
+					task:'learn Vue',
+					dateline:'明天'
+				}
+			]
+		}	
+	});
+</script>		
+</html>
