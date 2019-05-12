@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>041-局部自定义指令.html</title>
+</head>
+<body>
+	<div id="app1">
+		<input type="text" v-focus>
+	</div>		
+</body>
+<script src="js/vue.js"></script>
+<script>
+	let vm = new Vue({
+		el:"#app1",
+		data:{
+		},
+		directives: {
+		  focus: {
+		    // 指令的定义
+		    inserted(el) {
+		    	console.log(el)
+				el.focus()
+		    }
+		  }
+}		
+	});
+</script>		
+</html>

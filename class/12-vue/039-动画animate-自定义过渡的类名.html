@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>039-动画animate-自定义过渡的类名.html</title>
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}	
+	</style>
+</head>
+<body>
+	<div id="app">
+		<button @click="show = !show">Toggle</button>
+		<transition  
+			appear
+    		enter-active-class="animated tada"
+    		leave-active-class="animated bounceOutRight"			
+		>
+			<p v-if="show">hello</p>
+		</transition>
+	</div>	
+</body>
+<script src="js/vue.js"></script>
+<script>
+
+	let vm = new Vue({
+		el:"#app",
+		data:{
+			show:true
+		}
+	});
+</script>		
+</html>

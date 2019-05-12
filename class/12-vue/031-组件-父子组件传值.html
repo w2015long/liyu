@@ -9,40 +9,55 @@
 		<ul>
 			<todo-item
 				v-for="item in items"
-				key="item.id"
-				task="item.task"
-				dateline="item.dateline"
+				:key="item.id"
+				:task="item.task"
+				:dateline="item.dateline"
 			></todo-item>
 		</ul>
-		<template id='todo-item'>
-			<div>
-				<task></task>
-			</div>
-		</template>
-		<template id='task'></template>
-		<template id='dateline'></template>
 	</div>
+	<template id='todo-item'>
+		<div>
+			<task :task="task"></task>
+			<dateline :dateline="dateline"></dateline>
+		</div>
+	</template>
+	<template id='task'>
+		<span>{{tag}}{{task}}</span>
+	</template>
+	<template id='dateline'>
+		<span>{{tag}}{{dateline}}</span>
+	</template>	
 </body>
 <script src="js/vue.js"></script>
 <script>
 	const task = Vue.extend({
 		template:'#task',
+		props:{
+			task:String
+		},		
 		data(){
 			return {
-				task:'吃饭'
+				tag:'任务:'
 			}
 		}
 	})
 	const dateline = Vue.extend({
 		template:'#dateline',
+		props:{
+			dateline:String
+		},		
 		data(){
 			return {
-				dateline:'今天'
+				tag:'截止时间:'
 			}
 		}
 	})	
 	Vue.component('todo-item',{
-		template:'#todo-item'
+		template:'#todo-item',
+		props:{
+			task:String,
+			dateline:String
+		},
 		components:{
 			task:task,
 			dateline:dateline

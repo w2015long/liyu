@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>040-全局自定义指令.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}	
+	</style>
+</head>
+<body>
+	<div id="app1">
+		<input type="text" v-focus>
+	</div>	
+	<div id="app2">
+		<input type="text" v-focus>
+	</div>		
+</body>
+<script src="js/vue.js"></script>
+<script>
+	// 注册一个全局自定义指令 `v-focus`
+	Vue.directive('focus', {
+	  // 当被绑定的元素插入到 DOM 中时……
+	  inserted: function (el) {
+	  	console.log(el)
+	    // 聚焦元素
+	    
+	    el.focus()
+	  }
+	})
+	let vm = new Vue({
+		el:"#app1",
+		data:{
+		}
+	});
+	new Vue({
+		el:"#app2",
+		data:{
+		}
+	});	
+</script>		
+</html>

@@ -9,31 +9,43 @@
 		<ul>
 			<todo-item></todo-item>
 		</ul>
-		<template id='task'></template>
-		<template id='dateline'></template>
 	</div>
+	<template id='todo-item'>
+		<div>
+			<task></task>
+			<dateline></dateline>
+		</div>	
+	</template>
+	<template id='task'>
+		<span>{{tag}}吃饭</span>
+	</template>
+	<template id='dateline'>
+		<span>{{tag}}今天</span>
+	</template>	
 </body>
 <script src="js/vue.js"></script>
 <script>
-	const task = Vue.extend({
+	const task = {
 		template:'#task',
 		data(){
 			return {
-				task:'吃饭'
+				tag:'任务:'
 			}
 		}
-	})
-	const dateline = Vue.extend({
+	}
+	const dateline = {
 		template:'#dateline',
 		data(){
 			return {
-				dateline:'今天'
+				tag:'截止时间:'
 			}
 		}
-	})	
+	}
 	Vue.component('todo-item',{
+		template:'#todo-item',
 		components:{
-			'task'
+			task:task,
+			dateline:dateline
 		}
 	})
 	let vm = new Vue({
