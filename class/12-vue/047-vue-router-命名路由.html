@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>047-vue-router-命名路由.html</title>
+</head>
+<body>
+	<div id="app">
+		<nav>
+		    <!-- 使用 router-link 组件来导航. -->
+		    <!-- 通过传入 `to` 属性指定链接. -->
+		    <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
+		    <router-link to="/index">Index</router-link>
+		    <router-link to="/about/123">About</router-link>			
+		    <router-link to="/user">User</router-link>			
+		</nav>
+		<div class="page">
+			  <!-- 路由出口 -->
+			  <!-- 路由匹配到的组件将渲染在这里 -->
+			  <router-view></router-view>			
+		</div>
+	</div>
+	<template id="index">
+		<h1>this is index page</h1>
+	</template>	
+	<template id="about">
+		<h1>this is about page id:{{$route.params.id}}</h1>
+	</template>	
+	<template id="user">
+		<h1>There are a lot of users</h1>
+	</template>			
+</body>
+<script src="js/vue.js"></script>
+<script type="text/javascript" src="js/vue-router.js"></script>
+<script>
+	// 1. 定义 (路由) 组件。
+	const Index = Vue.extend({
+		template:'#index'
+	})
+	const About = Vue.extend({
+		template:'#about'
+	})	
+	const User = Vue.extend({
+		template:'#user'
+	})		
+	// 2. 定义路由
+	const routes = [
+		{path:'/index', component: Index},
+		{path:'/about/:id', component: About},
+		{path:'/user', component: User},
+		{path:'/', redirect: '/index'}
+	] 
+	// 3. 创建 router 实例，然后传 `routes` 配置
+	const router = new VueRouter({
+	  routes // (缩写) 相当于 routes: routes
+	})
+	// 4. 创建和挂载根实例。
+
+	let vm = new Vue({
+		el:"#app",
+		router,
+		data:{
+			
+		},
+	});
+</script>		
+</html>
