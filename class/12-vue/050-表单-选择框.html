@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>050-表单-选择框.html</title>
+</head>
+<body>
+	<div id="app">
+		<select v-model="selected">
+			<option disabled value="">请选择</option>
+			<option>北京</option>
+			<option>上海</option>
+			<option>广州</option>
+		</select>
+		<span>selected name: {{ selected }}</span>
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			selected:''
+		}
+	})
+</script>
+</html>

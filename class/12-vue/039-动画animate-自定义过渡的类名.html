@@ -9,6 +9,17 @@
 			margin: 0;
 			padding: 0;
 		}	
+		p{
+			width: 23%;
+			color: pink;
+			background: #898989;
+		}
+		#app{
+			width: 30%;
+			height: 300px;
+			border: 1px solid #000;
+			margin: 20px auto;
+		}
 	</style>
 </head>
 <body>
@@ -16,8 +27,8 @@
 		<button @click="show = !show">Toggle</button>
 		<transition  
 			appear
-    		enter-active-class="animated tada"
-    		leave-active-class="animated bounceOutRight"			
+    		enter-active-class="animated rollIn"
+    		leave-active-class="animated zoomOutUp"			
 		>
 			<p v-if="show">hello</p>
 		</transition>
