@@ -3,6 +3,32 @@
 <head>
 	<meta charset="UTF-8">
 	<title>036-动态组件-保持状态.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.active{
+			color: red;
+		}
+		.article-wrap{
+			display: flex;
+			flex-direction: row;
+		}
+		.sider{
+			width: 20%;
+			height: 200px;
+		}
+		.sider li{
+			list-style: none;
+			cursor: pointer;
+			margin-top: 10px;
+		}
+		.content{
+			width: 50%;
+			height: 200px;
+		}
+	</style>
 </head>
 <body>
 	<div id="app">
@@ -10,7 +36,9 @@
 			v-for="tab in tabs" 
 			@click="currentView=tab"
 		>{{tab}}</button>
-		<component :is="currentTab"></component>
+		<keep-alive>
+			<component :is="currentTab"></component>
+		</keep-alive>
 	</div>
 	<template id="tab-home">
 		<div>
@@ -19,9 +47,18 @@
 	</template>	
 	<template id="tab-article">
 		<div class="article-wrap">
-			<ul>
-				<li></li>
+			<ul class="sider">
+				<li
+					v-for="article in articles"
+					@click="selected = article"
+					:class="{active: selected == article}"
+				>
+					{{article.title}}
+				</li>
 			</ul>
+			<div class="content">
+				<div v-if='selected'>{{selected.content}}</div>
+			</div>
 		</div>
 	</template>		
 </body>
@@ -31,7 +68,27 @@
 		template:'#tab-home'
 	});
 	Vue.component('tab-article',{
-		template:'#tab-article'
+		template:'#tab-article',
+		data(){
+			return {
+				articles:[
+					{
+						id:1,
+						title:'vue基本使用',
+						content:'vue是一个javaScript渐进式视图框架,vue是一个javaScript渐进式视图框架'
+					},{
+						id:2,
+						title:'vue路由使用',
+						content:'vue也可以使用第三方成熟的路由库,vue也可以使用第三方成熟的路由库'
+					},{
+						id:3,
+						title:'jQuery',
+						content:'jQuery是一个前端必会的一个库,jQuery是一个前端必会的一个库'
+					}
+				],
+				selected:null
+			}
+		}
 	})	
 	let vm = new Vue({
 		el:"#app",
