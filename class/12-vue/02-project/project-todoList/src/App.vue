@@ -5,7 +5,11 @@
     <!--2.3使用组件-->
     <Header :addTodo="addTodo" />
     <List :todos="todos" :delTodo="delTodo" />
-    <Footer />
+    <Footer 
+      :todos="todos" 
+      :selectedAlltodo="selectedAlltodo" 
+      :delAllDone="delAllDone"
+    />
   </div>
 </template>
 <!--2.逻辑-->
@@ -37,6 +41,14 @@
       },
       addTodo(item){
         this.todos.unshift(item)
+      },
+      selectedAlltodo(val){
+        this.todos.forEach(item=>{
+          item.done = val
+        })
+      },
+      delAllDone(){
+        this.todos = this.todos.filter(item=>!item.done)
       }
     }
   }
