@@ -5,7 +5,6 @@
 			:key="index"
 			:todo="todo"
 			:index="index"
-			:delTodo="delTodo"
 		/>
 	</div>
 </template>
@@ -14,8 +13,7 @@
 	export default {
 		name:'List',
 		props:{
-			todos:Array,
-			delTodo:Function
+			todos:Array
 		},
 		components:{
 			Item

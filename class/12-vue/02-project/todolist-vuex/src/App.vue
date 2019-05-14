@@ -3,13 +3,9 @@
   <div class="App" id='app'>
     <h3>ToDo List</h3>
     <!--2.3使用组件-->
-    <Header :addTodo="addTodo" />
-    <List :delTodo="delTodo" />
-<!--     <Footer 
-      :todos="todos" 
-      :selectedAlltodo="selectedAlltodo" 
-      :delAllDone="delAllDone"
-    /> -->
+    <Header  />
+    <List  />
+    <Footer />
   </div>
 </template>
 <!--2.逻辑-->

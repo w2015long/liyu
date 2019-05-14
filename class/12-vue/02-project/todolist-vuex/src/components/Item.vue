@@ -15,7 +15,6 @@
 		name:'Item',
 		props:{
 			todo:Object,
-			delTodo:Function,
 			index:Number
 		},
 		data(){
@@ -30,8 +29,8 @@
 				this.isShow = flag	
 			},
 			handleDel(){
-				if(window.confirm("你确定要删除"+this.task+"吗?")){
-					this.delTodo(this.index)
+				if(window.confirm("你确定要删除"+''+"吗?")){
+					this.$store.dispatch('delTodo',this.index)
 				}
 			}
 		}	
@@ -41,6 +40,7 @@
 	.Item{
 		width: 100%;
 		line-height: 40px;
+		margin-top: 8px;
 		border: 1px dashed #ccc;
 	}
 	.Item input{

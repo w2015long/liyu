@@ -11,9 +11,6 @@
 <script>
 	export default {
 		name:'Header',
-		props:{
-			addTodo:Function
-		},
 		data(){
 			return{
 				task:''
@@ -31,7 +28,8 @@
 				//生成todo对象
 				const todo = {task:task,done:false}
 				//插入到数组中
-				this.addTodo(todo)
+				// console.log(this.$store)
+				this.$store.dispatch('addTodo',todo)
 				//清空输入框
 				this.task = ''
 			}
@@ -41,7 +39,7 @@
 <style scoped>
 	.Header input{
 		width: 100%;
-		height: 30px;
+		height: 40px;
 		padding: 0 10px;
 		box-sizing: border-box;
 	}

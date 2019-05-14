@@ -6,47 +6,30 @@
 	</div>
 </template>
 <script>
+	import { mapGetters } from 'vuex'
 	export default {
 		name:'Footer',
-		props:{
-			todos:Array,
-			selectedAlltodo:Function,
-			delAllDone:Function
-		},
 		methods:{
 			handleDelAllDone(){
 				if(window.confirm('您确定要删除所有吗？')){
-					this.delAllDone()
+					// this.delAllDone();
+					this.$store.dispatch('delAllDone')
 				}
 			}			
 		},
 		computed:{
-			total(){
-				return this.todos.length
-			},
-			AllDone(){
-				/*
-				var num = 0;
-				this.todos.forEach(item=>{
-					if(item.done){
-						num++
-					}
-				})
-				return num;
-				*/
-				return this.todos.reduce((total,item)=>{
-					if(item.done){
-						total++
-					}
-					return total
-				},0)
-			},
+			// 使用对象展开运算符将 getter 混入 computed 对象中
+			...mapGetters([
+			  'total',
+			  'AllDone',
+			]),
 			selectedAll:{
 				get(){
-					return this.total == this.AllDone && this.total
+					return this.$store.getters.getSelectedAll
 				},
 				set(val){
-					this.selectedAlltodo(val)
+					// this.selectedAlltodo(val)
+					this.$store.dispatch('selectedAlltodo',val)
 				}
 			}
 		}
