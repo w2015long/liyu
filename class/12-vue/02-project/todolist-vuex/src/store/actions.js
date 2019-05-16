@@ -2,7 +2,8 @@
 import {
 	ADD_TODO,
 	DEL_TODO,
-	SELECTED_ALL_TODO
+	SELECTED_ALL_TODO,
+	DEL_ALL_DONE
 }from './types.js'
 export default{
 	addTodo({commit},todo){
@@ -14,4 +15,7 @@ export default{
 	selectedAlltodo({commit},val){
 		commit(SELECTED_ALL_TODO,val)
 	},
+	delAllDone({commit}){
+		commit(DEL_ALL_DONE)
+	}
 }

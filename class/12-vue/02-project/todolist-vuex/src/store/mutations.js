@@ -2,7 +2,8 @@
 import {
 	ADD_TODO,
 	DEL_TODO,
-	SELECTED_ALL_TODO
+	SELECTED_ALL_TODO,
+	DEL_ALL_DONE
 }from './types.js'
 export default{
 	[ADD_TODO](state,todo){
@@ -16,4 +17,7 @@ export default{
 			item.done = val
 		})
 	},
+	[DEL_ALL_DONE](state){
+		state.todos = state.todos.filter(item=>!item.done)
+	}
 }
