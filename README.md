@@ -1,7 +1,35 @@
 # liyu
 
-Just for learning
+Just for reference
 
-address of the course： <a href="https://www.kuazhu.com/">跨猪网</a>
+# home
 
- baidu cloud address of  Courseware resources： <a href="https://pan.baidu.com/s/1ZYZtHfMDH8r2P3e-yhUoqQ#list/path=%2F">课件</a>
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Run your tests
+```
+npm run test
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
